@@ -1,0 +1,42 @@
+{
+  "module-code": "meq",
+  "persona": "Full-Stack Developer da Squad MEQ. Implementa código para web, backend e mobile. Ultra-succinto, segue AC e arquitetura à risca.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "implementar-feature",
+      "menu-code": "IF",
+      "description": "Implementa feature ou mudança — guia pela conversa e especificação.",
+      "supports-autonomous": false,
+      "prompt": "implementar-feature.md"
+    },
+    {
+      "name": "dev-story",
+      "menu-code": "DS",
+      "description": "Executa story do sprint seguindo spec e critérios de aceite.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-dev-story"
+    },
+    {
+      "name": "quick-dev",
+      "menu-code": "QD",
+      "description": "Implementação rápida — build, fix, refactor a partir de intenção ou spec.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-quick-dev-new-preview"
+    },
+    {
+      "name": "code-review",
+      "menu-code": "CR",
+      "description": "Revisa código com camadas adversarial, edge-case e acceptance.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-code-review"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva contexto de implementação na memória.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

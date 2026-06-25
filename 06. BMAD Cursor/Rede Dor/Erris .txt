@@ -1,0 +1,738 @@
+​.
+[14:17:39 INF] [16.3.3] Creating Migration Engine 7ff13488-6473-43a7-a84b-170ce1fa00a9 
+[14:17:39 INF] [16.3.3] ProcessorContainer: Of 1 configured Processors only 1 are enabled 
+[14:17:39 INF] [16.3.3] ProcessorContainer: Adding Processor TfsWorkItemMigrationProcessor 
+[14:17:39 INF] [16.3.3] Logging has been configured and is set to: unknown.  
+[14:17:39 INF] [16.3.3]                               Max Logfile: Verbose.  
+[14:17:39 INF] [16.3.3]                               Max Console: Debug.  
+[14:17:39 INF] [16.3.3]                  Max Application Insights: Error.  
+[14:17:39 INF] [16.3.3] The Max log levels above show where to go look for extra info. e.g. Even if you set the log level to Verbose you will only s
+ee that info in the Log File, however everything up to Debug will be in the Console. 
+[14:17:39 INF] [16.3.3] Beginning run of 1 processors 
+[14:17:39 INF] [16.3.3] Processor: TfsWorkItemMigrationProcessor 
+[14:17:39 INF] [16.3.3] Migration Context Start: TfsWorkItemMigrationProcessor  
+[14:17:40 INF] [16.3.3] [ValidateWorkItemTypes] 
+[14:17:40 INF] [16.3.3] ------------------------------------ 
+[14:17:40 INF] [16.3.3] Starting Pre-Validation: Validating work item types and fields with `WorkItemTypeValidatorTool`. 
+[14:17:40 INF] [16.3.3] Refer to https://devopsmigration.io/TfsWorkItemTypeValidatorTool/ for configuration. 
+[14:17:40 INF] [16.3.3] ------------------------------------ 
+Initializing expensive ProjectData from WorkItemStore...
+Initializing expensive WorkItemStore...
+[14:17:40 INF] [16.3.3] Connecting with AccessToken  
+[14:17:40 INF] [16.3.3] Access granted to https://dev.azure.com/RDor-corp/ for Leandro Greco Torres (ltorres.keyrus@rededor.com.br) 
+[14:17:43 INF] [16.3.3] Work Item Store connected to https://dev.azure.com/RDor-corp/ with BypassRules set to True 
+Initializing expensive ProjectData from WorkItemStore...
+Initializing expensive WorkItemStore...
+[14:17:43 INF] [16.3.3] Connecting with AccessToken  
+[14:17:43 INF] [16.3.3] Access granted to https://dev.azure.com/RedeDor-corp/ for Leandro Greco Torres (ltorres.keyrus@rededor.com.br) 
+[14:18:11 INF] [16.3.3] Work Item Store connected to https://dev.azure.com/RedeDor-corp/ with BypassRules set to True 
+[14:18:11 INF] [16.3.3] Validating presence of reflected work item ID field 'Custom.ControleMigracao' in target work item types. 
+[14:18:11 INF] [16.3.3] Skipping validation of work item type 'Code Review Request' because it is excluded from validation list. 
+[14:18:11 INF] [16.3.3] Skipping validation of work item type 'Code Review Response' because it is excluded from validation list. 
+[14:18:11 INF] [16.3.3] Skipping validation of work item type 'Feedback Request' because it is excluded from validation list. 
+[14:18:11 INF] [16.3.3] Skipping validation of work item type 'Feedback Response' because it is excluded from validation list. 
+[14:18:11 INF] [16.3.3] Skipping validation of work item type 'Shared Parameter' because it is excluded from validation list. 
+[14:18:11 INF] [16.3.3] Skipping validation of work item type 'Shared Steps' because it is excluded from validation list. 
+[14:18:12 ERR] [16.3.3] 'Test Case' does not contain reflected work item ID field 'Custom.ControleMigracao'. 
+[14:18:12 ERR] [16.3.3] 'Test Plan' does not contain reflected work item ID field 'Custom.ControleMigracao'. 
+[14:18:12 ERR] [16.3.3] 'Test Suite' does not contain reflected work item ID field 'Custom.ControleMigracao'. 
+[14:18:12 ERR] [16.3.3] Reflected work item ID field is mandatory for work item migration. You can configure name of this field in target TFS endpoi
+nt settings as 'ReflectedWorkItemIdField' property. Your current configured name of the field is 'Custom.ControleMigracao'. 
+[14:18:12 INF] [16.3.3] Validating work item types. 
+[14:18:12 INF] [16.3.3] Source work item types are: Bug, Code Review Request, Code Review Response, Epic, Feature, Feedback Request, Feedback Respon
+se, Issue, Project, Shared Parameter, Shared Steps, Task, Test Case, Test Plan, Test Suite, User Story. 
+[14:18:12 INF] [16.3.3] Target work item types are: Activity, Bug, Business Capability, Code Review Request, Code Review Response, Defect, Demand, E
+pic, Feature, Feedback Request, Feedback Response, Impediment, Incident, Issue, Key Result, Leave, Objective, PI Objective, Project, Risk, Shared Pa
+rameter, Shared Steps, Task, Technical Debt, Test Case, Test Plan, Test Suite, User Story. 
+[14:18:12 INF] [16.3.3] Skipping validation of work item type 'Code Review Request' because it is excluded from validation list. 
+[14:18:12 INF] [16.3.3] Skipping validation of work item type 'Code Review Response' because it is excluded from validation list. 
+[14:18:12 INF] [16.3.3] Skipping validation of work item type 'Feedback Request' because it is excluded from validation list. 
+[14:18:12 INF] [16.3.3] Skipping validation of work item type 'Feedback Response' because it is excluded from validation list. 
+[14:18:12 INF] [16.3.3] Skipping validation of work item type 'Shared Parameter' because it is excluded from validation list. 
+[14:18:12 INF] [16.3.3] Skipping validation of work item type 'Shared Steps' because it is excluded from validation list. 
+[14:18:12 INF] [16.3.3] Start validation of work item type 'Bug'. 
+[14:18:12 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Ambiente' (Ambiente). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.Ambiente' in 'Bug'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.Ambiente 
+[14:18:13 INF] [16.3.3]       Source field name: Ambiente 
+[14:18:13 INF] [16.3.3]       Field type: String 
+[14:18:13 INF] [16.3.3]       Allowed values: 'Desenvolvimento', 'Homologa‡ao', 'Produ‡ao' 
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Causaraiz' (Causa raiz). 
+[14:18:13 WRN] [16.3.3]     Source field 'Custom.Causaraiz' and target field 'Custom.CausaRaiz' have different types: source = 'String', target = 'H
+tml'. 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Ambiente', 'Configura‡ao', 'Dados', 'Desempenho', 'Desenvolvimento', 'Documenta‡ao', 'Infraestrutur
+a', 'Integra‡ao', 'Seguran‡a', 'Usabilidade' 
+[14:18:13 WRN] [16.3.3]     Source field 'Custom.Causaraiz' and target field 'Custom.CausaRaiz' have different allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Ambiente', 'Configura‡ao', 'Dados', 'Desempenho', 'Desenvolvimento', 'Documenta‡ao', 'Infraest
+rutura', 'Integra‡ao', 'Seguran‡a', 'Usabilidade' 
+[14:18:13 INF] [16.3.3]       Target allowed values:  
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Ambiente', 'Configura‡ao', 'Dados', 'Desempenho', 'Desenvolvimento', 'Documenta‡ao', 'I
+nfraestrutura', 'Integra‡ao', 'Seguran‡a', 'Usabilidade' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.FoundIn' (Found In). 
+[14:18:13 INF] [16.3.3]     Missing values are: '<None>' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Build.FoundIn' and target field 'Microsoft.VSTS.Build.FoundIn' have different allowed value
+s. 
+[14:18:13 INF] [16.3.3]       Source allowed values: '<None>' 
+[14:18:13 INF] [16.3.3]       Target allowed values:  
+[14:18:13 INF] [16.3.3]       Missing values in target are: '<None>' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]     Missing values are: '<None>' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Build.IntegrationBuild' and target field 'Microsoft.VSTS.Build.IntegrationBuild' have diffe
+rent allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: '<None>' 
+[14:18:13 INF] [16.3.3]       Target allowed values:  
+[14:18:13 INF] [16.3.3]       Missing values in target are: '<None>' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ValueArea' (Value Area). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StackRank' (Stack Rank). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Severity' (Severity). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedReason' (Resolved Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.ReproSteps' (Repro Steps). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.SystemInfo' (System Info). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Activity' (Activity). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.CompletedWork' (Completed Work). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.OriginalEstimate' (Original Estimate). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.RemainingWork' (Remaining Work). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StoryPoints' (Story Points). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Active', 'New', 'Resolved' 
+[14:18:13 WRN] [16.3.3]     Source field 'System.State' and target field 'System.State' have different allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Active', 'Closed', 'New', 'Resolved' 
+[14:18:13 INF] [16.3.3]       Target allowed values: 'Closed', 'Done', 'Em Execu‡ao', 'Novo', 'Removed' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Active', 'New', 'Resolved' 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Bug'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Epic'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Enabler' (Enabler). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StartDate' (Start Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.Effort' (Effort). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.TimeCriticality' (Time Criticality). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.BusinessValue' (Business Value). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.TargetDate' (Target Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Risk' (Risk). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ValueArea' (Value Area). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StackRank' (Stack Rank). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedReason' (Resolved Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Resolved' 
+[14:18:13 WRN] [16.3.3]     Source field 'System.State' and target field 'System.State' have different allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Active', 'Closed', 'New', 'Removed', 'Resolved' 
+[14:18:13 INF] [16.3.3]       Target allowed values: 'Active', 'Closed', 'Done', 'In Refinement', 'New', 'Removed' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Resolved' 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Epic'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Feature'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.1e5d61de-4672-4fd3-a6ab-6ecd578c80ec' (Areas impactadas). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.1e5d61de-4672-4fd3-a6ab-6ecd578c80ec' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.1e5d61de-4672-4fd3-a6ab-6ecd578c80ec 
+[14:18:13 INF] [16.3.3]       Source field name: Areas impactadas 
+[14:18:13 INF] [16.3.3]       Field type: Html 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.7d9f22e8-9d5a-409a-947d-81abfc5fc474' (Area Solicitante). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.7d9f22e8-9d5a-409a-947d-81abfc5fc474' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.7d9f22e8-9d5a-409a-947d-81abfc5fc474 
+[14:18:13 INF] [16.3.3]       Source field name: Area Solicitante 
+[14:18:13 INF] [16.3.3]       Field type: String 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Solicitante' (Solicitante). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.Solicitante' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.Solicitante 
+[14:18:13 INF] [16.3.3]       Source field name: Solicitante 
+[14:18:13 INF] [16.3.3]       Field type: String 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Bloqueados' (Bloqueados). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Responsavel' (Responsavel). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.PI' (PI). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ART' (ART). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.50cccf96-772f-46e2-bffb-3fb4732fb6be' (Pontua‡ao WSJF). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.50cccf96-772f-46e2-bffb-3fb4732fb6be' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.50cccf96-772f-46e2-bffb-3fb4732fb6be 
+[14:18:13 INF] [16.3.3]       Source field name: Pontua‡ao WSJF 
+[14:18:13 INF] [16.3.3]       Field type: Double 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: Double 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.9e0e1ef6-cfef-403b-8617-3e4b191ccdc4' (Requisitos nao funcionais). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.9e0e1ef6-cfef-403b-8617-3e4b191ccdc4' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.9e0e1ef6-cfef-403b-8617-3e4b191ccdc4 
+[14:18:13 INF] [16.3.3]       Source field name: Requisitos nao funcionais 
+[14:18:13 INF] [16.3.3]       Field type: Html 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.627bab8c-7cca-4f84-8f31-641dc08bc37e' (Benef¡cios). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.627bab8c-7cca-4f84-8f31-641dc08bc37e' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.627bab8c-7cca-4f84-8f31-641dc08bc37e 
+[14:18:13 INF] [16.3.3]       Source field name: Benef¡cios 
+[14:18:13 INF] [16.3.3]       Field type: Html 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.f68e53a0-8231-4527-91a2-cb3afa9ca993' (Crit‚rios de aceite). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.f68e53a0-8231-4527-91a2-cb3afa9ca993' in 'Feature'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.f68e53a0-8231-4527-91a2-cb3afa9ca993 
+[14:18:13 INF] [16.3.3]       Source field name: Crit‚rios de aceite 
+[14:18:13 INF] [16.3.3]       Field type: Html 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Enabler' (Enabler). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StartDate' (Start Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.Effort' (Effort). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.TimeCriticality' (Time Criticality). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.BusinessValue' (Business Value). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.TargetDate' (Target Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Risk' (Risk). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ValueArea' (Value Area). 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Architectural', 'Business' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Common.ValueArea' and target field 'Microsoft.VSTS.Common.ValueArea' have different allowed
+ values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Architectural', 'Business' 
+[14:18:13 INF] [16.3.3]       Target allowed values: 'Arquitetura', 'Compliance', 'Infraestrutura', 'Neg¢cios', 'UX' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Architectural', 'Business' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StackRank' (Stack Rank). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedReason' (Resolved Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Resolved' 
+[14:18:13 WRN] [16.3.3]     Source field 'System.State' and target field 'System.State' have different allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Active', 'Closed', 'New', 'Removed', 'Resolved' 
+[14:18:13 INF] [16.3.3]       Target allowed values: 'Active', 'Approved', 'Closed', 'Committed', 'Done', 'Homologation', 'In Refinement', 'New', 'R
+eady for Production', 'Removed' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Resolved' 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Feature'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Issue'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.DueDate' (Due Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StackRank' (Stack Rank). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Activity' (Activity). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.RemainingWork' (Remaining Work). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StoryPoints' (Story Points). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3]   All fields are either present or mapped for 'Issue'. 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Issue'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Project'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3]   All fields are either present or mapped for 'Project'. 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Project'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Task'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Priorizadaduranteasprint' (Priorizada durante a sprint). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.Priorizadaduranteasprint' in 'Task'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.Priorizadaduranteasprint 
+[14:18:13 INF] [16.3.3]       Source field name: Priorizada durante a sprint 
+[14:18:13 INF] [16.3.3]       Field type: String 
+[14:18:13 INF] [16.3.3]       Allowed values: 'Nao', 'Sim' 
+[14:18:13 INF] [16.3.3]       Allowed values type: String 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.FinishDate' (Finish Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StartDate' (Start Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]     Missing values are: '<None>' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Build.IntegrationBuild' and target field 'Microsoft.VSTS.Build.IntegrationBuild' have diffe
+rent allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: '<None>' 
+[14:18:13 INF] [16.3.3]       Target allowed values:  
+[14:18:13 INF] [16.3.3]       Missing values in target are: '<None>' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StackRank' (Stack Rank). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Activity' (Activity). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.CompletedWork' (Completed Work). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.OriginalEstimate' (Original Estimate). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.RemainingWork' (Remaining Work). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Aguardando homologa‡ao/aprova‡ao' 
+[14:18:13 WRN] [16.3.3]     Source field 'System.State' and target field 'System.State' have different allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Active', 'Aguardando homologa‡ao/aprova‡ao', 'Closed', 'New', 'Removed' 
+[14:18:13 INF] [16.3.3]       Target allowed values: 'Active', 'Closed', 'New', 'Removed' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Aguardando homologa‡ao/aprova‡ao' 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Task'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Test Case'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.AutomationStatus' (Automation status). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.LocalDataSource' (Local Data Source). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.AutomatedTestType' (Automated Test Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.AutomatedTestId' (Automated Test Id). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.AutomatedTestStorage' (Automated Test Storage). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.AutomatedTestName' (Automated Test Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.Parameters' (Parameters). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.Steps' (Steps). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3]   All fields are either present or mapped for 'Test Case'. 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Test Case'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Test Plan'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.FinishDate' (Finish Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StartDate' (Start Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3]   All fields are either present or mapped for 'Test Plan'. 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Test Plan'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'Test Suite'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.TestSuiteAudit' (Test Suite Audit). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.QueryText' (Query Text). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.TestSuiteType' (Test Suite Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.TCM.TestSuiteTypeId' (Test Suite Type Id). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:13 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:13 INF] [16.3.3]   All fields are either present or mapped for 'Test Suite'. 
+[14:18:13 INF] [16.3.3] End validation of work item type 'Test Suite'. 
+[14:18:13 INF] [16.3.3] Start validation of work item type 'User Story'. 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.ControleMigracao' (ControleMigracao). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Priorizadanodecorrerdasprint' (Priorizada no decorrer da sprint). 
+[14:18:13 WRN] [16.3.3]     Missing field 'Custom.Priorizadanodecorrerdasprint' in 'User Story'. 
+[14:18:13 INF] [16.3.3]       Source field reference name: Custom.Priorizadanodecorrerdasprint 
+[14:18:13 INF] [16.3.3]       Source field name: Priorizada no decorrer da sprint 
+[14:18:13 INF] [16.3.3]       Field type: Boolean 
+[14:18:13 INF] [16.3.3]       Allowed values:  
+[14:18:13 INF] [16.3.3]       Allowed values type: Boolean 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.USBloqueada' (US Bloqueada). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Safeteam' (Safe team). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.IDServiceNow' (ID ServiceNow). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.DefinitionofReady' (Definition of Ready). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Bloqueados' (Bloqueados). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Custom.Enabler' (Enabler). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.AcceptanceCriteria' (Acceptance Criteria). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.FinishDate' (Finish Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StartDate' (Start Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Risk' (Risk). 
+[14:18:13 INF] [16.3.3]     Missing values are: '1 - High', '2 - Medium', '3 - Low' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Common.Risk' and target field 'Microsoft.VSTS.Common.Risk' have different allowed values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: '1 - High', '2 - Medium', '3 - Low' 
+[14:18:13 INF] [16.3.3]       Target allowed values:  
+[14:18:13 INF] [16.3.3]       Missing values in target are: '1 - High', '2 - Medium', '3 - Low' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Build.IntegrationBuild' (Integration Build). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ValueArea' (Value Area). 
+[14:18:13 INF] [16.3.3]     Missing values are: 'Architectural', 'Business' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Common.ValueArea' and target field 'Microsoft.VSTS.Common.ValueArea' have different allowed
+ values. 
+[14:18:13 INF] [16.3.3]       Source allowed values: 'Architectural', 'Business' 
+[14:18:13 INF] [16.3.3]       Target allowed values: 'Arquitetura', 'Compliance', 'Infraestrutura', 'Neg¢cios', 'UX' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: 'Architectural', 'Business' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StackRank' (Stack Rank). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.Priority' (Priority). 
+[14:18:13 INF] [16.3.3]     Missing values are: '5', '6', '7', '8' 
+[14:18:13 WRN] [16.3.3]     Source field 'Microsoft.VSTS.Common.Priority' and target field 'Microsoft.VSTS.Common.Priority' have different allowed v
+alues. 
+[14:18:13 INF] [16.3.3]       Source allowed values: '1', '2', '3', '4', '5', '6', '7', '8' 
+[14:18:13 INF] [16.3.3]       Target allowed values: '1', '2', '3', '4' 
+[14:18:13 INF] [16.3.3]       Missing values in target are: '5', '6', '7', '8' 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedBy' (Closed By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ClosedDate' (Closed Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedReason' (Resolved Reason). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedBy' (Resolved By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ResolvedDate' (Resolved Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedBy' (Activated By). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.ActivatedDate' (Activated Date). 
+[14:18:13 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Common.StateChangeDate' (State Change Date). 
+[14:18:14 INF] [16.3.3]   Validating source field 'Microsoft.VSTS.Scheduling.StoryPoints' (Story Points). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.BoardLane' (Board Lane). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.BoardColumnDone' (Board Column Done). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.BoardColumn' (Board Column). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Tags' (Tags). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.RelatedLinkCount' (Related Link Count). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.History' (History). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Description' (Description). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.CreatedBy' (Created By). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.CreatedDate' (Created Date). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.WorkItemType' (Work Item Type). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.AssignedTo' (Assigned To). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Reason' (Reason). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.ChangedBy' (Changed By). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Rev' (Rev). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Watermark' (Watermark). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.AuthorizedDate' (Authorized Date). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.State' (State). 
+[14:18:14 INF] [16.3.3]     Missing values are: 'Cancelada', 'Conclu¡do', 'Pronto', 'Pronto para testes', 'Rascunho', 'Testando', 'Trabalho em andam
+ento' 
+[14:18:14 WRN] [16.3.3]     Source field 'System.State' and target field 'System.State' have different allowed values. 
+[14:18:14 INF] [16.3.3]       Source allowed values: 'Cancelada', 'Conclu¡do', 'Pronto', 'Pronto para testes', 'Rascunho', 'Testando', 'Trabalho em 
+andamento' 
+[14:18:14 INF] [16.3.3]       Target allowed values: 'Active', 'Approved', 'Closed', 'Committed', 'Done', 'In Refinement', 'New', 'Removed' 
+[14:18:14 INF] [16.3.3]       Missing values in target are: 'Cancelada', 'Conclu¡do', 'Pronto', 'Pronto para testes', 'Rascunho', 'Testando', 'Traba
+lho em andamento' 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Title' (Title). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.AuthorizedAs' (Authorized As). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.AreaId' (Area ID). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Id' (ID). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.ChangedDate' (Changed Date). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.RevisedDate' (Revised Date). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.AreaPath' (Area Path). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.NodeName' (Node Name). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.AttachedFileCount' (Attached File Count). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.HyperLinkCount' (Hyperlink Count). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.CommentCount' (Comment Count). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.RemoteLinkCount' (Remote Link Count). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.Parent' (Parent). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.TeamProject' (Team Project). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.ExternalLinkCount' (External Link Count). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.IterationId' (Iteration ID). 
+[14:18:14 INF] [16.3.3]   Validating source field 'System.IterationPath' (Iteration Path). 
+[14:18:14 INF] [16.3.3] End validation of work item type 'User Story'. 
+[14:18:14 ERR] [16.3.3] Some work item types or their fields are not valid in the target system (see previous logs). 
+[14:18:14 INF] [16.3.3] If the work item type does not exist in target system, you can: 
+[14:18:14 INF] [16.3.3]   - Create it there. 
+[14:18:14 INF] [16.3.3]   - Configure mapping to another work item type which exists in target using 'WorkItemTypeMappingTool' configuration. 
+[14:18:14 INF] [16.3.3]   - Exclude it from validation. To configure which work item types are validated, use either 'IncludeWorkItemTypes' or 'Excl
+udeWorkItemTypes' of 'TfsWorkItemTypeValidatorTool' configuration (but not both at the same time). 
+[14:18:14 INF] [16.3.3] If field is missing in target, you can: 
+[14:18:14 INF] [16.3.3]   - Add missing field to the target work item type. 
+[14:18:14 INF] [16.3.3]   - Configure field mapping using 'FieldToFieldMultiMap' in 'FieldMappingTool' configuration. This is simpler method for sou
+rce to target field mapping, which allows to map multiple fields at once. 
+[14:18:14 INF] [16.3.3]   - Configure field mapping using 'FieldToFieldMap' in 'FieldMappingTool' configuration. Mapping mode must be of type 'Sourc
+eToTarget'. 
+[14:18:14 INF] [16.3.3] If allowed values of the source and target fields do not match, you can: 
+[14:18:14 INF] [16.3.3]   - Add missing allowed values to the target field. 
+[14:18:14 INF] [16.3.3]   - Configure value mapping. Add field maps of type 'FieldValueMap' to 'FieldMappingTool' configuration. 
+[14:18:14 INF] [16.3.3] To exclude field from validation, just configure it in 'ExcludeSourceFields' of 'TfsWorkItemTypeValidatorTool' configuration
+. If field is excluded from validation, all the issues are still

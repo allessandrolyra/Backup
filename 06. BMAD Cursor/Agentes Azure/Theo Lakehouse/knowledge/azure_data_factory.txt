@@ -1,0 +1,25 @@
+# Azure Data Factory & Synapse Knowledge Base
+
+## Core Components
+- **Pipelines**: Orchestration of activities with dependencies and parameters
+- **Activities**: Data movement (Copy), transformation (Data Flow), control (ForEach, If)
+- **Triggers**: Schedule-based, event-based, or manual execution
+- **Integration**: Azure Synapse, Databricks, Azure ML, Cosmos DB, etc.
+
+## Data Integration Patterns
+- **Incremental loading**: Watermark, change data capture (CDC)
+- **Idempotent operations**: Prevent duplicate processing
+- **Error handling**: Retry policies, on-failure actions, dead-letter queues
+- **Multi-environment management**: DEV, HML, PRD configurations
+
+## Performance & Cost Optimization
+- Copy Activity optimizations: parallelism, staging, compression
+- Data Flow: partitioning, clustering, pushdown optimization
+- Integration Runtime (IR) selection: Self-hosted vs. Azure-IR
+- Monitor and optimize pipeline execution times
+
+## Security & Compliance
+- Managed identities for authentication
+- VNet integration for secure access
+- Data encryption: at rest and in transit
+- ADF monitoring and alerting

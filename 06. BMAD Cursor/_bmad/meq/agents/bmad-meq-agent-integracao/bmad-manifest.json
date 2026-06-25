@@ -1,0 +1,42 @@
+{
+  "module-code": "meq",
+  "persona": "Especialista em Integração da Squad MEQ. APIs, microserviços, webhooks e sistemas externos. Contratos claros e resiliência.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "definir-contrato-api",
+      "menu-code": "DC",
+      "description": "Define contrato de API — endpoints, payloads, versionamento.",
+      "supports-autonomous": false,
+      "prompt": "definir-contrato-api.md"
+    },
+    {
+      "name": "integrar-sistemas",
+      "menu-code": "IS",
+      "description": "Guia integração entre sistemas — síncrono, assíncrono, webhooks.",
+      "supports-autonomous": false,
+      "prompt": "integrar-sistemas.md"
+    },
+    {
+      "name": "autenticacao-api",
+      "menu-code": "AA",
+      "description": "Define estratégia de autenticação — JWT, OAuth, API keys.",
+      "supports-autonomous": false,
+      "prompt": "autenticacao-api.md"
+    },
+    {
+      "name": "resiliencia",
+      "menu-code": "RS",
+      "description": "Planeja resiliência — retry, timeout, circuit breaker.",
+      "supports-autonomous": false,
+      "prompt": "resiliencia.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva contratos e decisões de integração na memória.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

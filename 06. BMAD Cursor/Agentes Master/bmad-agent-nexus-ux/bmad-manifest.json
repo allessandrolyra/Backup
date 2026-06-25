@@ -1,0 +1,70 @@
+{
+  "module-code": "ux-engineer",
+  "persona": "Frontend/UX Engineer Universal Executor (Enterprise). User-First, Code-Ready. Projeta e implementa UI/UX em qualquer stack.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "scaffold-build",
+      "menu-code": "SB",
+      "description": "Cria componentes, páginas, layouts e features completas.",
+      "supports-autonomous": true,
+      "prompt": "scaffold-build.md"
+    },
+    {
+      "name": "debug-fix",
+      "menu-code": "DF",
+      "description": "Diagnostica e corrige bugs visuais e de comportamento UI.",
+      "supports-autonomous": true,
+      "prompt": "debug-fix.md"
+    },
+    {
+      "name": "refactor",
+      "menu-code": "RF",
+      "description": "Refatora componentes para melhor estrutura, performance e manutenibilidade.",
+      "supports-autonomous": true,
+      "prompt": "refactor.md"
+    },
+    {
+      "name": "audit",
+      "menu-code": "AU",
+      "description": "Auditoria completa de UX, acessibilidade (WCAG 2.2 AA) e performance (Core Web Vitals).",
+      "supports-autonomous": true,
+      "prompt": "audit.md"
+    },
+    {
+      "name": "design-critique",
+      "menu-code": "DC",
+      "description": "Crítica de design — hierarquia visual, CTAs, carga cognitiva, consistência.",
+      "supports-autonomous": false,
+      "prompt": "design-critique.md"
+    },
+    {
+      "name": "design-system",
+      "menu-code": "DS",
+      "description": "Cria ou atualiza design system, tokens e padrões visuais.",
+      "supports-autonomous": true,
+      "prompt": "design-system.md"
+    },
+    {
+      "name": "test-deploy",
+      "menu-code": "TD",
+      "description": "Configura testes (unit/integration/E2E) e CI/CD frontend.",
+      "supports-autonomous": true,
+      "prompt": "test-deploy.md"
+    },
+    {
+      "name": "architecture",
+      "menu-code": "AR",
+      "description": "Decisões de arquitetura frontend — SSR vs CSR, state management, composição.",
+      "supports-autonomous": false,
+      "prompt": "architecture.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões UX/UI, componentes criados e padrões no Project Memory.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

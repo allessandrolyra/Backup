@@ -1,0 +1,170 @@
+# ============================================
+# Dossiê de Migração Azure DevOps — Template
+# ============================================
+# Este template é o artefato de continuidade do AMAIX.
+# Preencha ou atualize a cada sessão.
+# Campos com "FALTA CONFIRMAR" devem ser validados.
+# ============================================
+
+dossie:
+  versao: "1.0"
+  ultima_atualizacao: "<DATA>"
+  responsavel: "<NOME>"
+  status_geral: "em_planejamento"  # em_planejamento | em_preparacao | em_execucao | em_validacao | cutover | pos_migracao | concluido
+
+# --- ORIGEM ---
+origem:
+  organizacao: "<ORG_ORIGEM>"
+  projeto: "<PROJECT_ORIGEM>"
+  url: "https://dev.azure.com/<ORG_ORIGEM>/<PROJECT_ORIGEM>"
+  tipo: "FALTA CONFIRMAR"  # cloud | on-premises (Azure DevOps Server)
+  versao: "FALTA CONFIRMAR"  # ex: "Azure DevOps Services" ou "Azure DevOps Server 2022"
+
+# --- DESTINO ---
+destino:
+  organizacao: "<ORG_DESTINO>"
+  projeto: "<PROJECT_DESTINO>"
+  url: "https://dev.azure.com/<ORG_DESTINO>/<PROJECT_DESTINO>"
+  tipo: "cloud"
+  versao: "Azure DevOps Services"
+
+# --- ESCOPO ---
+escopo:
+  boards:
+    incluido: true
+    work_items_estimativa: "FALTA CONFIRMAR"
+    process_template_origem: "FALTA CONFIRMAR"  # Agile | Scrum | CMMI | Custom
+    process_template_destino: "FALTA CONFIRMAR"
+    custom_fields: "FALTA CONFIRMAR"
+    anexos: true
+    historico: true
+  repos:
+    incluido: true
+    quantidade: "FALTA CONFIRMAR"
+    estrategia: "mirror"  # mirror | clean | rebase
+    lfs: "FALTA CONFIRMAR"
+    submodules: "FALTA CONFIRMAR"
+  pipelines:
+    incluido: true
+    quantidade_yaml: "FALTA CONFIRMAR"
+    quantidade_classico: "FALTA CONFIRMAR"
+    variable_groups: "FALTA CONFIRMAR"
+    task_groups: "FALTA CONFIRMAR"
+  integracoes:
+    incluido: true
+    service_connections: "FALTA CONFIRMAR"
+    service_hooks: "FALTA CONFIRMAR"
+    webhooks: "FALTA CONFIRMAR"
+    terceiros: []  # ex: ["ServiceNow", "Jira", "SonarQube"]
+
+# --- COMPLEXIDADE ---
+complexidade:
+  nivel: "FALTA CONFIRMAR"  # BAIXA | MEDIA | ALTA | ENTERPRISE
+  justificativa: "FALTA CONFIRMAR"
+  dry_runs_planejados: "FALTA CONFIRMAR"
+
+# --- RESTRIÇÕES ---
+restricoes:
+  janela_downtime: "FALTA CONFIRMAR"
+  compliance: "FALTA CONFIRMAR"  # ex: "SOX", "LGPD", "nenhuma"
+  times_impactados: "FALTA CONFIRMAR"
+  fusos_horarios: "FALTA CONFIRMAR"
+
+# --- DEPENDÊNCIAS CRÍTICAS ---
+dependencias:
+  service_connections:
+    - nome: "FALTA CONFIRMAR"
+      tipo: "FALTA CONFIRMAR"
+      pipelines_consumidoras: []
+      status: "nao_validada"
+  variable_groups:
+    - nome: "FALTA CONFIRMAR"
+      contem_secrets: "FALTA CONFIRMAR"
+      pipelines_consumidoras: []
+      status: "nao_validada"
+  agent_pools:
+    - nome: "FALTA CONFIRMAR"
+      tipo: "FALTA CONFIRMAR"  # hosted | self-hosted
+      status: "nao_validado"
+  integracoes_externas:
+    - nome: "FALTA CONFIRMAR"
+      endpoint: "FALTA CONFIRMAR"
+      ip_allowlist: "FALTA CONFIRMAR"
+      status: "nao_validada"
+
+# --- FERRAMENTAS ---
+ferramentas:
+  boards_migracao: "FALTA CONFIRMAR"  # ex: "nkdAgility" | "API custom" | "export/import"
+  repos_migracao: "git mirror"
+  pipelines_migracao: "FALTA CONFIRMAR"  # ex: "recriação manual" | "scripts/API"
+  validacao: "scripts custom"
+
+# --- FASES ---
+fases:
+  descoberta:
+    status: "em_andamento"  # nao_iniciada | em_andamento | concluida | bloqueada
+    gate_entrada: "FALTA CONFIRMAR"
+    gate_saida: "FALTA CONFIRMAR"
+    evidencias: []
+  preparacao:
+    status: "nao_iniciada"
+    gate_entrada: "FALTA CONFIRMAR"
+    gate_saida: "FALTA CONFIRMAR"
+    evidencias: []
+  execucao:
+    status: "nao_iniciada"
+    gate_entrada: "FALTA CONFIRMAR"
+    gate_saida: "FALTA CONFIRMAR"
+    evidencias: []
+  validacao:
+    status: "nao_iniciada"
+    gate_entrada: "FALTA CONFIRMAR"
+    gate_saida: "FALTA CONFIRMAR"
+    evidencias: []
+  cutover:
+    status: "nao_iniciada"
+    gate_entrada: "FALTA CONFIRMAR"
+    gate_saida: "FALTA CONFIRMAR"
+    evidencias: []
+  pos_migracao:
+    status: "nao_iniciada"
+    hypercare_periodo: "FALTA CONFIRMAR"
+    hypercare_responsavel: "FALTA CONFIRMAR"
+    evidencias: []
+
+# --- RISCOS ---
+riscos:
+  - id: "R001"
+    descricao: "FALTA CONFIRMAR"
+    probabilidade: "FALTA CONFIRMAR"  # baixa | media | alta
+    impacto: "FALTA CONFIRMAR"  # baixo | medio | alto | critico
+    mitigacao: "FALTA CONFIRMAR"
+    status: "aberto"
+
+# --- ROLLBACK ---
+rollback:
+  plano_definido: false
+  ponto_de_nao_retorno: "FALTA CONFIRMAR"
+  criterios_acionamento: "FALTA CONFIRMAR"
+  passos: []
+  testado: false
+
+# --- EXECUÇÃO ASSISTIDA ---
+execucao_assistida:
+  autorizada: false
+  autorizado_por: ""
+  data_autorizacao: ""
+  log_execucao: []
+
+# --- PREMISSAS ---
+premissas:
+  - descricao: "FALTA CONFIRMAR"
+    tipo: "ASSUMIDO"  # ASSUMIDO | FALTA CONFIRMAR
+    impacto_se_errada: "FALTA CONFIRMAR"
+
+# --- PRÓXIMOS PASSOS ---
+proximos_passos:
+  - acao: "FALTA CONFIRMAR"
+    prioridade: "ALTA"  # ALTA | MEDIA | BAIXA
+    responsavel: "FALTA CONFIRMAR"
+    prazo: "FALTA CONFIRMAR"

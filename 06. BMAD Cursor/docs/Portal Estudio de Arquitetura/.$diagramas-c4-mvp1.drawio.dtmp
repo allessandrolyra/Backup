@@ -1,0 +1,346 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5" pages="3">
+  <diagram id="c4n1" name="C4 N1 - Contexto">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- TÍTULO -->
+        <mxCell id="100" value="&lt;b&gt;C4 Model — Nível 1: Diagrama de Contexto&lt;/b&gt;&lt;br&gt;Portal de Arquitetura e DevOps — MVP1 — Foursys" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="400" y="10" width="560" height="50" as="geometry" />
+        </mxCell>
+        <!-- PERSONAS -->
+        <!-- Admin Studio -->
+        <mxCell id="101" value="&lt;b&gt;Administrador do Studio&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Arquitetos e Eng. DevOps.&lt;br&gt;Publica templates e POCs,&lt;br&gt;responde issues, gerencia catálogo." style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="220" height="140" as="geometry" />
+        </mxCell>
+        <!-- Tech Lead -->
+        <mxCell id="102" value="&lt;b&gt;Tech Lead / Arq. Torre&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Líderes técnicos das torres.&lt;br&gt;Busca templates, contribui&lt;br&gt;com POCs, abre issues." style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="310" y="80" width="220" height="140" as="geometry" />
+        </mxCell>
+        <!-- Desenvolvedor -->
+        <mxCell id="103" value="&lt;b&gt;Desenvolvedor de Squad&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Devs das squads de delivery.&lt;br&gt;Consome templates, baixa POCs,&lt;br&gt;avalia artefatos." style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="580" y="80" width="220" height="140" as="geometry" />
+        </mxCell>
+        <!-- Gestor -->
+        <mxCell id="104" value="&lt;b&gt;Gestor / Head Studio&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Head do Studio, Diretoria.&lt;br&gt;Acompanha métricas de&lt;br&gt;impacto e SLA do CoE." style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="850" y="80" width="220" height="140" as="geometry" />
+        </mxCell>
+        <!-- Cliente Externo -->
+        <mxCell id="105" value="&lt;b&gt;Cliente Externo&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona — Futuro]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Acessa catálogo público de&lt;br&gt;soluções comercializadas.&lt;br&gt;(MVP2+)" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#999999;strokeColor=#6D6D6D;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="80" width="220" height="140" as="geometry" />
+        </mxCell>
+        <!-- SISTEMA CENTRAL -->
+        <mxCell id="110" value="&lt;b&gt;Portal de Arquitetura e DevOps&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Web — MVP1]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Hub centralizado para descoberta, consumo e&lt;br&gt;contribuição de assets técnicos (templates, POCs),&lt;br&gt;gestão de issues/solicitações ao CoE&lt;br&gt;e métricas de impacto." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168BD;fontColor=#ffffff;strokeColor=#0B4884;arcSize=8;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="620" height="160" as="geometry" />
+        </mxCell>
+        <!-- SISTEMAS EXTERNOS -->
+        <!-- Azure AD -->
+        <mxCell id="121" value="&lt;b&gt;Microsoft Entra ID&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo — Azure AD]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Autenticação SSO corporativa&lt;br&gt;OAuth 2.0 / OIDC / MFA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="250" height="120" as="geometry" />
+        </mxCell>
+        <!-- Azure DevOps -->
+        <mxCell id="122" value="&lt;b&gt;Azure DevOps&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo — Repos]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Repositórios de código fonte,&lt;br&gt;templates e pipelines CI/CD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="370" y="640" width="250" height="120" as="geometry" />
+        </mxCell>
+        <!-- Blob Storage -->
+        <mxCell id="123" value="&lt;b&gt;Azure Blob Storage&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo — Storage]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Armazenamento de artefatos&lt;br&gt;ZIPs, docs, diagramas (SAS tokens)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=8;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="700" y="640" width="260" height="120" as="geometry" />
+        </mxCell>
+        <!-- Email -->
+        <mxCell id="124" value="&lt;b&gt;Sistema de Notificação&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo — Futuro]&lt;/i&gt;&lt;br&gt;&lt;br&gt;SMTP / SendGrid&lt;br&gt;Alertas de SLA e issues" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=8;fontSize=11;align=center;dashed=1;dashPattern=5 5;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="640" width="250" height="120" as="geometry" />
+        </mxCell>
+        <!-- SETAS: Personas → Sistema -->
+        <mxCell id="131" value="Publica, gerencia,&#xa;responde issues" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" edge="1" source="101" target="110" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="132" value="Busca, contribui,&#xa;abre issues" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;entryX=0.4;entryY=0;entryDx=0;entryDy=0;" edge="1" source="102" target="110" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="133" value="Busca, baixa,&#xa;avalia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;entryX=0.6;entryY=0;entryDx=0;entryDy=0;" edge="1" source="103" target="110" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="134" value="Visualiza dashboards&#xa;e métricas" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;entryX=0.8;entryY=0;entryDx=0;entryDy=0;" edge="1" source="104" target="110" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="135" value="Acessa catálogo&#xa;(futuro MVP2+)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#999999;fontColor=#999999;fontSize=10;dashed=1;dashPattern=5 5;" edge="1" source="105" target="110" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- SETAS: Sistema → Externos -->
+        <mxCell id="141" value="Autentica usuários&#xa;OAuth 2.0 / OIDC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;exitX=0.15;exitY=1;exitDx=0;exitDy=0;" edge="1" source="110" target="121" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="142" value="Consulta repos,&#xa;lê READMEs, sync" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;exitX=0.4;exitY=1;exitDx=0;exitDy=0;" edge="1" source="110" target="122" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="143" value="Upload/download&#xa;artefatos via SAS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;exitX=0.65;exitY=1;exitDx=0;exitDy=0;" edge="1" source="110" target="123" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="144" value="Envia notificações&#xa;(futuro)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#999999;fontColor=#999999;fontSize=10;dashed=1;dashPattern=5 5;exitX=0.9;exitY=1;exitDx=0;exitDy=0;" edge="1" source="110" target="124" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- LEGENDA -->
+        <mxCell id="150" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#CCCCCC;dashed=1;dashPattern=3 3;" vertex="1" parent="1">
+          <mxGeometry x="40" y="820" width="450" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="151" value="&lt;b&gt;Legenda&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="825" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="152" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="60" y="860" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="153" value="Persona (ativa no MVP1)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="855" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="154" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168BD;strokeColor=#0B4884;" vertex="1" parent="1">
+          <mxGeometry x="60" y="890" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="155" value="Sistema interno (nosso)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="100" y="885" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="156" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6D6D6D;" vertex="1" parent="1">
+          <mxGeometry x="280" y="860" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="157" value="Sistema externo / Futuro" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="855" width="160" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="c4n2" name="C4 N2 - Container">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- TÍTULO -->
+        <mxCell id="200" value="&lt;b&gt;C4 Model — Nível 2: Diagrama de Container&lt;/b&gt;&lt;br&gt;Portal de Arquitetura e DevOps — MVP1 — Foursys" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="400" y="10" width="560" height="50" as="geometry" />
+        </mxCell>
+        <!-- PERSONAS (simplificadas) -->
+        <mxCell id="201" value="&lt;b&gt;Admin Studio&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="202" value="&lt;b&gt;Tech Lead&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="340" y="70" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="203" value="&lt;b&gt;Desenvolvedor&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="600" y="70" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="204" value="&lt;b&gt;Gestor&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Persona]&lt;/i&gt;" style="shape=mxgraph.c4.person2;whiteSpace=wrap;html=1;container=0;fontSize=11;fontColor=#ffffff;align=center;fillColor=#08427B;strokeColor=#073B6F;" vertex="1" parent="1">
+          <mxGeometry x="860" y="70" width="160" height="100" as="geometry" />
+        </mxCell>
+        <!-- SYSTEM BOUNDARY -->
+        <mxCell id="210" value="&lt;b&gt;Portal de Arquitetura e DevOps&lt;/b&gt; [System Boundary]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1168BD;dashed=1;dashPattern=8 4;fontSize=14;fontStyle=1;fontColor=#1168BD;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="80" y="240" width="1080" height="480" as="geometry" />
+        </mxCell>
+        <!-- WEB APPLICATION -->
+        <mxCell id="211" value="&lt;b&gt;Web Application&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Container: Next.js 14 + TypeScript]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Interface do portal:&lt;br&gt;• Catálogo de Templates&lt;br&gt;• Repositório de POCs&lt;br&gt;• Painel de Issues / SLA&lt;br&gt;• Dashboard de Métricas&lt;br&gt;• Área de Administração&lt;br&gt;&lt;br&gt;&lt;i&gt;Hospedagem: Azure App Service (B1)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=6;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="130" y="300" width="280" height="220" as="geometry" />
+        </mxCell>
+        <!-- API SERVER -->
+        <mxCell id="212" value="&lt;b&gt;API Server&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Container: NestJS + TypeScript]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Lógica de negócio:&lt;br&gt;• Auth Module (JWT / RBAC)&lt;br&gt;• Template Service&lt;br&gt;• POC Service&lt;br&gt;• Issue Service (SLA engine)&lt;br&gt;• Metrics Service&lt;br&gt;• Storage Module&lt;br&gt;• DevOps Integration&lt;br&gt;&lt;br&gt;&lt;i&gt;Hospedagem: Azure App Service (B1)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=6;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="490" y="290" width="280" height="240" as="geometry" />
+        </mxCell>
+        <!-- DATABASE -->
+        <mxCell id="213" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Container: PostgreSQL 16]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Persistência:&lt;br&gt;users, templates, pocs,&lt;br&gt;issues, downloads,&lt;br&gt;ratings, audit_log&lt;br&gt;&lt;br&gt;&lt;i&gt;Azure DB Flexible (B1ms)&lt;/i&gt;&lt;br&gt;&lt;i&gt;ORM: Prisma&lt;/i&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="850" y="290" width="240" height="210" as="geometry" />
+        </mxCell>
+        <!-- CACHE (futuro) -->
+        <mxCell id="214" value="&lt;b&gt;Cache Layer&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Container: Redis — Futuro MVP2]&lt;/i&gt;&lt;br&gt;&lt;br&gt;Cache de catálogo,&lt;br&gt;sessões, rate limiting&lt;br&gt;&lt;br&gt;&lt;i&gt;Azure Cache for Redis&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=6;fontSize=11;align=center;dashed=1;dashPattern=5 5;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="850" y="550" width="240" height="130" as="geometry" />
+        </mxCell>
+        <!-- SISTEMAS EXTERNOS -->
+        <!-- Azure AD -->
+        <mxCell id="221" value="&lt;b&gt;Microsoft Entra ID&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo]&lt;/i&gt;&lt;br&gt;&lt;br&gt;SSO Corporativo&lt;br&gt;OAuth 2.0 / OIDC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=6;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="840" width="240" height="110" as="geometry" />
+        </mxCell>
+        <!-- Azure DevOps -->
+        <mxCell id="222" value="&lt;b&gt;Azure DevOps API&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo]&lt;/i&gt;&lt;br&gt;&lt;br&gt;REST API v7&lt;br&gt;Repos + Pipelines (PAT)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=6;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="840" width="240" height="110" as="geometry" />
+        </mxCell>
+        <!-- Blob Storage -->
+        <mxCell id="223" value="&lt;b&gt;Azure Blob Storage&lt;/b&gt;&lt;br&gt;&lt;i&gt;[Sistema Externo]&lt;/i&gt;&lt;br&gt;&lt;br&gt;@azure/storage-blob SDK&lt;br&gt;SAS Tokens temporários" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=6;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="760" y="840" width="240" height="110" as="geometry" />
+        </mxCell>
+        <!-- SETAS: Personas → Web App -->
+        <mxCell id="231" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="201" target="211" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="232" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="202" target="211" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="233" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="203" target="211" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="234" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="204" target="211" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- SETA: Web App → API Server -->
+        <mxCell id="241" value="REST API&#xa;JSON / HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;strokeWidth=2;" edge="1" source="211" target="212" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- SETA: API Server → Database -->
+        <mxCell id="242" value="Prisma ORM&#xa;TCP :5432" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;strokeWidth=2;" edge="1" source="212" target="213" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- SETA: API Server → Cache (futuro) -->
+        <mxCell id="243" value="get/set&#xa;TCP :6379&#xa;(futuro)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#999999;fontColor=#999999;fontSize=10;dashed=1;dashPattern=5 5;" edge="1" source="212" target="214" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- SETAS: API Server → Externos -->
+        <mxCell id="251" value="OAuth 2.0 / OIDC&#xa;HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="212" target="221" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="252" value="REST API v7&#xa;PAT / HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="212" target="222" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="253" value="SDK Azure&#xa;HTTPS + SAS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#707070;fontColor=#707070;fontSize=10;" edge="1" source="212" target="223" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- LEGENDA -->
+        <mxCell id="260" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#CCCCCC;dashed=1;dashPattern=3 3;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="840" width="340" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="261" value="&lt;b&gt;Legenda&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="845" width="70" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="262" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="875" width="25" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="263" value="Container interno" style="text;html=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1165" y="870" width="110" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="264" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#6D6D6D;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="900" width="25" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="265" value="Sistema externo" style="text;html=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1165" y="895" width="110" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="266" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;strokeColor=#3C7FC0;dashed=1;opacity=60;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="875" width="25" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="267" value="Futuro (MVP2)" style="text;html=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1335" y="870" width="100" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="highlevel" name="Arquitetura Alto Nível">
+    <mxGraphModel dx="1028" dy="619" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="300" value="&lt;b&gt;Arquitetura de Alto Nível — MVP1&lt;/b&gt;&lt;br&gt;Portal de Arquitetura e DevOps — Foursys" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="440" y="10" width="480" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="310" value="&lt;b&gt;CAMADA DE APRESENTAÇÃO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F3FF;strokeColor=#1168BD;fontSize=12;fontStyle=1;fontColor=#1168BD;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=4;" parent="1" vertex="1">
+          <mxGeometry x="200" y="70" width="960" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="311" value="&lt;b&gt;Browser Desktop&lt;/b&gt;&lt;br&gt;&lt;i&gt;Chrome, Edge, Firefox&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#073B6F;arcSize=10;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="350" y="100" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="312" value="&lt;b&gt;Mobile Browser&lt;/b&gt;&lt;br&gt;&lt;i&gt;Responsivo (futuro)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#6D6D6D;arcSize=10;fontSize=11;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="820" y="100" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="320" value="&lt;b&gt;CAMADA DE FRONTEND — Next.js 14 + TypeScript&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#438DD5;fontSize=12;fontStyle=1;fontColor=#1168BD;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=4;" parent="1" vertex="1">
+          <mxGeometry x="200" y="220" width="960" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="321" value="&lt;b&gt;SSR Engine&lt;/b&gt;&lt;br&gt;&lt;i&gt;Server-Side&lt;br&gt;Rendering&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="230" y="260" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="322" value="&lt;b&gt;App Router&lt;/b&gt;&lt;br&gt;&lt;i&gt;Pages &amp;amp;&lt;br&gt;Layouts&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="420" y="260" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="323" value="&lt;b&gt;UI Components&lt;/b&gt;&lt;br&gt;&lt;i&gt;Shadcn/UI +&lt;br&gt;Tailwind CSS&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="610" y="260" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="324" value="&lt;b&gt;Auth Client&lt;/b&gt;&lt;br&gt;&lt;i&gt;NextAuth.js&lt;br&gt;MSAL&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="800" y="260" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="325" value="&lt;b&gt;State Mgmt&lt;/b&gt;&lt;br&gt;&lt;i&gt;React Query&lt;br&gt;+ Zustand&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3C7FC0;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="990" y="260" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="330" value="&lt;b&gt;CAMADA DE API — NestJS + TypeScript + Node.js 20 LTS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;fontSize=12;fontStyle=1;fontColor=#065F46;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=4;" parent="1" vertex="1">
+          <mxGeometry x="200" y="400" width="960" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="331" value="&lt;b&gt;Auth Guard&lt;/b&gt;&lt;br&gt;&lt;i&gt;JWT + RBAC&lt;/i&gt;&lt;br&gt;Admin | Contribuidor | Consumidor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#059669;fontColor=#ffffff;strokeColor=#047857;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="230" y="440" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="332" value="&lt;b&gt;Middleware&lt;/b&gt;&lt;br&gt;&lt;i&gt;CORS, Rate Limit, Logging&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#059669;fontColor=#ffffff;strokeColor=#047857;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="630" y="440" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="341" value="&lt;b&gt;Template&lt;br&gt;Service&lt;/b&gt;&lt;br&gt;&lt;i&gt;CRUD + Busca&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10B981;fontColor=#ffffff;strokeColor=#059669;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="230" y="530" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="342" value="&lt;b&gt;POC&lt;br&gt;Service&lt;/b&gt;&lt;br&gt;&lt;i&gt;CRUD + Upload&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10B981;fontColor=#ffffff;strokeColor=#059669;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="390" y="530" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="343" value="&lt;b&gt;Issue&lt;br&gt;Service&lt;/b&gt;&lt;br&gt;&lt;i&gt;SLA Engine&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10B981;fontColor=#ffffff;strokeColor=#059669;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="550" y="530" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="344" value="&lt;b&gt;Metrics&lt;br&gt;Service&lt;/b&gt;&lt;br&gt;&lt;i&gt;Dashboards&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10B981;fontColor=#ffffff;strokeColor=#059669;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="710" y="530" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="345" value="&lt;b&gt;Storage&lt;br&gt;Module&lt;/b&gt;&lt;br&gt;&lt;i&gt;Blob SDK&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10B981;fontColor=#ffffff;strokeColor=#059669;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="870" y="530" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="346" value="&lt;b&gt;DevOps&lt;br&gt;Integr.&lt;/b&gt;&lt;br&gt;&lt;i&gt;API v7&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10B981;fontColor=#ffffff;strokeColor=#059669;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="530" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="350" value="&lt;b&gt;CAMADA DE DADOS E INFRAESTRUTURA — Azure Cloud&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=12;fontStyle=1;fontColor=#92400E;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=4;" parent="1" vertex="1">
+          <mxGeometry x="200" y="720" width="960" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="351" value="&lt;b&gt;PostgreSQL 16&lt;/b&gt;&lt;br&gt;&lt;i&gt;Azure DB Flexible&lt;/i&gt;&lt;br&gt;Dados do sistema" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#D97706;fontColor=#ffffff;strokeColor=#B45309;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="240" y="755" width="170" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="352" value="&lt;b&gt;Azure Blob Storage&lt;/b&gt;&lt;br&gt;&lt;i&gt;Artefatos, ZIPs&lt;/i&gt;&lt;br&gt;Downloads SAS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D97706;fontColor=#ffffff;strokeColor=#B45309;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="450" y="760" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="353" value="&lt;b&gt;Microsoft Entra ID&lt;/b&gt;&lt;br&gt;&lt;i&gt;SSO Corporativo&lt;/i&gt;&lt;br&gt;OAuth 2.0 / OIDC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D97706;fontColor=#ffffff;strokeColor=#B45309;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="660" y="760" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="354" value="&lt;b&gt;Azure DevOps&lt;/b&gt;&lt;br&gt;&lt;i&gt;Repos + Pipelines&lt;/i&gt;&lt;br&gt;REST API v7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D97706;fontColor=#ffffff;strokeColor=#B45309;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="870" y="760" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="360" value="&lt;b&gt;CAMADA DE OPERAÇÃO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;fontSize=12;fontStyle=1;fontColor=#991B1B;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;arcSize=4;" parent="1" vertex="1">
+          <mxGeometry x="200" y="910" width="960" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="361" value="&lt;b&gt;Application Insights&lt;/b&gt;&lt;br&gt;&lt;i&gt;Monitoramento + Alertas&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DC2626;fontColor=#ffffff;strokeColor=#B91C1C;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="240" y="945" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="362" value="&lt;b&gt;Azure Pipelines&lt;/b&gt;&lt;br&gt;&lt;i&gt;CI/CD — Build + Deploy&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DC2626;fontColor=#ffffff;strokeColor=#B91C1C;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="500" y="945" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="363" value="&lt;b&gt;App Service Plan B1&lt;/b&gt;&lt;br&gt;&lt;i&gt;2 instâncias (Front + Back)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DC2626;fontColor=#ffffff;strokeColor=#B91C1C;arcSize=8;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="760" y="945" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="371" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#555555;fontColor=#555555;fontSize=10;strokeWidth=2;" parent="1" source="311" target="321" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="372" value="REST API / JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#555555;fontColor=#555555;fontSize=10;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="320" target="331" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="373" value="Prisma ORM" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#555555;fontColor=#555555;fontSize=10;strokeWidth=2;" parent="1" source="341" target="351" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="374" value="SDK Azure" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#555555;fontColor=#555555;fontSize=10;" parent="1" source="345" target="352" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="680" />
+              <mxPoint x="535" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="375" value="OAuth 2.0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#555555;fontColor=#555555;fontSize=10;" parent="1" source="331" target="353" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="376" value="REST API v7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#555555;fontColor=#555555;fontSize=10;" parent="1" source="346" target="354" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="377" value="Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#999999;fontColor=#999999;fontSize=10;dashed=1;" parent="1" source="330" target="361" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

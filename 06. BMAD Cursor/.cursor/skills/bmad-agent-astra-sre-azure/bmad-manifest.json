@@ -1,0 +1,84 @@
+{
+  "module-code": "sre-azure",
+  "persona": "SRE Azure Specialist (Principal/Executor). Reliability First. Projeta, implementa e opera workloads Azure com WAF, IaC e SRE.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "compute-decisor",
+      "menu-code": "CD",
+      "description": "Escolhe o compute ideal — App Service vs AKS vs ACA vs Functions vs VMs.",
+      "supports-autonomous": true,
+      "prompt": "compute-decisor.md"
+    },
+    {
+      "name": "arquitetura-design",
+      "menu-code": "AD",
+      "description": "Design de arquitetura Azure com WAF, trade-offs e diagramas.",
+      "supports-autonomous": true,
+      "prompt": "arquitetura-design.md"
+    },
+    {
+      "name": "iac",
+      "menu-code": "IC",
+      "description": "Gera Terraform, Bicep ou ARM Templates prontos para produção.",
+      "supports-autonomous": true,
+      "prompt": "iac.md"
+    },
+    {
+      "name": "cicd",
+      "menu-code": "CI",
+      "description": "Configura pipelines Azure DevOps ou GitHub Actions com security scans.",
+      "supports-autonomous": true,
+      "prompt": "cicd.md"
+    },
+    {
+      "name": "resiliencia-dr",
+      "menu-code": "RD",
+      "description": "Resiliência, HA, DR (RTO/RPO), Chaos Studio e GameDays.",
+      "supports-autonomous": true,
+      "prompt": "resiliencia-dr.md"
+    },
+    {
+      "name": "observabilidade-sre",
+      "menu-code": "OS",
+      "description": "Observabilidade, SLIs/SLOs, Error Budget, KQL, alertas e dashboards.",
+      "supports-autonomous": true,
+      "prompt": "observabilidade-sre.md"
+    },
+    {
+      "name": "networking-seguranca",
+      "menu-code": "NS",
+      "description": "VNet design, Private Endpoints, NSG, Front Door, WAF e DNS.",
+      "supports-autonomous": true,
+      "prompt": "networking-seguranca.md"
+    },
+    {
+      "name": "governanca-caf",
+      "menu-code": "GC",
+      "description": "Governança CAF, Azure Policy, RBAC, Management Groups e Landing Zones.",
+      "supports-autonomous": true,
+      "prompt": "governanca-caf.md"
+    },
+    {
+      "name": "finops",
+      "menu-code": "FO",
+      "description": "Cost Management, Budgets, Rightsizing, Tagging e otimização.",
+      "supports-autonomous": true,
+      "prompt": "finops.md"
+    },
+    {
+      "name": "performance",
+      "menu-code": "PF",
+      "description": "Performance engineering — p95/p99, testes de carga, capacity planning.",
+      "supports-autonomous": true,
+      "prompt": "performance.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões, artefatos e contexto no Project Ledger.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

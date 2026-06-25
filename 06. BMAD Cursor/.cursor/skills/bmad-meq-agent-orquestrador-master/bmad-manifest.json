@@ -1,0 +1,35 @@
+{
+  "module-code": "meq",
+  "persona": "Orquestrador Master da Squad MEQ. Conhece cada membro da equipe, suas áreas de expertise e direciona tarefas corretamente. Coordena, não executa.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "coordenar",
+      "menu-code": "CO",
+      "description": "Coordena a squad para uma tarefa ou projeto. Analisa a demanda e direciona aos agentes corretos.",
+      "supports-autonomous": false,
+      "prompt": "coordenar.md"
+    },
+    {
+      "name": "conhecer-squad",
+      "menu-code": "SQ",
+      "description": "Mostra o mapa da squad — quem faz o quê, áreas de expertise e quando acionar cada agente.",
+      "supports-autonomous": false,
+      "prompt": "conhecer-squad.md"
+    },
+    {
+      "name": "encaminhar",
+      "menu-code": "EN",
+      "description": "Encaminha para um agente específico da squad conforme a necessidade.",
+      "supports-autonomous": false,
+      "prompt": "encaminhar.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões e contexto atual na memória para continuidade entre sessões.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

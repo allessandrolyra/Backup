@@ -1,0 +1,376 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure",
+  "timestamp": "2026-04-16T18:32:48.196396+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "bmad-agent-astra-sre-azure",
+      "description": "SRE Azure Specialist (Principal/Executor). Projeta, implementa e opera workloads Azure com Reliability First. Use quando precisar provisionar infra Azure, criar IaC, configurar pipelines ou falar com Astra."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "Overview",
+        "line": 8
+      },
+      {
+        "level": 2,
+        "title": "Identity",
+        "line": 12
+      },
+      {
+        "level": 2,
+        "title": "Communication Style",
+        "line": 16
+      },
+      {
+        "level": 2,
+        "title": "Principles",
+        "line": 20
+      },
+      {
+        "level": 2,
+        "title": "Sidecar",
+        "line": 29
+      },
+      {
+        "level": 2,
+        "title": "On Activation",
+        "line": 35
+      },
+      {
+        "level": 2,
+        "title": "Tabela de Roteamento de Capacidades",
+        "line": 61
+      },
+      {
+        "level": 2,
+        "title": "Seguran\u00e7a",
+        "line": 77
+      }
+    ],
+    "has_manifest": true,
+    "manifest_validation": {
+      "found": true,
+      "valid_json": true,
+      "is_agent": true,
+      "has_capabilities": true,
+      "capability_count": 11,
+      "menu_codes": [
+        "CD",
+        "AD",
+        "IC",
+        "CI",
+        "RD",
+        "OS",
+        "NS",
+        "GC",
+        "FO",
+        "PF",
+        "SM"
+      ],
+      "duplicate_menu_codes": [],
+      "capability_issues": []
+    },
+    "capability_crossref": {
+      "manifest_prompt_caps": [],
+      "missing_prompt_files": [],
+      "orphaned_prompt_files": [
+        "PROMPT_SYSTEM",
+        "arquitetura-design",
+        "cicd",
+        "compute-decisor",
+        "finops",
+        "governanca-caf",
+        "iac",
+        "init",
+        "networking-seguranca",
+        "observabilidade-sre",
+        "performance",
+        "resiliencia-dr",
+        "save-memory"
+      ]
+    }
+  },
+  "prompt_details": [
+    {
+      "file": "arquitetura-design.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "cicd.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "compute-decisor.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "finops.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "governanca-caf.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "iac.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "init.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "networking-seguranca.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "observabilidade-sre.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "performance.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "resiliencia-dr.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "save-memory.md",
+      "has_config_header": true,
+      "has_progression": true
+    }
+  ],
+  "memory_paths": [
+    "memory/bmad-agent-astra-sre-azure-ledger/",
+    "memory/bmad-agent-astra-sre-azure-ledger/index.md"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file PROMPT_SYSTEM.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "arquitetura-design.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file arquitetura-design.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "cicd.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file cicd.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "compute-decisor.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file compute-decisor.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "finops.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file finops.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "governanca-caf.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file governanca-caf.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "iac.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file iac.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "init.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file init.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "networking-seguranca.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file networking-seguranca.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "observabilidade-sre.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file observabilidade-sre.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "performance.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file performance.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "resiliencia-dr.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file resiliencia-dr.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "save-memory.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "capability-crossref",
+      "issue": "Prompt file save-memory.md not referenced as a prompt capability in manifest"
+    },
+    {
+      "file": "arquitetura-design.md",
+      "line": 33,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "cicd.md",
+      "line": 33,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "compute-decisor.md",
+      "line": 39,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "finops.md",
+      "line": 39,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "governanca-caf.md",
+      "line": 39,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "iac.md",
+      "line": 33,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "init.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "init.md",
+      "line": 28,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "networking-seguranca.md",
+      "line": 38,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "observabilidade-sre.md",
+      "line": 39,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "performance.md",
+      "line": 41,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "line": 60,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "resiliencia-dr.md",
+      "line": 36,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    }
+  ],
+  "summary": {
+    "total_issues": 28,
+    "by_severity": {
+      "critical": 0,
+      "high": 12,
+      "medium": 16,
+      "low": 0
+    }
+  }
+}

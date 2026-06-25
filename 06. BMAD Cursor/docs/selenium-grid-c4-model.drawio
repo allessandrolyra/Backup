@@ -1,0 +1,206 @@
+<mxfile host="app.diagrams.net" modified="2026-03-27T00:00:00.000Z" agent="Cursor GPT-5.4" version="24.7.17">
+  <diagram id="c4-context" name="1. Contexto do Sistema">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ctx-title" value="C4 Model - 1. Diagrama de Contexto do Sistema" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-note" value="Mostra pessoas e sistemas externos ao redor do sistema principal. Aqui a pergunta respondida e: quem usa a plataforma e com quais sistemas ela se integra?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="760" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-qa" value="Pessoa&#xa;Time QA / Automacao&#xa;Dispara suites, acompanha execucoes e analisa evidencias" style="shape=mxgraph.mockup.markup.user;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="260" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-dev" value="Pessoa&#xa;Squad de Desenvolvimento&#xa;Mantem codigo de teste, pipeline e configuracoes" style="shape=mxgraph.mockup.markup.user;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="470" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-system" value="Sistema Principal&#xa;Plataforma de Automacao de Testes no Azure&#xa;Executa testes UI em paralelo com Selenium Grid, integra CI/CD, coleta evidencias e publica observabilidade" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="470" y="300" width="300" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-devops" value="Sistema Externo&#xa;Azure DevOps&#xa;Orquestra pipeline e governanca da esteira" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="980" y="180" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-target" value="Sistema Externo&#xa;Sistemas Alvo Zurich&#xa;Motor TIA / Sinistros&#xa;Aplicacoes validadas pelos testes automatizados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="980" y="360" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-observability" value="Sistema Externo&#xa;Dashboards e Monitoramento&#xa;Azure Monitor / Log Analytics / App Insights" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="980" y="560" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-e1" value="Usa a plataforma para executar suites e revisar resultados" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctx-qa" target="ctx-system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-e2" value="Mantem automacoes, configuracoes e evolui a esteira" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctx-dev" target="ctx-system">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-e3" value="Recebe disparos e publica status de pipeline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctx-system" target="ctx-devops">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-e4" value="Executa testes UI e APIs sobre os sistemas da Zurich" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctx-system" target="ctx-target">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-e5" value="Envia logs, metricas, traces e visoes executivas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctx-system" target="ctx-observability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="c4-container" name="2. Diagrama de Container">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ctr-title" value="C4 Model - 2. Diagrama de Container" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="520" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-note" value="Mostra os principais containers do sistema principal. Aqui a pergunta respondida e: quais partes executaveis ou armazenamentos compoem a plataforma e como elas colaboram?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="820" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-qa" value="Pessoa&#xa;Time QA / Automacao" style="shape=mxgraph.mockup.markup.user;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="150" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-target" value="Sistema Externo&#xa;Sistemas Alvo Zurich&#xa;Motor TIA / Sinistros" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="330" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-boundary" value="Sistema Principal - Plataforma de Automacao de Testes no Azure" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="150" width="960" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-pipeline" value="Container&#xa;Pipeline de Orquestracao&#xa;Azure DevOps Pipelines&#xa;Dispara suites, controla etapas, publica status e artefatos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="ctr-boundary">
+          <mxGeometry x="60" y="70" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-acr" value="Container&#xa;Registry de Imagens&#xa;Azure Container Registry&#xa;Versiona imagens dos nodes e componentes do grid" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="ctr-boundary">
+          <mxGeometry x="350" y="70" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-runtime" value="Container&#xa;Runtime de Execucao&#xa;AKS + Selenium Grid&#xa;Hospeda hub e browser nodes para execucao paralela" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="ctr-boundary">
+          <mxGeometry x="640" y="210" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-keyvault" value="Container&#xa;Gestao de Segredos&#xa;Azure Key Vault&#xa;Entrega credenciais e configuracoes sensiveis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="ctr-boundary">
+          <mxGeometry x="350" y="250" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-storage" value="Container&#xa;Evidencias e Relatorios&#xa;Azure Storage / Pipeline Artifacts&#xa;Armazena screenshots, logs e evidencias de execucao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="ctr-boundary">
+          <mxGeometry x="640" y="410" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-observability" value="Container&#xa;Observabilidade&#xa;Azure Monitor + Log Analytics + App Insights&#xa;Consolida logs, metricas e traces" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="ctr-boundary">
+          <mxGeometry x="350" y="410" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e1" value="Dispara e acompanha execucoes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-qa" target="ctr-pipeline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e2" value="Obtém imagens versionadas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-pipeline" target="ctr-acr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e3" value="Executa suites no grid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-pipeline" target="ctr-runtime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e4" value="Consome segredos e configuracoes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-runtime" target="ctr-keyvault">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e5" value="Executa testes sobre" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-runtime" target="ctr-target">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e6" value="Grava evidencias e relatorios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-runtime" target="ctr-storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e7" value="Envia logs, traces e metricas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-runtime" target="ctr-observability">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctr-e8" value="Publica artefatos e links de resultado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ctr-pipeline" target="ctr-storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="c4-component" name="3. Diagrama de Componentes">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cmp-title" value="C4 Model - 3. Diagrama de Componentes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-note" value="Mostra os principais componentes internos de um container. Aqui o zoom foi aplicado no container Runtime de Execucao (AKS + Selenium Grid)." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-pipeline" value="Container Externo&#xa;Pipeline de Orquestracao&#xa;Azure DevOps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="60" y="280" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-target" value="Sistema Externo&#xa;Sistemas Alvo Zurich" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="290" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-storage" value="Container Externo&#xa;Storage / Artifacts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="470" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-keyvault" value="Container Externo&#xa;Azure Key Vault" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-monitor" value="Container Externo&#xa;Azure Monitor / Log Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="110" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-boundary" value="Container em foco - Runtime de Execucao (AKS + Selenium Grid)" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="150" width="890" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-trigger" value="Componente&#xa;Trigger Adapter&#xa;Recebe a chamada da pipeline e inicia a execucao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="40" y="120" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-router" value="Componente&#xa;Session Router&#xa;Recebe requisicoes WebDriver e valida a sessao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="270" y="120" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-distributor" value="Componente&#xa;Distributor&#xa;Decide qual pool de browser recebera a sessao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="500" y="120" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-nodes" value="Componente&#xa;Browser Node Pools&#xa;Chrome | Edge | Firefox&#xa;Executam os testes em paralelo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="710" y="240" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-evidence" value="Componente&#xa;Evidence Collector&#xa;Captura screenshots, logs e resultados estruturados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="500" y="330" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-telemetry" value="Componente&#xa;Telemetry Exporter&#xa;Publica logs, metricas e traces" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="270" y="330" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-config" value="Componente&#xa;Config and Secrets Adapter&#xa;Obtém credenciais e parametros de execucao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="cmp-boundary">
+          <mxGeometry x="40" y="330" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e1" value="Inicia job de teste" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-pipeline" target="cmp-trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e2" value="Ativa sessao" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-trigger" target="cmp-router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e3" value="Solicita alocacao" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-router" target="cmp-distributor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e4" value="Seleciona navegador / pool" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-distributor" target="cmp-nodes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e5" value="Executa jornadas automatizadas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-nodes" target="cmp-target">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e6" value="Coleta evidencias" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-nodes" target="cmp-evidence">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e7" value="Publica arquivos e relatorios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-evidence" target="cmp-storage">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e8" value="Lê segredos e parametros" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-config" target="cmp-keyvault">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e9" value="Expõe logs e metricas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-telemetry" target="cmp-monitor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e10" value="Configura runtime" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-config" target="cmp-router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e11" value="Gera telemetria" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-router" target="cmp-telemetry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e12" value="Gera telemetria" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-distributor" target="cmp-telemetry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cmp-e13" value="Gera telemetria" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="cmp-nodes" target="cmp-telemetry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

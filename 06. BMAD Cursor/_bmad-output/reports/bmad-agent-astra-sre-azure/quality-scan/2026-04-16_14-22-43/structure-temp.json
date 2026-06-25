@@ -1,0 +1,165 @@
+{
+  "scanner": "structure",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure",
+  "findings": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "title": "Description missing trigger phrase",
+      "detail": "Description missing \"Use when...\" trigger phrase. Current description is a capability tagline but does not tell the IDE when to invoke this agent.",
+      "action": "Add a 'Use when...' sentence to the description, e.g. 'Use when the user asks to talk to Astra or requests Azure SRE reliability engineering.'"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "title": "Missing ## Overview section",
+      "detail": "No ## Overview section found. The H1 title and Persona partially cover this, but a dedicated overview summarizing scope, target audience, and when to use the agent is absent.",
+      "action": "Add a ## Overview section after the H1 title with a concise summary of what Astra covers, its scope boundaries, and when it should be invoked."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "title": "Missing ## Identity section",
+      "detail": "No section named ## Identity found. Identity content exists under the non-standard heading '## Persona' (line 8). The persona text itself is effective — clear executor role, actionable, domain-specific — but the heading does not match BMad conventions.",
+      "action": "Rename '## Persona' to '## Identity' to match the standard BMad agent section naming."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "title": "Missing ## Communication Style section",
+      "detail": "No Communication Style section exists anywhere in SKILL.md. The standard-output.md reference defines response FORMAT (items A-H) but not tone, register, verbosity, or interaction patterns. The agent has no guidance on how to speak to the user.",
+      "action": "Add a ## Communication Style section defining tone (e.g. direct, technical), verbosity level, language register, and 2-3 concrete examples of how Astra should communicate."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "title": "Missing ## Principles section",
+      "detail": "No section named ## Principles found. Domain-specific principles exist under '## Princípios Operacionais (Reliability First)' (line 11). The 4 principles (MVC-R, Enterprise-Scale, Project Memory Ledger, Critical Thinking Mode) are relevant and actionable but live under a non-standard heading.",
+      "action": "Rename '## Princípios Operacionais (Reliability First)' to '## Principles' to match BMad conventions. Consider expanding from 4 terse bullets to include concrete thresholds or examples."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "title": "Missing ## On Activation section",
+      "detail": "No standalone ## On Activation section found. Activation steps (read ledger, identify state, resume conversation) exist inside the merged '## Ativação & Memória' section (line 17). The steps themselves are well-defined but the section structure does not match BMad conventions.",
+      "action": "Extract the activation steps into a standalone '## On Activation' section. Keep memory configuration details in a separate '## Memory' section."
+    },
+    {
+      "file": "bmad-manifest.json",
+      "line": 0,
+      "severity": "high",
+      "category": "manifest",
+      "title": "bmad-manifest.json not found at skill root",
+      "detail": "No bmad-manifest.json found. This prevents programmatic capability validation, menu-code routing, and integration with BMad orchestration tools. The agent defines 9 capabilities in its routing table but none are registered in a manifest.",
+      "action": "Create bmad-manifest.json at the skill root with type 'agent', listing all 9 capabilities with menu codes matching the routing table entries."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 8,
+      "severity": "medium",
+      "category": "structure",
+      "title": "Identity content under non-standard heading",
+      "detail": "The '## Persona' section (line 8) contains effective identity content: clear executor role, RELIABILITY FIRST principle, actionable description of what the agent does (configures, implements, parameterizes). However 'Persona' is not the standard BMad heading.",
+      "action": "Rename to '## Identity'. The content quality is good — no rewrite needed, only the heading."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 11,
+      "severity": "medium",
+      "category": "structure",
+      "title": "Principles content under non-standard heading",
+      "detail": "The '## Princípios Operacionais (Reliability First)' section (line 11) contains 4 domain-specific, actionable principles (MVC-R, Enterprise-Scale, Project Memory Ledger, Critical Thinking Mode). These are not generic platitudes — they are SRE-relevant. However the heading is non-standard.",
+      "action": "Rename to '## Principles'. Optionally add a subtitle like '(Reliability First)' inside the section body rather than the heading."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 17,
+      "severity": "medium",
+      "category": "structure",
+      "title": "Activation steps merged into combined section",
+      "detail": "The '## Ativação & Memória' section (line 17) merges memory configuration and activation steps into one block. The 3 activation steps (read ledger, identify state, resume) are well-defined but should live in their own section for convention compliance.",
+      "action": "Split into '## On Activation' (the 3 steps) and '## Memory' (ledger path, save triggers). This improves parseability and aligns with BMad standards."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "communication",
+      "title": "No communication style guidance defined",
+      "detail": "The agent has zero guidance on communication tone, register, or interaction style. The standard-output.md reference defines structural format (A-H items) but not HOW to speak. An SRE executor should have a defined style (e.g. direct, evidence-based, no fluff, uses specific metrics).",
+      "action": "Create a ## Communication Style section with: (1) tone definition (e.g. direct, technical, evidence-driven), (2) verbosity guidance, (3) language preference, (4) 2-3 example phrases showing the expected register."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 11,
+      "severity": "low",
+      "category": "principles",
+      "title": "Principles are domain-relevant but terse",
+      "detail": "The 4 operational principles are specific to SRE (not generic platitudes), which is positive. However each is a single sentence. MVC-R and Enterprise-Scale could benefit from concrete thresholds or examples (e.g. 'minimum 99.9% availability before adding features').",
+      "action": "Expand each principle with 1-2 sentences of concrete guidance or a threshold example. This strengthens agent behavior consistency."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "low",
+      "category": "consistency",
+      "title": "Language inconsistency between frontmatter and body",
+      "detail": "Frontmatter description is in English ('Principal/Specialist Azure SRE Executor...') while the SKILL.md body is entirely in Portuguese. Section headings are Portuguese ('Princípios Operacionais', 'Ativação & Memória'). This creates a mixed-language experience.",
+      "action": "Choose one language consistently. If Portuguese is intentional for the target audience, translate the frontmatter description. If English is preferred, translate the body."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 0,
+      "severity": "medium",
+      "category": "headless",
+      "title": "No headless/autonomous mode support",
+      "detail": "The agent defines no headless execution mode. For an SRE executor agent, headless support could enable automated infrastructure audits, drift detection, or scheduled reliability checks without user interaction.",
+      "action": "Consider adding a headless mode section defining autonomous capabilities (e.g. 'audit infrastructure against WAF pillars', 'generate drift report') with input/output contracts."
+    }
+  ],
+  "assessments": {
+    "sections_found": [
+      "Persona (non-standard Identity)",
+      "Princípios Operacionais (non-standard Principles)",
+      "Ativação & Memória (merged Activation + Memory)",
+      "Tabela de Roteamento de Capacidades",
+      "Formato de Resposta Obrigatório"
+    ],
+    "capabilities_count": 9,
+    "has_memory": true,
+    "has_headless": false,
+    "manifest_valid": false
+  },
+  "summary": {
+    "total_findings": 14,
+    "by_severity": {
+      "critical": 0,
+      "high": 7,
+      "medium": 5,
+      "low": 2
+    },
+    "by_category": {
+      "frontmatter": 1,
+      "sections": 5,
+      "manifest": 1,
+      "structure": 3,
+      "communication": 1,
+      "principles": 1,
+      "consistency": 1,
+      "headless": 1
+    },
+    "assessment": "Agent has strong domain expertise with well-structured reference files covering all 6 Azure SRE domains (reliability, IaC/CI-CD, observability, FinOps/governance, project ledger, standard output). The identity content is effective and the principles are genuinely domain-specific (not generic platitudes). However, the agent uses non-standard Portuguese section headings instead of BMad conventions (Persona→Identity, Princípios→Principles, Ativação→On Activation), is entirely missing Overview and Communication Style sections, lacks a bmad-manifest.json for programmatic capability registration, and has no headless mode. The 7 high-severity findings are primarily structural naming issues and missing required sections — the underlying content quality is above average for a creation-phase agent. Primary remediation: rename sections to standard headings, add Overview + Communication Style, create manifest, and split the merged Ativação & Memória section."
+  }
+}

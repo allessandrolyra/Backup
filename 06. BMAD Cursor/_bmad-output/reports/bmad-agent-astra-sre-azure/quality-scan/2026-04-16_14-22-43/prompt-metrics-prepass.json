@@ -1,0 +1,84 @@
+{
+  "scanner": "prompt-craft-prepass",
+  "script": "prepass-prompt-metrics.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure",
+  "timestamp": "2026-04-16T17:23:05.185479+00:00",
+  "status": "info",
+  "skill_md_summary": {
+    "line_count": 41,
+    "token_estimate": 659,
+    "overview_lines": 0,
+    "table_count": 1,
+    "table_lines": 11,
+    "fenced_block_count": 0,
+    "fenced_block_lines": 0,
+    "section_count": 5
+  },
+  "prompt_health": {
+    "total_prompts": 0,
+    "prompts_with_config_header": 0,
+    "prompts_with_progression": 0
+  },
+  "aggregate": {
+    "total_files_scanned": 1,
+    "total_token_estimate": 659,
+    "total_waste_patterns": 0,
+    "total_back_references": 0,
+    "total_suggestive_loading": 0,
+    "total_wall_of_text": 0
+  },
+  "resource_sizes": {},
+  "manifest_alignment": {
+    "manifest_found": false,
+    "mismatches": [],
+    "manifest_only": [],
+    "prompt_only": []
+  },
+  "files": [
+    {
+      "file": "SKILL.md",
+      "line_count": 41,
+      "token_estimate": 659,
+      "sections": [
+        {
+          "level": 2,
+          "title": "Persona",
+          "line": 8
+        },
+        {
+          "level": 2,
+          "title": "Princ\u00edpios Operacionais (Reliability First)",
+          "line": 11
+        },
+        {
+          "level": 2,
+          "title": "Ativa\u00e7\u00e3o & Mem\u00f3ria",
+          "line": 17
+        },
+        {
+          "level": 2,
+          "title": "Tabela de Roteamento de Capacidades",
+          "line": 25
+        },
+        {
+          "level": 2,
+          "title": "Formato de Resposta Obrigat\u00f3rio",
+          "line": 39
+        }
+      ],
+      "table_count": 1,
+      "table_lines": 11,
+      "fenced_block_count": 0,
+      "fenced_block_lines": 0,
+      "waste_patterns": [],
+      "back_references": [],
+      "suggestive_loading": [],
+      "has_config_header": false,
+      "has_progression": true,
+      "wall_of_text": [],
+      "overview_lines": 0,
+      "is_skill_md": true
+    }
+  ]
+}

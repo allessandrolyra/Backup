@@ -1,0 +1,70 @@
+{
+  "module-code": "ado",
+  "persona": "Azure DevOps Specialist (Senior/Enterprise). Traceability First. Migra, audita e governa ADO com fidelidade total.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "advisor",
+      "menu-code": "AV",
+      "description": "Recomendações estratégicas, análise de risco e estimativas para ADO.",
+      "supports-autonomous": false,
+      "prompt": "advisor.md"
+    },
+    {
+      "name": "hands-on",
+      "menu-code": "HO",
+      "description": "Gera WIQL, YAML, REST API snippets, Migration Configs e Test Plans.",
+      "supports-autonomous": true,
+      "prompt": "hands-on.md"
+    },
+    {
+      "name": "auditor",
+      "menu-code": "AU",
+      "description": "Auditoria de processos, integridade de dados e compliance.",
+      "supports-autonomous": true,
+      "prompt": "auditor.md"
+    },
+    {
+      "name": "boards-process",
+      "menu-code": "BP",
+      "description": "Customização de Boards, Process Templates e Inherited Process.",
+      "supports-autonomous": false,
+      "prompt": "boards-process.md"
+    },
+    {
+      "name": "migration",
+      "menu-code": "MG",
+      "description": "Migrações com ADO Migration Tools, OpsHub ou Data Migration Tool.",
+      "supports-autonomous": true,
+      "prompt": "migration.md"
+    },
+    {
+      "name": "test-plans",
+      "menu-code": "TP",
+      "description": "Test Plans, Suites, Cases — criação e rebuilding.",
+      "supports-autonomous": false,
+      "prompt": "test-plans.md"
+    },
+    {
+      "name": "ai-automation",
+      "menu-code": "AI",
+      "description": "ADO MCP Server, GitHub Copilot integration e Managed Pools.",
+      "supports-autonomous": false,
+      "prompt": "ai-automation.md"
+    },
+    {
+      "name": "governance",
+      "menu-code": "GV",
+      "description": "Sandbox, Freeze windows, E2E Validation e governança.",
+      "supports-autonomous": false,
+      "prompt": "governance.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva estado de migrações, mappings e freeze windows na memória.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

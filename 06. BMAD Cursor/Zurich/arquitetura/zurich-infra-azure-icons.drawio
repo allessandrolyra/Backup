@@ -1,0 +1,206 @@
+<mxfile host="app.diagrams.net" modified="2026-03-29T00:00:00.000Z" agent="Cursor GPT-5.4" version="24.7.17">
+  <diagram id="zurich-infra-azure-icons" name="Infraestrutura Azure Zurich">
+    <mxGraphModel dx="1900" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Zurich - Infraestrutura Azure com Icones" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="860" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Selenium Grid em AKS, integracao com Azure DevOps, seguranca, observabilidade e armazenamento de evidencias" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="52" width="1150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Preto = fluxo principal | Azul = servicos de suporte | Verde = rede e seguranca | Roxo = observabilidade" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="84" width="860" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Leitura recomendada: siga primeiro a linha central da esquerda para a direita. Depois observe as conexoes verticais de suporte e rede." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="132" width="920" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="externalZone" value="Atores Externos" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="250" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="qaTeam" value="Time QA / Automacao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="externalZone">
+          <mxGeometry x="35" y="70" width="180" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="userBox" value="Usuario / Navegador" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="externalZone">
+          <mxGeometry x="35" y="210" width="180" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subscriptionZone" value="Subscription Zurich - Plataforma de Testes" style="swimlane;html=1;rounded=1;startSize=30;fillColor=#fff2cc;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="210" width="1510" height="980" as="geometry" />
+        </mxCell>
+
+        <mxCell id="supportZone" value="Servicos Compartilhados Azure" style="swimlane;html=1;rounded=1;startSize=26;fillColor=#f5f5f5;strokeColor=#999999;fontStyle=1;" vertex="1" parent="subscriptionZone">
+          <mxGeometry x="30" y="70" width="1450" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="adoIcon" value="Azure DevOps" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%230078D4%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EADO%3C/text%3E%3C/svg%3E;" vertex="1" parent="supportZone">
+          <mxGeometry x="70" y="60" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="acrIcon" value="Azure Container Registry" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%231E88E5%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EACR%3C/text%3E%3C/svg%3E;" vertex="1" parent="supportZone">
+          <mxGeometry x="350" y="60" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="kvIcon" value="Azure Key Vault" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%23F2C94C%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20font-weight%3D%22bold%22%20fill%3D%22%23333%22%3EKV%3C/text%3E%3C/svg%3E;" vertex="1" parent="supportZone">
+          <mxGeometry x="620" y="60" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="monitorIcon" value="Azure Monitor / Log Analytics" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%238E44AD%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EMON%3C/text%3E%3C/svg%3E;" vertex="1" parent="supportZone">
+          <mxGeometry x="930" y="60" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="storageIcon" value="Storage / Artifacts" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%2327AE60%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3ESTG%3C/text%3E%3C/svg%3E;" vertex="1" parent="supportZone">
+          <mxGeometry x="1230" y="60" width="66" height="66" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mainZone" value="Fluxo Principal de Infraestrutura" style="swimlane;html=1;rounded=1;startSize=26;fillColor=#ffffff;strokeColor=#999999;fontStyle=1;" vertex="1" parent="subscriptionZone">
+          <mxGeometry x="30" y="310" width="1450" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="fwIcon" value="Azure Firewall" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%23C0392B%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EFW%3C/text%3E%3C/svg%3E;" vertex="1" parent="mainZone">
+          <mxGeometry x="120" y="80" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="agwIcon" value="Application Gateway / WAF" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%2300ACC1%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EAGW%3C/text%3E%3C/svg%3E;" vertex="1" parent="mainZone">
+          <mxGeometry x="370" y="80" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="aksIcon" value="AKS Cluster" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%230078D4%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EAKS%3C/text%3E%3C/svg%3E;" vertex="1" parent="mainZone">
+          <mxGeometry x="700" y="80" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="gridHub" value="Selenium Grid Hub&#xa;TCP 4444" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="mainZone">
+          <mxGeometry x="860" y="82" width="170" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="gridNodes" value="Browser Nodes&#xa;Chrome | Edge | Firefox" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="mainZone">
+          <mxGeometry x="1110" y="82" width="180" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="targetApps" value="Aplicacoes Zurich&#xa;Motor TIA | Sinistros" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="mainZone">
+          <mxGeometry x="1340" y="82" width="180" height="62" as="geometry" />
+        </mxCell>
+
+        <mxCell id="networkZone" value="Rede e Seguranca" style="swimlane;html=1;rounded=1;startSize=26;fillColor=#ffffff;strokeColor=#999999;fontStyle=1;" vertex="1" parent="subscriptionZone">
+          <mxGeometry x="30" y="650" width="1450" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="vnetIcon" value="Virtual Network" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%232E7D32%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EVNET%3C/text%3E%3C/svg%3E;" vertex="1" parent="networkZone">
+          <mxGeometry x="220" y="78" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="nsgIcon" value="NSG / Regras" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%2343A047%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2216%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3ENSG%3C/text%3E%3C/svg%3E;" vertex="1" parent="networkZone">
+          <mxGeometry x="610" y="78" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="peIcon" value="Private Endpoints" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;imageAspect=0;aspect=fixed;image=data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22%2366BB6A%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2238%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%3EPE%3C/text%3E%3C/svg%3E;" vertex="1" parent="networkZone">
+          <mxGeometry x="980" y="78" width="66" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="subnets" value="Subnets dedicadas para&#xa;entrada, AKS e servicos privados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="networkZone">
+          <mxGeometry x="1180" y="80" width="220" height="62" as="geometry" />
+        </mxCell>
+
+        <mxCell id="opsZone" value="Observabilidade e Evidencias" style="swimlane;html=1;rounded=1;startSize=26;fillColor=#ffffff;strokeColor=#999999;fontStyle=1;" vertex="1" parent="subscriptionZone">
+          <mxGeometry x="30" y="930" width="1450" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="opsDash" value="Dashboards Tecnicos e Executivos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="opsZone">
+          <mxGeometry x="280" y="58" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="evidenceBox" value="Relatorios, logs, screenshots&#xa;e historico de execucoes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="opsZone">
+          <mxGeometry x="900" y="58" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="1. Dispara pipeline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="qaTeam" target="adoIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="2. Qualidade" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="adoIcon" target="fwIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="475" y="360" />
+              <mxPoint x="475" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="3. Entrada controlada" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="fwIcon" target="agwIcon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="4. Encaminha para runtime" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="agwIcon" target="aksIcon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="5. Hub do Grid" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="aksIcon" target="gridHub">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="6. Distribui sessoes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="gridHub" target="gridNodes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="7. Testa aplicacoes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="gridNodes" target="targetApps">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e8" value="8. Pull de imagens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6c8ebf;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="acrIcon" target="aksIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="9. Segredos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6c8ebf;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="kvIcon" target="aksIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" value="10. Logs e metricas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#9673a6;fontColor=#9673a6;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="aksIcon" target="monitorIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="11. Evidencias" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6c8ebf;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="targetApps" target="storageIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1560" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e12" value="12. Topologia de rede" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;fontColor=#82b366;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="vnetIcon" target="nsgIcon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="13. Acesso privado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;fontColor=#82b366;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nsgIcon" target="peIcon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="14. Subnets dedicadas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;fontColor=#82b366;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="peIcon" target="subnets">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="15. Protege o runtime" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;fontColor=#82b366;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nsgIcon" target="aksIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="975" y="690" />
+              <mxPoint x="975" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e16" value="16. Acesso HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#000000;fontColor=#000000;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="userBox" target="agwIcon">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" value="17. Dashboards" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#9673a6;fontColor=#9673a6;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="monitorIcon" target="opsDash">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1290" y="950" />
+              <mxPoint x="760" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e18" value="18. Consolida artefatos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;fontColor=#82b366;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="storageIcon" target="evidenceBox">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1620" y="950" />
+              <mxPoint x="1240" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

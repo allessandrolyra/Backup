@@ -1,0 +1,121 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-bravo",
+  "timestamp": "2026-04-16T18:40:54.178262+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "bmad-agent-bravo",
+      "description": "Expert in Azure DevOps for large corporate environments. Designs, migrates, and governs ADO solutions with high fidelity and traceability."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "Persona",
+        "line": 8
+      },
+      {
+        "level": 2,
+        "title": "Operating Principles",
+        "line": 11
+      },
+      {
+        "level": 2,
+        "title": "Activation & Memory",
+        "line": 17
+      },
+      {
+        "level": 2,
+        "title": "Capability Routing",
+        "line": 25
+      },
+      {
+        "level": 2,
+        "title": "Mandatory Outputs",
+        "line": 41
+      }
+    ],
+    "has_manifest": false,
+    "manifest_validation": {
+      "found": false,
+      "valid_json": false,
+      "is_agent": false,
+      "has_capabilities": false,
+      "capability_count": 0,
+      "menu_codes": [],
+      "duplicate_menu_codes": [],
+      "capability_issues": []
+    },
+    "capability_crossref": {
+      "manifest_prompt_caps": [],
+      "missing_prompt_files": [],
+      "orphaned_prompt_files": []
+    }
+  },
+  "prompt_details": [],
+  "memory_paths": [
+    "memory/bmad-agent-bravo-sidecar/index.md"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Overview section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Identity section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Communication Style section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Principles section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## On Activation section"
+    },
+    {
+      "file": "bmad-manifest.json",
+      "line": 0,
+      "severity": "high",
+      "category": "manifest",
+      "issue": "bmad-manifest.json not found at skill root"
+    }
+  ],
+  "summary": {
+    "total_issues": 7,
+    "by_severity": {
+      "critical": 0,
+      "high": 6,
+      "medium": 1,
+      "low": 0
+    }
+  }
+}

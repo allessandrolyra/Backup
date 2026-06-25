@@ -1,0 +1,248 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\nexus-ux-engineer",
+  "timestamp": "2026-04-16T18:40:55.921380+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "nexus-ux-engineer",
+      "description": "Agente Frontend/UX Universal Executor (enterprise). Projeta E implementa UI/UX em qualquer stack/plataforma, com Performance (Core Web Vitals) e Acessibilidade (WCAG 2.2 AA). Adaptavel a IDE, Copilot, Command Center ou ambiente enterprise."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "Persona",
+        "line": 8
+      },
+      {
+        "level": 2,
+        "title": "Principios Operacionais (User-First, Code-Ready)",
+        "line": 21
+      },
+      {
+        "level": 2,
+        "title": "Deteccao de Ambiente (Universal Adapter)",
+        "line": 29
+      },
+      {
+        "level": 2,
+        "title": "Ativacao & Memoria",
+        "line": 42
+      },
+      {
+        "level": 2,
+        "title": "Modo de Operacao (Multi-Agente Simulado)",
+        "line": 54
+      },
+      {
+        "level": 2,
+        "title": "Tabela de Roteamento de Capacidades",
+        "line": 69
+      },
+      {
+        "level": 2,
+        "title": "Ferramentas (Universal \u2014 Use o Que Estiver Disponivel)",
+        "line": 82
+      },
+      {
+        "level": 3,
+        "title": "Camada 1: Ferramentas de Execucao Direta (IDE / Command Center / Agentic)",
+        "line": 84
+      },
+      {
+        "level": 3,
+        "title": "Camada 2: Ferramentas de Conhecimento Enterprise (Copilot / RAG)",
+        "line": 98
+      },
+      {
+        "level": 3,
+        "title": "Camada 3: Modo Conversacional Puro (Chat sem Ferramentas)",
+        "line": 110
+      },
+      {
+        "level": 3,
+        "title": "Regras Universais de Ferramentas",
+        "line": 117
+      },
+      {
+        "level": 3,
+        "title": "Workflow de Execucao Padrao",
+        "line": 124
+      },
+      {
+        "level": 3,
+        "title": "Regras de Execucao",
+        "line": 135
+      },
+      {
+        "level": 2,
+        "title": "Modos de Execucao",
+        "line": 143
+      },
+      {
+        "level": 2,
+        "title": "Modos Especiais",
+        "line": 152
+      },
+      {
+        "level": 2,
+        "title": "Definition of Done (Obrigatorio)",
+        "line": 162
+      },
+      {
+        "level": 2,
+        "title": "Contexto Tecnico (Auto-Detectavel \u2014 Adapte ao Projeto)",
+        "line": 175
+      },
+      {
+        "level": 2,
+        "title": "Confiabilidade (Anti-Alucinacao / Grounding)",
+        "line": 187
+      },
+      {
+        "level": 2,
+        "title": "Seguranca",
+        "line": 197
+      },
+      {
+        "level": 2,
+        "title": "Principios",
+        "line": 205
+      },
+      {
+        "level": 2,
+        "title": "Scaffolding Padrao (Estrutura de Componentes)",
+        "line": 212
+      },
+      {
+        "level": 2,
+        "title": "Arquitetura Frontend (Guidelines \u2014 Stack-Agnostic)",
+        "line": 248
+      },
+      {
+        "level": 2,
+        "title": "Performance (Core Web Vitals)",
+        "line": 257
+      },
+      {
+        "level": 2,
+        "title": "Acessibilidade (WCAG 2.2 AA \u2014 Checklist Obrigatorio)",
+        "line": 265
+      },
+      {
+        "level": 2,
+        "title": "Testes (Praticos e Resilientes)",
+        "line": 276
+      },
+      {
+        "level": 2,
+        "title": "Observabilidade",
+        "line": 284
+      },
+      {
+        "level": 2,
+        "title": "Formato de Resposta",
+        "line": 289
+      },
+      {
+        "level": 3,
+        "title": "Modo Executor (quando implementa):",
+        "line": 291
+      },
+      {
+        "level": 3,
+        "title": "Modo Consultoria (quando apenas recomenda):",
+        "line": 298
+      }
+    ],
+    "has_manifest": false,
+    "manifest_validation": {
+      "found": false,
+      "valid_json": false,
+      "is_agent": false,
+      "has_capabilities": false,
+      "capability_count": 0,
+      "menu_codes": [],
+      "duplicate_menu_codes": [],
+      "capability_issues": []
+    },
+    "capability_crossref": {
+      "manifest_prompt_caps": [],
+      "missing_prompt_files": [],
+      "orphaned_prompt_files": []
+    }
+  },
+  "prompt_details": [],
+  "memory_paths": [
+    "memory/nexus-ux-engineer-ledger/index.md"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Name \"nexus-ux-engineer\" does not follow bmad-{code}-agent-{name} or bmad-agent-{name} pattern"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Overview section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Identity section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Communication Style section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Principles section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## On Activation section"
+    },
+    {
+      "file": "bmad-manifest.json",
+      "line": 0,
+      "severity": "high",
+      "category": "manifest",
+      "issue": "bmad-manifest.json not found at skill root"
+    }
+  ],
+  "summary": {
+    "total_issues": 8,
+    "by_severity": {
+      "critical": 0,
+      "high": 6,
+      "medium": 2,
+      "low": 0
+    }
+  }
+}

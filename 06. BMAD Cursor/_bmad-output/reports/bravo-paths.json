@@ -1,0 +1,160 @@
+{
+  "scanner": "path-standards",
+  "script": "scan-path-standards.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-bravo",
+  "timestamp": "2026-04-16T18:41:00.246461+00:00",
+  "files_scanned": [
+    "references\\advisor.md",
+    "references\\auditor.md",
+    "references\\autonomous-wake.md",
+    "references\\hands-on.md",
+    "references\\init.md",
+    "references\\memory-system.md",
+    "references\\playbook-ai.md",
+    "references\\playbook-boards.md",
+    "references\\playbook-governance.md",
+    "references\\playbook-migration.md",
+    "references\\playbook-tests.md",
+    "SKILL.md"
+  ],
+  "status": "fail",
+  "findings": [
+    {
+      "file": "references\\autonomous-wake.md",
+      "line": 21,
+      "severity": "high",
+      "category": "bare-bmad",
+      "title": "Bare _bmad reference without {project-root} prefix",
+      "detail": "3. Log inconsistencies in `_bmad/logs/bravo-validation.log`.",
+      "action": ""
+    },
+    {
+      "file": "references\\memory-system.md",
+      "line": 21,
+      "severity": "critical",
+      "category": "project-root-not-bmad",
+      "title": "{project-root} used for non-_bmad path \u2014 only valid use is {project-root}/_bmad/...",
+      "detail": "- Source code in `{project-root}/` (for Pipeline review).",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 29,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Strategic recommendations, risk analysis, estimates | **Advisor** | `./references/advisor.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 30,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| WIQL, YAML, REST, Migration Configs, Test Plans | **Hands-on** | `./references/hands-on.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 31,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Process review, inconsistency check, audit | **Auditor** | `./references/auditor.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 32,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Boards, Process Customization, Inherited Process | **Playbook** | `./references/playbook-boards.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 33,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| ADO Migration Tools, OpsHub, Data Migration Tool | **Playbook** | `./references/playbook-migration.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 34,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Test Plans, Suites, Cases, Rebuilding | **Playbook** | `./references/playbook-tests.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 35,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| ADO MCP Server, GitHub Copilot, Managed Pools | **Playbook** | `./references/playbook-ai.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 36,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Sandbox, Freeze, E2E Validation, Governance | **Playbook** | `./references/playbook-governance.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 37,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Memory structure and sidecar details | **Memory** | `./references/memory-system.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 38,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Onboarding and setup procedures | **Init** | `./references/init.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 39,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Autonomous behavior and headless tasks | **Headless** | `./references/autonomous-wake.md` |",
+      "action": ""
+    }
+  ],
+  "assessments": {},
+  "summary": {
+    "total_findings": 13,
+    "by_severity": {
+      "critical": 1,
+      "high": 1,
+      "medium": 11,
+      "low": 0
+    },
+    "by_category": {
+      "project_root_not_bmad": 1,
+      "bare_bmad": 1,
+      "double_prefix": 0,
+      "absolute_path": 0,
+      "relative_prefix": 11,
+      "memory_path": 0
+    },
+    "assessment": "Path standards scan complete"
+  }
+}

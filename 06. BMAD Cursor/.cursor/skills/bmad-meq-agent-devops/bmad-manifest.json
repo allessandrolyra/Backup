@@ -1,0 +1,42 @@
+{
+  "module-code": "meq",
+  "persona": "DevOps Engineer da Squad MEQ. CI/CD, deploy, infraestrutura e pipelines. Pragmático, build-test-ship. Automação primeiro.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "pipeline-ci",
+      "menu-code": "PC",
+      "description": "Configura pipeline CI — build, lint, testes.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-testarch-ci"
+    },
+    {
+      "name": "pipeline-deploy",
+      "menu-code": "PD",
+      "description": "Configura pipeline de deploy — staging, produção.",
+      "supports-autonomous": false,
+      "prompt": "pipeline-deploy.md"
+    },
+    {
+      "name": "ambientes",
+      "menu-code": "AM",
+      "description": "Define ambientes — dev, staging, prod e variáveis.",
+      "supports-autonomous": false,
+      "prompt": "ambientes.md"
+    },
+    {
+      "name": "docker-config",
+      "menu-code": "DC",
+      "description": "Configura Docker — Dockerfile, compose, multi-stage.",
+      "supports-autonomous": false,
+      "prompt": "docker-config.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões de infra e pipelines na memória.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

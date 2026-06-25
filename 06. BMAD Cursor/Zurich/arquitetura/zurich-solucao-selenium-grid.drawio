@@ -1,0 +1,179 @@
+<mxfile host="app.diagrams.net" modified="2026-03-29T00:00:00.000Z" agent="Cursor GPT-5.4" version="24.7.17">
+  <diagram id="zurich-solution-view" name="Visao de Solucao Zurich">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Zurich - Visao de Solucao para Automacao e Performance" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Desenho baseado na reuniao: Selenium Grid em AKS, integracao com Azure DevOps, qualidade, performance com k6 e dashboards" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="52" width="1200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="Leitura recomendada: siga primeiro a trilha central de automacao UI. Depois leia a trilha inferior de performance. A faixa superior mostra os servicos de suporte." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="86" width="840" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="supportLane" value="Servicos de Suporte Azure" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="1680" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="acr" value="Azure Container Registry&#xa;Imagens dos nodes e ferramentas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="supportLane">
+          <mxGeometry x="110" y="45" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="keyVault" value="Azure Key Vault&#xa;Segredos e configuracoes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="supportLane">
+          <mxGeometry x="400" y="45" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor" value="Azure Monitor / Log Analytics&#xa;Observabilidade e dashboards" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="supportLane">
+          <mxGeometry x="700" y="45" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" value="Storage / Pipeline Artifacts&#xa;Relatorios, screenshots e evidencias" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="supportLane">
+          <mxGeometry x="1010" y="45" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="powerbi" value="Dashboards Tecnicos / Executivos&#xa;Indicadores de qualidade e execucao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="supportLane">
+          <mxGeometry x="1330" y="45" width="250" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uiLane" value="Trilha 1 - Automacao UI" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#ffffff;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="1680" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="qaTeam" value="Time QA /&#xa;Automacao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="uiLane">
+          <mxGeometry x="70" y="90" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ado" value="Azure DevOps&#xa;Pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="uiLane">
+          <mxGeometry x="300" y="90" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="quality" value="Build + SonarQube&#xa;Quality Gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="uiLane">
+          <mxGeometry x="530" y="90" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aks" value="AKS&#xa;Selenium Grid" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="uiLane">
+          <mxGeometry x="810" y="90" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nodes" value="Browser Nodes&#xa;Chrome | Edge | Firefox" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="uiLane">
+          <mxGeometry x="1040" y="90" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="apps" value="Aplicacoes Zurich&#xa;Motor TIA | Sinistros" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="uiLane">
+          <mxGeometry x="1320" y="90" width="190" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="perfLane" value="Trilha 2 - Performance e Carga" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#ffffff;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="1680" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="perfTrigger" value="Pipeline / Agenda&#xa;de teste" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="perfLane">
+          <mxGeometry x="300" y="80" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="k6" value="k6&#xa;Testes de performance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="perfLane">
+          <mxGeometry x="640" y="80" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="perfApps" value="APIs / Aplicacoes Zurich&#xa;alvo de carga" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="perfLane">
+          <mxGeometry x="980" y="80" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="perfResults" value="Baseline, tempos, erros&#xa;e tendencia de capacidade" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="perfLane">
+          <mxGeometry x="1320" y="80" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="operLane" value="Sustentacao e Operacao" style="swimlane;html=1;rounded=1;startSize=28;fillColor=#ffffff;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="950" width="1680" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="opsModel" value="Modelo de Sustentacao&#xa;Operacao, suporte e governanca" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="operLane">
+          <mxGeometry x="220" y="50" width="220" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="runbooks" value="Runbooks / Padroes&#xa;de manutencao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="operLane">
+          <mxGeometry x="690" y="50" width="190" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="continuousImprovement" value="Melhoria Continua&#xa;dashboards, tuning e backlog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="operLane">
+          <mxGeometry x="1120" y="50" width="220" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="1. Disparo da automacao" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="qaTeam" target="ado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="2. Build e validacao" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ado" target="quality">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="3. Publica e executa" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="quality" target="aks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="4. Sessao WebDriver" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="aks" target="nodes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="5. Testa jornadas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodes" target="apps">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e6" value="6. Usa imagens" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#6c8ebf;fontColor=#6c8ebf;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="acr" target="aks">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" value="7. Le segredos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#d6b656;fontColor=#d6b656;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="keyVault" target="aks">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1065" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" value="8. Logs e metricas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#9673a6;fontColor=#9673a6;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="aks" target="monitor">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1085" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="9. Evidencias e relatorios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#82b366;fontColor=#82b366;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="apps" target="storage">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1445" y="350" />
+              <mxPoint x="1445" y="255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" value="10. Atualiza dashboards" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="monitor" target="powerbi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e11" value="11. Agenda performance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="ado" target="perfTrigger">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="375" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="12. Executa carga" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="perfTrigger" target="k6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="13. Mede resposta" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="k6" target="perfApps">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="14. Consolida baseline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="perfApps" target="perfResults">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="15. Dashboards de performance" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="perfResults" target="powerbi">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1550" y="255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e16" value="16. Sustentacao da plataforma" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#666666;fontColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="aks" target="opsModel">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="885" y="940" />
+              <mxPoint x="550" y="940" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" value="17. Runbooks e operacao" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#666666;fontColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="opsModel" target="runbooks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="18. Tuning continuo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#666666;fontColor=#666666;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="runbooks" target="continuousImprovement">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,221 @@
+================================================================================
+  INSTRUCOES PRE-MIGRACAO - Azure DevOps (RDor-corp -> RedeDor-corp)
+  Projeto: Plataforma de Saude
+  Ferramenta: Azure DevOps Migration Tools v16.3.3
+  MIGRACAO COMPLETA - TODOS OS CAMPOS
+================================================================================
+
+IMPORTANTE: Siga os passos na ordem abaixo antes de executar a migracao.
+
+================================================================================
+PASSO 1 - CRIAR CAMPOS CUSTOMIZADOS NO PORTAL AZURE DEVOPS (TARGET)
+================================================================================
+
+Acesse: https://dev.azure.com/RedeDor-corp/
+Va em: Organization Settings > Process
+Selecione o processo herdado do projeto "Plataforma de Saude"
+
+------------------------------------------------------------------------
+1.1 Campo no Test Case (obrigatorio para rastreamento da migracao):
+------------------------------------------------------------------------
+
+    Work Item Type: Test Case
+    Nome do campo:  ControleMigracao
+    Tipo:           Text (single line) / String
+    RefName gerado: Custom.ControleMigracao
+
+    NOTA: Test Plan e Test Suite NAO precisam deste campo.
+    Eles sao excluidos do processor via WIQL (sao tipos de sistema).
+
+------------------------------------------------------------------------
+1.2 Campo no Bug:
+------------------------------------------------------------------------
+
+    Work Item Type: Bug
+    Nome do campo:  Ambiente
+    Tipo:           Picklist (String)
+    Valores:        Desenvolvimento, Homologacao, Producao
+    RefName gerado: Custom.Ambiente
+
+------------------------------------------------------------------------
+1.3 Campos no Feature (7 campos):
+------------------------------------------------------------------------
+
+    a) Work Item Type: Feature
+       Nome do campo:  Solicitante
+       Tipo:           Text (single line) / String
+       RefName gerado: Custom.Solicitante
+
+    b) Work Item Type: Feature
+       Nome do campo:  AreasImpactadas
+       Tipo:           HTML (multiline)
+       RefName gerado: Custom.AreasImpactadas
+       NOTA: No source o RefName e um GUID (Custom.1e5d61de-...).
+             O script contem FieldToFieldMap para mapear automaticamente.
+
+    c) Work Item Type: Feature
+       Nome do campo:  AreaSolicitante
+       Tipo:           Text (single line) / String
+       RefName gerado: Custom.AreaSolicitante
+       NOTA: No source o RefName e um GUID (Custom.7d9f22e8-...).
+             O script contem FieldToFieldMap para mapear automaticamente.
+
+    d) Work Item Type: Feature
+       Nome do campo:  PontuacaoWSJF
+       Tipo:           Decimal / Double
+       RefName gerado: Custom.PontuacaoWSJF
+       NOTA: No source o RefName e um GUID (Custom.50cccf96-...).
+             O script contem FieldToFieldMap para mapear automaticamente.
+
+    e) Work Item Type: Feature
+       Nome do campo:  RequisitosNaoFuncionais
+       Tipo:           HTML (multiline)
+       RefName gerado: Custom.RequisitosNaoFuncionais
+       NOTA: No source o RefName e um GUID (Custom.9e0e1ef6-...).
+             O script contem FieldToFieldMap para mapear automaticamente.
+
+    f) Work Item Type: Feature
+       Nome do campo:  Beneficios
+       Tipo:           HTML (multiline)
+       RefName gerado: Custom.Beneficios
+       NOTA: No source o RefName e um GUID (Custom.627bab8c-...).
+             O script contem FieldToFieldMap para mapear automaticamente.
+
+    g) Work Item Type: Feature
+       Nome do campo:  CriteriosDeAceite
+       Tipo:           HTML (multiline)
+       RefName gerado: Custom.CriteriosDeAceite
+       NOTA: No source o RefName e um GUID (Custom.f68e53a0-...).
+             O script contem FieldToFieldMap para mapear automaticamente.
+
+------------------------------------------------------------------------
+1.4 Campo no Task:
+------------------------------------------------------------------------
+
+    Work Item Type: Task
+    Nome do campo:  Priorizadaduranteasprint
+    Tipo:           Picklist (String)
+    Valores:        Nao, Sim
+    RefName gerado: Custom.Priorizadaduranteasprint
+
+------------------------------------------------------------------------
+1.5 Campo no User Story:
+------------------------------------------------------------------------
+
+    Work Item Type: User Story
+    Nome do campo:  Priorizadanodecorrerdasprint
+    Tipo:           Boolean (True/False)
+    RefName gerado: Custom.Priorizadanodecorrerdasprint
+
+================================================================================
+PASSO 2 - TOKENS DE ACESSO
+================================================================================
+
+2.1 Substitua os tokens "<redacted>" nos arquivos:
+    - Script Migracao.txt (migracao real)
+    - Script Migracao - DryRun.txt (validacao)
+
+    Os tokens precisam ter as seguintes permissoes:
+    - Source (RDor-corp): Work Items (Read)
+    - Target (RedeDor-corp): Work Items (Read, Write, Manage)
+
+================================================================================
+PASSO 3 - VALIDACAO (DRY RUN)
+================================================================================
+
+3.1 Execute primeiro o script de dry-run para validar a configuracao:
+    > devopsmigration execute -c "Script Migracao - DryRun.txt"
+
+    Este script tem o Processor com "Enabled": false e Serilog em "Verbose".
+    Ele VAI conectar nos endpoints e validar tipos/campos, mas NAO migra nada.
+
+3.2 Verifique no log:
+    - Nao deve haver linhas [ERR] (erro critico)
+    - Warnings [WRN] sobre Microsoft.VSTS.Build.FoundIn e IntegrationBuild
+      sao aceitaveis (campos de sistema com allowed values diferentes)
+    - Confirme que a mensagem final NAO diz "Some work item types or their
+      fields are not valid"
+
+3.3 Se houver erros, corrija antes de prosseguir para o Passo 4.
+
+================================================================================
+PASSO 4 - EXECUCAO DA MIGRACAO
+================================================================================
+
+4.1 Execute o script de migracao real:
+    > devopsmigration execute -c "Script Migracao.txt"
+
+4.2 Monitore o log em tempo real para verificar:
+    - Work items sendo criados com sucesso no target
+    - Links e attachments migrando corretamente
+    - Nenhum erro de campo ou estado
+
+================================================================================
+PASSO 5 - MIGRACAO DE TEST PLANS E TEST SUITES (OPCIONAL)
+================================================================================
+
+Test Plans e Test Suites foram excluidos da migracao principal porque nao
+suportam o campo Custom.ControleMigracao (tipos de sistema). Para migra-los:
+
+5.1 Crie um segundo script de configuracao com:
+    - ProcessorType: "TfsTestPlansAndSuitesMigrationProcessor"
+    - Configure TestPlanQuery ou TestPlanIds conforme necessario
+    - Documentacao: https://devopsmigration.io/docs/how-to/migrating-plans-and-suites/
+
+================================================================================
+RESUMO DAS ALTERACOES NO SCRIPT
+================================================================================
+
+O que esta configurado no "Script Migracao.txt":
+
+1. WIQL FILTRADA
+   - AND [System.WorkItemType] NOT IN ('Test Plan', 'Test Suite')
+
+2. TfsWorkItemTypeValidatorTool
+   - ExcludeWorkItemTypes: Test Plan, Test Suite, Shared Steps, Shared Parameter
+   - NENHUM campo excluido (migracao completa)
+
+3. MAPEAMENTO DE ESTADOS (System.State) - FieldValueMap
+   - Bug: New->Novo, Active->Em Execucao, Resolved->Done, Closed->Closed
+   - Epic: Resolved->Done (demais iguais)
+   - Feature: Resolved->Done (demais iguais)
+   - Task: Aguardando homologacao/aprovacao->Active (demais iguais)
+   - User Story: Rascunho->New, Trabalho em andamento->Active,
+     Pronto para testes->Committed, Testando->Committed,
+     Pronto->Done, Concluido->Closed, Cancelada->Removed
+
+4. MAPEAMENTO DE VALORES - FieldValueMap
+   - ValueArea (Feature/User Story): Architectural->Arquitetura, Business->Negocios
+   - Priority (User Story): valores 5-8 mapeados para 4
+
+5. MAPEAMENTO DE CAMPOS - FieldToFieldMap
+   - Bug: Custom.Causaraiz -> Custom.CausaRaiz
+   - Feature: Custom.1e5d61de-... -> Custom.AreasImpactadas
+   - Feature: Custom.7d9f22e8-... -> Custom.AreaSolicitante
+   - Feature: Custom.50cccf96-... -> Custom.PontuacaoWSJF
+   - Feature: Custom.9e0e1ef6-... -> Custom.RequisitosNaoFuncionais
+   - Feature: Custom.627bab8c-... -> Custom.Beneficios
+   - Feature: Custom.f68e53a0-... -> Custom.CriteriosDeAceite
+
+================================================================================
+CAMPOS CRIADOS NO TARGET - CHECKLIST
+================================================================================
+
+Antes de rodar o script, confirme que TODOS os campos abaixo foram criados
+no portal do Azure DevOps target (RedeDor-corp):
+
+[ ] Test Case  - ControleMigracao (String)
+[ ] Bug        - Ambiente (Picklist: Desenvolvimento, Homologacao, Producao)
+[ ] Feature    - Solicitante (String)
+[ ] Feature    - AreasImpactadas (HTML)
+[ ] Feature    - AreaSolicitante (String)
+[ ] Feature    - PontuacaoWSJF (Decimal)
+[ ] Feature    - RequisitosNaoFuncionais (HTML)
+[ ] Feature    - Beneficios (HTML)
+[ ] Feature    - CriteriosDeAceite (HTML)
+[ ] Task       - Priorizadaduranteasprint (Picklist: Nao, Sim)
+[ ] User Story - Priorizadanodecorrerdasprint (Boolean)
+
+Total: 11 campos (1 de rastreamento + 10 de dados)
+
+================================================================================

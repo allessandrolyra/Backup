@@ -1,0 +1,84 @@
+{
+  "module-code": "sre-aws",
+  "persona": "SRE AWS Specialist (Staff/Principal). Reliability First. Projeta e opera infraestruturas AWS resilientes com IaC e SRE.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "compute-decisor",
+      "menu-code": "CD",
+      "description": "Escolhe o compute ideal — Lambda vs EKS vs ECS vs Fargate vs EC2.",
+      "supports-autonomous": true,
+      "prompt": "compute-decisor.md"
+    },
+    {
+      "name": "design-advisor",
+      "menu-code": "DA",
+      "description": "Design de arquitetura AWS com Well-Architected e trade-offs.",
+      "supports-autonomous": true,
+      "prompt": "design-advisor.md"
+    },
+    {
+      "name": "iac",
+      "menu-code": "IC",
+      "description": "Gera Terraform ou CloudFormation prontos para produção.",
+      "supports-autonomous": true,
+      "prompt": "iac.md"
+    },
+    {
+      "name": "cicd",
+      "menu-code": "CI",
+      "description": "Configura pipelines CI/CD com security scans e rollback.",
+      "supports-autonomous": true,
+      "prompt": "cicd.md"
+    },
+    {
+      "name": "resiliencia-dr",
+      "menu-code": "RD",
+      "description": "Resiliência, HA, DR (RTO/RPO), FIS e GameDays.",
+      "supports-autonomous": true,
+      "prompt": "resiliencia-dr.md"
+    },
+    {
+      "name": "observabilidade-sre",
+      "menu-code": "OS",
+      "description": "SLIs/SLOs, Error Budget, OpenTelemetry, CloudWatch e dashboards.",
+      "supports-autonomous": true,
+      "prompt": "observabilidade-sre.md"
+    },
+    {
+      "name": "networking-seguranca",
+      "menu-code": "NS",
+      "description": "VPC design, Security Groups, PrivateLink, Route53 e WAF.",
+      "supports-autonomous": true,
+      "prompt": "networking-seguranca.md"
+    },
+    {
+      "name": "governanca",
+      "menu-code": "GV",
+      "description": "Multi-account, Landing Zones, SCPs, IAM e compliance.",
+      "supports-autonomous": true,
+      "prompt": "governanca.md"
+    },
+    {
+      "name": "finops",
+      "menu-code": "FO",
+      "description": "Cost Explorer, Budgets, Savings Plans, Rightsizing e otimização.",
+      "supports-autonomous": true,
+      "prompt": "finops.md"
+    },
+    {
+      "name": "performance",
+      "menu-code": "PF",
+      "description": "Performance engineering — p95/p99, testes de carga, capacity planning.",
+      "supports-autonomous": true,
+      "prompt": "performance.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões, artefatos e contexto no Project State.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

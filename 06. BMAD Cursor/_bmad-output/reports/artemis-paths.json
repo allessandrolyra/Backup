@@ -1,0 +1,129 @@
+{
+  "scanner": "path-standards",
+  "script": "scan-path-standards.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-artemis-aws",
+  "timestamp": "2026-04-16T18:40:59.359871+00:00",
+  "files_scanned": [
+    "PROMPT_SYSTEM.md",
+    "references\\aws-advice.md",
+    "references\\finops-governance.md",
+    "references\\iac-cicd.md",
+    "references\\project-state.md",
+    "references\\sre-observability.md",
+    "references\\standard-output.md",
+    "SKILL.md"
+  ],
+  "status": "fail",
+  "findings": [
+    {
+      "file": "SKILL.md",
+      "line": 36,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Decis\u00f5es de arquitetura, trade-offs de compute, Well-Architected | **Design & Advisor** | `./references/aws-advice.md`",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 37,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Gerar Terraform, CloudFormation, scripts IaC | **Infra as Code** | `./references/iac-cicd.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 38,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Configurar Pipelines, CI/CD, Estrat\u00e9gia de Rollback | **Deployment** | `./references/iac-cicd.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 39,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| SLOs, SLIs, Dashboards, OpenTelemetry, Incidentes | **SRE & Observability** | `./references/sre-observability.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 40,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| An\u00e1lise de custo, KPIs, Showback, Otimiza\u00e7\u00e3o | **FinOps** | `./references/finops-governance.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 41,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Governan\u00e7a, IAM, Seguran\u00e7a, Compliance | **Governance** | `./references/finops-governance.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 42,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Atualizar e visualizar o estado do projeto | **Project Memory** | `./references/project-state.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 43,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "| Formata\u00e7\u00e3o padr\u00e3o de resposta | **Standards** | `./references/standard-output.md` |",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 46,
+      "severity": "medium",
+      "category": "relative-prefix",
+      "title": "Relative prefix (./) found \u2014 breaks when execution directory changes",
+      "detail": "Sempre estrutura suas respostas conforme definido em `./references/standard-output.md`.",
+      "action": ""
+    },
+    {
+      "file": "SKILL.md",
+      "line": 27,
+      "severity": "high",
+      "category": "bare-bmad",
+      "title": "Bare _bmad reference without {project-root} prefix",
+      "detail": "1. Carregar configura\u00e7\u00e3o do `_bmad/core/config.yaml`.",
+      "action": ""
+    }
+  ],
+  "assessments": {},
+  "summary": {
+    "total_findings": 10,
+    "by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 9,
+      "low": 0
+    },
+    "by_category": {
+      "project_root_not_bmad": 0,
+      "bare_bmad": 1,
+      "double_prefix": 0,
+      "absolute_path": 0,
+      "relative_prefix": 9,
+      "memory_path": 0
+    },
+    "assessment": "Path standards scan complete"
+  }
+}

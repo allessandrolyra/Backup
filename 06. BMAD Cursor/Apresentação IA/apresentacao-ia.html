@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA, LLMs, Agentes e BMAD — Apresentação</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --bg: #f8f9fc;
+    --card: #ffffff;
+    --text: #2d3748;
+    --text-light: #64748b;
+    --accent: #6366f1;
+    --accent-light: #e0e7ff;
+    --green: #10b981;
+    --green-light: #d1fae5;
+    --orange: #f59e0b;
+    --orange-light: #fef3c7;
+    --pink: #ec4899;
+    --pink-light: #fce7f3;
+    --blue: #3b82f6;
+    --blue-light: #dbeafe;
+    --cyan: #06b6d4;
+    --cyan-light: #cffafe;
+    --red: #ef4444;
+    --red-light: #fee2e2;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 80px;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .slide.active { display: flex; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-header {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  .slide-header .block-tag {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .slide-header h1 {
+    font-size: 2.6em;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .slide-header h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .slide-header .subtitle {
+    font-size: 1.2em;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+
+  .slide-body {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cards-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    flex: 1;
+    min-width: 200px;
+    max-width: 340px;
+    border: 1px solid #eef2f7;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card .icon {
+    font-size: 2em;
+    margin-bottom: 12px;
+  }
+
+  .card h3 {
+    font-size: 1.05em;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .card p {
+    font-size: 0.92em;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .highlight-box {
+    background: var(--accent-light);
+    border-radius: 16px;
+    padding: 28px 36px;
+    text-align: center;
+    border: 1px solid #c7d2fe;
+  }
+
+  .highlight-box.green { background: var(--green-light); border-color: #a7f3d0; }
+  .highlight-box.orange { background: var(--orange-light); border-color: #fde68a; }
+  .highlight-box.pink { background: var(--pink-light); border-color: #fbcfe8; }
+  .highlight-box.blue { background: var(--blue-light); border-color: #bfdbfe; }
+  .highlight-box.cyan { background: var(--cyan-light); border-color: #a5f3fc; }
+
+  .highlight-box .big-text {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .timeline {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .timeline-item {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 20px 12px;
+  }
+
+  .timeline-item::after {
+    content: '→';
+    position: absolute;
+    right: -8px;
+    top: 30px;
+    font-size: 1.5em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .timeline-item:last-child::after { display: none; }
+
+  .timeline-item .year {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .timeline-item h4 {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .timeline-item p {
+    font-size: 0.82em;
+    color: var(--text-light);
+    line-height: 1.4;
+  }
+
+  .comparison {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .comparison-side {
+    flex: 1;
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .comparison-side.before {
+    background: var(--red-light);
+    border: 1px solid #fecaca;
+  }
+
+  .comparison-side.after {
+    background: var(--green-light);
+    border: 1px solid #a7f3d0;
+  }
+
+  .comparison-side .label {
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .comparison-side.before .label { color: var(--red); }
+  .comparison-side.after .label { color: var(--green); }
+
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 16px 0;
+  }
+
+  .flow-step {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 0.88em;
+    font-weight: 600;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .flow-arrow {
+    font-size: 1.2em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .agent-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .agent-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid #eef2f7;
+  }
+
+  .agent-card .agent-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 8px;
+  }
+
+  .agent-card h4 { font-size: 0.92em; font-weight: 700; }
+  .agent-card p { font-size: 0.78em; color: var(--text-light); }
+
+  .table-simple {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 0 auto;
+  }
+
+  .table-simple th {
+    background: var(--accent-light);
+    padding: 14px 20px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: var(--accent);
+  }
+
+  .table-simple td {
+    padding: 12px 20px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 32px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid #eef2f7;
+    min-width: 140px;
+  }
+
+  .stat-card .number {
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-card .label {
+    font-size: 0.82em;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .puzzle {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .puzzle-piece {
+    border-radius: 16px;
+    padding: 22px 28px;
+    text-align: center;
+    min-width: 180px;
+    flex: 1;
+    max-width: 240px;
+  }
+
+  .puzzle-piece .piece-icon { font-size: 2em; margin-bottom: 8px; }
+  .puzzle-piece h4 { font-size: 1em; font-weight: 700; margin-bottom: 4px; }
+  .puzzle-piece p { font-size: 0.82em; line-height: 1.4; }
+
+  .funnel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .funnel-step {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 0.92em;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .funnel-step:hover { background: var(--accent-light); }
+
+  .funnel .funnel-arrow {
+    color: var(--accent);
+    font-size: 1.1em;
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid #eef2f7;
+  }
+
+  .feature-item .feat-icon {
+    font-size: 1.4em;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-item h4 { font-size: 0.92em; font-weight: 700; margin-bottom: 2px; }
+  .feature-item p { font-size: 0.82em; color: var(--text-light); line-height: 1.4; }
+
+  /* Navigation */
+  .nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-top: 1px solid #e2e8f0;
+    z-index: 100;
+  }
+
+  .nav-bar .progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-bar .progress .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .nav-bar .progress .dot.active {
+    background: var(--accent);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  .nav-bar .progress .dot.visited { background: #c7d2fe; }
+
+  .nav-bar .page-info {
+    font-size: 0.85em;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .nav-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 0.88em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+
+  .nav-btn:hover { background: #4f46e5; }
+
+  .nav-btn.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  .nav-btn.secondary:hover { background: var(--accent-light); }
+
+  .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Cover slide special */
+  .cover-bg {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f4f8 50%, #f5f0ff 100%);
+  }
+
+  .cover-bg h1 { font-size: 3.2em; }
+
+  /* Prompt example */
+  .prompt-example {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .prompt-box {
+    flex: 1;
+    border-radius: 16px;
+    padding: 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88em;
+    line-height: 1.6;
+  }
+
+  .prompt-box.bad { background: #fff1f2; border: 1px solid #fecaca; }
+  .prompt-box.good { background: #f0fdf4; border: 1px solid #bbf7d0; }
+
+  .prompt-box .prompt-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.85em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .prompt-box.bad .prompt-label { color: var(--red); }
+  .prompt-box.good .prompt-label { color: var(--green); }
+
+  .code-block {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .code-block .key { color: #93c5fd; }
+  .code-block .val { color: #86efac; }
+  .code-block .comment { color: #64748b; }
+
+  .journey-path {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  .journey-step {
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85em;
+    color: white;
+    text-align: center;
+  }
+
+  .journey-arrow { font-size: 1.2em; color: var(--text-light); }
+
+  ul.simple-list {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  ul.simple-list li {
+    padding: 10px 0;
+    font-size: 1em;
+    line-height: 1.5;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  ul.simple-list li:last-child { border-bottom: none; }
+
+  ul.simple-list li .li-icon { font-size: 1.1em; flex-shrink: 0; margin-top: 2px; }
+
+  .tech-note {
+    background: #f8fafc;
+    border-left: 3px dashed #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 18px 12px 16px;
+    margin: 8px auto 0;
+    max-width: 800px;
+    font-size: 0.82em;
+    color: #475569;
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .tech-note .tn-icon {
+    flex-shrink: 0;
+    font-size: 1.1em;
+    margin-top: 1px;
+  }
+
+  .tech-note strong { color: #334155; }
+</style>
+</head>
+<body>
+<div class="presentation" id="presentation">
+
+<!-- ==================== SLIDE 0: CAPA ==================== -->
+<div class="slide active cover-bg" data-block="Abertura">
+  <div class="slide-header">
+    <h1 style="color: var(--accent);">Inteligência Artificial</h1>
+    <h2 style="font-weight: 400; color: var(--text-light); font-size: 1.4em; margin-top: 8px;">
+      De conceitos básicos à criação de sistemas com agentes de IA
+    </h2>
+    <div style="margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <span style="background: var(--accent-light); color: var(--accent); padding: 6px 18px; border-radius: 20px; font-size: 0.88em; font-weight: 600;">IA & LLMs</span>
+      <span style="background: var(--blue-light); color: var(--blue); padding: 6px 18px; border-radius: 20px; font-size: 0.88em; font-weight: 600;">IDEs com IA</span>
+      <span style="background: var(--green-light); color: var(--green); padding: 6px 18px; border-radius: 20px; font-size: 0.88em; font-weight: 600;">Agentes</span>
+      <span style="background: var(--orange-light); color: var(--orange); padding: 6px 18px; border-radius: 20px; font-size: 0.88em; font-weight: 600;">BMAD Method</span>
+      <span style="background: var(--pink-light); color: var(--pink); padding: 6px 18px; border-radius: 20px; font-size: 0.88em; font-weight: 600;">Command Center AI</span>
+    </div>
+  </div>
+  <div style="margin-top: 24px; color: var(--text-light); font-size: 0.95em;">
+    <p>Duração: ~1h30 &nbsp;|&nbsp; Do básico ao avançado &nbsp;|&nbsp; Para todos os públicos</p>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 1: O QUE É IA ==================== -->
+<!-- Slide 1.1 -->
+<div class="slide" data-block="Bloco 1 — O que é IA?">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 1 — O que é IA?</span>
+    <h2>Você já usou IA hoje?</h2>
+    <p class="subtitle">Spoiler: usou.</p>
+  </div>
+  <div class="slide-body">
+    <div class="cards-row">
+      <div class="card"><div class="icon">🗺️</div><h3>Waze / Google Maps</h3><p>Calcula a melhor rota analisando o trânsito em tempo real</p></div>
+      <div class="card"><div class="icon">🎬</div><h3>Netflix / Spotify</h3><p>Recomenda filmes e músicas com base no que você gosta</p></div>
+      <div class="card"><div class="icon">📱</div><h3>Filtros do Instagram</h3><p>Reconhece seu rosto e aplica efeitos automaticamente</p></div>
+      <div class="card"><div class="icon">💬</div><h3>ChatGPT / Gemini</h3><p>Conversa com você, escreve textos e responde perguntas</p></div>
+    </div>
+    <div class="highlight-box">
+      <p class="big-text">Tudo isso é <strong>Inteligência Artificial</strong> funcionando por trás.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 1.2 -->
+<div class="slide" data-block="Bloco 1 — O que é IA?">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 1 — O que é IA?</span>
+    <h2>Mas afinal, o que é IA?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box" style="max-width: 800px; margin: 0 auto;">
+      <p class="big-text" style="font-size: 1.4em;">
+        🧒 IA é como uma criança que aprende por exemplos.
+      </p>
+      <p style="margin-top: 16px; color: var(--text-light); font-size: 1em; line-height: 1.6;">
+        Você mostra milhares de fotos de gatos, e ela aprende a reconhecer gatos sozinha.<br>
+        Você mostra milhões de textos, e ela aprende a escrever textos sozinha.<br>
+        <strong>A máquina aprende com dados e melhora com a prática.</strong>
+      </p>
+    </div>
+    <div style="text-align: center; margin-top: 10px;">
+      <p style="color: var(--text-light); font-size: 0.95em;">Ninguém programa regra por regra. A IA descobre os padrões sozinha.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> Inteligência Artificial é o campo da ciência da computação que desenvolve algoritmos capazes de realizar tarefas que normalmente requerem inteligência humana: reconhecimento de padrões, tomada de decisão e geração de conteúdo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 1.3 -->
+<div class="slide" data-block="Bloco 1 — O que é IA?">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 1 — O que é IA?</span>
+    <h2>Como Chegamos Até Aqui</h2>
+  </div>
+  <div class="slide-body">
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="year">1950s</span>
+        <h4>IA Clássica</h4>
+        <p>Regras escritas por humanos. "Se X, então Y."</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" style="background: var(--blue);">2010s</span>
+        <h4>Machine Learning</h4>
+        <p>A máquina descobre as regras sozinha a partir dos dados.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" style="background: var(--green);">2018</span>
+        <h4>Deep Learning</h4>
+        <p>Redes neurais profundas — inspiradas no cérebro humano.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" style="background: var(--pink);">2022+</span>
+        <h4>IA Generativa</h4>
+        <p>Agora a IA <strong>cria</strong> coisas novas: textos, imagens, código.</p>
+      </div>
+    </div>
+    <div class="highlight-box green" style="max-width: 700px; margin: 20px auto 0;">
+      <p style="font-weight: 600;">💡 Machine Learning e Deep Learning são <strong>tipos de IA</strong>, não coisas separadas.<br>Cada um é uma evolução do anterior.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>ML:</strong> Modelos estatísticos treinados com datasets para identificar padrões sem programação explícita (regressão, árvores de decisão, redes neurais). <strong>Deep Learning:</strong> Redes neurais com múltiplas camadas — arquiteturas como CNN (imagens), RNN/LSTM (sequências) e Transformer (linguagem).</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 1.4 -->
+<div class="slide" data-block="Bloco 1 — O que é IA?">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 1 — O que é IA?</span>
+    <h2>O que Mudou de 2022 para Cá</h2>
+  </div>
+  <div class="slide-body">
+    <div class="comparison">
+      <div class="comparison-side before">
+        <div class="label">Antes de 2022</div>
+        <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">IA classificava</p>
+        <p style="color: var(--text-light);">Reconhecia rostos, filtrava spam, recomendava produtos. Útil, mas nos bastidores.</p>
+      </div>
+      <div class="comparison-side after">
+        <div class="label">Depois de 2022</div>
+        <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">IA cria</p>
+        <p style="color: var(--text-light);">Escreve textos, gera código, cria imagens, conversa. Qualquer pessoa pode usar.</p>
+      </div>
+    </div>
+    <div class="highlight-box orange" style="max-width: 700px; margin: 20px auto 0;">
+      <p class="big-text" style="font-size: 1.2em;">A grande mudança: a IA saiu dos bastidores e virou ferramenta do dia a dia.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> IA Generativa usa modelos treinados para gerar novos dados (texto, imagem, código) a partir de distribuições aprendidas. Baseados na arquitetura Transformer com mecanismo de self-attention (Vaswani et al., 2017).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 2: LLMs ==================== -->
+<!-- Slide 2.1 -->
+<div class="slide" data-block="Bloco 2 — LLMs">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--blue-light); color: var(--blue);">Bloco 2 — LLMs</span>
+    <h2>O que é um Modelo de Linguagem?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box blue" style="max-width: 800px; margin: 0 auto;">
+      <p class="big-text" style="font-size: 1.3em;">
+        📱 Imagine o autocomplete do celular...<br>mas <strong>turbinado</strong>.
+      </p>
+      <p style="margin-top: 12px; color: var(--text-light); line-height: 1.6;">
+        Ele leu bilhões de textos (livros, sites, artigos) e aprendeu a prever<br>
+        a próxima palavra. Com isso, consegue escrever parágrafos inteiros.
+      </p>
+    </div>
+    <div class="flow-diagram" style="margin-top: 20px;">
+      <div class="flow-step" style="background: var(--blue-light);">📝 Sua pergunta</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--accent-light);">🧠 Modelo</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--green-light);">✅ Resposta</div>
+    </div>
+    <p style="text-align: center; color: var(--text-light); margin-top: 10px; font-size: 0.9em;">
+      <strong>LLM</strong> = Large Language Model = "Modelo de Linguagem Grande".<br>
+      Grande porque foi treinado com uma quantidade <em>absurda</em> de texto.
+    </p>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> LLM — rede neural com bilhões de parâmetros treinada em corpora massivos via aprendizado auto-supervisionado (next-token prediction). Arquitetura dominante: Transformer decoder-only (GPT-style).</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2.2 -->
+<div class="slide" data-block="Bloco 2 — LLMs">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--blue-light); color: var(--blue);">Bloco 2 — LLMs</span>
+    <h2>O que são Tokens?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box" style="max-width: 800px; margin: 0 auto;">
+      <p style="font-weight: 600; font-size: 1.05em; margin-bottom: 16px;">O modelo não lê palavras inteiras. Ele lê <strong>pedaços</strong> chamados tokens.</p>
+      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 16px 0;">
+        <span style="background: #dbeafe; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 1.1em;">O</span>
+        <span style="background: #d1fae5; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 1.1em;">gato</span>
+        <span style="background: #fef3c7; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 1.1em;">pul</span>
+        <span style="background: #fce7f3; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 1.1em;">ou</span>
+        <span style="background: #e0e7ff; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 1.1em;">no</span>
+        <span style="background: #cffafe; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 1.1em;">muro</span>
+      </div>
+      <p style="color: var(--text-light); font-size: 0.9em;">Cada cor é um token. Uma palavra pode ser 1 token ou vários pedaços.</p>
+    </div>
+    <div style="text-align: center; margin-top: 16px; color: var(--text-light); font-size: 0.92em;">
+      <p>💰 Modelos pagos cobram por token. Quanto mais tokens na conversa, mais custa.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> Tokens são gerados por tokenizadores como BPE (Byte-Pair Encoding) ou SentencePiece. Um token equivale a ~¾ de uma palavra em inglês. O contexto do modelo (ex: 128K tokens) determina quanta informação ele "lembra" numa conversa.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2.3 -->
+<div class="slide" data-block="Bloco 2 — LLMs">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--blue-light); color: var(--blue);">Bloco 2 — LLMs</span>
+    <h2>Os Principais Modelos Hoje</h2>
+  </div>
+  <div class="slide-body">
+    <div class="cards-row">
+      <div class="card" style="border-left: 4px solid #10b981;">
+        <div class="icon">🟢</div>
+        <h3>GPT (OpenAI)</h3>
+        <p>O mais conhecido. Criador do ChatGPT. Pago, mas poderoso.</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #f59e0b;">
+        <div class="icon">🟠</div>
+        <h3>Claude (Anthropic)</h3>
+        <p>O mais cuidadoso. Foco em segurança e respostas longas.</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #3b82f6;">
+        <div class="icon">🔵</div>
+        <h3>Gemini (Google)</h3>
+        <p>Integrado ao Google. Tem versão gratuita no AI Studio.</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #8b5cf6;">
+        <div class="icon">🟣</div>
+        <h3>Ollama (Local)</h3>
+        <p>Roda no seu computador. Sem internet, sem custo, 100% privado.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2.4 -->
+<div class="slide" data-block="Bloco 2 — LLMs">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--blue-light); color: var(--blue);">Bloco 2 — LLMs</span>
+    <h2>Prompt: A Arte de Perguntar Bem</h2>
+    <p class="subtitle">Quanto melhor a pergunta, melhor a resposta.</p>
+  </div>
+  <div class="slide-body">
+    <div class="prompt-example">
+      <div class="prompt-box bad">
+        <div class="prompt-label">❌ Prompt vago</div>
+        <p>"Faz um código aí"</p>
+        <div style="margin-top: 12px; font-family: Inter, sans-serif; color: var(--text-light); font-size: 0.85em;">
+          → Resultado genérico, sem contexto
+        </div>
+      </div>
+      <div class="prompt-box good">
+        <div class="prompt-label">✅ Prompt claro</div>
+        <p>"Crie uma função em Python que recebe uma lista de nomes e retorna apenas os que começam com 'A', ordenados alfabeticamente"</p>
+        <div style="margin-top: 12px; font-family: Inter, sans-serif; color: var(--text-light); font-size: 0.85em;">
+          → Resultado preciso e utilizável
+        </div>
+      </div>
+    </div>
+    <div class="highlight-box green" style="max-width: 600px; margin: 16px auto 0;">
+      <p style="font-weight: 600;">💡 <strong>Prompt</strong> = a pergunta ou instrução que você dá para a IA.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> Prompt Engineering é a técnica de otimização de instruções para maximizar a qualidade da saída do modelo. Inclui estratégias como few-shot learning (dar exemplos), chain-of-thought (pedir raciocínio passo a passo) e system prompts (definir contexto e regras).</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2.5 -->
+<div class="slide" data-block="Bloco 2 — LLMs">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--blue-light); color: var(--blue);">Bloco 2 — LLMs</span>
+    <h2>Gratuito, Pago ou Local?</h2>
+  </div>
+  <div class="slide-body">
+    <table class="table-simple">
+      <thead>
+        <tr><th></th><th>☁️ Gratuito (Cloud)</th><th>💳 Pago (Cloud)</th><th>🏠 Local (Seu PC)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Exemplos</strong></td><td>Gemini AI Studio, ChatGPT Free</td><td>GPT-4, Claude Pro</td><td>Ollama, LM Studio</td></tr>
+        <tr><td><strong>Custo</strong></td><td>Zero</td><td>Por uso ou assinatura</td><td>Zero (usa seu hardware)</td></tr>
+        <tr><td><strong>Qualidade</strong></td><td>Boa para tarefas simples</td><td>Melhor para tarefas complexas</td><td>Depende do modelo</td></tr>
+        <tr><td><strong>Privacidade</strong></td><td>Dados vão para a nuvem</td><td>Dados vão para a nuvem</td><td>100% privado</td></tr>
+        <tr><td><strong>Quando usar</strong></td><td>Testes e tarefas do dia a dia</td><td>Projetos profissionais</td><td>Dados sensíveis</td></tr>
+      </tbody>
+    </table>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica — Temperatura:</strong> Parâmetro que controla a aleatoriedade da geração (0.0 = determinístico, 1.0+ = criativo). Afeta a distribuição de probabilidade na seleção do próximo token. Modelos pagos oferecem mais controle sobre temperatura e outros hiperparâmetros.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 3: IDEs COM IA ==================== -->
+<!-- Slide 3.1 -->
+<div class="slide" data-block="Bloco 3 — IDEs com IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--green-light); color: var(--green);">Bloco 3 — IDEs com IA</span>
+    <h2>Primeiro: O que é uma IDE?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box green" style="max-width: 800px; margin: 0 auto;">
+      <p class="big-text" style="font-size: 1.3em;">
+        IDE é o programa onde desenvolvedores escrevem código.
+      </p>
+      <p style="margin-top: 12px; color: var(--text-light); font-size: 1em;">
+        Pense nela como o <strong>Microsoft Word</strong>, mas para programação.<br>
+        O mais conhecido: <strong>Visual Studio Code (VS Code)</strong>.
+      </p>
+    </div>
+    <div style="text-align: center; margin-top: 16px;">
+      <p style="color: var(--text-light); font-size: 0.95em;">IDE = Integrated Development Environment = Ambiente de Desenvolvimento Integrado</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> IDE integra editor de código, compilador/interpretador, debugger e ferramentas de build em uma interface única. Exemplos: VS Code (Electron/TypeScript), IntelliJ (JVM), Xcode (Apple). IDEs com IA adicionam LLMs como copiloto integrado ao fluxo de desenvolvimento.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3.2 -->
+<div class="slide" data-block="Bloco 3 — IDEs com IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--green-light); color: var(--green);">Bloco 3 — IDEs com IA</span>
+    <h2>O que Muda com IA na IDE?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="comparison">
+      <div class="comparison-side before">
+        <div class="label">Antes</div>
+        <p style="font-size: 2em; margin-bottom: 8px;">⌨️</p>
+        <p style="font-weight: 600;">Digitar linha por linha</p>
+        <p style="color: var(--text-light); margin-top: 8px; font-size: 0.9em;">Você escreve todo o código manualmente, pesquisa documentação, corrige erros um a um.</p>
+      </div>
+      <div class="comparison-side after">
+        <div class="label">Depois</div>
+        <p style="font-size: 2em; margin-bottom: 8px;">🗣️</p>
+        <p style="font-weight: 600;">Descrever o que você quer</p>
+        <p style="color: var(--text-light); margin-top: 8px; font-size: 0.9em;">Você explica em português e a IA gera o código. Ela lê seu projeto, entende o contexto e sugere soluções.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3.3 -->
+<div class="slide" data-block="Bloco 3 — IDEs com IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--green-light); color: var(--green);">Bloco 3 — IDEs com IA</span>
+    <h2>Cursor: A IDE que Entende seu Projeto</h2>
+  </div>
+  <div class="slide-body">
+    <div class="cards-row">
+      <div class="card" style="border-top: 4px solid var(--blue);">
+        <div class="icon">💬</div>
+        <h3>Chat</h3>
+        <p>Converse com a IA sobre seu código. Pergunte como algo funciona, peça explicações.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--accent);">
+        <div class="icon">🤖</div>
+        <h3>Agent</h3>
+        <p>A IA lê, edita e cria arquivos sozinha. Ela executa tarefas completas autonomamente.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="icon">✏️</div>
+        <h3>Edit</h3>
+        <p>Selecione um trecho de código e peça para a IA modificar. Rápido e preciso.</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 16px;">
+      <p style="font-size: 1.05em; font-weight: 600;">Baseado no VS Code — quem já usa, se sente em casa.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Agent Mode:</strong> O LLM opera em loop agêntico — analisa o workspace (file system), planeja ações, executa tool calls (leitura/escrita de arquivos, terminal) e itera até completar a tarefa. <strong>Contexto:</strong> O agente tem acesso ao projeto real (imports, dependências, estrutura) — isso é o "grounding" do modelo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3.4 -->
+<div class="slide" data-block="Bloco 3 — IDEs com IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--green-light); color: var(--green);">Bloco 3 — IDEs com IA</span>
+    <h2>Antigravity: A Próxima Geração</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box cyan" style="max-width: 800px; margin: 0 auto;">
+      <p class="big-text" style="font-size: 1.2em;">
+        🚀 IDE construída <strong>do zero</strong> para trabalhar com IA.
+      </p>
+      <p style="margin-top: 12px; color: var(--text-light); font-size: 1em; line-height: 1.6;">
+        Enquanto o Cursor <em>adaptou</em> o VS Code para ter IA,<br>
+        o Antigravity foi <em>criado</em> pensando em IA desde o primeiro dia.
+      </p>
+    </div>
+    <div class="comparison" style="margin-top: 20px;">
+      <div class="comparison-side" style="background: var(--blue-light); border: 1px solid #bfdbfe; text-align: center;">
+        <p style="font-weight: 700; margin-bottom: 4px;">Cursor</p>
+        <p style="font-size: 0.88em; color: var(--text-light);">VS Code + IA adaptada</p>
+      </div>
+      <div class="comparison-side" style="background: var(--cyan-light); border: 1px solid #a5f3fc; text-align: center;">
+        <p style="font-weight: 700; margin-bottom: 4px;">Antigravity</p>
+        <p style="font-size: 0.88em; color: var(--text-light);">IA nativa desde a fundação</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3.5 -->
+<div class="slide" data-block="Bloco 3 — IDEs com IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--green-light); color: var(--green);">Bloco 3 — IDEs com IA</span>
+    <h2>Resultado Prático</h2>
+  </div>
+  <div class="slide-body">
+    <div class="stats-row">
+      <div class="stat-card"><div class="number" style="color: var(--green);">10x</div><div class="label">Mais rápido em tarefas repetitivas</div></div>
+      <div class="stat-card"><div class="number" style="color: var(--blue);">↓ 70%</div><div class="label">Menos tempo pesquisando documentação</div></div>
+      <div class="stat-card"><div class="number" style="color: var(--accent);">↑ Foco</div><div class="label">No problema, não na sintaxe</div></div>
+    </div>
+    <div class="highlight-box" style="max-width: 700px; margin: 24px auto 0;">
+      <p class="big-text" style="font-size: 1.15em;">
+        A IA na IDE é ótima, mas é <strong>genérica</strong> — sabe um pouco de tudo.<br><br>
+        🤔 E se pudéssemos ter <strong>especialistas</strong>?<br>
+        Um arquiteto virtual, um QA virtual, um DBA virtual...
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 4: AGENTES ==================== -->
+<!-- Slide 4.1 -->
+<div class="slide" data-block="Bloco 4 — Agentes de IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--orange-light); color: var(--orange);">Bloco 4 — Agentes de IA</span>
+    <h2>Genérico vs Especialista</h2>
+  </div>
+  <div class="slide-body">
+    <div class="comparison">
+      <div class="comparison-side before">
+        <div class="label">Chatbot Genérico</div>
+        <p style="font-size: 2em; margin-bottom: 8px;">🩺</p>
+        <p style="font-weight: 600;">Clínico Geral</p>
+        <p style="color: var(--text-light); margin-top: 8px; font-size: 0.9em;">Sabe um pouco de tudo. Serve para perguntas gerais, mas não é profundo em nada.</p>
+      </div>
+      <div class="comparison-side after">
+        <div class="label">Agente Especializado</div>
+        <p style="font-size: 2em; margin-bottom: 8px;">❤️</p>
+        <p style="font-weight: 600;">Cardiologista</p>
+        <p style="color: var(--text-light); margin-top: 8px; font-size: 0.9em;">Sabe MUITO sobre UMA coisa. Tem contexto, ferramentas e foco na sua área.</p>
+      </div>
+    </div>
+    <div class="highlight-box orange" style="max-width: 700px; margin: 20px auto 0;">
+      <p style="font-weight: 600; font-size: 1.05em;">
+        Um <strong>agente de IA</strong> é um especialista virtual que sabe quem ele é e o que sabe fazer.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4.2 -->
+<div class="slide" data-block="Bloco 4 — Agentes de IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--orange-light); color: var(--orange);">Bloco 4 — Agentes de IA</span>
+    <h2>O que Forma um Agente?</h2>
+    <p class="subtitle">4 peças de um quebra-cabeça</p>
+  </div>
+  <div class="slide-body">
+    <div class="puzzle">
+      <div class="puzzle-piece" style="background: var(--blue-light); border: 1px solid #bfdbfe;">
+        <div class="piece-icon">🧠</div>
+        <h4>Cérebro (LLM)</h4>
+        <p>O modelo de linguagem que já vimos — é o que faz ele "pensar"</p>
+      </div>
+      <div class="puzzle-piece" style="background: var(--green-light); border: 1px solid #a7f3d0;">
+        <div class="piece-icon">🔧</div>
+        <h4>Ferramentas</h4>
+        <p>Pode ler arquivos, executar comandos, editar código, acessar sistemas</p>
+      </div>
+      <div class="puzzle-piece" style="background: var(--orange-light); border: 1px solid #fde68a;">
+        <div class="piece-icon">💾</div>
+        <h4>Memória</h4>
+        <p>Lembra do que foi feito em sessões anteriores — não começa do zero</p>
+      </div>
+      <div class="puzzle-piece" style="background: var(--pink-light); border: 1px solid #fbcfe8;">
+        <div class="piece-icon">🎭</div>
+        <h4>Persona</h4>
+        <p>Tem nome, personalidade e regras de como agir e se comunicar</p>
+      </div>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> Arquitetura de agente = LLM (raciocínio) + Tool Use (execução de funções) + Memory (persistência de estado) + System Prompt (persona). O agente opera em ciclo observe-think-act, invocando ferramentas conforme necessário até concluir a tarefa.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4.3 -->
+<div class="slide" data-block="Bloco 4 — Agentes de IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--orange-light); color: var(--orange);">Bloco 4 — Agentes de IA</span>
+    <h2>O "Currículo" do Agente: SKILL.md</h2>
+    <p class="subtitle">Pense nele como um perfil de LinkedIn</p>
+  </div>
+  <div class="slide-body">
+    <div class="code-block">
+      <span class="comment"># Exemplo simplificado de SKILL.md</span><br><br>
+      <span class="key">Nome:</span> <span class="val">Wagner</span><br>
+      <span class="key">Função:</span> <span class="val">Arquiteto de Software</span><br>
+      <span class="key">Expertise:</span> <span class="val">Define estrutura, padrões e tecnologias</span><br><br>
+      <span class="key">Como se comunica:</span> <span class="val">Técnico mas acessível,</span><br>
+      <span class="val">&nbsp;&nbsp;usa diagramas e exemplos concretos</span><br><br>
+      <span class="key">O que sabe fazer:</span><br>
+      <span class="val">&nbsp;&nbsp;- Criar arquitetura de sistemas</span><br>
+      <span class="val">&nbsp;&nbsp;- Definir tecnologias do projeto</span><br>
+      <span class="val">&nbsp;&nbsp;- Revisar decisões técnicas</span><br><br>
+      <span class="key">Memória:</span> <span class="val">Lembra das decisões anteriores</span>
+    </div>
+    <p style="text-align: center; color: var(--text-light); margin-top: 14px; font-size: 0.9em;">
+      Este arquivo de texto é tudo que a IA precisa para "virar" o Wagner.
+    </p>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> SKILL.md é um arquivo YAML frontmatter + Markdown que define o system prompt do agente: identidade, princípios, estilo de comunicação, capacidades e referências a workflows. <strong>Sidecar Memory:</strong> persistência entre sessões via arquivos Markdown em <code>_bmad/_memory/</code>, carregados na ativação do agente.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4.4 -->
+<div class="slide" data-block="Bloco 4 — Agentes de IA">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--orange-light); color: var(--orange);">Bloco 4 — Agentes de IA</span>
+    <h2>Exemplo Real: Squad MEQ</h2>
+    <p class="subtitle">Um time completo de desenvolvimento — 100% virtual</p>
+  </div>
+  <div class="slide-body">
+    <div class="agent-grid">
+      <div class="agent-card"><div class="agent-avatar" style="background: var(--accent);">M</div><h4>Marco</h4><p>Coordenador — distribui tarefas</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: var(--pink);">P</div><h4>Paula</h4><p>Produto — define O QUÊ construir</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: var(--blue);">W</div><h4>Wagner</h4><p>Arquiteto — define COMO construir</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: var(--green);">F</div><h4>Felipe</h4><p>Dev — escreve o código</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: var(--orange);">D</div><h4>Diana</h4><p>DBA — cuida dos dados</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: var(--cyan);">I</div><h4>Igor</h4><p>Integração — conecta sistemas</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: #ef4444;">Q</div><h4>Quinn</h4><p>QA — testa tudo</p></div>
+      <div class="agent-card"><div class="agent-avatar" style="background: #8b5cf6;">D</div><h4>Davi</h4><p>DevOps — coloca no ar</p></div>
+    </div>
+    <div class="flow-diagram" style="margin-top: 16px;">
+      <div class="flow-step" style="background: var(--pink-light); font-size: 0.8em;">Paula define</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--blue-light); font-size: 0.8em;">Wagner projeta</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--green-light); font-size: 0.8em;">Felipe codifica</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--red-light); font-size: 0.8em;">Quinn testa</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: #ede9fe; font-size: 0.8em;">Davi publica</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 5: CRIANDO AGENTES ==================== -->
+<!-- Slide 5.1 -->
+<div class="slide" data-block="Bloco 5 — Criando Agentes">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--cyan-light); color: var(--cyan);">Bloco 5 — Criando Agentes</span>
+    <h2>Agent Builder: O Assistente que Cria Assistentes</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box cyan" style="max-width: 800px; margin: 0 auto;">
+      <p class="big-text" style="font-size: 1.2em;">
+        🏗️ Você descreve o que quer,<br>
+        o Agent Builder constrói o agente para você.
+      </p>
+      <p style="margin-top: 12px; color: var(--text-light);">Não precisa programar. É uma conversa guiada em 6 etapas.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> O Agent Builder é um meta-agente que opera em 6 fases de discovery conversacional para gerar skill structures no padrão BMad: <code>SKILL.md</code> + <code>bmad-manifest.json</code> + capability prompts + scripts de validação com testes unitários.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 5.2 -->
+<div class="slide" data-block="Bloco 5 — Criando Agentes">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--cyan-light); color: var(--cyan);">Bloco 5 — Criando Agentes</span>
+    <h2>As 6 Etapas da Criação</h2>
+  </div>
+  <div class="slide-body">
+    <div class="funnel">
+      <div class="funnel-step" style="width: 90%; background: #dbeafe;">💡 1. Qual é a sua ideia? — "Quero um agente que..."</div>
+      <div class="funnel-arrow">▼</div>
+      <div class="funnel-step" style="width: 80%; background: #d1fae5;">🔧 2. O que ele precisa saber fazer?</div>
+      <div class="funnel-arrow">▼</div>
+      <div class="funnel-step" style="width: 70%; background: #fef3c7;">📋 3. Detalhes: nome, personalidade, memória</div>
+      <div class="funnel-arrow">▼</div>
+      <div class="funnel-step" style="width: 60%; background: #fce7f3;">📝 4. Rascunho para você revisar</div>
+      <div class="funnel-arrow">▼</div>
+      <div class="funnel-step" style="width: 50%; background: #e0e7ff;">🔨 5. Construção do SKILL.md</div>
+      <div class="funnel-arrow">▼</div>
+      <div class="funnel-step" style="width: 40%; background: #cffafe;">✅ 6. Teste e validação</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 5.3 -->
+<div class="slide" data-block="Bloco 5 — Criando Agentes">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--cyan-light); color: var(--cyan);">Bloco 5 — Criando Agentes</span>
+    <h2>Quality Optimizer: Melhoria Contínua</h2>
+  </div>
+  <div class="slide-body">
+    <div class="cards-row" style="max-width: 700px; margin: 0 auto;">
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="icon">🔍</div>
+        <h3>Validação Automática</h3>
+        <p>Verifica se o agente está bem estruturado, se faltam informações, se o formato está correto.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--accent);">
+        <div class="icon">⚡</div>
+        <h3>Sugestões de Melhoria</h3>
+        <p>Propõe otimizações no prompt, nas capacidades e na comunicação do agente.</p>
+      </div>
+    </div>
+    <div class="highlight-box green" style="max-width: 600px; margin: 20px auto 0;">
+      <p style="font-weight: 600;">Agentes podem ser criados <strong>sem escrever código</strong>.<br>Qualquer pessoa com uma boa ideia pode criar o seu.</p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> O Quality Optimizer executa lint scripts determinísticos (validação de estrutura e formato) em paralelo com scanner LLM subagents (análise de qualidade de prompt e cobertura de edge cases). Gera relatório com remediações priorizadas.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 6: BMAD ==================== -->
+<!-- Slide 6.1 -->
+<div class="slide" data-block="Bloco 6 — BMAD Method">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--pink-light); color: var(--pink);">Bloco 6 — BMAD Method</span>
+    <h2>O que é uma Metodologia?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box pink" style="max-width: 800px; margin: 0 auto;">
+      <p class="big-text" style="font-size: 1.3em;">
+        🍰 É como uma receita de bolo.
+      </p>
+      <p style="margin-top: 12px; color: var(--text-light); font-size: 1.05em; line-height: 1.6;">
+        Um jeito organizado de fazer as coisas, com etapas definidas.<br>
+        Se pular passos, o bolo não cresce.<br><br>
+        <strong style="color: var(--pink);">BMAD = Build More, Architect Dreams</strong><br>
+        "Construa mais, arquitete sonhos"
+      </p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Nota técnica:</strong> BMAD é um framework AI-native para delivery de software que orquestra agentes especializados em fases sequenciais com gates de qualidade. Ciclo principal: Analysis &rarr; Planning &rarr; Solutioning &rarr; Implementation. Versão atual: 6.2.1.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 6.2 -->
+<div class="slide" data-block="Bloco 6 — BMAD Method">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--pink-light); color: var(--pink);">Bloco 6 — BMAD Method</span>
+    <h2>O Problema que o BMAD Resolve</h2>
+  </div>
+  <div class="slide-body">
+    <div class="comparison">
+      <div class="comparison-side before">
+        <div class="label">Sem Metodologia</div>
+        <p style="font-size: 2em; margin-bottom: 8px;">🎲</p>
+        <p style="font-weight: 600;">Resultado imprevisível</p>
+        <p style="color: var(--text-light); margin-top: 8px; font-size: 0.9em;">Cada vez que você pede algo para a IA, sai um resultado diferente. Sem padrão, sem rastreabilidade.</p>
+      </div>
+      <div class="comparison-side after">
+        <div class="label">Com BMAD</div>
+        <p style="font-size: 2em; margin-bottom: 8px;">🎯</p>
+        <p style="font-weight: 600;">Processo claro e consistente</p>
+        <p style="color: var(--text-light); margin-top: 8px; font-size: 0.9em;">Cada fase gera um documento. Cada agente sabe seu papel. O resultado é previsível e rastreável.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 6.3 -->
+<div class="slide" data-block="Bloco 6 — BMAD Method">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--pink-light); color: var(--pink);">Bloco 6 — BMAD Method</span>
+    <h2>Como Funciona na Prática</h2>
+    <p class="subtitle">Da ideia ao sistema pronto — cada etapa com um agente responsável</p>
+  </div>
+  <div class="slide-body">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px; margin: 0 auto;">
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid var(--pink); box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">1️⃣</span>
+        <div><strong>"O que vamos construir?"</strong> <span style="color: var(--text-light);">— Product Brief (Mary, Analista)</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid var(--accent); box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">2️⃣</span>
+        <div><strong>"Quais são os requisitos?"</strong> <span style="color: var(--text-light);">— PRD (John, Gerente de Produto)</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid var(--orange); box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">3️⃣</span>
+        <div><strong>"Como vai ser a tela?"</strong> <span style="color: var(--text-light);">— UX Design (Sally, Designer)</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid var(--blue); box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">4️⃣</span>
+        <div><strong>"Qual a estrutura técnica?"</strong> <span style="color: var(--text-light);">— Arquitetura (Winston, Arquiteto)</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid var(--green); box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">5️⃣</span>
+        <div><strong>"Quais são as tarefas?"</strong> <span style="color: var(--text-light);">— Épicos e Stories (Bob, Scrum Master)</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid var(--cyan); box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">6️⃣</span>
+        <div><strong>"Vamos construir!"</strong> <span style="color: var(--text-light);">— Sprint + Código (Amelia, Desenvolvedora)</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; background: var(--card); padding: 12px 20px; border-radius: 12px; border-left: 4px solid #ef4444; box-shadow: var(--shadow);">
+        <span style="font-size: 1.4em;">7️⃣</span>
+        <div><strong>"Funciona direito?"</strong> <span style="color: var(--text-light);">— Testes e QA (Quinn, QA Engineer)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 6.4 -->
+<div class="slide" data-block="Bloco 6 — BMAD Method">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--pink-light); color: var(--pink);">Bloco 6 — BMAD Method</span>
+    <h2>Não é Só para Software</h2>
+    <p class="subtitle">Módulos para diferentes áreas</p>
+  </div>
+  <div class="slide-body">
+    <table class="table-simple" style="max-width: 800px;">
+      <thead><tr><th>Módulo</th><th>Para quê</th><th>Exemplo de uso</th></tr></thead>
+      <tbody>
+        <tr><td><strong>BMM</strong></td><td>Software tradicional</td><td>Criar um sistema web completo</td></tr>
+        <tr><td><strong>GDS</strong></td><td>Jogos</td><td>Desenvolver um game indie</td></tr>
+        <tr><td><strong>WDS</strong></td><td>Design de interfaces</td><td>Projetar UX/UI baseado em psicologia do usuário</td></tr>
+        <tr><td><strong>TEA</strong></td><td>Testes avançados</td><td>Criar estratégia de testes automatizados</td></tr>
+        <tr><td><strong>CIS</strong></td><td>Inovação e criatividade</td><td>Sessões de brainstorming e design thinking</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Slide 6.5 -->
+<div class="slide" data-block="Bloco 6 — BMAD Method">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--pink-light); color: var(--pink);">Bloco 6 — BMAD Method</span>
+    <h2>Por que é Diferente?</h2>
+  </div>
+  <div class="slide-body">
+    <div class="cards-row" style="max-width: 900px;">
+      <div class="card" style="border-top: 4px solid var(--orange);">
+        <div class="icon">💾</div>
+        <h3>Memória</h3>
+        <p>Os agentes lembram das decisões anteriores. Não precisa repetir contexto toda vez.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--accent);">
+        <div class="icon">📄</div>
+        <h3>Rastreabilidade</h3>
+        <p>Cada fase gera um documento que a próxima fase usa. Tudo conectado e documentado.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="icon">🛡️</div>
+        <h3>Qualidade</h3>
+        <p>Tem pontos de validação antes de avançar. Não pula etapas, não acumula problemas.</p>
+      </div>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Artifacts:</strong> Documentos estruturados (PRD, Architecture Doc, Epic/Story files) persistidos em <code>_bmad-output/</code> — cada artefato alimenta a próxima fase. <strong>Quality Gates:</strong> Implementation Readiness Check (pré-sprint), Story Validation (pré-dev), Code Review (pós-dev), Adversarial Review (segurança).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BLOCO 7: COMMAND CENTER ==================== -->
+<!-- Slide 7.1 -->
+<div class="slide cover-bg" data-block="Bloco 7 — Command Center AI">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 7 — Tudo Junto em Ação</span>
+    <h2 style="font-size: 2em;">Command Center: AI Team Orchestrator</h2>
+    <p class="subtitle" style="font-size: 1.1em;">Um sistema web que orquestra dezenas de agentes com qualquer provedor de IA.</p>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box" style="max-width: 800px; margin: 0 auto;">
+      <p style="font-size: 1.05em; line-height: 1.6;">
+        Tudo o que vimos até agora — IA, LLMs, IDEs, Agentes e BMAD — foi usado para criar este sistema.<br>
+        <strong>Do conceito ao produto em 2 meses, usando a metodologia que acabamos de aprender.</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7.2 -->
+<div class="slide" data-block="Bloco 7 — Command Center AI">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 7 — Command Center AI</span>
+    <h2>Números de Impacto</h2>
+  </div>
+  <div class="slide-body">
+    <div class="stats-row">
+      <div class="stat-card"><div class="number" style="color: var(--accent);">7</div><div class="label">Provedores de LLM</div></div>
+      <div class="stat-card"><div class="number" style="color: var(--green);">10</div><div class="label">Ferramentas Agênticas</div></div>
+      <div class="stat-card"><div class="number" style="color: var(--orange);">200+</div><div class="label">Agentes Suportados</div></div>
+      <div class="stat-card"><div class="number" style="color: var(--pink);">2</div><div class="label">Meses de Desenvolvimento</div></div>
+    </div>
+    <div style="margin-top: 24px;">
+      <table class="table-simple" style="max-width: 800px;">
+        <thead><tr><th>Tecnologia</th><th>Versão</th><th>Para quê</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Next.js</strong></td><td>16</td><td>Framework web (estrutura da aplicação)</td></tr>
+          <tr><td><strong>React</strong></td><td>19</td><td>Interface do usuário (o que você vê na tela)</td></tr>
+          <tr><td><strong>Tailwind CSS</strong></td><td>4</td><td>Estilização visual (cores, fontes, layout)</td></tr>
+          <tr><td><strong>SSE</strong></td><td>—</td><td>Streaming — respostas aparecem em tempo real</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7.3 -->
+<div class="slide" data-block="Bloco 7 — Command Center AI">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 7 — Command Center AI</span>
+    <h2>Como Funciona</h2>
+  </div>
+  <div class="slide-body">
+    <div class="flow-diagram">
+      <div class="flow-step" style="background: var(--blue-light); min-width: 140px;">
+        <div style="font-size: 1.5em;">👤</div>
+        Você digita
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--accent-light); min-width: 140px;">
+        <div style="font-size: 1.5em;">💬</div>
+        Chat com Agente
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--orange-light); min-width: 140px;">
+        <div style="font-size: 1.5em;">🧠</div>
+        LLM Processa
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step" style="background: var(--green-light); min-width: 140px;">
+        <div style="font-size: 1.5em;">⚡</div>
+        Resposta em Tempo Real
+      </div>
+    </div>
+    <div class="feature-list" style="margin-top: 20px;">
+      <div class="feature-item"><span class="feat-icon">🔌</span><div><h4>7 Provedores</h4><p>Gemini, GPT, Claude, Azure, Cursor SDK, OpenRouter, Ollama</p></div></div>
+      <div class="feature-item"><span class="feat-icon">📡</span><div><h4>Streaming SSE</h4><p>Resposta aparece palavra por palavra, como alguém digitando</p></div></div>
+      <div class="feature-item"><span class="feat-icon">🔍</span><div><h4>Scanner de Agentes</h4><p>Aponte para qualquer pasta e ele encontra todos os agentes</p></div></div>
+      <div class="feature-item"><span class="feat-icon">🔧</span><div><h4>10 Ferramentas</h4><p>Agentes podem ler, escrever, editar arquivos e executar comandos</p></div></div>
+      <div class="feature-item"><span class="feat-icon">🎨</span><div><h4>White-Label</h4><p>Personalize com sua marca — logo e cores customizáveis</p></div></div>
+      <div class="feature-item"><span class="feat-icon">🔒</span><div><h4>Segurança</h4><p>Proteção de arquivos sensíveis, bloqueio de comandos perigosos</p></div></div>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>SSE:</strong> Server-Sent Events — protocolo HTTP unidirecional (servidor &rarr; cliente) para streaming de tokens em tempo real; mais leve que WebSocket. <strong>Tool Use:</strong> O LLM invoca funções externas (file I/O, terminal, search) via schema JSON. Loop agêntico limitado a 10 iterações por segurança.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7.4 -->
+<div class="slide" data-block="Bloco 7 — Command Center AI">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 7 — Command Center AI</span>
+    <h2>Evolução: v1.0 → v3.1 em 2 Meses</h2>
+    <p class="subtitle">Prova da velocidade do BMAD + IDE com IA</p>
+  </div>
+  <div class="slide-body">
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="year">Abr/26</span>
+        <h4>v1.0</h4>
+        <p>Chat básico com 6 provedores de LLM</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" style="background: var(--blue);">Abr/26</span>
+        <h4>v2.0</h4>
+        <p>Interface redesenhada, Command Palette, responsivo</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" style="background: var(--green);">Mai/26</span>
+        <h4>v3.0</h4>
+        <p>Streaming SSE, Cursor SDK, modelos dinâmicos</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" style="background: var(--pink);">Jun/26</span>
+        <h4>v3.1</h4>
+        <p>Segurança, eficiência, white-label, multimodal</p>
+      </div>
+    </div>
+    <div class="highlight-box green" style="max-width: 700px; margin: 20px auto 0;">
+      <p style="font-weight: 600; font-size: 1.05em;">
+        4 releases em 2 meses.<br>
+        IDE com IA + BMAD = velocidade real de entrega.
+      </p>
+    </div>
+    <div class="tech-note">
+      <span class="tn-icon">⚙️</span>
+      <div><strong>Neural Link v6.0:</strong> Ponte IDE &harr; Command Center via polling de arquivos <code>.neural_sync/</code>. Permite comunicação bidirecional entre o browser e a IDE (Cursor/Antigravity), sincronizando contexto e ações em tempo real.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7.5 -->
+<div class="slide" data-block="Bloco 7 — Command Center AI">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Bloco 7 — Command Center AI</span>
+    <h2>Próximos Passos do Sistema</h2>
+  </div>
+  <div class="slide-body">
+    <div class="cards-row" style="max-width: 900px;">
+      <div class="card" style="border-top: 4px solid var(--accent);">
+        <div class="icon">🧠</div>
+        <h3>RAG Local</h3>
+        <p>Busca inteligente em todo o workspace usando banco vetorial — o agente encontra qualquer informação do projeto.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--pink);">
+        <div class="icon">🎉</div>
+        <h3>Party Mode</h3>
+        <p>3+ agentes debatendo na mesma sala de chat — múltiplas perspectivas em uma conversa.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="icon">🔌</div>
+        <h3>Plugin de IDE</h3>
+        <p>Transformar a ponte com a IDE em extensão oficial — integração total com Cursor e VS Code.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ENCERRAMENTO ==================== -->
+<!-- Slide Final 1 -->
+<div class="slide" data-block="Encerramento">
+  <div class="slide-header">
+    <span class="block-tag" style="background: var(--accent-light); color: var(--accent);">Encerramento</span>
+    <h2>A Jornada Completa</h2>
+  </div>
+  <div class="slide-body">
+    <div class="journey-path">
+      <div class="journey-step" style="background: var(--accent);">🤖 IA</div>
+      <span class="journey-arrow">→</span>
+      <div class="journey-step" style="background: var(--blue);">📝 LLMs</div>
+      <span class="journey-arrow">→</span>
+      <div class="journey-step" style="background: var(--green);">💻 IDEs</div>
+      <span class="journey-arrow">→</span>
+      <div class="journey-step" style="background: var(--orange);">🤝 Agentes</div>
+      <span class="journey-arrow">→</span>
+      <div class="journey-step" style="background: var(--cyan);">🏗️ Criação</div>
+      <span class="journey-arrow">→</span>
+      <div class="journey-step" style="background: var(--pink);">📋 BMAD</div>
+      <span class="journey-arrow">→</span>
+      <div class="journey-step" style="background: #7c3aed;">🚀 Command Center</div>
+    </div>
+    <div class="highlight-box" style="max-width: 700px; margin: 30px auto 0;">
+      <p class="big-text" style="font-size: 1.6em; color: var(--accent);">
+        IA não substitui.<br>IA <strong>amplifica</strong>.
+      </p>
+      <p style="margin-top: 12px; color: var(--text-light); font-size: 1.1em;">
+        Com metodologia, amplifica ainda mais.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide Final 2 -->
+<div class="slide cover-bg" data-block="Encerramento">
+  <div class="slide-header">
+    <h2 style="font-size: 2.2em; color: var(--accent);">Perguntas?</h2>
+    <p class="subtitle" style="margin-top: 16px; font-size: 1.1em;">Obrigado pela atenção!</p>
+  </div>
+  <div class="slide-body" style="margin-top: 20px;">
+    <div style="display: flex; gap: 20px; justify-content: center;">
+      <div class="stat-card">
+        <div style="font-size: 1.6em; margin-bottom: 4px;">📧</div>
+        <div class="label">E-mail</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size: 1.6em; margin-bottom: 4px;">💼</div>
+        <div class="label">LinkedIn</div>
+      </div>
+      <div class="stat-card">
+        <div style="font-size: 1.6em; margin-bottom: 4px;">🐙</div>
+        <div class="label">GitHub</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- NAVIGATION BAR -->
+<div class="nav-bar">
+  <div class="progress" id="progress"></div>
+  <div class="page-info" id="pageInfo"></div>
+  <div class="nav-buttons">
+    <button class="nav-btn secondary" id="prevBtn" onclick="navigate(-1)">← Anterior</button>
+    <button class="nav-btn" id="nextBtn" onclick="navigate(1)">Próximo →</button>
+  </div>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const visited = new Set([0]);
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').textContent = current === total - 1 ? '✓ Fim' : 'Próximo →';
+
+    const block = slides[current].dataset.block || '';
+    document.getElementById('pageInfo').textContent = `${current + 1} / ${total}  —  ${block}`;
+
+    const progress = document.getElementById('progress');
+    progress.innerHTML = '';
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i === current ? ' active' : (visited.has(i) ? ' visited' : ''));
+      dot.onclick = () => goTo(i);
+      progress.appendChild(dot);
+    }
+  }
+
+  function navigate(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < total) {
+      current = next;
+      visited.add(current);
+      render();
+    }
+  }
+
+  function goTo(i) {
+    current = i;
+    visited.add(current);
+    render();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); navigate(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); navigate(-1); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+  });
+
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# MEQ Module Configuration - Time MEQ
+# Squad de Desenvolvimento de Software
+
+project_name: 06. BMAD Cursor
+meq_output_folder: "{project-root}/_bmad-output/meq"
+meq_planning_artifacts: "{project-root}/_bmad-output/meq/planning"
+meq_implementation_artifacts: "{project-root}/_bmad-output/meq/implementation"
+
+# Core Configuration Values
+user_name: Alessandro Lyra
+communication_language: Portugues Brasileiro
+document_output_language: Portugues
+output_folder: "{project-root}/_bmad-output"

@@ -1,0 +1,225 @@
+{
+  "scanner": "script-opportunities",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure\\SKILL.md",
+  "findings": [
+    {
+      "file": "references/project-ledger.md",
+      "line": 6,
+      "severity": "high",
+      "category": "validation",
+      "title": "Ledger Structure Validator — verify all 13 required sections exist",
+      "detail": "Determinism confidence: 99%. The ledger must contain exactly 13 named sections (Projeto, Objetivo, Escopo Azure, Regiões/AZ, Workloads, Stack Padrão, Observabilidade, SLOs/SLIs, DR & Backup, FinOps, Decision Log, Artefatos, Backlog & Pendências, Riscos). A script can parse the markdown headings/bold keys and return a pass/fail list with missing sections. Estimated token savings: 400-600 per activation (eliminates LLM re-reading the schema and mentally diffing). Implementation complexity: Low — markdown heading/bold-pattern regex. Language: Python or Node. Could be prepass: Yes. Reusable: Yes — any agent with a structured ledger.",
+      "action": "Create scripts/validate-ledger-structure.py that loads ledger index.md, checks for all 13 required keys, and returns JSON {valid: bool, missing: [], present: []}."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 8,
+      "severity": "high",
+      "category": "preprocessing",
+      "title": "Ledger State Extraction Prepass — compact JSON summary for LLM context window",
+      "detail": "Determinism confidence: 95%. On activation (SKILL.md lines 20-23) the LLM must read the full ledger, identify active project, state, artifacts, and pendências. A script can pre-parse the ledger into a compact JSON digest ({project, objective, scope, regions, workloads, stack, slos, dr, finops, decisions_count, artifacts_list, pending_items, risks}) so the LLM receives structured data instead of raw markdown. Estimated token savings: 800-2000 per session start (ledgers grow over time). Implementation complexity: Medium — must handle variable markdown formatting. Language: Python. Could be prepass: Yes — this IS the prepass. Reusable: Yes — pattern applies to any ledger-based agent.",
+      "action": "Create scripts/extract-ledger-summary.py that parses ledger index.md into a compact JSON digest, reducing LLM token consumption on every activation."
+    },
+    {
+      "file": "references/standard-output.md",
+      "line": 3,
+      "severity": "high",
+      "category": "validation",
+      "title": "Response Format A-H Compliance Checker — validate output has all 8 mandatory sections",
+      "detail": "Determinism confidence: 98%. Every response must include sections A through H (Resumo Executivo, Arquitetura e Decisões, Plano Executável, Artefatos Prontos, Observabilidade, Confiabilidade, FinOps, Operação). A script can scan LLM output for these 8 section headers and flag missing ones. Estimated token savings: 200-400 per response (removes need for LLM self-check instructions). Implementation complexity: Low — regex for section markers A) through H). Language: Python or Node. Could be prepass: No — this is postprocessing. Reusable: Yes — any agent with structured output format.",
+      "action": "Create scripts/validate-response-format.py that checks generated output for all 8 mandatory sections (A-H), returns {valid: bool, missing_sections: [], found_sections: []}."
+    },
+    {
+      "file": "references/standard-output.md",
+      "line": 21,
+      "severity": "medium",
+      "category": "validation",
+      "title": "Critical Thinking & Próximos Passos Directive Checker",
+      "detail": "Determinism confidence: 90%. Directives require: (1) 2 options presented for trade-off cases, (2) response ends with 'Próximos Passos (1-2-3)'. A script can detect presence of numbered alternatives and the closing pattern. Estimated token savings: 100-200 per response. Implementation complexity: Low — pattern matching. Language: Python. Could be prepass: No — postprocessing. Reusable: Yes — any agent with similar directives.",
+      "action": "Create scripts/validate-directives.py that checks for presence of dual-option trade-off pattern and 'Próximos Passos' closing in LLM output."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 19,
+      "severity": "high",
+      "category": "extraction",
+      "title": "Decision Log Parser — extract structured decisions from ledger",
+      "detail": "Determinism confidence: 95%. The Decision Log follows a fixed format: 'Data | Decisão | Motivo | Trade-off'. A script can parse this pipe-delimited table into structured JSON [{date, decision, reason, tradeoff}]. Estimated token savings: 300-500 when LLM needs to reference past decisions. Implementation complexity: Low — table parsing. Language: Python. Could be prepass: Yes. Reusable: Yes — any agent with decision logs.",
+      "action": "Create scripts/parse-decision-log.py that extracts Decision Log entries from ledger into JSON array for structured LLM consumption."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 20,
+      "severity": "medium",
+      "category": "counting",
+      "title": "Artefact Inventory Counter — count and categorize generated artifacts",
+      "detail": "Determinism confidence: 98%. The Artefatos section lists files and links. A script can count total artifacts, categorize by type (IaC, pipeline, script, doc), and check file existence on disk. Estimated token savings: 200-400 when LLM needs project status. Implementation complexity: Low — list parsing + filesystem check. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/count-artifacts.py that parses Artefatos section, counts items by category, and verifies file existence."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 21,
+      "severity": "medium",
+      "category": "extraction",
+      "title": "Backlog & Pendências Extractor — structured pending items for prioritization",
+      "detail": "Determinism confidence: 93%. Backlog items are listed in the ledger as text entries. A script can extract them into a structured list with status indicators. Estimated token savings: 150-300 per session. Implementation complexity: Low — list extraction. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/extract-backlog.py that parses Backlog & Pendências into JSON [{item, status}] for quick LLM context."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 22,
+      "severity": "medium",
+      "category": "extraction",
+      "title": "Risk Registry Extractor — parse risks into structured severity matrix",
+      "detail": "Determinism confidence: 92%. Riscos section contains threat mappings. A script can extract them into [{risk, category, likelihood, impact}] for structured analysis. Estimated token savings: 150-300 per session. Implementation complexity: Low-Medium — depends on how consistently risks are written. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/extract-risks.py that parses Riscos section into structured JSON for quick risk assessment."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 29,
+      "severity": "medium",
+      "category": "structure",
+      "title": "New Ledger Template Generator — scaffold blank ledger with all sections",
+      "detail": "Determinism confidence: 100%. When a new project starts, the agent must create a ledger with all 13 sections pre-filled as empty placeholders. This is pure template generation — zero judgment required. Estimated token savings: 300-500 per new project (LLM currently generates the boilerplate). Implementation complexity: Trivial — string template. Language: Python or Bash. Could be prepass: No — on-demand generation. Reusable: Yes.",
+      "action": "Create scripts/init-ledger.py that generates a new blank ledger index.md with all 13 required sections as empty placeholders."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "line": 6,
+      "severity": "high",
+      "category": "structure",
+      "title": "Terraform Module Structure Validator — check module layout, backend, state locking",
+      "detail": "Determinism confidence: 97%. Terraform module structure is well-defined: main.tf, variables.tf, outputs.tf, versions.tf, backend config block, state lock config. A script can traverse a directory and validate these structural requirements without understanding HCL semantics. Estimated token savings: 500-800 per IaC review (LLM currently scans files manually). Implementation complexity: Medium — directory traversal + HCL block detection. Language: Python. Could be prepass: Yes. Reusable: Yes — any Terraform project.",
+      "action": "Create scripts/validate-terraform-structure.py that checks module directory for required files, backend config presence, and state locking configuration."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "line": 9,
+      "severity": "medium",
+      "category": "structure",
+      "title": "Bicep Template Structure Validator — modular layout and scope verification",
+      "detail": "Determinism confidence: 95%. Bicep templates should be modular with correct targetScope declarations. A script can verify file organization, module references, and scope settings. Estimated token savings: 300-500 per Bicep review. Implementation complexity: Medium — Bicep file parsing. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/validate-bicep-structure.py that checks Bicep project for modular organization, scope declarations, and module references."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "line": 8,
+      "severity": "high",
+      "category": "validation",
+      "title": "CAF Naming Convention Enforcer — regex-based Azure resource naming validation",
+      "detail": "Determinism confidence: 99%. CAF naming conventions follow strict patterns (e.g., rg-<app>-<env>-<region>-<###>, vnet-<app>-<env>-<region>). A script can validate resource names in Terraform/Bicep files against CAF regex patterns. Estimated token savings: 400-600 per naming review (LLM currently evaluates each name individually). Implementation complexity: Medium — regex library + HCL/Bicep name extraction. Language: Python. Could be prepass: Yes. Reusable: Yes — any Azure CAF project.",
+      "action": "Create scripts/validate-caf-naming.py with CAF naming regex patterns for all major Azure resource types, scanning IaC files for violations."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "line": 15,
+      "severity": "high",
+      "category": "validation",
+      "title": "YAML Pipeline Structure Validator — ADO/GHA pipeline schema compliance",
+      "detail": "Determinism confidence: 96%. ADO YAML pipelines require specific structure (trigger, pool, stages/jobs/steps) and GHA workflows require (on, jobs, steps). A script can validate YAML against these schemas. Estimated token savings: 400-700 per pipeline review. Implementation complexity: Medium — YAML parsing + schema validation. Language: Python (PyYAML + jsonschema). Could be prepass: Yes. Reusable: Yes — any ADO/GHA project.",
+      "action": "Create scripts/validate-pipeline-yaml.py that parses ADO/GHA pipeline YAML and validates required structure (stages, environments, approval gates for ADO; jobs, deployment environments for GHA)."
+    },
+    {
+      "file": "references/finops-governance.md",
+      "line": 19,
+      "severity": "high",
+      "category": "validation",
+      "title": "Azure Tagging Compliance Checker — verify required tags in IaC resources",
+      "detail": "Determinism confidence: 99%. Required tags are explicitly defined: CostCenter, Env, App, Owner. A script can scan Terraform/Bicep files for resource blocks and verify all 4 tags are present. Estimated token savings: 300-500 per IaC review. Implementation complexity: Low-Medium — parse resource blocks for tags map. Language: Python. Could be prepass: Yes. Reusable: Yes — any Azure project with tagging policy.",
+      "action": "Create scripts/validate-tagging.py that scans IaC files for resource definitions and checks presence of all 4 mandatory tags (CostCenter, Env, App, Owner)."
+    },
+    {
+      "file": "references/finops-governance.md",
+      "line": 11,
+      "severity": "medium",
+      "category": "structure",
+      "title": "Azure Policy JSON Structure Validator — policy-as-code schema check",
+      "detail": "Determinism confidence: 96%. Azure Policy definitions follow a strict JSON schema (policyType, mode, parameters, policyRule with if/then). A script can validate policy JSON against the Azure schema. Estimated token savings: 300-500 per policy review. Implementation complexity: Medium — JSON schema validation. Language: Python (jsonschema). Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/validate-azure-policy.py that validates Azure Policy JSON definitions against the required schema structure."
+    },
+    {
+      "file": "references/observability.md",
+      "line": 7,
+      "severity": "medium",
+      "category": "validation",
+      "title": "Golden Signals Coverage Checker — verify all 4 signals are addressed",
+      "detail": "Determinism confidence: 95%. The 4 Golden Signals (Latência, Erros, Tráfego, Saturação) must all be covered. A script can scan observability configurations/dashboards for coverage of each signal. Estimated token savings: 200-300 per observability review. Implementation complexity: Low-Medium — keyword/pattern matching in config files. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/check-golden-signals.py that scans observability configs and flags which of the 4 Golden Signals lack monitoring coverage."
+    },
+    {
+      "file": "references/observability.md",
+      "line": 8,
+      "severity": "medium",
+      "category": "validation",
+      "title": "SLO/SLI Definition Format Validator — check SLO specs follow required schema",
+      "detail": "Determinism confidence: 93%. SLO definitions should include: service name, SLI metric, target percentage, measurement window, error budget. A script can validate SLO YAML/JSON specs against this schema. Estimated token savings: 200-400 per SLO review. Implementation complexity: Medium — schema validation for SLO definitions. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/validate-slo-format.py that validates SLO/SLI definitions for completeness (service, metric, target, window, error budget)."
+    },
+    {
+      "file": "references/azure-reliability.md",
+      "line": 22,
+      "severity": "medium",
+      "category": "extraction",
+      "title": "DR RTO/RPO Matrix Extractor — parse recovery targets from ledger/docs",
+      "detail": "Determinism confidence: 90%. RTO/RPO targets are recorded as structured data in the ledger (DR & Backup section). A script can extract these into a comparison matrix [{workload, rto_target, rpo_target, strategy, region_pair}]. Estimated token savings: 200-400 when LLM needs DR context. Implementation complexity: Low-Medium — section parsing. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/extract-dr-matrix.py that parses DR & Backup section from ledger into a structured RTO/RPO matrix."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 26,
+      "severity": "low",
+      "category": "transformation",
+      "title": "Capability Routing Table Lookup — deterministic intent-to-reference mapping",
+      "detail": "Determinism confidence: 100%. The routing table (SKILL.md lines 26-37) is a static lookup: given an intent keyword, return the reference file path. Currently the LLM reads the whole table and does the mapping. A script could do this as a deterministic dictionary lookup. Estimated token savings: 100-200 per routed request (modest — table is small). Implementation complexity: Trivial — dictionary/map. Language: Python or Node. Could be prepass: Yes — route before loading references. Reusable: No — agent-specific table.",
+      "action": "Create scripts/route-capability.py with a static intent→reference dictionary that returns the correct reference path without LLM reasoning."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "line": 25,
+      "severity": "high",
+      "category": "postprocessing",
+      "title": "Golden Path Template Generator — boilerplate IaC for AKS, App Service, Network",
+      "detail": "Determinism confidence: 85%. Golden Paths are standardized, parameterized templates. Given inputs (app name, env, region, SKU), the output is deterministic boilerplate Terraform/Bicep. The LLM currently generates these from scratch each time, consuming 1000-3000 tokens of boilerplate. A script with Jinja2/string templates can produce identical output instantly. Estimated token savings: 1000-3000 per template generation. Implementation complexity: Medium-High — requires maintaining template library. Language: Python (Jinja2). Could be prepass: No — on-demand generation. Reusable: Yes — any Azure IaC project.",
+      "action": "Create scripts/generate-golden-path.py with parameterized Jinja2 templates for AKS, App Service, and VNet modules in both Terraform and Bicep."
+    },
+    {
+      "file": "references/finops-governance.md",
+      "line": 6,
+      "severity": "low",
+      "category": "structure",
+      "title": "CAF Management Group Hierarchy Validator — verify org structure compliance",
+      "detail": "Determinism confidence: 94%. CAF prescribes a specific Management Group hierarchy (Root → Platform/Landing Zones/Decommissioned/Sandbox). A script can validate that IaC definitions for Management Groups follow this structure. Estimated token savings: 150-300 per governance review. Implementation complexity: Medium — parse MG hierarchy from IaC. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/validate-caf-hierarchy.py that checks Management Group definitions in IaC against CAF-prescribed hierarchy patterns."
+    },
+    {
+      "file": "references/finops-governance.md",
+      "line": 12,
+      "severity": "low",
+      "category": "validation",
+      "title": "RBAC Assignment Least-Privilege Checker — flag overly broad role assignments",
+      "detail": "Determinism confidence: 88%. A script can scan Terraform/Bicep role assignments and flag known over-privileged patterns (Owner at subscription scope, Contributor where Reader suffices). Estimated token savings: 200-300 per RBAC review. Implementation complexity: Medium — role scope analysis. Language: Python. Could be prepass: Yes. Reusable: Yes.",
+      "action": "Create scripts/check-rbac-least-privilege.py that scans IaC role assignments and flags over-privileged patterns against a known-bad-patterns list."
+    }
+  ],
+  "assessments": {
+    "existing_scripts": []
+  },
+  "summary": {
+    "total_findings": 22,
+    "by_severity": {
+      "high": 9,
+      "medium": 10,
+      "low": 3
+    },
+    "by_category": {
+      "validation": 10,
+      "extraction": 4,
+      "preprocessing": 1,
+      "postprocessing": 1,
+      "structure": 4,
+      "counting": 1,
+      "transformation": 1
+    },
+    "assessment": "Agent has ZERO scripts — every deterministic operation is currently delegated to the LLM. This is an agent in CREATION phase with a rich set of structured references, a well-defined ledger schema, and strict output format requirements — all of which are prime script territory. Top-priority scripts: (1) validate-ledger-structure.py — guards ledger integrity with zero LLM cost, (2) extract-ledger-summary.py — the highest token-saving prepass, compressing growing ledgers into compact JSON on every activation, (3) validate-response-format.py — enforces the mandatory A-H output structure as a postprocessing gate, (4) validate-caf-naming.py — pure regex work the LLM does character-by-character today, (5) generate-golden-path.py — eliminates 1000-3000 tokens of deterministic boilerplate per template request. Combined estimated token savings: 5,000-12,000 tokens per typical session. The validation scripts also improve reliability — a regex never forgets to check a tag, but an LLM might."
+  }
+}

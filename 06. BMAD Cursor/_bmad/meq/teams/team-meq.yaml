@@ -1,0 +1,25 @@
+# Time MEQ - Squad de Desenvolvimento de Software
+# Web, Android, iOS - Produtos completos e funcionais
+
+bundle:
+  name: Time MEQ
+  icon: 🎯
+  description: Squad completa para desenvolvimento de sistemas e produtos de software (web, Android, iOS). Entrega produtos prontos, funcionais e modernos com as melhores práticas.
+
+agents:
+  - orquestrador-master
+  - product-developer
+  - ux-designer
+  - arquiteto
+  - fullstack
+  - banco-dados
+  - integracao
+  - qa-engineer
+  - devops
+  # - fullstack
+  # - banco-dados
+  # - integracao
+  # - qa
+  # - devops
+
+party: "./default-party.csv"

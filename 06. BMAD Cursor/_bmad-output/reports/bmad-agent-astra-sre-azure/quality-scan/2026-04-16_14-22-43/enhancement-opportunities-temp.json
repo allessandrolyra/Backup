@@ -1,0 +1,305 @@
+{
+  "scanner": "enhancement-opportunities",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure\\SKILL.md",
+  "findings": [
+    {
+      "file": "references/iac-cicd.md",
+      "severity": "high-opportunity",
+      "category": "edge-case",
+      "title": "S3 reference in Azure-only agent (copy-paste contamination)",
+      "detail": "Line 'Padrão: Módulos, Backend S3/Blob, State Locking' references AWS S3 in an Azure-exclusive agent. An expert SRE will immediately lose trust. A junior will be confused about which backend to use. This is a credibility landmine — small but devastating for an agent whose entire value proposition is Azure expertise.",
+      "action": "Replace 'Backend S3/Blob' with 'Backend Azure Blob Storage (azurerm), State Locking via Blob Lease'. Add explicit note that Terraform state must live in Azure Storage Account with container-level access."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "high-opportunity",
+      "category": "experience-gap",
+      "title": "No handoff/routing to sibling agents for out-of-scope requests",
+      "detail": "Simulated confused user asking about Azure DevOps Boards (Bravo's domain): Astra's routing table only routes WITHIN her own capabilities. There is zero mechanism to say 'That's not my area — you need agent X.' Result: Astra either hallucinates a boards answer (harmful) or dead-ends with 'I don't do that' (frustrating). This is the #1 journey-killer for multi-agent systems.",
+      "action": "Add an 'Out-of-Scope Routing' section to SKILL.md with explicit boundaries and handoff phrases. Example: '| Azure DevOps Boards/Work Items | Fora do escopo | Encaminhar para Bravo |'. Include a catch-all: 'Se a intenção não mapear para nenhuma capacidade acima, informe o usuário e sugira o agente correto.'"
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "high-opportunity",
+      "category": "journey-friction",
+      "title": "No first-time / onboarding flow — ledger bootstrap is undefined",
+      "detail": "First-timer simulation: Junior cloud engineer activates Astra. Step 1 says 'Ler o Project Memory Ledger'. File doesn't exist. What happens? SKILL.md is silent. The agent either errors out trying to read a missing file, or skips silently and loses the memory contract from the start. There is no 'new project wizard', no intake questionnaire, no guided discovery. The junior is immediately dropped into enterprise-scale A-H format responses.",
+      "action": "Add an 'On First Activation (No Ledger Found)' flow: 1) Detect missing ledger, 2) Greet user and explain Astra's capabilities in 2 sentences, 3) Run intake discovery: 'Qual o nome do projeto? Ambiente novo ou existente? Qual workload principal?', 4) Bootstrap ledger from answers, 5) Confirm with user before proceeding. This is the single highest-impact UX improvement."
+    },
+    {
+      "file": "references/standard-output.md",
+      "severity": "high-opportunity",
+      "category": "experience-gap",
+      "title": "A-H response format is monolithic — no progressive disclosure",
+      "detail": "Every response must include all 8 sections (Resumo Executivo through Operação). A junior asking 'what is an NSG?' gets a full DR plan and FinOps analysis. An expert asking a quick KQL question gets forced through Architecture and CI/CD sections. This is the equivalent of answering 'what time is it?' with a dissertation on horology. Real users will stop reading after section B.",
+      "action": "Introduce response tiers: TIER-1 (Quick Answer: A only), TIER-2 (Standard: A+B+C+D), TIER-3 (Full: A-H). Add auto-detection heuristic: 'Se a pergunta é factual/pontual → TIER-1. Se envolve implementação → TIER-2. Se é design de workload novo ou review completo → TIER-3.' Let user override with 'resposta completa' or 'resposta rápida'."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "high-opportunity",
+      "category": "autonomous-potential",
+      "title": "No headless/API mode — blocks CI pipeline automation",
+      "detail": "Automator simulation: CI pipeline wants Astra to generate Terraform for a new microservice. Critical Thinking Mode forces '2 approaches' requiring human choice. Ledger update requires confirmation. 'Próximos Passos' implies conversation continuation. There is no structured input schema, no JSON output mode, no way to say 'just use defaults and give me the code'. The agent is 100% conversational with zero machine-parseable contract.",
+      "action": "Add 'Modo Autônomo' section: when activated with structured input (JSON/YAML with project_name, workload_type, environment, region, iac_tool), skip Critical Thinking prompts (use MVC-R defaults), output artifacts directly, update ledger silently, return structured output with {status, artifacts[], ledger_diff, warnings[]}. Define the input/output contract explicitly."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "severity": "high-opportunity",
+      "category": "edge-case",
+      "title": "Ledger has no corruption detection or recovery mechanism",
+      "detail": "Hostile environment simulation: Context compaction drops the ledger mid-conversation. Astra has no way to detect this happened. No checksum, no state hash, no periodic re-read instruction. If the ledger file gets corrupted or partially written (user confirms update, context drops before write completes), Astra will silently operate on stale/corrupt state. The 'peça confirmação' instruction becomes a data-loss vector if confirmation is lost.",
+      "action": "Add: 1) State hash — ledger includes a version counter and last-modified timestamp that Astra checks against its in-context copy, 2) Periodic re-read — 'A cada 3 interações, releia o ledger e compare com o contexto atual', 3) Corruption recovery — 'Se o ledger estiver incompleto ou corrompido, notifique o usuário e ofereça reconstrução a partir do histórico da conversa', 4) Auto-save — remove confirmation gate for ledger updates in autonomous mode."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "high-opportunity",
+      "category": "facilitative-pattern",
+      "title": "Missing Intent-Before-Ingestion — dives into execution without confirming understanding",
+      "detail": "All archetypes hit this: user says something, Astra immediately routes to a capability and starts generating A-H output. There is no 'Let me make sure I understand what you need' step. The expert asking for AKS Terraform might want just the networking module, not the full cluster. The first-timer might not know what they need. Without intent confirmation, Astra generates comprehensive but potentially wrong artifacts, wasting tokens and user patience.",
+      "action": "Add 'Intent Confirmation Gate' after routing: 'Antes de gerar artefatos, confirme o escopo em 1-2 frases: [O que entendi] [O que vou entregar] [Confirma?]'. For simple/obvious requests, make this a lightweight inline confirmation. For complex requests, make it a structured scope summary. Skip entirely in Modo Autônomo."
+    },
+    {
+      "file": "references/azure-reliability.md",
+      "severity": "medium-opportunity",
+      "category": "experience-gap",
+      "title": "Reference docs are skeletal bullet-point outlines, not actionable knowledge",
+      "detail": "All 4 domain references (reliability, iac-cicd, observability, finops-governance) are ~20-line bullet-point summaries. They name concepts but don't provide implementation patterns, code snippets, decision trees, or anti-patterns. An expert SRE gets no value beyond what they already know. A junior gets a glossary but no guidance. The references serve as a capability checklist, not a knowledge base.",
+      "action": "Expand each reference to include: 1) Decision tree for common scenarios (e.g., 'AKS networking: CNI vs kubenet → if <250 pods use kubenet, else CNI'), 2) Anti-patterns with consequences, 3) Code snippet anchors (Terraform/Bicep patterns for the top 3 use cases per domain), 4) Azure-specific gotchas that even experts miss. Target 80-120 lines per reference."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium-opportunity",
+      "category": "assumption-risk",
+      "title": "Assumes enterprise-scale for every interaction — no project-size calibration",
+      "detail": "MVC-R principle exists but is overshadowed by 'Enterprise-Scale: Projetos para missão crítica, multi-zona/região e governança CAF'. A startup deploying their first App Service doesn't need Management Groups, Hub-spoke networking, or Chaos Studio GameDays. Astra's defaults are calibrated for a Fortune 500, which will overwhelm or over-engineer for 80% of real-world users.",
+      "action": "Add project-size tiers to ledger initialization: STARTUP (single subscription, basic monitoring, cost-optimized), GROWTH (landing zone lite, basic DR), ENTERPRISE (full CAF, multi-region, chaos engineering). Each tier unlocks progressively complex A-H sections. Default to STARTUP unless user signals otherwise."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium-opportunity",
+      "category": "assumption-risk",
+      "title": "Portuguese-only agent in a multilingual Azure ecosystem",
+      "detail": "Entire SKILL.md, all references, and response format are in Portuguese. Azure documentation, Terraform providers, error messages, and most SRE tooling are in English. A non-Portuguese-speaking user who stumbles into Astra gets zero value. Even Portuguese speakers will context-switch constantly between Astra's Portuguese explanations and English Azure/Terraform docs.",
+      "action": "Add language detection: 'Responda no idioma do usuário. Se a primeira mensagem for em inglês, responda em inglês.' Keep reference docs bilingual or in English (the lingua franca of cloud engineering). At minimum, add an English greeting fallback."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "severity": "medium-opportunity",
+      "category": "edge-case",
+      "title": "Multi-cloud mention without substance creates false promise",
+      "detail": "Edge-case user simulation: Someone asks for Azure+AWS design. iac-cicd.md line 12 says 'Tradução multicloud: Capacidade de traduzir conceitos (ex: AWS VPC/SG -> Azure VNet/NSG)'. This is a one-line claim with no backing reference, no patterns, no guardrails. Astra will either refuse (losing the user) or attempt multi-cloud design with no grounding (dangerous). The mention creates an expectation that the agent can't fulfill.",
+      "action": "Either: A) Remove the multi-cloud claim and add explicit boundary: 'Astra é especialista Azure-only. Para multi-cloud, consulte [agente X]', or B) Expand into a real reference with translation tables (AWS→Azure service mapping), hybrid patterns (Azure Arc, ExpressRoute+Direct Connect), and clear limits ('Astra traduz conceitos mas não gera IaC para AWS')."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium-opportunity",
+      "category": "delight-opportunity",
+      "title": "No quick-start / template gallery for common patterns",
+      "detail": "Assets folder is empty. No starter templates, no golden-path modules, no example ledgers. Every interaction starts from zero. An expert SRE expects 'give me your AKS production template' to return a battle-tested module in seconds. Instead, Astra must generate from scratch every time, with no consistency guarantee between sessions.",
+      "action": "Create assets/templates/ with: 1) aks-production/ (Terraform module with best-practice defaults), 2) app-service-standard/ (Bicep template), 3) landing-zone-lite/ (CAF starter), 4) observability-stack/ (Monitor + LA + AppInsights baseline), 5) pipeline-templates/ (ADO and GHA starters). Reference these from the routing table. This is the highest-impact delight opportunity."
+    },
+    {
+      "file": "references/standard-output.md",
+      "severity": "medium-opportunity",
+      "category": "facilitative-pattern",
+      "title": "Missing Dual-Output pattern — no summary vs. detail toggle",
+      "detail": "The A-H format has no mechanism for the user to say 'just give me the code' or 'just explain the architecture'. Every response is forced through all applicable sections at the same depth. A returning expert who has already reviewed the architecture wants section D artifacts only. A manager in a review wants section A+G only. There's no way to request a slice.",
+      "action": "Add output modifiers that users can invoke: '/artefatos' (D only), '/resumo' (A only), '/custos' (A+G), '/completo' (A-H), '/operação' (A+F+H). Document these in the greeting/help response. In autonomous mode, default to '/artefatos'."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium-opportunity",
+      "category": "journey-friction",
+      "title": "Critical Thinking Mode '2 approaches always' creates decision fatigue",
+      "detail": "Principle states: 'Sempre apresenta 2 abordagens e desafia soluções simples se houver risco de escala.' For significant architectural decisions (AKS vs App Service), this is valuable. For trivial choices (which Azure region for a Brazil-based company: Brazil South), it's annoying overhead. The 'always' mandate creates noise that drowns signal.",
+      "action": "Qualify the trigger: '2 abordagens QUANDO: a) custo delta > 20%, b) impacto em reliability (SLA tier difference), c) trade-off arquitetural não-óbvio. Para decisões com resposta clara, apresente a recomendação direta com justificativa em 1 linha.'"
+    },
+    {
+      "file": "references/project-ledger.md",
+      "severity": "medium-opportunity",
+      "category": "experience-gap",
+      "title": "No example/template ledger — agent must invent structure each time",
+      "detail": "The ledger reference describes the schema in prose but provides no concrete example file. Each activation, Astra must interpret the schema and generate a new ledger format, leading to drift between sessions. The user never sees what a 'good' ledger looks like before committing to one.",
+      "action": "Add assets/templates/ledger-example.md with a fully populated example (fictional project 'Contoso E-Commerce') showing every field filled with realistic Azure data. Reference it from project-ledger.md: 'Use este template como base para novos ledgers.'"
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium-opportunity",
+      "category": "delight-opportunity",
+      "title": "No proactive insight mode — Astra is purely reactive",
+      "detail": "Astra waits for questions. A real Principal SRE would proactively flag: 'Your AKS cluster has no pod disruption budgets', 'Your DR plan has no tested runbook', 'Your observability stack is missing distributed tracing'. The ledger has all the context needed to generate proactive recommendations, but no instruction to do so.",
+      "action": "Add 'Proactive Review' trigger: on ledger re-read, compare current state against a reliability checklist (derived from WAF pillars). Surface top 3 gaps as 'Recomendações Proativas' at session start. Example: 'Detectei que o projeto [X] não tem SLOs definidos. Quer que eu proponha?'"
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium-opportunity",
+      "category": "autonomous-potential",
+      "title": "No manifest.json — agent is invisible to orchestration systems",
+      "detail": "No manifest file exists. In a multi-agent system, orchestrators need to discover agents programmatically: capabilities, input/output contracts, version, dependencies. Without a manifest, Astra can only be invoked by humans who know she exists. This blocks automated agent selection, pipeline integration, and capability discovery.",
+      "action": "Create manifest.json with: {name, version, description, capabilities[], input_schema, output_schema, language, dependencies[], routing_rules[], sibling_agents[]}. This enables orchestrators to route to Astra automatically when Azure SRE intent is detected."
+    },
+    {
+      "file": "references/observability.md",
+      "severity": "low-opportunity",
+      "category": "experience-gap",
+      "title": "No KQL examples despite KQL being a core capability",
+      "detail": "Observability reference lists KQL as a capability but provides zero example queries. KQL is the #1 hands-on skill for Azure SRE troubleshooting. An expert expects ready-to-use queries for common scenarios (error spike detection, latency percentiles, resource exhaustion). A junior needs examples to learn the syntax.",
+      "action": "Add 5-10 production-grade KQL snippets to observability.md: 1) Error rate by service (5min windows), 2) P95 latency trend, 3) Pod restart correlation, 4) Availability SLI calculation, 5) Cost anomaly detection from metrics. Each with inline comments explaining the pattern."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low-opportunity",
+      "category": "delight-opportunity",
+      "title": "No cost estimation inline with IaC generation",
+      "detail": "Section G (FinOps) asks for 'Impacto estimado de custo' but there's no methodology. Astra will either hallucinate numbers or give vague ranges. Real value: tie IaC resource definitions to Azure Pricing Calculator estimates with SKU-specific monthly costs.",
+      "action": "Add cost estimation heuristic to finops-governance.md: standard SKU cost ranges for top 10 Azure services (AKS node pools, App Service plans, SQL DTU/vCore, Storage tiers). Instruct Astra to reference these when generating section G. Caveat: 'Estimativas baseadas em preços públicos de [region]. Consulte a Calculadora Azure para valores exatos.'"
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low-opportunity",
+      "category": "facilitative-pattern",
+      "title": "Missing Soft Gate Elicitation — no calibration of user expertise level",
+      "detail": "Astra never asks 'what's your experience level with Azure?' or 'have you worked with Terraform before?'. The response depth is identical for a junior and a principal engineer. This wastes the expert's time with basics and overwhelms the junior with advanced patterns.",
+      "action": "Add expertise calibration to first interaction: 'Para calibrar minhas respostas: você se considera (1) Iniciante em Azure, (2) Intermediário, (3) Avançado/SRE? Isso define o nível de detalhe.' Store in ledger. Adjust response verbosity: Iniciante gets explanations + code, Avançado gets code + trade-offs only."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "severity": "low-opportunity",
+      "category": "assumption-risk",
+      "title": "Binary Terraform/Bicep assumption — no Pulumi, no CDK for Terraform",
+      "detail": "IaC reference only covers Terraform and Bicep. The Azure ecosystem also includes Pulumi (growing fast), CDK for Terraform, and ARM templates (legacy but common). Users with existing Pulumi stacks will be told to switch tools rather than being supported where they are.",
+      "action": "Add acknowledgment: 'Astra tem expertise primária em Terraform e Bicep. Para Pulumi ou ARM Templates, pode traduzir conceitos mas recomenda validação adicional.' This sets honest expectations without refusing help."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low-opportunity",
+      "category": "journey-friction",
+      "title": "No '/help' or capabilities summary command",
+      "detail": "A new user has no way to ask 'what can you do?' and get a concise answer. The routing table exists in SKILL.md but is not surfaced to users. Every user must discover capabilities through trial and error.",
+      "action": "Add instruction: 'Se o usuário pedir ajuda, listar capacidades, ou enviar /help, apresente a Tabela de Roteamento em formato amigável com exemplos de perguntas para cada capacidade.'"
+    },
+    {
+      "file": "references/standard-output.md",
+      "severity": "low-opportunity",
+      "category": "delight-opportunity",
+      "title": "No visual architecture output (Mermaid/diagram support)",
+      "detail": "Section B says 'Diagramação teórica dos fluxos' but provides no format guidance. Astra could generate Mermaid diagrams for architecture visualization, which render natively in most markdown viewers and IDEs. This would be a significant delight moment — users expect diagrams from an architect-level agent.",
+      "action": "Add to standard-output.md section B: 'Sempre que possível, inclua um diagrama Mermaid (flowchart ou C4) para visualização da arquitetura. Exemplo: ```mermaid\\nflowchart LR\\n  A[App Service] --> B[SQL Database]\\n```'. This is low-effort, high-delight."
+    }
+  ],
+  "assessments": {
+    "skill_understanding": {
+      "purpose": "Azure SRE executor agent that designs, implements, and delivers production-ready infrastructure artifacts following WAF Reliability principles, with persistent project memory via ledger system.",
+      "primary_user": "Cloud engineers and SREs working on Azure infrastructure — ranging from juniors setting up first environments to principals designing mission-critical multi-region systems.",
+      "key_assumptions": [
+        "User speaks Portuguese",
+        "User wants enterprise-scale infrastructure",
+        "User will interact conversationally (not headlessly)",
+        "User has an existing project context or will create one linearly",
+        "The LLM can generate production-grade IaC from bullet-point references alone",
+        "All requests merit the full A-H response format",
+        "User knows Astra exists and what she does before invoking her",
+        "Ledger file path is pre-configured and accessible",
+        "User operates exclusively within Azure (no multi-cloud)"
+      ]
+    },
+    "user_journeys": [
+      {
+        "archetype": "First-timer (Junior Cloud Engineer)",
+        "scenario": "Asking Astra to set up their first Azure environment",
+        "entry_friction": "CRITICAL — Ledger not found, no bootstrap flow, no onboarding. Agent may error or silently skip memory initialization.",
+        "mid_flow_resilience": "LOW — A-H format overwhelms. No expertise calibration. Enterprise defaults over-engineer the solution. No 'explain this concept' mode.",
+        "exit_satisfaction": "LOW — Receives a massive response they can't parse. No clear 'do this first' prioritization. Likely abandons.",
+        "return_value": "ZERO — No ledger was created (bootstrap failed), so next session starts from scratch again.",
+        "verdict": "This journey is broken. The first-timer needs a wizard, not an enterprise architect."
+      },
+      {
+        "archetype": "Expert (Senior SRE — Production AKS Terraform)",
+        "scenario": "Requesting production-grade Terraform for AKS with zone redundancy",
+        "entry_friction": "MEDIUM — Expert can navigate the format but wonders why there are no starter templates. Empty assets/ is a missed opportunity.",
+        "mid_flow_resilience": "MEDIUM — References are too shallow for expert needs. S3 mention erodes trust. Critical Thinking '2 approaches' is welcome but may over-trigger on obvious choices.",
+        "exit_satisfaction": "MEDIUM — Gets code but it's generated from scratch with no consistency guarantee. No module registry, no versioning.",
+        "return_value": "MEDIUM — Ledger captures decisions, but no template reuse across projects.",
+        "verdict": "Functional but underwhelming. An expert expects curated templates, not generated-from-scratch every time."
+      },
+      {
+        "archetype": "Confused User (Azure DevOps Boards — wrong agent)",
+        "scenario": "Invoked Astra wanting help with sprint management in Azure DevOps Boards",
+        "entry_friction": "CRITICAL — No out-of-scope detection. No handoff to Bravo or correct agent.",
+        "mid_flow_resilience": "FAILURE — Astra either attempts to answer (hallucination risk) or says 'I don't do that' with no redirect.",
+        "exit_satisfaction": "ZERO — User wasted time, got no help, and doesn't know where to go.",
+        "return_value": "NEGATIVE — User may avoid the agent system entirely after bad experience.",
+        "verdict": "Complete dead-end. This is the most common real-world failure in multi-agent systems and it's unhandled."
+      },
+      {
+        "archetype": "Edge-case User (Multi-cloud Azure + AWS)",
+        "scenario": "Asking for hybrid Azure-primary, AWS-failover architecture",
+        "entry_friction": "LOW — User knows they want multi-cloud and iac-cicd.md claims translation capability.",
+        "mid_flow_resilience": "DANGEROUS — The one-line multi-cloud mention creates false confidence. Astra may generate AWS patterns without proper grounding, or refuse mid-flow after initially seeming capable.",
+        "exit_satisfaction": "LOW — Either gets unreliable multi-cloud advice or a late-stage refusal after investing conversation time.",
+        "return_value": "LOW — No clear escalation path to a multi-cloud specialist.",
+        "verdict": "The false promise is worse than no promise. Either support it properly or boundary it explicitly."
+      },
+      {
+        "archetype": "Hostile Environment (Context compaction drops ledger)",
+        "scenario": "Mid-conversation context window fills, compaction drops the ledger content",
+        "entry_friction": "N/A — Failure occurs mid-flow.",
+        "mid_flow_resilience": "CRITICAL FAILURE — No detection mechanism. Astra continues operating on stale/missing context without awareness. Decisions may contradict earlier ones. Artifacts may be inconsistent.",
+        "exit_satisfaction": "NEGATIVE — User discovers inconsistency only when reviewing artifacts, potentially after deploying.",
+        "return_value": "CORRUPTED — Ledger may be partially updated with inconsistent state.",
+        "verdict": "Silent data loss is the worst failure mode for a memory-dependent agent. Needs checkpointing."
+      },
+      {
+        "archetype": "Automator (CI pipeline headless invocation)",
+        "scenario": "Pipeline triggers Astra to generate Terraform for a new microservice deployment",
+        "entry_friction": "BLOCKED — No structured input schema. No headless mode. No JSON output contract.",
+        "mid_flow_resilience": "BLOCKED — Critical Thinking requires human choice. Ledger update requires confirmation. Everything assumes conversation.",
+        "exit_satisfaction": "ZERO — Cannot integrate with CI/CD pipeline in current form.",
+        "return_value": "ZERO — No machine-parseable output to feed into next pipeline stage.",
+        "verdict": "Completely blocked. Ironic for an agent that generates CI/CD pipelines but can't participate in one."
+      }
+    ],
+    "autonomous_assessment": {
+      "potential": "HIGH — Astra's domain (IaC generation, observability config, DR planning) is highly automatable. The A-H format already structures output well. With structured input and default resolution, 70-80% of requests could be handled headlessly.",
+      "hitl_points": 5,
+      "auto_resolvable": 3,
+      "needs_input": 4,
+      "suggested_output_contract": "{ status: 'success'|'needs_input'|'error', artifacts: [{ type: 'terraform'|'bicep'|'pipeline'|'script'|'runbook', path: string, content: string }], ledger_update: { diff: string, version: number }, warnings: string[], cost_estimate: { monthly_usd: number, confidence: 'low'|'medium'|'high' }, next_steps: string[] }",
+      "required_inputs": [
+        "project_name: string — identifier for ledger",
+        "workload_type: 'aks'|'app-service'|'function'|'sql'|'storage'|'custom' — primary resource",
+        "environment: 'dev'|'staging'|'production' — determines reliability tier",
+        "region: string — Azure region (e.g., 'brazilsouth')",
+        "iac_tool: 'terraform'|'bicep' — IaC preference (default: terraform)",
+        "cicd_platform: 'ado'|'gha' — pipeline platform (default: gha)",
+        "project_tier: 'startup'|'growth'|'enterprise' — complexity level (default: startup)"
+      ],
+      "notes": "The 5 HITL points are: 1) Critical Thinking dual-approach choice, 2) Ledger update confirmation, 3) Scope clarification for ambiguous requests, 4) IaC tool selection when not specified, 5) DR strategy selection (RTO/RPO trade-off). Of these, #1 can be auto-resolved by defaulting to MVC-R, #2 by auto-saving in autonomous mode, #4 by defaulting to Terraform. Points #3 and #5 genuinely need human input but could be parameterized in the input contract."
+    },
+    "top_insights": [
+      "INSIGHT 1: The first-time experience is completely broken. No ledger bootstrap, no onboarding wizard, no expertise calibration. This is the #1 priority fix because it determines whether users ever come back.",
+      "INSIGHT 2: The agent that builds CI/CD pipelines cannot itself be used in a CI/CD pipeline. Adding a headless mode with structured I/O would unlock Astra's highest-value use case: automated infrastructure provisioning triggered by code changes.",
+      "INSIGHT 3: The A-H monolithic response format is Astra's biggest UX liability. It turns every interaction into a comprehensive report when 80% of interactions need a focused answer. Progressive disclosure (response tiers) would dramatically improve perceived intelligence.",
+      "INSIGHT 4: Reference docs are capability checklists, not knowledge bases. They list WHAT Astra knows but don't help the LLM generate BETTER outputs. Expanding them with decision trees, anti-patterns, and code anchors would measurably improve artifact quality.",
+      "INSIGHT 5: The missing out-of-scope routing is a systemic risk for the entire multi-agent ecosystem. Every agent without boundaries degrades the experience of all agents. This is a 10-minute fix with outsized impact."
+    ]
+  },
+  "summary": {
+    "total_findings": 23,
+    "by_severity": {
+      "high-opportunity": 7,
+      "medium-opportunity": 10,
+      "low-opportunity": 6
+    },
+    "by_category": {
+      "edge-case": 3,
+      "experience-gap": 5,
+      "delight-opportunity": 4,
+      "assumption-risk": 3,
+      "journey-friction": 3,
+      "autonomous-potential": 2,
+      "facilitative-pattern": 3
+    },
+    "assessment": "Astra has a strong conceptual foundation — the Reliability First principle, Project Ledger memory, structured A-H output, and capability routing table are all sound architectural choices. However, the agent is currently optimized for a single archetype (experienced Portuguese-speaking Azure engineer in an enterprise context having a linear conversation) and silently fails for every other user type. The three highest-leverage improvements are: (1) First-time onboarding flow with ledger bootstrap, (2) Response tier system replacing monolithic A-H, and (3) Headless/autonomous mode with structured I/O contract. The reference docs need depth expansion, the assets folder needs starter templates, and the agent needs explicit boundaries with sibling handoff. The S3 reference is a small but trust-destroying bug that should be fixed immediately. Overall maturity: EARLY CREATION — strong bones, needs muscle and skin."
+  }
+}

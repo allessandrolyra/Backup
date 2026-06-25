@@ -1,0 +1,272 @@
+{
+  "scanner": "agent-cohesion",
+  "agent_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure",
+  "scan_timestamp": "2026-04-16T14:22:43Z",
+  "comparison_agent": "bmad-agent-artemis-aws",
+  "findings": [
+    {
+      "file": "SKILL.md",
+      "severity": "critical",
+      "category": "gap",
+      "title": "Missing Compute Decisor pattern (App Service vs AKS vs ACA vs Functions)",
+      "detail": "Artemis has a structured 5-Question Compute Decisor in aws-advice.md that systematically guides users from workload description to the right compute (Lambda vs EKS vs ECS vs EC2). Astra has NO equivalent for Azure compute selection. When a user asks 'I need to deploy a workload on Azure', Astra has no framework to recommend App Service vs AKS vs Azure Container Apps vs Azure Functions vs VMs. This is the single most impactful gap because compute selection is the first and most consequential decision in any Azure project.",
+      "action": "Create references/azure-compute-decisor.md with: (1) 5-Question triage (workload type, latency/scale, stateful/stateless, compliance/network, budget/time-to-market), (2) Decision matrix mapping answers to App Service / AKS / ACA / Azure Functions / Container Instances / VMs, (3) Add routing entry in SKILL.md capability table for compute selection intent."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "critical",
+      "category": "gap",
+      "title": "No Security section or explicit security rules",
+      "detail": "Artemis SKILL.md contains an explicit '## Segurança' section with 3 hard rules: never ask for access keys, always recommend Secrets Manager/SSM, always require rollback plans for destructive actions. Astra has ZERO security directives. RBAC is buried in finops-governance.md as a sub-item. For an SRE agent operating on production Azure infrastructure, the absence of security guardrails is a critical omission. No mention of Azure Key Vault for secrets, Managed Identities preference, or destructive-action safeguards.",
+      "action": "Add '## Segurança' section to SKILL.md with rules: (1) Never request or store credentials/secrets, (2) Always recommend Azure Key Vault + Managed Identities, (3) Require rollback plan for destructive operations, (4) Default to Private Endpoints for PaaS. Also create references/security-networking.md covering identity, network isolation, encryption, and compliance patterns."
+    },
+    {
+      "file": "references/standard-output.md",
+      "severity": "high",
+      "category": "gap",
+      "title": "Response format has 8 points vs Artemis's 14 — missing 6 critical sections",
+      "detail": "Astra's A-H format omits dedicated sections that Artemis covers as standalone response blocks: (7) SRE with Error Budgets — Astra folds SLI/SLO into Observabilidade but never mentions Error Budget policy; (8) Security & Governance — absent as standalone; (10) Risks & Next Steps — Astra has 'Próximos Passos 1-2-3' as a directive but no dedicated Risks section; (13) Performance — p95/p99, throughput targets, load testing strategy completely absent; (14) Automation & Toil — toil reduction % metrics absent. The 8-point format means Astra systematically omits security posture, performance targets, and toil tracking from every response.",
+      "action": "Expand standard-output.md to 12-14 sections: add (I) SRE: Error Budgets & SLIs/SLOs, (J) Segurança & Compliance, (K) Riscos & Próximos Passos, (L) Performance Engineering, (M) Automação & Redução de Toil. Update SKILL.md to reference the expanded format."
+    },
+    {
+      "file": "references/azure-reliability.md",
+      "severity": "high",
+      "category": "gap",
+      "title": "Missing Performance Engineering reference",
+      "detail": "Artemis has a dedicated Performance Engineering section in aws-advice.md covering: p95/p99 latency targets, load testing tools (k6/Locust), and capacity planning based on real performance metrics. Astra has ZERO coverage of performance engineering. No mention of latency targets, throughput baselines, load testing strategy, or capacity planning methodology. For an SRE agent, performance is a core reliability signal — you can't meet SLOs without understanding performance characteristics.",
+      "action": "Add Performance Engineering section to azure-reliability.md or create dedicated references/performance-engineering.md covering: (1) Latency targets (p50/p95/p99), (2) Load testing tools (k6, Locust, Azure Load Testing), (3) Capacity planning methodology, (4) Auto-scaling triggers based on performance metrics."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "severity": "high",
+      "category": "gap",
+      "title": "Missing Toil Reduction metrics and tracking",
+      "detail": "Artemis explicitly tracks '% de redução de Toil' as a measurable KPI in both iac-cicd.md and the 14-point response format (point 14). Astra mentions Platform Engineering and Golden Paths in iac-cicd.md but never quantifies toil, never tracks reduction, and never identifies manual repetitive tasks as a category to eliminate. For an SRE agent, toil reduction is a core Google SRE principle — work that is manual, repetitive, automatable, tactical, devoid of long-term value, and scales linearly with service growth.",
+      "action": "Add '## Toil Reduction' section to references/iac-cicd.md covering: (1) Definition and identification of toil in Azure ops, (2) Common Azure toil patterns (manual scaling, manual cert rotation, manual DNS updates), (3) Automation targets with estimated % reduction, (4) Tracking mechanism for toil budget. Also add Toil section to standard-output.md."
+    },
+    {
+      "file": "references/observability.md",
+      "severity": "high",
+      "category": "gap",
+      "title": "No Error Budget policy or SRE-specific practices",
+      "detail": "Astra's observability reference mentions SLO/SLI dashboards but completely omits Error Budget as a decision-making framework. Artemis explicitly states: 'Se o orçamento de erro for estourado, priorizar estabilidade sobre novas features.' This is a foundational SRE practice — Error Budgets drive the tension between reliability and velocity. Astra also omits OpenTelemetry (only referencing Azure-native App Insights), sampling strategies for cost control, and incident response patterns.",
+      "action": "Expand observability.md to include: (1) Error Budget policy and decision framework, (2) OpenTelemetry as recommended instrumentation standard alongside App Insights, (3) Sampling strategies for logs/traces cost management, (4) Incident classification and response patterns (SEV1-SEV4)."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "high",
+      "category": "gap",
+      "title": "No dedicated Networking reference (VNet, Private Endpoints, Front Door, Firewall)",
+      "detail": "Azure networking is foundational for any enterprise workload and deeply intertwined with reliability and security. Astra mentions 'Hub-spoke networking' once in finops-governance.md and 'Subnets, NSGs and Private Links' once in azure-reliability.md, but there is no dedicated networking reference. Missing: VNet design patterns, Private Endpoint strategy for PaaS, Azure Firewall / Application Gateway / Front Door / Traffic Manager selection, DNS (Private DNS Zones), ExpressRoute/VPN, Network Watcher for diagnostics.",
+      "action": "Create references/security-networking.md (or split into networking.md + security.md) covering: (1) VNet topology (hub-spoke, VWAN), (2) Private Endpoint patterns for PaaS services, (3) Load balancing & traffic management decision tree (LB vs AppGW vs Front Door vs Traffic Manager), (4) DNS strategy (Private DNS Zones, Azure DNS), (5) Network security (NSG, ASG, Azure Firewall, DDoS Protection)."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium",
+      "category": "gap",
+      "title": "No AKS/Container-specific operational reference",
+      "detail": "Astra lists AKS as a workload type and mentions 'Golden Paths para AKS' in iac-cicd.md, but has no dedicated container/Kubernetes operational reference. Missing: AKS cluster design (node pools, system vs user), KEDA for event-driven autoscaling, AKS networking (CNI vs Kubenet), Workload Identity, AKS monitoring (Container Insights, Prometheus), AKS upgrade strategy, namespace governance. For an Azure SRE, AKS is one of the most complex and commonly deployed workloads.",
+      "action": "Create references/containers-aks.md covering: (1) AKS cluster architecture decisions (node pools, networking model, identity), (2) Scaling patterns (HPA, VPA, KEDA, Cluster Autoscaler), (3) Operational practices (upgrade cadence, node image updates, PDB), (4) Monitoring (Container Insights, Prometheus/Grafana, AKS diagnostics), (5) Security (Workload Identity, Network Policies, Pod Security Standards)."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "severity": "medium",
+      "category": "gap",
+      "title": "Missing IaC security scanning tools",
+      "detail": "Artemis's iac-cicd.md explicitly lists security scanning tools for IaC: tfsec, terrascan, checkov, plus policy-as-code with OPA/Sentinel/Conftest. Astra mentions Azure Policy (runtime enforcement) but has zero coverage of IaC security scanning in the pipeline — no shift-left security for Terraform/Bicep templates before deployment.",
+      "action": "Add IaC security scanning section to references/iac-cicd.md: (1) tfsec/trivy for Terraform scanning, (2) PSRule for Azure Bicep/ARM validation, (3) Checkov for multi-framework scanning, (4) Integration points in CI/CD pipeline (pre-merge gates)."
+    },
+    {
+      "file": "references/azure-reliability.md",
+      "severity": "medium",
+      "category": "gap",
+      "title": "Missing Bulkhead Isolation resilience pattern",
+      "detail": "Artemis includes Bulkhead Isolation as a core resilience pattern. Astra covers Retry, Circuit Breaker, Queue-based Load Leveling, and Graceful Degradation, but omits Bulkhead (isolating resources so one failing component doesn't consume all shared resources). Also missing: Timeout patterns and Fallback strategies as explicit patterns.",
+      "action": "Add to azure-reliability.md section 2 (Padrões Avançados): Bulkhead Isolation, Timeout with Fallback, and Throttling/Rate Limiting patterns."
+    },
+    {
+      "file": "references/azure-reliability.md",
+      "severity": "medium",
+      "category": "gap",
+      "title": "No explicit Well-Architected Framework checklist",
+      "detail": "Despite claiming WAF as the guiding framework, Astra has no explicit pillar-by-pillar checklist that every proposal must be validated against. Artemis has a '## Checklist Well-Architected (Obrigatório)' with 6 pillars and specific questions per pillar. Astra references WAF conceptually but doesn't operationalize it as a mandatory review gate.",
+      "action": "Add WAF Review Checklist to references/azure-reliability.md (or a new azure-waf-checklist.md): (1) Reliability — Multi-AZ, DR plan?, (2) Security — identity, encryption, network isolation?, (3) Cost Optimization — tags, rightsizing, reservations?, (4) Operational Excellence — automation, monitoring, runbooks?, (5) Performance Efficiency — scaling, caching, CDN?. Make it mandatory for every architectural proposal."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "medium",
+      "category": "gap",
+      "title": "No PROMPT_SYSTEM.md consolidated prompt",
+      "detail": "Artemis has both SKILL.md (agent card for routing) and PROMPT_SYSTEM.md (consolidated system prompt with full behavioral rules, strategic objectives, and technical standards). Astra only has SKILL.md. A PROMPT_SYSTEM.md provides a single 'source of truth' for the agent's complete behavior specification, useful for deployment in different LLM contexts and for ensuring no behavioral rules are lost across reference files.",
+      "action": "Create PROMPT_SYSTEM.md that consolidates: persona, critical thinking mode, security rules, strategic objectives, technical standards, activation sequence, and the complete response format into one authoritative document."
+    },
+    {
+      "file": "references/finops-governance.md",
+      "severity": "medium",
+      "category": "gap",
+      "title": "No Compliance/Policy-as-Code validation for IaC",
+      "detail": "Artemis covers Policy-as-Code compliance with Sentinel, OPA, Conftest, and AWS Config Rules for continuous auditing. Astra's governance section mentions Azure Policy (runtime) but omits pre-deployment compliance validation. No mention of Azure Policy as Code in CI/CD, Azure Blueprints for repeatable governance, or Microsoft Defender for Cloud as a compliance dashboard.",
+      "action": "Expand finops-governance.md section 2 to include: (1) Azure Blueprints for repeatable governance packages, (2) Microsoft Defender for Cloud compliance scoring, (3) Pre-deployment policy validation in pipelines, (4) Regulatory compliance frameworks (SOC2, ISO 27001, PCI-DSS) mapping to Azure controls."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low",
+      "category": "gap",
+      "title": "Activation sequence doesn't load config.yaml",
+      "detail": "Artemis's activation sequence loads '_bmad/core/config.yaml' as step 1 before loading Project State. Astra skips config loading and goes directly to the Project Memory Ledger. This means Astra can't pick up project-level configuration variables that might affect its behavior (naming conventions, preferred regions, team preferences).",
+      "action": "Add step 0 to activation: 'Carregar configuração do _bmad/core/config.yaml se disponível.' before reading the Project Memory Ledger."
+    },
+    {
+      "file": "references/observability.md",
+      "severity": "low",
+      "category": "gap",
+      "title": "Reference files are too shallow — knowledge base reads as table of contents",
+      "detail": "Astra's reference files average 18-25 lines each. Compare: azure-reliability.md is 25 lines covering ALL of reliability + DR + chaos engineering. Artemis's aws-advice.md alone is 40 lines and only covers compute selection + WAF checklist + DR + performance. The references provide topic headers but lack the depth needed for an LLM to generate consistently excellent, detailed output. They read more like outlines than actionable knowledge bases.",
+      "action": "Expand each reference file to 40-60 lines with more specific patterns, decision criteria, and Azure-specific implementation details. Priority: azure-reliability.md and observability.md."
+    },
+    {
+      "file": "references/iac-cicd.md",
+      "severity": "low",
+      "category": "gap",
+      "title": "Terraform Backend mentions S3 instead of Azure Blob",
+      "detail": "In references/iac-cicd.md line 7, the Terraform section states 'Backend S3/Blob' — S3 is an AWS service. While the '/Blob' covers Azure, listing S3 first in an Azure-focused agent is inconsistent and may confuse the LLM into generating AWS-oriented backend configurations.",
+      "action": "Change 'Backend S3/Blob, State Locking' to 'Backend Azure Blob Storage com State Locking (azurerm backend)' to be Azure-specific."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low",
+      "category": "opportunity",
+      "title": "No Progressive Delivery / Deployment Strategy depth",
+      "detail": "Astra's routing table mentions 'Progressive Delivery' for CI/CD but the iac-cicd.md reference has no detail on deployment strategies. Artemis covers Canary and Blue/Green deployments explicitly with automated rollback via error metrics. Astra should cover Azure-specific progressive delivery: Deployment Slots (App Service), Flagger/Argo Rollouts (AKS), Traffic Manager weighted routing, and Azure Front Door for gradual traffic shifting.",
+      "action": "Add deployment strategy section to references/iac-cicd.md covering: (1) App Service Deployment Slots (swap with preview), (2) AKS progressive delivery (Flagger, Argo Rollouts), (3) Azure Front Door / Traffic Manager weighted routing, (4) Feature Flags integration, (5) Automated rollback triggers."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "info",
+      "category": "strength",
+      "title": "MVC-R (Mínimo Viável Confiável) is an excellent differentiating principle",
+      "detail": "The MVC-R concept — Minimum Viable Reliable — is a strong, memorable operational principle that isn't present in Artemis. It provides clear guidance: deliver production-safe solutions without unnecessary complexity. This is a genuine innovation in the agent's design philosophy.",
+      "action": "Keep and potentially expand MVC-R into a decision framework: when to stay at MVC-R level vs when to escalate to Enterprise-Scale patterns."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "severity": "info",
+      "category": "strength",
+      "title": "Project Memory Ledger is well-structured and comprehensive",
+      "detail": "The ledger structure covers all essential project dimensions: scope, workloads, stack, observability, SLOs, DR, FinOps, decision log, artifacts, backlog, and risks. The instructions for the agent are clear about when to read, create, and update. This is on par with or slightly better than Artemis's Project State.",
+      "action": "No action needed. Consider adding a 'Compliance & Security Posture' section to the ledger structure."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "info",
+      "category": "strength",
+      "title": "Capability Routing Table is clean and well-organized",
+      "detail": "The routing table in SKILL.md clearly maps user intents to capabilities and reference files. This is a good pattern for LLM-based agents that enables consistent capability activation. The table covers the core SRE domains effectively.",
+      "action": "Expand with new rows as new references are added (Compute Decisor, Security/Networking, Containers/AKS)."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "info",
+      "category": "strength",
+      "title": "Critical Thinking Mode ensures quality decision-making",
+      "detail": "The requirement to always present 2 approaches and challenge simple solutions when scale risk exists is a valuable behavioral constraint that prevents the agent from defaulting to simplistic answers. This matches Artemis's approach and is well-implemented.",
+      "action": "No action needed."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low",
+      "category": "redundancy",
+      "title": "Minor SLI/SLO overlap between observability.md and azure-reliability.md",
+      "detail": "SLI/SLO concepts appear in both observability.md (section 1: SLO/SLI dashboards) and azure-reliability.md (implicit through monitoring mentions). While not a major issue, clarifying ownership would help: observability.md should own the 'how to measure' (instrumentation, dashboards, KQL), while azure-reliability.md should own the 'what targets to set' (availability tiers, DR tiers).",
+      "action": "Minor: Clarify that observability.md handles SLI/SLO definition and dashboarding, while azure-reliability.md handles the reliability targets and error budget policy."
+    },
+    {
+      "file": "SKILL.md",
+      "severity": "low",
+      "category": "opportunity",
+      "title": "No external skill integration or agent handoff patterns",
+      "detail": "Astra operates as a fully self-contained agent with zero references to external agents, skills, or handoff workflows. In a BMAD ecosystem with multiple agents (analyst, architect, dev, QA), there should be integration points. For example: receiving architecture decisions from the Architect agent, handing off runbooks to the Dev agent, or collaborating with QA on chaos engineering test plans.",
+      "action": "Add integration section to SKILL.md defining: (1) What inputs Astra expects from upstream agents (architecture decisions, requirements), (2) What outputs Astra produces for downstream agents (IaC modules, runbooks, monitoring config), (3) Handoff protocol for cross-agent collaboration."
+    },
+    {
+      "file": "references/finops-governance.md",
+      "severity": "low",
+      "category": "opportunity",
+      "title": "FinOps could include Savings Plans and Reservations guidance",
+      "detail": "Artemis recommends 'Savings Plans/Reserved Instances para workloads estáveis'. Astra's FinOps section covers rightsizing, schedules, cost management, and tagging but doesn't mention Azure Reservations, Azure Savings Plans, or Spot VMs/AKS Spot node pools as cost optimization strategies.",
+      "action": "Add to FinOps section: (1) Azure Reservations for predictable workloads, (2) Azure Savings Plans, (3) Spot VMs and AKS Spot node pools for fault-tolerant workloads, (4) Dev/Test pricing for non-production."
+    }
+  ],
+  "assessments": {
+    "agent_identity": {
+      "name": "bmad-agent-astra-sre-azure",
+      "persona_summary": "Principal/Specialist Azure SRE Executor with RELIABILITY FIRST principle. Guided by Azure WAF, delivers production-ready IaC, CI/CD, observability, and FinOps artifacts. Maintains project continuity through a structured memory ledger.",
+      "primary_purpose": "Design, implement, and operate resilient Azure infrastructure through executable artifacts (Terraform/Bicep, pipelines, runbooks, dashboards) following SRE best practices and the Azure Well-Architected Framework.",
+      "capability_count": 8
+    },
+    "cohesion_analysis": {
+      "persona_alignment": {
+        "score": "moderate",
+        "notes": "The persona as a 'Principal/Specialist Executor' is strong and well-differentiated from advisory agents. The RELIABILITY FIRST principle is clearly stated and the MVC-R concept is innovative. However, the 'Executor' identity is undermined by reference files that read more like knowledge outlines than execution playbooks. A true executor-level agent should have deeper, more prescriptive references. Also, the persona claims WAF expertise but doesn't operationalize it as an explicit checklist. The lack of security rules is a significant misalignment — a Principal SRE must have security as a non-negotiable concern."
+      },
+      "capability_completeness": {
+        "score": "weak",
+        "missing_areas": [
+          "Compute Decisor (App Service vs AKS vs ACA vs Functions vs VMs) — the most critical gap",
+          "Security reference and explicit security rules in SKILL.md",
+          "Performance Engineering (p95/p99 targets, load testing, capacity planning)",
+          "Networking depth (VNet design, Private Endpoints, Front Door, Firewall, DNS)",
+          "Container/AKS operational specifics (node pools, KEDA, upgrade strategy, Workload Identity)",
+          "Error Budget policy and SRE decision framework",
+          "Toil Reduction measurement and tracking (% reduction as KPI)",
+          "IaC security scanning tools (tfsec, checkov, PSRule)",
+          "Well-Architected Framework operational checklist",
+          "Progressive Delivery patterns (Deployment Slots, Flagger, weighted routing)",
+          "PROMPT_SYSTEM.md consolidated system prompt",
+          "Incident response patterns and severity classification"
+        ],
+        "notes": "Compared to Artemis, Astra is significantly thinner. Artemis covers 14 response sections vs Astra's 8, has a Compute Decisor, Performance Engineering, Toil Reduction metrics, explicit security rules, and deeper reference content. Astra's references average ~20 lines each — adequate as topic headers but insufficient as actionable knowledge bases for consistent LLM output. The core SRE domains (reliability, observability, IaC, FinOps) are present but shallow. The critical missing pieces are the Compute Decisor (foundational for any Azure engagement) and Security (non-negotiable for production SRE)."
+      },
+      "redundancy_level": {
+        "score": "low",
+        "consolidation_opportunities": [
+          "Minor SLI/SLO ownership overlap between observability.md and azure-reliability.md — clarify which file owns definition vs targets"
+        ]
+      },
+      "external_integration": {
+        "external_skills_referenced": 0,
+        "integration_pattern": "fully-isolated",
+        "notes": "Astra operates as a completely self-contained agent with zero integration points to other BMAD agents or external skills. No handoff protocols, no input/output contracts with upstream/downstream agents. This limits its utility in a multi-agent BMAD workflow. For a CREATION-phase agent, this is acceptable short-term but should be addressed before the agent is considered mature."
+      },
+      "user_journey_score": {
+        "score": "moderate",
+        "broken_workflows": [
+          "New Azure project onboarding: No compute selection guidance means the user must already know what Azure service to use",
+          "Security posture: No workflow for establishing security baseline, identity strategy, or network isolation",
+          "Performance validation: No path from 'deploy' to 'validate performance meets SLOs' — load testing and p95/p99 analysis absent",
+          "Incident response: No runbook templates or incident classification system for when things go wrong in production",
+          "End-to-end AKS deployment: AKS mentioned as workload but no operational depth to guide cluster setup through production readiness"
+        ],
+        "notes": "A user can accomplish meaningful work for reliability design, IaC generation, CI/CD setup, basic observability, and FinOps governance. The Project Ledger ensures session continuity. However, the journey breaks at compute selection (very first decision), security posture (non-negotiable for production), and performance validation (proving SLOs are met). The 8-point response format ensures consistent structure but systematically omits security, performance, and toil tracking from every deliverable."
+      }
+    }
+  },
+  "summary": {
+    "total_findings": 24,
+    "by_severity": {
+      "critical": 2,
+      "high": 6,
+      "medium": 5,
+      "low": 7,
+      "info": 4
+    },
+    "by_category": {
+      "gap": 17,
+      "redundancy": 1,
+      "opportunity": 3,
+      "strength": 3
+    },
+    "overall_cohesion": "The agent has a strong foundational identity (RELIABILITY FIRST, MVC-R, Executor role) and good structural patterns (capability routing table, project memory ledger, mandatory response format). However, capability completeness is significantly behind its sister agent Artemis. The two critical gaps — missing Compute Decisor and absent Security rules — undermine the agent's claim to be a Principal-level Azure SRE. The reference files are too shallow (~20 lines each) to drive consistent, expert-level output. The 8-point response format vs Artemis's 14-point means every Astra response systematically omits security posture, performance targets, error budget status, and toil metrics. The agent is approximately 60% complete relative to the standard set by Artemis, with the remaining 40% concentrated in security, compute selection, performance engineering, and response format depth.",
+    "single_most_important_fix": "Create references/azure-compute-decisor.md with a structured 5-Question Compute Decisor pattern (App Service vs AKS vs Azure Container Apps vs Azure Functions vs VMs) and add the corresponding routing entry to SKILL.md. This is the foundational decision every Azure engagement starts with, and without it Astra cannot guide users from 'I have a workload' to 'here is the right Azure compute target' — breaking the user journey at step zero."
+  }
+}

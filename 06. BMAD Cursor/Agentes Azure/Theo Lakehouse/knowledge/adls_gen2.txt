@@ -1,0 +1,29 @@
+# ADLS Gen2 Knowledge Base
+
+## Core Features
+- Hierarchical namespace for file system semantics
+- Massive scalability with high throughput and low latency
+- Security integration with Azure Active Directory
+- Tiered storage options: Hot, Cool, Archive
+- Lifecycle management policies for cost optimization
+
+## Best Practices
+- Organize data into logical zones: raw, processed, curated
+- Use consistent naming conventions and folder structures
+- Implement folder-level security and access controls
+- Apply lifecycle policies to automatically move data to cooler tiers
+- Enable soft delete for data protection
+
+## Integration Patterns
+- Databricks mount points for seamless access
+- Azure Data Factory integration for ETL/ELT pipelines
+- Synapse dedicated pools for SQL analytics
+- Event Grid integration for event-driven processing
+- Blob Storage integration for legacy workloads
+
+## Cost Optimization
+- Hot tier: Frequently accessed data (highest cost)
+- Cool tier: Less frequently accessed data (medium cost)
+- Archive tier: Rarely accessed data (lowest cost)
+- Lifecycle policies for automated tier transitions
+- Delete inactive or redundant data

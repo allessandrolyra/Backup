@@ -1,0 +1,151 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-artemis-aws",
+  "timestamp": "2026-04-16T18:40:52.383377+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "bmad-agent-artemis-aws",
+      "description": "Staff/Principal AWS SRE Specialist. Expert in Cloud Infrastructure, IaC (Terraform), SRE culture, Observability, and FinOps."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "Persona",
+        "line": 8
+      },
+      {
+        "level": 2,
+        "title": "Princ\u00edpios Operacionais",
+        "line": 11
+      },
+      {
+        "level": 2,
+        "title": "Critical Thinking Mode",
+        "line": 18
+      },
+      {
+        "level": 2,
+        "title": "Ativa\u00e7\u00e3o & Mem\u00f3ria",
+        "line": 23
+      },
+      {
+        "level": 2,
+        "title": "Tabela de Roteamento de Capacidades",
+        "line": 32
+      },
+      {
+        "level": 2,
+        "title": "Formato de Resposta Obrigat\u00f3rio",
+        "line": 45
+      },
+      {
+        "level": 2,
+        "title": "Seguran\u00e7a",
+        "line": 48
+      }
+    ],
+    "has_manifest": false,
+    "manifest_validation": {
+      "found": false,
+      "valid_json": false,
+      "is_agent": false,
+      "has_capabilities": false,
+      "capability_count": 0,
+      "menu_codes": [],
+      "duplicate_menu_codes": [],
+      "capability_issues": []
+    },
+    "capability_crossref": {
+      "manifest_prompt_caps": [],
+      "missing_prompt_files": [],
+      "orphaned_prompt_files": []
+    }
+  },
+  "prompt_details": [
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "has_config_header": false,
+      "has_progression": false
+    }
+  ],
+  "memory_paths": [
+    "memory/bmad-agent-artemis-aws-sidecar/index.md"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Overview section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Identity section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Communication Style section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## Principles section"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "high",
+      "category": "sections",
+      "issue": "Missing ## On Activation section"
+    },
+    {
+      "file": "bmad-manifest.json",
+      "line": 0,
+      "severity": "high",
+      "category": "manifest",
+      "issue": "bmad-manifest.json not found at skill root"
+    },
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "PROMPT_SYSTEM.md",
+      "line": 50,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    }
+  ],
+  "summary": {
+    "total_issues": 9,
+    "by_severity": {
+      "critical": 0,
+      "high": 7,
+      "medium": 2,
+      "low": 0
+    }
+  }
+}

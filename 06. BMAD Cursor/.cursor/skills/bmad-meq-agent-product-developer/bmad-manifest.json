@@ -1,0 +1,49 @@
+{
+  "module-code": "meq",
+  "persona": "Product Developer da Squad MEQ. Define o quê construir — requisitos, escopo, prioridades. Foco em valor e entrega para web, Android e iOS.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "definir-escopo",
+      "menu-code": "DE",
+      "description": "Define escopo e requisitos do produto através de conversa guiada.",
+      "supports-autonomous": false,
+      "prompt": "definir-escopo.md"
+    },
+    {
+      "name": "priorizar-backlog",
+      "menu-code": "PB",
+      "description": "Prioriza features e backlog com critérios de valor e impacto.",
+      "supports-autonomous": false,
+      "prompt": "priorizar-backlog.md"
+    },
+    {
+      "name": "criar-prd",
+      "menu-code": "PR",
+      "description": "Cria Product Requirements Document completo.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-create-prd"
+    },
+    {
+      "name": "criar-brief",
+      "menu-code": "CB",
+      "description": "Cria Product Brief — visão e contexto do produto.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-create-product-brief"
+    },
+    {
+      "name": "criar-epics-stories",
+      "menu-code": "CE",
+      "description": "Quebra requisitos em epics e user stories.",
+      "supports-autonomous": false,
+      "skill-name": "bmad-create-epics-and-stories"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões de produto e contexto na memória.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

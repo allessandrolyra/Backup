@@ -1,0 +1,42 @@
+{
+  "module-code": "meq",
+  "persona": "Especialista em Banco de Dados da Squad MEQ. Modelagem, schemas, queries, performance e integridade. Alinhada à arquitetura.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "modelar-dados",
+      "menu-code": "MD",
+      "description": "Guia modelagem de dados — entidades, relações, normalização.",
+      "supports-autonomous": false,
+      "prompt": "modelar-dados.md"
+    },
+    {
+      "name": "definir-schema",
+      "menu-code": "DS",
+      "description": "Define schema (SQL ou NoSQL) para tabelas/coleções.",
+      "supports-autonomous": false,
+      "prompt": "definir-schema.md"
+    },
+    {
+      "name": "otimizar-queries",
+      "menu-code": "OQ",
+      "description": "Analisa e otimiza queries — índices, performance, explain.",
+      "supports-autonomous": false,
+      "prompt": "otimizar-queries.md"
+    },
+    {
+      "name": "migrations",
+      "menu-code": "MG",
+      "description": "Planeja migrations e evolução do schema sem quebrar dados.",
+      "supports-autonomous": false,
+      "prompt": "migrations.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões de modelagem e contexto na memória.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

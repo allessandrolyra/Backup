@@ -1,0 +1,224 @@
+{
+  "$schema": "https://devopsmigration.io/schema/configuration.schema.json",
+  "Serilog": {
+    "MinimumLevel": "Verbose"
+  },
+  "MigrationTools": {
+    "Version": "16.3",
+    "Endpoints": {
+      "Source": {
+        "EndpointType": "TfsTeamProjectEndpoint",
+        "Collection": "https://dev.azure.com/RDor-corp/",
+        "Project": "Plataforma de Saude",
+        "Authentication": {
+          "AuthenticationMode": "AccessToken",
+          "AccessToken": "<redacted>"
+        },
+        "ReflectedWorkItemIdField": "Custom.ControleMigracao"
+      },
+      "Target": {
+        "EndpointType": "TfsTeamProjectEndpoint",
+        "Collection": "https://dev.azure.com/RedeDor-corp/",
+        "Project": "Plataforma de Saude",
+        "Authentication": {
+          "AuthenticationMode": "AccessToken",
+          "AccessToken": "<redacted>"
+        },
+        "ReflectedWorkItemIdField": "Custom.ControleMigracao"
+      }
+    },
+    "Processors": [
+      {
+        "ProcessorType": "TfsWorkItemMigrationProcessor",
+        "Enabled": false,
+        "WIQLQuery": "SELECT [System.Id] FROM WorkItems WHERE [System.TeamProject] = @TeamProject AND [System.WorkItemType] NOT IN ('Test Plan', 'Test Suite')",
+        "LinkItemMigration": true,
+        "AttachmentMigration": true,
+        "FixHtmlAttachmentLinks": true,
+        "WorkItemCreateRetryLimit": 5,
+        "FilterWorkItemsThatAlreadyExistInTarget": true,
+        "GenerateMigrationComment": false,
+        "SourceName": "Source",
+        "TargetName": "Target"
+      }
+    ],
+    "CommonTools": {
+      "TfsWorkItemTypeValidatorTool": {
+        "Enabled": true,
+        "ExcludeWorkItemTypes": [
+          "Test Plan",
+          "Test Suite",
+          "Shared Steps",
+          "Shared Parameter"
+        ]
+      },
+      "FieldMappingTool": {
+        "Enabled": true,
+        "FieldMaps": [
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["Bug"],
+            "Enabled": true,
+            "sourceField": "System.State",
+            "targetField": "System.State",
+            "defaultValue": "Novo",
+            "valueMapping": {
+              "New": "Novo",
+              "Active": "Em Execu\u00e7\u00e3o",
+              "Resolved": "Done",
+              "Closed": "Closed"
+            }
+          },
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["Epic"],
+            "Enabled": true,
+            "sourceField": "System.State",
+            "targetField": "System.State",
+            "defaultValue": "Active",
+            "valueMapping": {
+              "Active": "Active",
+              "New": "New",
+              "Closed": "Closed",
+              "Removed": "Removed",
+              "Resolved": "Done"
+            }
+          },
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "System.State",
+            "targetField": "System.State",
+            "defaultValue": "Active",
+            "valueMapping": {
+              "Active": "Active",
+              "New": "New",
+              "Closed": "Closed",
+              "Removed": "Removed",
+              "Resolved": "Done"
+            }
+          },
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["Task"],
+            "Enabled": true,
+            "sourceField": "System.State",
+            "targetField": "System.State",
+            "defaultValue": "Active",
+            "valueMapping": {
+              "Active": "Active",
+              "New": "New",
+              "Closed": "Closed",
+              "Removed": "Removed",
+              "Aguardando homologa\u00e7\u00e3o/aprova\u00e7\u00e3o": "Active"
+            }
+          },
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["User Story"],
+            "Enabled": true,
+            "sourceField": "System.State",
+            "targetField": "System.State",
+            "defaultValue": "New",
+            "valueMapping": {
+              "Rascunho": "New",
+              "Trabalho em andamento": "Active",
+              "Pronto para testes": "Committed",
+              "Testando": "Committed",
+              "Pronto": "Done",
+              "Conclu\u00eddo": "Closed",
+              "Cancelada": "Removed"
+            }
+          },
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["Feature", "User Story"],
+            "Enabled": true,
+            "sourceField": "Microsoft.VSTS.Common.ValueArea",
+            "targetField": "Microsoft.VSTS.Common.ValueArea",
+            "defaultValue": "Neg\u00f3cios",
+            "valueMapping": {
+              "Architectural": "Arquitetura",
+              "Business": "Neg\u00f3cios"
+            }
+          },
+          {
+            "FieldMapType": "FieldValueMap",
+            "ApplyTo": ["User Story"],
+            "Enabled": true,
+            "sourceField": "Microsoft.VSTS.Common.Priority",
+            "targetField": "Microsoft.VSTS.Common.Priority",
+            "defaultValue": "4",
+            "valueMapping": {
+              "1": "1",
+              "2": "2",
+              "3": "3",
+              "4": "4",
+              "5": "4",
+              "6": "4",
+              "7": "4",
+              "8": "4"
+            }
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Bug"],
+            "Enabled": true,
+            "sourceField": "Custom.Causaraiz",
+            "targetField": "Custom.CausaRaiz",
+            "fieldMapMode": "SourceToTarget"
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "Custom.1e5d61de-4672-4fd3-a6ab-6ecd578c80ec",
+            "targetField": "Custom.AreasImpactadas",
+            "fieldMapMode": "SourceToTarget"
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "Custom.7d9f22e8-9d5a-409a-947d-81abfc5fc474",
+            "targetField": "Custom.AreaSolicitante",
+            "fieldMapMode": "SourceToTarget"
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "Custom.50cccf96-772f-46e2-bffb-3fb4732fb6be",
+            "targetField": "Custom.PontuacaoWSJF",
+            "fieldMapMode": "SourceToTarget"
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "Custom.9e0e1ef6-cfef-403b-8617-3e4b191ccdc4",
+            "targetField": "Custom.RequisitosNaoFuncionais",
+            "fieldMapMode": "SourceToTarget"
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "Custom.627bab8c-7cca-4f84-8f31-641dc08bc37e",
+            "targetField": "Custom.Beneficios",
+            "fieldMapMode": "SourceToTarget"
+          },
+          {
+            "FieldMapType": "FieldToFieldMap",
+            "ApplyTo": ["Feature"],
+            "Enabled": true,
+            "sourceField": "Custom.f68e53a0-8231-4527-91a2-cb3afa9ca993",
+            "targetField": "Custom.CriteriosDeAceite",
+            "fieldMapMode": "SourceToTarget"
+          }
+        ]
+      }
+    }
+  }
+}

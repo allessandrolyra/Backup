@@ -1,0 +1,82 @@
+Carlos Pereira Lopes  - compartilhou  um functio Trigger ICEF -  carlosp.lopes@bradesco.com.br
+Thiago Lenin Souza - thiago.batista@bradesco.com.br  ( Acompanharia) ja tem todas as LIBs  só chamar ele.
+
+
+
+Alessandro - Server four you  Migrando para AWS  SCRE ECR  
+
+VM Locais
+
+start up  
+
+C4 model
+
+kafka ok
+
+Bom candidadto conseguir responder tudo tecnicamente..
+
+
+Fabiano Monteiro. (Melhor Candidado)
+
+Conheheciemnto de desenvolvimento Java
+
+14 Anos como Arquiteto de Solução.
+
+Conheciemnto Azure e AWS  ( Infra e Devops)
+
+Forte conheciemento de migração de sistema Monolitico para Microserviços (Lambda)
+
+Conheciemnto de C4 Model.
+
+KAFKA  acertou
+
+Data lacke
+
+Banco de dados SQL e não SQL
+
+
+Fabiano Farah
+
+- Mercado Financeiro - Pix - Imprestimo Consignado.
+
+Cloud AWS (*)  Pratitnoner
+
+C4 Model - 
+TOGAF (não fez) - 
+DEV- (java - spring boot) Implementação com Pix.  
+Tec lead  (Seguraça)..
+Databricks - ( respondeu).
+Data lack -
+Kafka confluente /s
+um banco de dados SQL ou NoSQL -   respondeu.
+
+
+
+**Jandiro***
+API Manger / Middleware  / Gateway
+Desenho de solução  (OK).
+.JWT (ok)
+Nods (Menos)
+.Cloud Craft / Integrada com AWS.
+.Azure KeyVault (não lembrou o nome).
+.Não trabalhou com C4 Model 
+
+Cache de Redis  ( Ok)  acertou.
+Spark  Haddop
+Databricks.
+Kafaka (ok) Assincrona
+banco de dados SQL ou NoSQL (Ok) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

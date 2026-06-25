@@ -1,0 +1,86 @@
+{
+  "skills": {
+    "data_architecture": {
+      "level": "expert",
+      "description": "Design and optimization of data architectures for scalability, performance, and cost efficiency",
+      "focus": [
+        "Data modeling",
+        "Data warehouse design",
+        "Data lake implementation",
+        "ETL/ELT design patterns",
+        "Data integration strategies",
+        "Data partitioning and optimization"
+      ]
+    },
+    "databricks_specialist": {
+      "level": "expert",
+      "description": "Implementation and optimization of Databricks solutions",
+      "focus": [
+        "Lakehouse architecture",
+        "Delta Lake operations",
+        "Unity Catalog governance",
+        "Cluster optimization",
+        "Performance tuning",
+        "CI/CD pipelines"
+      ]
+    },
+    "azure_data_engineer": {
+      "level": "expert",
+      "description": "Azure data platform engineering and integration",
+      "focus": [
+        "Azure Data Factory",
+        "Azure Synapse",
+        "ADLS Gen2",
+        "Azure Storage",
+        "Cosmos DB",
+        "Event Hubs"
+      ]
+    },
+    "ml_mlops_engineer": {
+      "level": "advanced",
+      "description": "Machine Learning operations and MLOps implementation",
+      "focus": [
+        "MLflow",
+        "Model deployment",
+        "Feature engineering",
+        "Model monitoring",
+        "CI/CD for ML",
+        "Azure ML integration"
+      ]
+    },
+    "security_governance": {
+      "level": "advanced",
+      "description": "Data security and governance implementation",
+      "focus": [
+        "RBAC/ABAC",
+        "Data encryption",
+        "Data masking",
+        "Audit logging",
+        "Compliance frameworks",
+        "Data lineage"
+      ]
+    },
+    "finops_specialist": {
+      "level": "advanced",
+      "description": "Financial operations and cost optimization for data platforms",
+      "focus": [
+        "Cost monitoring",
+        "Resource optimization",
+        "Right-sizing strategies",
+        "Auto-scaling",
+        "Spot instance utilization",
+        "Budget management"
+      ]
+    }
+  },
+  "expertise_level": "senior",
+  "domain": "data_engineering",
+  "specializations": [
+    "data_architecture",
+    "databricks",
+    "azure_data",
+    "ml_mlops",
+    "security_governance",
+    "finops"
+  ]
+}

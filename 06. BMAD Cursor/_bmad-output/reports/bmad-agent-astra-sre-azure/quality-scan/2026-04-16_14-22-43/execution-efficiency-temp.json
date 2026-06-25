@@ -1,0 +1,67 @@
+{
+  "scanner": "execution-efficiency",
+  "skill_path": "C:\\01. Foursys\\06. BMAD Cursor\\Agentes Master\\bmad-agent-astra-sre-azure",
+  "findings": [
+    {
+      "file": "SKILL.md",
+      "line": 21,
+      "severity": "medium",
+      "category": "memory-loading",
+      "title": "Project Memory Ledger has no size bounds or progressive-loading strategy",
+      "detail": "On Activation step 1 unconditionally reads the entire Project Memory Ledger (`index.md`). As the project grows (decision log, artefatos, backlog, riscos), this file can expand unboundedly. There is no instruction to keep the index concise, cap its size, summarize older entries, or load sections selectively (e.g., read only the last N decisions and pending items). For long-running projects this will bloat context on every activation.",
+      "action": "Add a size-awareness directive: instruct the agent to read only the ledger header + last 10 decision-log entries + current backlog on activation. Archive older entries to a separate `ledger-archive.md` when the index exceeds ~200 lines."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 21,
+      "severity": "medium",
+      "category": "activation-sequence",
+      "title": "On Activation does not handle missing ledger (first-run scenario)",
+      "detail": "Step 1 says 'Ler o Project Memory Ledger correspondente ao projeto' but provides no fallback for first activation when no ledger file exists yet. The agent may waste a tool call on a non-existent file, receive an error, and lack guidance on what to do next. For a CREATION-phase agent this is the most common initial state.",
+      "action": "Add a conditional: 'If the ledger does not exist, greet the user, gather project context (Tenant, Subscription, Workloads, SLOs), and create the initial ledger before proceeding.'"
+    },
+    {
+      "file": "SKILL.md",
+      "line": 40,
+      "severity": "low",
+      "category": "resource-loading",
+      "title": "standard-output.md is implicitly always-required but not in activation sequence",
+      "detail": "Line 40 mandates 'Sempre estruture suas respostas conforme definido em ./references/standard-output.md (Itens A a H)'. This makes standard-output.md an implicit always-load dependency, yet it is only referenced in the routing table under the generic 'Standards' intent. The agent must internalize this format on every turn but has no explicit activation step to load it. Currently the file is small (23 lines) so the impact is low, but the pattern is unclear.",
+      "action": "Either (a) add standard-output.md to the On Activation sequence as step 0 ('Load response format template') so it is always in context, or (b) inline the A-H format skeleton directly in SKILL.md to eliminate the extra file read."
+    },
+    {
+      "file": "SKILL.md",
+      "line": 27,
+      "severity": "low",
+      "category": "parallelization",
+      "title": "No guidance for multi-intent requests requiring multiple reference files",
+      "detail": "The routing table maps each intent to a single reference file. When a user request spans multiple domains (e.g., 'Design an AKS architecture with observability, CI/CD, and FinOps guardrails'), the agent would need to load azure-reliability.md, observability.md, iac-cicd.md, and finops-governance.md. There is no instruction on whether to load them sequentially or in parallel. Given the small size of all references combined (~135 lines total), the practical impact is minimal.",
+      "action": "Add a note: 'For multi-domain requests, load all relevant reference files in a single parallel batch before responding.' This future-proofs the pattern if references grow."
+    },
+    {
+      "file": "references/project-ledger.md",
+      "line": 27,
+      "severity": "low",
+      "category": "context-management",
+      "title": "Ledger instructions duplicate activation sequence without adding safeguards",
+      "detail": "project-ledger.md lines 27-31 repeat the same 'read ledger on session start' instruction from SKILL.md On Activation, but add no context-management guardrails (max size, summarization, archival). This is a missed opportunity to define the ledger's growth policy in the authoritative reference for ledger management.",
+      "action": "Move all ledger lifecycle rules (creation, update, archival, max-size policy) into project-ledger.md and have SKILL.md On Activation simply defer to it: 'Follow instructions in ./references/project-ledger.md for ledger loading.'"
+    }
+  ],
+  "summary": {
+    "total_findings": 5,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 3
+    },
+    "by_category": {
+      "memory-loading": 1,
+      "activation-sequence": 1,
+      "resource-loading": 1,
+      "parallelization": 1,
+      "context-management": 1
+    }
+  }
+}

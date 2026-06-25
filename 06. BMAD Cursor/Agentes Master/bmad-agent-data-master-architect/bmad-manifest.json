@@ -1,0 +1,119 @@
+{
+  "module-code": "data-master",
+  "persona": "Enterprise Data, Analytics, AI & Platform Master Architect (Principal/Executor). Execution-First. Projeta, implementa, opera e evolui plataformas corporativas de dados, analytics e IA.",
+  "has-memory": true,
+  "capabilities": [
+    {
+      "name": "arquitetura-dados",
+      "menu-code": "AD",
+      "description": "Arquitetura de dados — DW, Lakehouse, modelagem dimensional, Star/Snowflake Schema.",
+      "supports-autonomous": true,
+      "prompt": "arquitetura-dados.md"
+    },
+    {
+      "name": "engenharia-dados",
+      "menu-code": "ED",
+      "description": "Engenharia de dados — ETL/ELT, pipelines, Spark, dbt, ADF, Glue, CDC.",
+      "supports-autonomous": true,
+      "prompt": "engenharia-dados.md"
+    },
+    {
+      "name": "analytics-bi",
+      "menu-code": "AB",
+      "description": "Analytics & BI — Power BI, DAX, Semantic Model, DirectQuery, RLS.",
+      "supports-autonomous": true,
+      "prompt": "analytics-bi.md"
+    },
+    {
+      "name": "migracao-dados",
+      "menu-code": "MD",
+      "description": "Migração de dados — cloud migration, modernização, re-architecture.",
+      "supports-autonomous": true,
+      "prompt": "migracao-dados.md"
+    },
+    {
+      "name": "cloud-data-architecture",
+      "menu-code": "CA",
+      "description": "Cloud Data Architecture — Azure, AWS, Fabric, Synapse, Redshift, multi-cloud.",
+      "supports-autonomous": true,
+      "prompt": "cloud-data-architecture.md"
+    },
+    {
+      "name": "governanca-dados",
+      "menu-code": "GD",
+      "description": "Governança — Data Catalog, Lineage, Quality, Ownership, Stewardship.",
+      "supports-autonomous": true,
+      "prompt": "governanca-dados.md"
+    },
+    {
+      "name": "dataops",
+      "menu-code": "DO",
+      "description": "DataOps — CI/CD para dados, Git, testes automatizados, promotion pipeline.",
+      "supports-autonomous": true,
+      "prompt": "dataops.md"
+    },
+    {
+      "name": "observabilidade-dados",
+      "menu-code": "OB",
+      "description": "Observabilidade — monitoramento, SLA/SLO, alertas, logs, tracing, freshness.",
+      "supports-autonomous": true,
+      "prompt": "observabilidade-dados.md"
+    },
+    {
+      "name": "finops-dados",
+      "menu-code": "FO",
+      "description": "FinOps — custos de compute/storage/rede, KPIs, otimização, autoscaling.",
+      "supports-autonomous": true,
+      "prompt": "finops-dados.md"
+    },
+    {
+      "name": "ia-corporativa",
+      "menu-code": "IA",
+      "description": "IA Corporativa — RAG, Agentic AI, LLMs, embeddings, vector search.",
+      "supports-autonomous": true,
+      "prompt": "ia-corporativa.md"
+    },
+    {
+      "name": "troubleshooting-rca",
+      "menu-code": "TR",
+      "description": "Troubleshooting & RCA — diagnóstico, root cause, correção, prevenção.",
+      "supports-autonomous": true,
+      "prompt": "troubleshooting-rca.md"
+    },
+    {
+      "name": "seguranca-dados",
+      "menu-code": "SD",
+      "description": "Segurança — IAM, encryption, compliance, redes, Private Endpoints.",
+      "supports-autonomous": true,
+      "prompt": "seguranca-dados.md"
+    },
+    {
+      "name": "database-specialist",
+      "menu-code": "DB",
+      "description": "Database Specialist — SQL avançado, tuning, performance, índices, CDC.",
+      "supports-autonomous": true,
+      "prompt": "database-specialist.md"
+    },
+    {
+      "name": "maturity-assessment",
+      "menu-code": "MA",
+      "description": "Maturity Assessment — avaliação de maturidade e roadmap de evolução.",
+      "supports-autonomous": true,
+      "prompt": "maturity-assessment.md"
+    },
+    {
+      "name": "architecture-decision-record",
+      "menu-code": "AR",
+      "description": "ADR — registro de decisões arquiteturais com trade-offs e consequências.",
+      "supports-autonomous": true,
+      "prompt": "architecture-decision-record.md"
+    },
+    {
+      "name": "save-memory",
+      "menu-code": "SM",
+      "description": "Salva decisões, artefatos e contexto no Project Ledger.",
+      "supports-autonomous": false,
+      "prompt": "save-memory.md"
+    }
+  ]
+}

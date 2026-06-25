@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command Center AI Team — Plataforma de IA Corporativa | Keyrus</title>
+<meta name="description" content="Apresentacao do Command Center AI Team Orchestrator: 30+ agentes de IA especializados, 7 provedores, self-hosted, seguro e white-label.">
+<meta property="og:title" content="Command Center AI Team — Especialistas em IA 24/7">
+<meta property="og:description" content="Plataforma corporativa com 30+ agentes de IA especializados. Self-hosted, seguro, gratuito com Gemini.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg1:#F8F9FC;--bg2:#E8ECF4;--bg3:#D8DAE2;
+  --surface:rgba(255,255,255,.9);--surface-solid:#FFFFFF;
+  --border:rgba(0,0,0,.06);--border-hover:rgba(230,0,126,.25);
+  --text:#1A1A2E;--text2:#4A4A68;--text3:#6B6B85;
+  --indigo:#E6007E;--indigo-bright:#E6007E;--violet:#7B2FBE;
+  --mag:rgba(230,0,126,.07);--mag-stroke:#E6007E;
+  --vio:rgba(123,47,190,.07);--vio-stroke:#7B2FBE;
+  --lose:#9CA3B8;--mid:#7B2FBE;
+  --grad:linear-gradient(135deg,#E6007E,#7B2FBE,#4F46E5);
+  --glass:rgba(255,255,255,.75);--glass-border:rgba(0,0,0,.05);
+  --radius:20px;--radius-sm:12px;
+  --font:'DM Sans',system-ui,-apple-system,sans-serif;
+  --shadow-card:0 1px 3px rgba(0,0,0,.03),0 4px 16px rgba(0,0,0,.04);
+  --shadow-hover:0 8px 32px rgba(0,0,0,.08);
+}
+html{scroll-behavior:smooth;font-size:17px}
+body{font-family:var(--font);background:var(--bg1);color:var(--text);line-height:1.8;overflow-x:hidden}
+::selection{background:rgba(230,0,126,.15);color:#1A1A2E}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#C4C6D0;border-radius:9px}
+
+/* ── Progress Bar ── */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--grad);z-index:999;width:0%;transition:width .15s linear;border-radius:0 2px 2px 0}
+
+/* ── Top Nav ── */
+.topnav{
+  position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:200;
+  display:flex;align-items:center;gap:4px;padding:6px 8px;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 16px rgba(0,0,0,.06);
+  border:1px solid var(--border);border-radius:999px;
+  transition:all .3s ease;
+}
+.topnav a{
+  padding:8px 16px;border-radius:999px;font-size:.72rem;font-weight:600;
+  color:var(--text3);text-decoration:none;transition:all .25s ease;white-space:nowrap;
+  letter-spacing:.01em;
+}
+.topnav a:hover{color:var(--text);background:rgba(230,0,126,.06)}
+.topnav a.active{color:#fff;background:var(--indigo-bright)}
+@media(max-width:900px){
+  .topnav{top:auto;bottom:12px;gap:2px;padding:5px 6px;max-width:96vw;overflow-x:auto}
+  .topnav a{padding:7px 12px;font-size:.65rem}
+}
+
+/* ── Sections ── */
+.section{padding:120px 48px 100px;position:relative}
+.section-inner{max-width:1100px;margin:0 auto}
+.section.alt{background:var(--bg2);border-top:2px solid transparent;border-image:linear-gradient(90deg,transparent,rgba(230,0,126,.15),transparent) 1}
+.section .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.section .reveal.visible{opacity:1;transform:translateY(0)}
+.section .reveal.d1{transition-delay:.08s}
+.section .reveal.d2{transition-delay:.16s}
+.section .reveal.d3{transition-delay:.24s}
+.section .reveal.d4{transition-delay:.32s}
+.section .reveal.d5{transition-delay:.4s}
+.section .reveal.d6{transition-delay:.48s}
+.section .reveal.d7{transition-delay:.56s}
+.section .reveal.d8{transition-delay:.64s}
+
+/* ── Titles ── */
+.label{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:#E6007E;font-weight:700;margin-bottom:10px}
+.heading{font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px}
+.subtext{color:var(--text2);max-width:640px;margin-bottom:48px;font-size:.95rem;line-height:1.8}
+
+/* ── Hero ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;
+  background-image:radial-gradient(circle,rgba(26,26,46,.06) 1px,transparent 1px);background-size:28px 28px;
+}
+.hero::before{
+  content:'';position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(230,0,126,.10),transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(123,47,190,.08),transparent 65%);
+  top:25%;left:68%;pointer-events:none;
+}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 20px;border-radius:999px;
+  background:rgba(230,0,126,.06);border:1px solid rgba(230,0,126,.12);
+  font-size:.72rem;font-weight:600;color:#E6007E;margin-bottom:32px;
+}
+.hero-badge svg{width:14px;height:14px}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:900;line-height:1.1;letter-spacing:-.04em}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .sub{font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--text2);max-width:580px;margin:24px auto 0;line-height:1.8}
+.hero-scroll{margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.hero-scroll .arrow{width:20px;height:20px;animation:float 2.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ── SVG Icon helper ── */
+.icon-box{
+  width:48px;height:48px;border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.icon-box svg{width:24px;height:24px}
+
+/* ── Comparison Panel (Section 2) ── */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:40px}
+.versus-card{padding:28px;border-radius:var(--radius);border:1px solid var(--border)}
+.versus-card.dim{background:rgba(100,116,139,.04);box-shadow:var(--shadow-card)}
+.versus-card.bright{background:rgba(230,0,126,.04);border-color:rgba(230,0,126,.15);box-shadow:var(--shadow-card)}
+.versus-card h3{font-size:.82rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.versus-card p{font-size:.88rem;color:var(--text2);line-height:1.75}
+@media(max-width:700px){.versus{grid-template-columns:1fr}}
+
+/* ── Flow ── */
+.flow{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:40px 0 16px}
+.flow-step{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:20px 24px;border-radius:var(--radius-sm);min-width:130px;text-align:center;
+}
+.flow-step .flow-label{font-size:.78rem;font-weight:600}
+.flow-step svg{width:28px;height:28px;opacity:.85}
+.flow-arrow svg{width:20px;height:20px;color:#E6007E;flex-shrink:0}
+
+/* ── Bento Grid ── */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.bento .card{
+  background:var(--surface-solid);border:1px solid var(--glass-border);box-shadow:var(--shadow-card);
+  border-radius:var(--radius);padding:32px 28px;transition:all .4s ease;position:relative;overflow:hidden;
+}
+.bento .card::after{
+  content:'';position:absolute;inset:0;border-radius:var(--radius);opacity:0;
+  transition:opacity .4s ease;pointer-events:none;
+}
+.bento .card:hover{border-color:var(--border-hover);transform:scale(1.015);box-shadow:var(--shadow-hover)}
+.bento .card:hover::after{opacity:1}
+.bento .card h3{font-size:.95rem;font-weight:700;margin:16px 0 8px}
+.bento .card p{font-size:.85rem;color:var(--text2);line-height:1.7}
+.bento .span2{grid-column:span 2}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr}.bento .span2{grid-column:span 2}}
+@media(max-width:600px){.bento{grid-template-columns:1fr}.bento .span2{grid-column:span 1}}
+
+/* ── Tabs ── */
+.tabs-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.tab-btn{
+  padding:10px 20px;border-radius:var(--radius-sm);border:1px solid var(--border);background:transparent;
+  color:var(--text2);font-size:.78rem;cursor:pointer;font-family:var(--font);font-weight:600;
+  transition:all .25s ease;display:flex;align-items:center;gap:8px;
+}
+.tab-btn svg{width:16px;height:16px;opacity:.6;transition:opacity .25s}
+.tab-btn:hover{border-color:#E6007E;color:#E6007E}
+.tab-btn:hover svg{opacity:1}
+.tab-btn.active{background:var(--indigo-bright);border-color:var(--indigo-bright);color:#fff}
+.tab-btn.active svg{opacity:1}
+.tab-panel{display:none;animation:fadeSlide .4s ease}
+.tab-panel.active{display:block}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.profile-card{
+  background:var(--surface-solid);box-shadow:var(--shadow-card);
+  border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px;
+}
+.profile-card h3{font-size:1.1rem;margin-bottom:4px}
+.profile-card .role{font-size:.75rem;color:#E6007E;margin-bottom:20px;display:block;font-weight:500}
+.profile-card ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.profile-card li{display:flex;align-items:flex-start;gap:14px;font-size:.88rem;color:var(--text2);line-height:1.7}
+.profile-card li .chk{
+  flex-shrink:0;width:24px;height:24px;border-radius:8px;
+  background:rgba(230,0,126,.07);color:#E6007E;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.profile-card li .chk svg{width:14px;height:14px}
+
+/* ── Comparison Table ── */
+.cmp-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--glass-border);background:var(--surface-solid);box-shadow:var(--shadow-card)}
+.cmp{width:100%;border-collapse:collapse;font-size:.84rem}
+.cmp thead{background:#E8ECF4}
+.cmp th{padding:16px 20px;text-align:left;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text2)}
+.cmp th:last-child{color:#E6007E}
+.cmp td{padding:14px 20px;border-top:1px solid var(--glass-border);vertical-align:top}
+.cmp tbody tr:hover{background:rgba(230,0,126,.025)}
+.cmp td:last-child{background:rgba(230,0,126,.03)}
+.cmp .win{color:#E6007E;font-weight:600}
+.cmp .lose{color:var(--lose)}
+.cmp .mid{color:var(--mid)}
+.cmp .cell{display:flex;align-items:flex-start;gap:8px}
+.cmp .cell svg{width:16px;height:16px;flex-shrink:0;margin-top:2px}
+
+/* ── Justifications ── */
+.just-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.just-item{
+  background:var(--surface-solid);border:1px solid var(--glass-border);box-shadow:var(--shadow-card);
+  border-radius:var(--radius);padding:32px;transition:all .4s ease;
+}
+.just-item:hover{border-color:var(--border-hover);transform:scale(1.01)}
+.just-item h3{font-size:.92rem;font-weight:700;margin:14px 0 8px}
+.just-item p{font-size:.85rem;color:var(--text2);line-height:1.8}
+
+/* ── Gains ── */
+.gains{display:flex;flex-direction:column;gap:20px}
+.gain-row{
+  display:flex;align-items:flex-start;gap:24px;
+  background:var(--surface-solid);border:1px solid var(--glass-border);box-shadow:var(--shadow-card);
+  border-radius:var(--radius);padding:28px 32px;transition:all .4s ease;
+}
+.gain-row:hover{border-color:var(--border-hover);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.gain-metric{
+  flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:80px;text-align:center;
+}
+.gain-metric .big{font-size:1.8rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.gain-metric .unit{font-size:.65rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+.gain-row h3{font-size:.92rem;font-weight:700;margin-bottom:4px}
+.gain-row p{font-size:.85rem;color:var(--text2);line-height:1.75}
+
+/* ── Steps ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{
+  background:var(--surface-solid);border:1px solid var(--glass-border);box-shadow:var(--shadow-card);
+  border-radius:var(--radius);padding:32px 24px;text-align:center;transition:all .4s ease;
+}
+.step:hover{border-color:var(--border-hover);transform:scale(1.02)}
+.step-num{
+  width:48px;height:48px;border-radius:50%;margin:0 auto 18px;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:800;color:#fff;
+}
+.step h3{font-size:.88rem;font-weight:700;margin-bottom:8px}
+.step p{font-size:.82rem;color:var(--text2);line-height:1.7}
+.step code{
+  display:inline-block;margin-top:12px;padding:5px 14px;border-radius:8px;
+  background:rgba(230,0,126,.06);font-size:.75rem;color:#C2005F;
+  font-family:'Fira Code',monospace;border:1px solid rgba(230,0,126,.12);
+}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.steps{grid-template-columns:1fr}}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:48px 24px 56px;border-top:1px solid var(--border)}
+.footer p{font-size:.75rem;color:var(--text3)}
+.footer .tech{margin-top:6px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.footer .tech span{
+  padding:4px 12px;border-radius:999px;font-size:.65rem;font-weight:600;
+  background:rgba(230,0,126,.05);border:1px solid rgba(230,0,126,.08);color:var(--text2);
+}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .section{padding:80px 24px 64px}
+  .hero h1{font-size:clamp(1.8rem,6vw,2.6rem)}
+}
+@media(max-width:600px){
+  .section{padding:64px 18px 52px}
+  .just-grid{grid-template-columns:1fr}
+  .cmp{font-size:.76rem}
+  .cmp th,.cmp td{padding:10px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}
+  .section .reveal{opacity:1;transform:none}
+  .hero-scroll .arrow{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Nav -->
+<nav class="topnav" id="topnav">
+  <a href="#hero">Inicio</a>
+  <a href="#oque">O que e?</a>
+  <a href="#funcionalidades">Recursos</a>
+  <a href="#perfis">Perfis</a>
+  <a href="#comparativo">Comparativo</a>
+  <a href="#justificativas">Por que?</a>
+  <a href="#ganhos">Ganhos</a>
+  <a href="#comecar">Comecar</a>
+</nav>
+
+<!-- 1 ── Hero ── -->
+<div class="section hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      Plataforma de IA Corporativa
+    </div>
+    <h1 class="reveal d1">Seu Time de <span class="grad">Especialistas em IA</span>, Disponivel 24/7</h1>
+    <p class="sub reveal d2">O Command Center reune dezenas de agentes de Inteligencia Artificial especializados em uma unica interface segura. Como ter uma equipe de consultores dedicados, cada um expert na sua area.</p>
+    <div class="hero-scroll reveal d3">
+      <span>Explore</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- 2 ── O que e ── -->
+<div class="section alt" id="oque">
+  <div class="section-inner">
+    <div class="label reveal">Introducao</div>
+    <h2 class="heading reveal d1">O Que e o Command Center?</h2>
+    <p class="subtext reveal d2">Em vez de um assistente generico para tudo, voce tem acesso a <strong>uma equipe inteira de especialistas</strong>, cada um com conhecimento profundo na sua area.</p>
+
+    <div class="versus reveal d3">
+      <div class="versus-card dim">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Assistente Generico (ChatGPT, Copilot)
+        </h3>
+        <p>Um unico profissional que sabe <em>um pouco de tudo</em>, mas nao e especialista em nada. Voce precisa explicar o contexto toda vez e a resposta pode ser superficial.</p>
+      </div>
+      <div class="versus-card bright">
+        <h3 style="color:#E6007E">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Command Center
+        </h3>
+        <p>Uma <strong>equipe de consultoria</strong> com dezenas de especialistas. Precisa de AWS? Chame o <strong>Artemis</strong>. UX? <strong>Nexus</strong>. Sprint? <strong>Scrum Master</strong>. Cada um ja vem preparado.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal d4" style="font-size:.88rem;font-weight:700;margin-bottom:20px;text-align:center;color:var(--text2)">Como Funciona</h3>
+    <div class="flow reveal d5">
+      <div class="flow-step" style="background:rgba(230,0,126,.05);border:1px solid rgba(230,0,126,.1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="flow-label" style="color:#E6007E">Voce</span>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-step" style="background:rgba(123,47,190,.05);border:1px solid rgba(123,47,190,.1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span class="flow-label" style="color:#7B2FBE">Command Center</span>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-step" style="background:rgba(123,47,190,.05);border:1px solid rgba(123,47,190,.1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+        <span class="flow-label" style="color:#7B2FBE">Agente Especialista</span>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="flow-step" style="background:rgba(230,0,126,.05);border:1px solid rgba(230,0,126,.1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span class="flow-label" style="color:#E6007E">Resultado</span>
+      </div>
+    </div>
+    <p class="reveal d6" style="text-align:center;font-size:.78rem;color:var(--text3);margin-top:8px">O sistema injeta instrucoes especializadas e entrega a resposta em tempo real, token a token.</p>
+  </div>
+</div>
+
+<!-- 3 ── Funcionalidades ── -->
+<div class="section" id="funcionalidades">
+  <div class="section-inner">
+    <div class="label reveal">Recursos</div>
+    <h2 class="heading reveal d1">Principais Funcionalidades</h2>
+    <p class="subtext reveal d2">Tudo em uma unica plataforma, sem depender de ferramentas externas.</p>
+
+    <div class="bento">
+      <div class="card span2 reveal d1">
+        <div class="icon-box" style="background:rgba(230,0,126,.07)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>30+ Agentes Especializados</h3>
+        <p>Analista, Arquiteto, Dev, QA, PM, UX Designer, SRE AWS (Artemis), SRE Azure (Astra), DevOps, Scrum Master, Innovation Strategist, Tech Writer e muitos mais. Cada um com instrucoes e personalidade proprias.</p>
+      </div>
+      <div class="card span2 reveal d2">
+        <div class="icon-box" style="background:var(--vio)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+        </div>
+        <h3>Modo Agentico (10 Ferramentas)</h3>
+        <p>Os agentes podem ler, escrever, editar e deletar arquivos, executar comandos no terminal, buscar no workspace e verificar pre-requisitos. Tudo com seguranca e confirmacao para acoes destrutivas.</p>
+      </div>
+      <div class="card reveal d3">
+        <div class="icon-box" style="background:rgba(123,47,190,.07)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>7 Provedores de IA</h3>
+        <p>Gemini (gratuito), OpenAI, Anthropic, Azure, OpenRouter, Ollama (local) e Cursor SDK.</p>
+      </div>
+      <div class="card reveal d4">
+        <div class="icon-box" style="background:var(--mag)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Streaming em Tempo Real</h3>
+        <p>Respostas token a token via SSE. Sem esperar a resposta completa.</p>
+      </div>
+      <div class="card reveal d5">
+        <div class="icon-box" style="background:var(--vio)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Seguranca Robusta</h3>
+        <p>30+ padroes perigosos bloqueados, path traversal guards, limites de escrita e saida.</p>
+      </div>
+      <div class="card reveal d6">
+        <div class="icon-box" style="background:var(--mag)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <h3>White-Label</h3>
+        <p>Logo e favicon da empresa. Nenhuma marca de terceiros visivel.</p>
+      </div>
+      <div class="card reveal d7">
+        <div class="icon-box" style="background:var(--vio)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Interface Moderna</h3>
+        <p>Command Palette (Ctrl+K), sidebar, historico, responsivo e mensagens editaveis.</p>
+      </div>
+      <div class="card reveal d8">
+        <div class="icon-box" style="background:var(--mag)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Multimodal</h3>
+        <p>Envie imagens e documentos (PDF, DOCX, Excel, CSV). Extracao automatica de conteudo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 ── Perfis ── -->
+<div class="section alt" id="perfis">
+  <div class="section-inner">
+    <div class="label reveal">Para Cada Area</div>
+    <h2 class="heading reveal d1">Como Ajuda Cada Perfil</h2>
+    <p class="subtext reveal d2">Independente da sua funcao, existe um conjunto de agentes pronto para acelerar seu trabalho.</p>
+
+    <div class="tabs-bar reveal d3">
+      <button class="tab-btn active" onclick="switchTab('rh',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        RH / Pessoas
+      </button>
+      <button class="tab-btn" onclick="switchTab('n1',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        N1 &mdash; Operacao
+      </button>
+      <button class="tab-btn" onclick="switchTab('n2',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        N2 &mdash; Engenharia
+      </button>
+      <button class="tab-btn" onclick="switchTab('gestao',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Gestores / PM
+      </button>
+      <button class="tab-btn" onclick="switchTab('ux',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        UX / Design
+      </button>
+    </div>
+
+    <div class="tab-panel active" id="tab-rh">
+      <div class="profile-card">
+        <h3>RH / Recursos Humanos / Pessoas</h3>
+        <span class="role">Agentes: Storyteller, Presentation Master, Brainstorming Coach, Analista, Design Thinking Coach</span>
+        <ul>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Apresentacoes e narrativas:</strong> Crie apresentacoes impactantes e transforme dados em historias envolventes para treinamentos e comunicados.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Brainstorming estruturado:</strong> Sessoes criativas com metodologias comprovadas para engajamento, onboarding e cultura.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Analise de processos:</strong> Levantamento estruturado de requisitos para projetos de RH.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Design Thinking:</strong> Resolva desafios de retencao e clima com metodologia centrada em pessoas.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Documentacao:</strong> Manuais, politicas e playbooks com linguagem clara e profissional.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-n1">
+      <div class="profile-card">
+        <h3>N1 &mdash; Suporte e Operacao</h3>
+        <span class="role">Agentes: Astra (Azure SRE), Artemis (AWS SRE), DevOps, Orquestrador Master</span>
+        <ul>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Diagnostico rapido:</strong> Descreva o problema de infraestrutura e receba diagnostico estruturado com passos de resolucao.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Execucao segura:</strong> Comandos <code>az</code>, <code>aws</code>, <code>kubectl</code> com classificacao de seguranca automatica.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Pre-requisitos:</strong> Verificacao automatica de CLIs e ferramentas necessarias antes de executar.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Contexto Cloud:</strong> Sugestao automatica dos proximos passos apos cada comando cloud.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Well-Architected:</strong> Respostas seguindo frameworks AWS/Azure automaticamente.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-n2">
+      <div class="profile-card">
+        <h3>N2 &mdash; Engenharia e Desenvolvimento</h3>
+        <span class="role">Agentes: Dev Senior, Arquiteto, QA, Full-Stack, DevOps, Nexus UX Engineer</span>
+        <ul>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Implementacao assistida:</strong> O agente Dev le, escreve e edita arquivos diretamente no projeto.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Revisao de arquitetura:</strong> Trade-offs com pelo menos 2 abordagens e recomendacao final.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Testes automatizados:</strong> Geracao de testes E2E, integracao e unitarios direto no projeto.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>IaC:</strong> Terraform, CloudFormation e Bicep prontos para producao.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>CI/CD:</strong> GitHub Actions, Azure DevOps Pipelines, Docker e Kubernetes.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Frontend acessivel:</strong> Componentes WCAG 2.2 AA em qualquer stack (React, Vue, Angular, Svelte).</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-gestao">
+      <div class="profile-card">
+        <h3>Gestores e Product Managers</h3>
+        <span class="role">Agentes: Product Manager, Scrum Master, Product Developer, Innovation Strategist, Analista</span>
+        <ul>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>PRD completo:</strong> Documentos de requisitos com user stories, criterios de aceitacao e priorizacao.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Sprint planning:</strong> Backlog organizado, estimativas e stories preparadas para o time.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Inovacao:</strong> Analise de concorrencia e oportunidades de disrupcao.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Orquestrador:</strong> Nao sabe qual agente usar? O Orquestrador sugere o melhor especialista.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Documentacao:</strong> APIs, guias de uso e manuais com padrao profissional.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-ux">
+      <div class="profile-card">
+        <h3>UX / Design</h3>
+        <span class="role">Agentes: Nexus UX Engineer, Freya UX Designer, Design Thinking Coach, Storyteller</span>
+        <ul>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Implementacao direta:</strong> O Nexus cria componentes, paginas e estilos direto nos arquivos do projeto.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Auditoria A11y e Performance:</strong> Lista issues de acessibilidade e Core Web Vitals com fixes.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Critica de design:</strong> Hierarquia visual, CTAs, carga cognitiva e consistencia.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Design Thinking:</strong> Empatia, ideacao, prototipacao e teste com coach especializado.</div></li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><strong>Stack-agnostico:</strong> React, Vue, Angular, Svelte -- detecta a stack automaticamente.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 ── Comparativo ── -->
+<div class="section" id="comparativo">
+  <div class="section-inner">
+    <div class="label reveal">Analise Comparativa</div>
+    <h2 class="heading reveal d1">Command Center vs ChatGPT vs Copilot</h2>
+    <p class="subtext reveal d2">As diferencas reais entre uma ferramenta generica e uma plataforma especializada sob seu controle.</p>
+
+    <div class="cmp-wrap reveal d3">
+      <table class="cmp">
+        <thead>
+          <tr><th>Criterio</th><th>ChatGPT</th><th>Copilot</th><th>Command Center</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Agentes especializados</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Assistente unico e generico</span></td>
+            <td class="mid"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>Parcial</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30+ agentes com skills dedicadas</span></td>
+          </tr>
+          <tr>
+            <td><strong>Acesso ao filesystem</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nao tem</span></td>
+            <td class="mid"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>Limitado a IDE</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>10 ferramentas completas</span></td>
+          </tr>
+          <tr>
+            <td><strong>Onde ficam seus dados</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Servidores OpenAI (EUA)</span></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Servidores Microsoft</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Self-hosted, dados internos</span></td>
+          </tr>
+          <tr>
+            <td><strong>Provedores de IA</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Apenas OpenAI</span></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Apenas Microsoft/OpenAI</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>7 provedores (incl. gratuitos)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Custo</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>US$20-200/mes/usuario</span></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>US$30/mes/usuario</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Controle total, opcoes gratuitas</span></td>
+          </tr>
+          <tr>
+            <td><strong>Personalizacao</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nenhuma</span></td>
+            <td class="mid"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>Limitada</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>White-label total</span></td>
+          </tr>
+          <tr>
+            <td><strong>Agentes proprios</strong></td>
+            <td class="mid"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>GPTs (limitado)</span></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nao suportado</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Crie um SKILL.md e pronto</span></td>
+          </tr>
+          <tr>
+            <td><strong>Funciona offline</strong></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nao</span></td>
+            <td class="lose"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="var(--lose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nao</span></td>
+            <td class="win"><span class="cell"><svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Sim, com Ollama (local)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 6 ── Justificativas ── -->
+<div class="section alt" id="justificativas">
+  <div class="section-inner">
+    <div class="label reveal">Argumentos</div>
+    <h2 class="heading reveal d1">Por Que Escolher o Command Center?</h2>
+    <p class="subtext reveal d2">Razoes claras para adotar esta plataforma no ambiente corporativo.</p>
+
+    <div class="just-grid">
+      <div class="just-item reveal d1">
+        <div class="icon-box" style="background:var(--mag)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Privacidade e LGPD</h3>
+        <p>Os dados <strong>nunca saem da sua infraestrutura</strong>. Chaves de API ficam em cookies httpOnly seguros. Sem envio para servidores de terceiros.</p>
+      </div>
+      <div class="just-item reveal d2">
+        <div class="icon-box" style="background:var(--vio)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Custo-Beneficio</h3>
+        <p>Gemini e gratuito. Ollama e 100% local. <strong>Sem licenca por usuario.</strong> Em 50 pessoas, economize mais de R$50.000/mes vs. ChatGPT/Copilot.</p>
+      </div>
+      <div class="just-item reveal d3">
+        <div class="icon-box" style="background:rgba(230,0,126,.07)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Especializacao Real</h3>
+        <p>Cada agente vem com <strong>instrucoes detalhadas</strong> (skills) que definem especialidade e forma de trabalho. Sem explicar contexto toda vez.</p>
+      </div>
+      <div class="just-item reveal d4">
+        <div class="icon-box" style="background:var(--vio)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <h3>Autonomia Tecnica</h3>
+        <p>Agentes interagem com o <strong>filesystem real</strong>: ler, escrever, editar e executar comandos. Nao apenas sugere -- faz.</p>
+      </div>
+      <div class="just-item reveal d5">
+        <div class="icon-box" style="background:var(--mag)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>7 Camadas de Seguranca</h3>
+        <p>Path blocking, read blocking, command classification (30+ padroes), output/write caps, path traversal guards e atomic locks.</p>
+      </div>
+      <div class="just-item reveal d6">
+        <div class="icon-box" style="background:rgba(123,47,190,.07)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Flexibilidade de Modelos</h3>
+        <p>7 provedores. <strong>Troque de modelo com um clique.</strong> Funciona offline com Ollama.</p>
+      </div>
+      <div class="just-item reveal d7">
+        <div class="icon-box" style="background:var(--mag)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E6007E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3>Escala Simples</h3>
+        <p>Novo especialista? Crie um <code>SKILL.md</code> e o scanner detecta automaticamente. <strong>Qualquer pessoa pode criar agentes.</strong></p>
+      </div>
+      <div class="just-item reveal d8">
+        <div class="icon-box" style="background:var(--vio)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Interface Unificada</h3>
+        <p>Um unico lugar para todos os especialistas, comandos, documentos e acompanhamento. Menos ferramentas, mais produtividade.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7 ── Ganhos ── -->
+<div class="section" id="ganhos">
+  <div class="section-inner">
+    <div class="label reveal">Resultados</div>
+    <h2 class="heading reveal d1">Ganhos Concretos para a Empresa</h2>
+    <p class="subtext reveal d2">Beneficios praticos que a adocao do Command Center traz para o dia a dia.</p>
+
+    <div class="gains">
+      <div class="gain-row reveal d1">
+        <div class="gain-metric"><span class="big" data-count="10" data-suffix="x">0x</span><span class="unit">mais rapido</span></div>
+        <div><h3>Reducao de Tempo em Tarefas Repetitivas</h3><p>Documentacao, infraestrutura, testes e apresentacoes em minutos. Agentes especializados ja vem com instrucoes e melhores praticas embutidas.</p></div>
+      </div>
+      <div class="gain-row reveal d2">
+        <div class="gain-metric"><span class="big" data-count="100" data-suffix="%">0%</span><span class="unit">padronizado</span></div>
+        <div><h3>Padronizacao de Entregas</h3><p>Formato estruturado e consistente. Documentacao, codigo e analises seguem o mesmo padrao de qualidade, independente de quem usa.</p></div>
+      </div>
+      <div class="gain-row reveal d3">
+        <div class="gain-metric"><span class="big" data-count="30" data-suffix="+">0+</span><span class="unit">especialistas</span></div>
+        <div><h3>Democratizacao da IA</h3><p>Nao precisa ser tecnico. Selecione um agente, faca sua pergunta, receba a resposta. Sem curva de aprendizado complexa.</p></div>
+      </div>
+      <div class="gain-row reveal d4">
+        <div class="gain-metric"><span class="big" data-count="0" data-prefix="R$" data-suffix="">R$0</span><span class="unit">por usuario</span></div>
+        <div><h3>Autonomia das Equipes</h3><p>Self-hosted com opcoes gratuitas de IA. Crie novos agentes a qualquer momento, sem licencas ou dependencias externas.</p></div>
+      </div>
+      <div class="gain-row reveal d5">
+        <div class="gain-metric"><span class="big" data-text="LGPD">LGPD</span><span class="unit">conforme</span></div>
+        <div><h3>Compliance e Governanca</h3><p>Dados sensiveis nunca saem do ambiente corporativo. Facilita auditorias e respeita politicas internas de seguranca.</p></div>
+      </div>
+      <div class="gain-row reveal d6">
+        <div class="gain-metric"><span class="big" data-count="7" data-suffix="">0</span><span class="unit">provedores</span></div>
+        <div><h3>Independencia de Fornecedores</h3><p>Se um servico cair ou aumentar preco, troque para outro em um clique. Funciona ate offline com Ollama.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8 ── Como Comecar ── -->
+<div class="section alt" id="comecar">
+  <div class="section-inner">
+    <div class="label reveal">Primeiros Passos</div>
+    <h2 class="heading reveal d1">Como Comecar a Usar</h2>
+    <p class="subtext reveal d2">Em poucos minutos voce tem o sistema rodando.</p>
+
+    <div class="steps">
+      <div class="step reveal d1">
+        <div class="step-num">1</div>
+        <h3>Instalar</h3>
+        <p>Abra o terminal na pasta do projeto e instale as dependencias.</p>
+        <code>npm install</code>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">2</div>
+        <h3>Iniciar</h3>
+        <p>Rode o servidor de desenvolvimento.</p>
+        <code>npm run dev</code>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-num">3</div>
+        <h3>Configurar</h3>
+        <p>Cole a chave de API do Gemini (gratuito) nas configuracoes.</p>
+        <code>aistudio.google.com</code>
+      </div>
+      <div class="step reveal d4">
+        <div class="step-num">4</div>
+        <h3>Conversar</h3>
+        <p>Selecione um agente e comece a conversar.</p>
+        <code>localhost:3000</code>
+      </div>
+    </div>
+
+    <div class="reveal d5" style="margin-top:48px;text-align:center">
+      <p style="color:var(--text2);font-size:.85rem;max-width:580px;margin:0 auto;line-height:1.8">
+        <strong>Requisitos:</strong> Node.js v18+ (recomendado v20+).<br>
+        Para modelos offline, instale o <a href="https://ollama.com" style="color:#E6007E" target="_blank">Ollama</a> e rode <code style="background:rgba(230,0,126,.06);padding:3px 10px;border-radius:6px;font-size:.78rem;color:#C2005F;border:1px solid rgba(230,0,126,.1)">ollama serve</code>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:6px">Pronto para transformar sua equipe?</p>
+  <p style="font-size:.82rem;color:var(--text2);margin-bottom:20px">Comece com <code style="background:rgba(230,0,126,.06);padding:2px 8px;border-radius:6px;font-size:.78rem;color:#E6007E;border:1px solid rgba(230,0,126,.1)">npm install</code> e tenha IA especializada em minutos.</p>
+  <p>Command Center AI Team Orchestrator &middot; v3.1.0 &middot; Keyrus &middot; 2026</p>
+  <div class="tech" style="margin-top:12px">
+    <span>Next.js 16</span><span>React 19</span><span>Tailwind CSS 4</span><span>7 LLM Providers</span><span>Self-Hosted</span><span>30+ Agents</span>
+  </div>
+</div>
+
+<script>
+/* ── Progress Bar ── */
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progressBar').style.width=pct+'%';
+},{passive:true});
+
+/* ── Top Nav active state ── */
+const secs=document.querySelectorAll('.section[id]');
+const navAs=document.querySelectorAll('.topnav a');
+function updateNav(){
+  let cur='';
+  secs.forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight*.4)cur=s.id});
+  navAs.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+updateNav();
+
+/* ── Tabs ── */
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── Scroll Reveal (stagger) ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── Counter Animation ── */
+const countObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    countObs.unobserve(el);
+    if(el.dataset.text){el.textContent=el.dataset.text;return;}
+    const target=parseInt(el.dataset.count)||0;
+    const prefix=el.dataset.prefix||'';
+    const suffix=el.dataset.suffix||'';
+    const duration=900;
+    const start=performance.now();
+    function tick(now){
+      const p=Math.min((now-start)/duration,1);
+      const ease=1-Math.pow(1-p,3);
+      const v=Math.round(target*ease);
+      el.textContent=prefix+v+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+},{threshold:0.3});
+document.querySelectorAll('.big[data-count],.big[data-text]').forEach(el=>countObs.observe(el));
+</script>
+</body>
+</html>

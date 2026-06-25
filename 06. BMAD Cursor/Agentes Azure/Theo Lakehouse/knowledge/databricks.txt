@@ -1,0 +1,30 @@
+# Databricks Knowledge Base
+
+## Lakehouse Architecture
+- Three-layer architecture: Bronze (raw data), Silver (cleaned/transformed), Gold (business-ready)
+- Delta Lake as the foundation: ACID transactions, schema evolution, time travel, audit logging
+- Unity Catalog for centralized governance, permission management, and data lineage
+
+## Key Components
+- **Notebooks**: Python, Scala, R, SQL - collaborative analysis and development
+- **Jobs**: Scheduled or triggered execution of notebooks, scripts, and workflows
+- **Repos**: Git integration for version control of code and notebooks
+- **MLflow**: Tracking, experiments, models, and deployment lifecycle management
+
+## Performance Optimization
+- Cluster types: All-purpose vs. Job clusters with auto-scaling
+- Photon engine for Apache Spark acceleration
+- Delta Lake optimizations: Z-ORDER, OPTIMIZE, VACUUM
+- Caching strategies for frequently accessed data
+
+## Security & Governance
+- Unity Catalog: Fine-grained access control at table, column, and row level
+- Column masking and row-level security
+- Audit logging and compliance reporting
+- Managed identities and service principals
+
+## Best Practices
+- Prefer Delta Lake over Parquet for data lakes
+- Use Unity Catalog for centralized governance
+- Implement CI/CD pipelines for automated deployments
+- Monitor and optimize cluster utilization
