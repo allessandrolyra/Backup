@@ -1,0 +1,22 @@
+Cacerts   
+
+Instalar o Cacert do Contaneir Java
+
+Ambiente de HML  - Esta subindo sem problema.  
+
+Integração  Cale (Crítico)
+Lib do Oracle
+
+Andreza - Tinha entendido  que Instalar o Cacert do Contaneir Java  (era o que entendi)....
+
+como não conseguimos, pegamos um códico que carrega o Certificado
+(Menu de emprestimo /BRAINC ) Que bate na torre Corp.
+
+
+Adição de nova secrect - para projeto 7283 - Revitalização da Jornada Digital de Crédito Imobiliário / Home Equity (mobile, IB Parceiros)
+
+Dominio          : Aquiri e Emprestar
+Vila             : Moradia - Credito Imobiliário
+Subscription     : subdvdadqemp001 
+Keyvault         : kvazudvbracrim001
+Nome da Secret   : crim-Imob-cale

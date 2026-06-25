@@ -1,0 +1,144 @@
+Dia a dia!? - : Confusão com o ambiente bradesco.
+Conflito das Soluções  : Tokens (Varios)  tentar ser claro para o pessoal de DS.   Atenção.  Cuidado para não embolar as coisas. 
+
+Quando esta falando de um tópico.  Explicar de forma mais simples. 
+
+bom conhecimento ma Azure. Mais precisa de alguma forma que consegue desenvolver em outros ambientes.
+
+PC esta focado na BF.
+
+
+-----------------------------------------------------
+1. Aquisição simples (esta amadurecnedo) -> Parou* (Docsingn) vai precisar?  
+
+1.1- Vai priorizar o (Home Equity)- (Simulação e Envio de Proposta). - Desenho de solução Jornada Home Equity -Aguardando retorno da Area de Negócio (Jornada ataualizada e protototipo).
+ 
+2. Redesenho APIs. - Apresentamos um sugestão de desenho e mostramos o ambiente atual. - Estamos aguardando um retorno da area de negócio.
+
+3. Solução de Notificação (Gatilhos) Jornadas de Amortização e Quitação. - Foi Atualizado o Desenho e passado para o Wallace. 
+
+
+4. Sincronismo do Oracle (Ingestão).  
+
+5. A3C Como vai ficar? - Foi realizada conferência explicando o funcionamento e atualizado o desenho.
+
+6. Confirmar o Fluxo do MCENT. (Log de Fraude)
+ - https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=277867988
+ - Ana vai confirmar com Gerente?    - Chamar  DIOGO FURTADO, e perguntar se basta usar a LIB
+- Qual caminho Estabelecido  (Usar LIB, Posta no TOPICO ou chmar um BFF).
+    - se tiver usar o BFF teremos que altera o Desenho, e verificar se estar publicado.
+
+
+
+7. Topico Kafka Usua o Padrão(generico). ou usa um que devemos Criar?
+   - Se deixar em branco ele assume o Generico? Padrão?
+   - Como acessar no Elastic Search? 
+  
+ - Acionar o time da plataforma de LOGs (Poderia usar um topico padrão ou Fariamos nosso topico).
+       Precisa ser definido topicos tem que falar com as pessoas? 
+              Chapter do Be (Documentação) 
+                CLEITO MENDES OLIBRATOSKI ou CLAILTON DOS SANTOS
+
+8. DOCG OK ( Email enviado 03/01)
+ - Necessidade Gerar um Relatorio em PDF. com dados Pessoais do Cliente ( Nome, dados do contrato, endereço, etc..)
+ - Mas o calculo de Cada contrato que  pode ter 400 parcelas.( Dinâmicas)
+ - Quando chamo o Template, como associe as Variavel?
+
+
+
+
+
+-------------------------------------------------------------
+ 
+Definição para destravar impacto no planejamento Digital:
+
+
+Mautenção nsa tabela federada no DB2 (luw(open) é possivel?  Confirmar se pode realizar manutençã? UPDate e Insert.
+
+Pos Venda: consulta e manutenção tabelas Siscred - DB2
+
+Pos Venda: consulta e manutenção tabelas CRIM - Oracle
+ 
+Contratação Home Equity: Consulta e Manutenção tabelas CRIM- Oracle
+ 
+------------------------------------------------------------
+
+
+Desenho de solução Jornada Home Equity
+Desenho de solução modernização das API's
+Atualizaar desenho de amortização e quitação com o autenticador da cloud
+Validar com a Amanda se vamos ter gatilhos de notificação na jornada e fazer desenho sobre isso
+Validar solição de ingestão das tabelas do oracle na cloud NRT
+
+
+------------------------conf. Possibilidade de reaproveitá-la a lib (Vila Cardtech)-----------
+
+Pessoas :
+amanda.bacurau@bradesco.com.br
+anita.giarola@bradesco.com.br
+igorc.lima@bradesco.com.br ( Apresentou a Lib Cardtech)
+jose.av.oliveira@bradesco.com.br
+murilo.o.lima@bradesco.com.br
+wallace.andrade@bradesco.com.br
+
+Como funciona a Lib ( BCPF Lib Mensagem CMS)
+
+-- ------------------------------------------------------------------
+
+
+----------------------PI pontos para tratar 14/01 ------------
+
+
+Risco
+
+1. MCente - Biblioteca esta em NODs.
+ O Mcente ainda esta em Evolução. O time de desenvolvimento escolheu fazer um BFF em Java, e não conseguimos aproveitar a LIB do Legado.
+
+Proximos Passos:
+1. Verificar com o Time do Mcent se esta sendo desenvolvido a Biblioteca para Cloud.
+ - Quando será entregue?
+ - Quais linguagens serão desenvolvidas? NODs
+14/01 - Conversei com Luiz Guilherme (luiz.l.silva@bradesco.com.br)  - (thiagoc.silva@bradesco.com.br)
+        Informou que não está no mapeamento (desenvolvimento de uma LIB em Java), por enquanto só está no mapeamento migrar a lib para azure mas nada de uma nova lib em java.
+       - Temos que conversar com a Area de negocio é informar que essa Migração não atende, a nossa jornada.
+       - Caso realmente não seja possivel um desenvolvimento da Lib por parte da área responsável, a forma de usar a solução Mcent é converter a lib para Java.
+
+
+2. Lib Token Issue ***
+   -Expor no Gateway de Dominio./gerar Token Leap.
+  - Em que situação?
+  - Tem um serviço que foi construído na Cloud que será acessado pelo Legado.
+   
+  *Comunicação Norte-Sul*
+ - https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=1044381899#id-4.1.11.02Comunica%C3%A7%C3%A3oNorteSul-Comunica%C3%A7%C3%A3oentredom%C3%ADniosdaAzure
+
+*Cenarios de Uso*
+-https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=1714292441
+
+*Utilizando a lib Token Issuer*
+-https://confluence.bradesco.com.br:8443/display/CRTCL/Utilizando+a+lib+Token+Issuer
+
+*Token Issuer - Guia de Uso Java*
+-https://confluence.bradesco.com.br:8443/display/HBLESC/Token+Issuer+-+Guia+de+Uso+Java
+
+
+
+Conversar com PC
+1. Sugestão, sempre ir para a Jornada do Azure e chamar o direcionamento OP:94.
+   Precisa descutir novamente.
+2. Implementar o Token Issuer
+
+
+
+
+3. Avaliação do Cliente que utilizou (Pesquisa de satifiação) - 14/01 Respondido - Desenho de solução Criado
+
+Tem um componente estrutural dentro do BRAIN a maioria das Jornadas usa.
+PC : Ficou de verificar, estava sendo construido um componente corporativo mas ainda estava incompleto sem tela. 
+Em quanto esse componente não esta completo, estamos usando o componente do BRAIN.
+14/01 Respondido - Desenho de solução Criado
+
+
+
+* Visualizar a Jornada com o Mobile Center*
+

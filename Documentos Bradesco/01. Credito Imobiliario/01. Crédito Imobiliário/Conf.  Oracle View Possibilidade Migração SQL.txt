@@ -1,0 +1,98 @@
+Ata de Reunião.
+
+Criação de uma View Materializada (Tabela Proposta).
+
+- Não impactando o transacional.
+- Possibilidade de migrar para o SQL
+
+
+Andreza: 
+Explicou a ncessidade de realizar uma consulta na tabela PRT_Proposta no Oracle (CRIM), e que pensamos em fazer uma View materializada utilizando Métodos de Refresh (FAST Refresh).  O motivo de usar essa View Materializada é porque a consulta é muito complexa.
+Mas precisamos de uma solução de migrar para o SQL, como seria.
+
+Fernando Toledo:
+Existe opção de View materualizada no SQL DataBase, mas é um pouco mais limitado, tem menos opçoes para controlar as atualizações da view materializada, - (SQL Server: Suporta apenas o refresh completo (equivalente ao COMPLETE do Oracle) e não possui um método de refresh incremental nativo como o FAST do Oracle)
+Com isso se for uma massa de dados muito grande pode ser inviável, mas precisa entnder melhor o Cenário.
+
+Migração:
+
+É Possível explicou que poderia utilzar o ( SaaS Kafka conect)
+SQL Server <- SaaS Kafka conect  <- Intermediário  <- BD Oracle
+
+1. Uma Vez que tiver configurado o CDC, pode ser feito uma carga inicial (Como se fosse um Snapshot), e carrega as informações na tabela Origem para o destino, depois pode ser levado o incremental.
+
+Andreza sugeriu criar a tabela no SQL e criar a View do Oracle como espelho com o mesmo nome e depois transferir as informações.
+
+Ou seja fazer uma Nova View no Oracle com o mesmo squema que criado no SQl (Destino)
+
+Fernando Toledo, ponto de atenção sempre que cria novas view materializadas e fazemos o refresh delas é introduzido um esforço extra para o Banco de Dados, verificar o quanto de processamento isso pode aumentar no Oracle.
+
+Fernando: Como será  mantada essa View?
+Andreza: Esta sendo estudado, como será montada essa View, uma view com JOIN com o melhor cenário ou Criar View das tabelas mais utilizadas para depois fazer as consultas e Join na base SQL. 
+
+
+Fernando: Explicação de Replicação de dados:
+
+1.Replicação crua. - Podemos replicar registros que talvez não utilizaremos no Azure. Ou seja replico tudo mais nunca vou usar todos os dados, levando muito lixo e Com isso pode ser necessário ativar um filtro no CDC é possivel de fazer mais tem um overhead a mais na hora de replicar essa informação.
+
+2.Replicar a visão final: Replicar somente os JOINs, simplifica o que precisamos transportar.
+
+
+Andreza: Storage Procedure que Microsft sugere?
+
+Fernando: Dentro do Padrão do Bradesco Leap, entedemos que estamos usando Microserviços. Onde estamos com bando de dados de Microserviços, e usamos por exemplo 5 (cinco) Microserviços de escopo diferente e teremos 5(cinco) banco de dados distintos na Azure. Sendo esse cenário não precisa utilizar estorage procedure, podemos ter por exemplo um framework RM, posso fazer um acesso direto as tabelas mas pensando que são microserviçoes acessando as tabelas.
+Mas se tiver no cenário de replicar um banco monolito, por exempo estamos pegando essa tabela do CRIM e replicando no mesmo formato para Azure e vou continuar usando o banco de dados como monolito, vou ter N aplicações/ microserviços acessando o mesmo banco.  
+Precisa avaliar a complexidade de utilização de Storage procedure, a indicação é utilização de cada banco com os seus microserviços dentro do mesmo escopo sem utilização de Procedure.
+
+Andreza: O Possuimos um Legado estamos com desafio para desassocia, porque modernizamos alguns canais e outros canais continuam utilizando o legado. 
+
+
+Andreza: Como podemos fazer essa replica de uma tabela caso tenha muinto acesso, muitas aplicações atualizando essa tabela? Como faríamos entre Orace e SQL?
+Fernando: o CDC deve anetnder bem. Tem uma baixa latência é possível replicar os dados em real time. E uma vez que os dados estão no SQL, conseguimos conecando os serviçoes de consulta.
+
+Andreza: Para liberar esse CDC, precisa liberar algum filtro, provisionar algum componente?
+Fernando: Tem alteração com o Azure, além de ter que ter habilitado o serviço de Kafka Connect e para ter a comunicação entre ambinte onpremise e Cloud precisa ter uma Maquina (VM) intermediária.
+
+O Time da Daniela Garcia esta fazendo a habilitação do ambiente e identificando os serviços utilizado.  
+
+Tendo esse cenário de replicar os Dados do onprimese para Azure, então vamos habilitar um Private Link e o provisionamento da maquina com a configuração e tamanho (x) identificação dos serviçoes quer precisam estar instalados na VM (intermediária).
+
+Precia ver com o Time da Daniela Garcia se esta pronta essa documentação, pois com essa documentação conseguimos identificar o que precisamos utilizar no desenho. ( Serviços, Portas utilizadas, etc.) 
+
+Paulo Cezar : Tem uma documentação do LEAP de utilização do KAFKA Connect no MQ. 
+
+Andreza: Se tiver uma  View Materializada, onde conseguimos separar, deve atender o canal nesse primeiro momento. E depois deve contruir uma jornada de contratação revitalizada e com isso conseguimos deixar preparado para uma modelagem de Microserviço usando o SQL e se precisar fazer um relacionamento com tabelas do ambiente legado teremos esse canal que replique as informações.
+
+Fernando: Ponto de atenção o CDC não atualização reversa, é Unidirecional. O Micro serviço deve atualizar as duas bases caso se faça necessário em caso de convivência, para uma atualização do legado.
+
+Em relação as consulta esses dados do Oracle na Azure. O qual o intervalo dessa consulta? Conseguimos identificar se o dado é mais antigo ou é uma dado mais recente?
+
+Andreza: Nesse momento: Preciso identificar, Exemplo: No mobile só permito que o cliente simular se a aproposta estiver aprovada. o ANAC atualiza a proposta de forma assincrona (minutos), de pois disto habilita o botão do Mobile. 
+Mais temos outras consultas, que não vamos atuar agora que são realtime. (exemplo: Não consigo simular contratação, mais minha proposta ja esta aprovada?).
+
+Paulo Cesar: Confirmar se esta descartado DataBricks em paralelo ver a previsão de habilitar o CDC. Com isso podemos colocar em nosso desenho e provavelmento podemos fazemos um POC para testar para testar o DATA Base de acordo com os microserviços e as tabelas que serão migradas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

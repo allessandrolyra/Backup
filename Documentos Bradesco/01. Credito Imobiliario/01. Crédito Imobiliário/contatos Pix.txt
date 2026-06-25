@@ -1,0 +1,18 @@
+marcelo.s.mendonca@bradesco.com.br  -> Arquiteto de solução PIX
+tamara.bercott@bradesco.com.br -> Tamara  Entende afundo sobre a API do PIX
+
+Arquitetura
+willian.g.pereira@bradesco.com.br
+marcelo.s.mendonca@bradesco.com.br
+ 
+Produtos
+gustavo.augusto@bradesco.com.br
+tiagos.machado@bradesco.com.br
+ 
+DS:
+tamara.bercott@bradesco.com.br
+diego.galmeida@bradesco.com.br
+
+Receber confirmção de pagamento.
+
+Controle de  pagaemnto (Pooling) para confirmação de pagamento. Tentar colocar Hebhook  olhar isso****

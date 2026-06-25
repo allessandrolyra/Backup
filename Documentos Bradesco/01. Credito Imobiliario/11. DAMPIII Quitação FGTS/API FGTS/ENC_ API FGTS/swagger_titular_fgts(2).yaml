@@ -1,0 +1,238 @@
+swagger: "2.0"
+info:
+  description: "Dados de contas vinculadas do FGTS, autorizados pelo seu titular, para acesso por instituições financeiras e demais entes."
+  version: "1.0.0"
+  title: "FGTS - Titular FGTS"
+  contact:
+    name: "CEDESRJ750-(21)3980-3700"
+    email: "cedesrj750@caixa.gov.br"
+host: "api.des.caixa:8443"
+basePath: "/fgts/titular-fgts"
+schemes:
+- "https"
+tags:
+- name: "Trabalhador"
+  description: "Informações gerais do Trabalhador"
+- name: "Contas"
+  description: "Contas FGTS do Trabalhador"
+paths:
+  /v1/trabalhadores/{cpf}:
+     get:
+      tags:
+      - "Trabalhador"
+      summary: "Informações do trabalhador referentes ao FGTS"
+      description: "Realiza a pesquisa e retorna os dados do Trabalhador referentes ao FGTS."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cpf"
+        in: "path"
+        required: true
+        description: "CPF do trabalhador"
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        description: "Token do SSO"
+        type: "string"
+      - name: "apiKey"
+        in: "header"
+        required: true
+        description: "Chave da API"
+        type: "string"
+      responses:
+        200:
+          description: "Consulta bem sucedida"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Trabalhador"
+        400:
+          description: "07.CPF inválido(a).<br />
+                        08.CPF é do tipo numérico na requisição."
+      
+          schema:
+            $ref: "#/definitions/Mensagem"   
+            
+        401:
+         description: "1.Usuário não autenticado"
+         schema:
+          $ref: "#/definitions/Mensagem"
+          
+        403:
+         description: "55.Instituição Financeira sem permissão.<br />
+                       61.Usuário sem permissão."
+         schema:
+          $ref: "#/definitions/Mensagem"  
+          
+        404:
+          description: "11.Número do CPF não encontrado."
+          schema:
+            $ref: "#/definitions/Mensagem"  
+
+        500:
+          description: "12.Ocorreu um erro inesperado. Tente novamente mais tarde"
+          schema:
+            $ref: "#/definitions/Mensagem"
+  
+  /v1/trabalhadores/{cpf}/contas:
+     get:
+      tags:
+      - "Contas"
+      summary: "Lista das contas FGTS do trabalhador"
+      description: "Realiza a pesquisa e retorna os dados das contas FGTS do trabalhador."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cpf"
+        in: "path"
+        required: true
+        description: "CPF do trabalhador"
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        description: "Token do SSO"
+        type: "string"
+      - name: "apiKey"
+        in: "header"
+        required: true
+        description: "Chave da API"
+        type: "string"  
+      responses:
+        200:
+          description: "Consulta bem sucedida"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Conta"
+        400:
+          description: "07.CPF inválido(a).<br />
+                        08.CPF é do tipo numérico na requisição."
+      
+          schema:
+            $ref: "#/definitions/Mensagem"   
+            
+        401:
+         description: "1.Usuário não autenticado"
+         schema:
+          $ref: "#/definitions/Mensagem"
+          
+        403:
+         description: "55.Instituição Financeira sem permissão.<br />
+                       61.Usuário sem permissão."
+         schema:
+          $ref: "#/definitions/Mensagem"  
+          
+        404:
+          description: "11.Número do CPF não encontrado."
+          schema:
+            $ref: "#/definitions/Mensagem"  
+
+        500:
+          description: "12.Ocorreu um erro inesperado. Tente novamente mais tarde"
+          schema:
+            $ref: "#/definitions/Mensagem"
+  
+            
+definitions:
+         
+  Trabalhador:
+    type: "object"
+    properties:
+      nome:
+        type: "string"
+        description: "Nome completo do trabalhador"
+      dataNascimento:
+        type: "string"
+        pattern: "dd/MM/yyyy"
+        description: "Data nascimento do trabalhador"
+      tempoContribuicao:
+        type: "string"
+        description: "Informação de tempo de contribuição consolidada das contas do FGTS do trabalhador"
+      saldoTotal:
+         type: "number"
+         format: "currency"
+         description: "Saldo total das contas de FGTS do trabalhador"
+      links:
+        $ref: "#/definitions/Link"
+      
+  Conta:
+    type: "object"
+    properties:
+      numero:
+        type: "integer"
+        description: "Representa o número da conta"  
+      sureg:
+        type: "string"
+        description: "Representa a superintendência regional no FGTS"
+      base:
+        type: "string"
+        description: "Representa de qual base(sistema) a informação foi obtida"
+      dataUltimoDeposito:
+        type: "string"
+        pattern: "MM/yyyy"
+        description: "Data do ultimo depósito realizado na conta do FGTS"
+      saldo:
+        type: "number"
+        format: "current"
+        description: "Saldo da conta do FGTS"
+      remuneracao:
+        type: "object"
+        properties:
+          valor:
+            type: "number"
+            format: "current"
+            description: "Valor da remuneração da conta"
+          dataRemuneracao:
+            type: "string"
+            pattern: "MM/yyyy"
+            description: "Data da remuneração"  
+          decimoTerceiro:
+            type: "number"
+            format: "current"
+            description: "Valor da remuneração do décimo terceiro da conta"
+      empregador:
+        type: "object"
+        properties:
+          inscricao:
+            type: "string"
+            description: "Representa a inscrição do empregador"
+          codigo:
+            type: "integer"
+            description: "Identificador do empregador no FGTS"
+      trabalhador:
+        type: "object"
+        properties:  
+          nis:
+            type: "string"
+            description: "NIS do trabalhador da conta do FGTS"
+          dataAdmissao:
+            type: "string"
+            pattern: "dd/MM/yyyy"
+            description: "Data que o trabalhador foi admitido no emprego"
+          dataAfastamento:
+            type: "string"
+            pattern: "dd/MM/yyyy"
+            description: "Data que o trabalhador foi afastado do emprego"
+    
+  Link:
+    type: "object"
+    properties:
+      href:
+        type: "string"
+        description: "Endpoint para acessar o link"
+      rel:
+        type: "string"
+        description: "Descrição do link"
+        
+  Mensagem:
+    type: "object"
+    properties:
+      codigo:
+        type: "integer"
+        description: "Codigo do erro"
+      descricao:
+        type: "string"
+        description: "Descrição do erro"
+        

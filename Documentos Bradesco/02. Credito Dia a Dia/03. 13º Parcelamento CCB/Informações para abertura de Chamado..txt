@@ -1,0 +1,26 @@
+Desenvolvimento: RITM1550307
+api-adqemp.apps.arodvadqemppi11.arocorpp.bradesco.com.br
+
+Azure Keyvault: kvazudvbraantecipapf001
+
+
+SCTASK1906448
+Certificado já emitido atraves da RITM0689818 se necessário usar o mesmo será necessário obter o DA dos gestores: DS | ROBSON DA FONSECA CAVALCANTE <robson.cavalcante@bradesco.com.br> para usar o mesmo, caso seja possivel solicitar um novo (com novo nome) pois dessa forma dispensa o DA
+
+
+Homologação: RITM1551380
+api-adqemp.apps.arohoadqemppi.arocorpp.bradesco.com.br
+
+Azure Keyvault: kvazuhobraantecipapf001
+
+SCTASK1906846
+certificado ja gerado através da RITM0860642 necessário o DA dos gestores DS | NORBERTO YUJI MIZUKAVA<norberto.mizukava@bradesco.com.br> / MARCIO SILVA ALVES <marcio.s.alves@bradesco.com.br> / MARLON SANTOS CASTRO <marlon.castro@bradesco.com.br>
+para usar o mesmo certificado. Caso possivel alterar o nome e solicitar um novo, dessa forma não é necessário o DA do gest
+
+
+
+Documentação Token Issue
+https://confluence.bradesco.com.br:8443/display/CRTCL/Utilizando+a+lib+Token+Issuer
+
+Documentação Inserção de novo certificado em Keyvault 
+https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=1984299245

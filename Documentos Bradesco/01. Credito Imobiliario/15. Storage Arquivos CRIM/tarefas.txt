@@ -1,0 +1,50 @@
+Solução Definitiva: GCC
+
+Contigência: 1. File System do ON ( Verificar possibilidade com os Gestores)
+
+             2. Estimativa - File Server (Storage Azure) - 1,5 TB  (Montar uma Estimativa)
+
+
+
+
+Reunião das 14:00hs 
+Tempo do que levou para o projeto. ( Ritchelhe)
+
+
+
+
+Pontos que precisamos responder para avançarmos na requisição de provisionamento:
+
+Levantamento de Informações do Sistema Operacional para executar o script do File Share (Linux ou Windows), existe uma ação que deverá ser feita no servidor atual, envolver o time responsável pelo servidor atual para entender
+Levantamento de transações de Leitura e Escrita, isso ajuda a direcionar o tipo de fileserver que iremos provisionar, questão de performance x custo. OK
+Tamanho que iremos pedir de storage, limitado a 100TB por unidade. (Ação temporária, custo também deverá ser um fator decisivo aqui).
+
+Contatos:
+felipe.aghisi@bradesco.com.br  (Ifra) Storage
+tarsis.morilha@bradesco.com.br  (Capacitação de File System)
+estevam.freitas@bradesco.com.br (Capacitação de File System)
+carlosp.lopes@bradesco.com.br (Engenheiro Cloud) - Provisina storage file no Azure.
+Guinther Paul Schroeder -guinther@bradesco.com.br - (Mount no Linux).
+
+
+Menu pós -  Esta com uma lentidão.
+
+
+1. Como é feita a autenticação para acesso a essas informações, existe política adotada para restringir acesso? Com funciona?
+   Usuário Usado pela aplicação do JBOSS.
+
+
+2.Qual versão de Servidor vocês estão utilizando para este caso ? Uma vez que protocolo SMB dependendo da versão do servidor ela não é criptografada.
+  Linux 7.9
+
+3 – Utilização de comunicação com Protocolo SMB porta 445 não é permitido pelo banco.
+E estamos Utilizado o arquetio de referecia o Blueprint do Cenário Departamental - Do LEAP Cenário Departamental
+https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=2145189950
+
+Atualmente o sistema CRIM legado, utiliza como solução interna, um File System para armazenamento de documentos da jornada no clientes no crédito imobiliário, onde o mesmo apresenta 90% da capacidade de armazenamento utilizada de espaço em disco, com acesso Acesso SMB.
+
+A solução apresentada é temporária departamental que visa atender à necessidade atual do CRIM, mitigando o risco de incidentes relacionados à utilização máxima do disco destinado ao armazenamento dos arquivos do CRIM, até a disponibilização do GCCN Corporativo.
+
+
+
+

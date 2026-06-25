@@ -1,0 +1,14 @@
+
+
+Apresentação da Arquitura de Amortização e Quitação.
+
+Paulo Cesar
+
+Ponto de Atenção.
+
+Não recebemos o Fluxo de Negócio e Prototipo do BE. Para um direcionamento final de arquitetura só é possivel a conclusão com a recebimento desses documetos / artefatos finalizados.
+
+Realizou apresentação do Protótipo da arquitetura Amortização e Quitação do credito Imobiliario (PIX). Baseado nas informações levantadas com a necessidade de negócio compartilhada.
+
+
+

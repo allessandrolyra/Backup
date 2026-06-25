@@ -1,0 +1,152 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram name="Página-1" id="DA-S8kM48JtxLJdyIf02">
+    <mxGraphModel dx="1959" dy="1826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="COyzVViWS8dduRMtyoBw-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.001;entryY=0.395;entryDx=0;entryDy=0;strokeColor=#FF0000;entryPerimeter=0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;endArrow=classic;" parent="1" source="COyzVViWS8dduRMtyoBw-19" target="COyzVViWS8dduRMtyoBw-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="982" y="265" as="sourcePoint" />
+            <mxPoint x="972" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="910" y="265" />
+              <mxPoint x="910" y="381" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3ASnGKK3HYqO1l8XEa6D-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#FF0000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=none;endArrow=classic;" parent="1" source="COyzVViWS8dduRMtyoBw-19" target="3ASnGKK3HYqO1l8XEa6D-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="265" />
+              <mxPoint x="910" y="-45" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-19" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+          <mxGeometry x="498" y="80" width="370" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-1" value="Internet" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="288" y="220" width="110" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-2" value="" style="image;html=1;image=img/lib/clip_art/computers/Server_Rack_Partial_128x128.png" parent="1" vertex="1">
+          <mxGeometry x="568" y="180" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-3" value="" style="image;html=1;image=img/lib/clip_art/computers/Server_Rack_Partial_128x128.png" parent="1" vertex="1">
+          <mxGeometry x="713" y="180" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-4" value="Linux 7.9" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="568" y="150" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-5" value="Linux 7.9" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="713" y="150" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-6" value="Unidade c://" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="563" y="250" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#FF0000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;strokeWidth=2;" parent="1" source="COyzVViWS8dduRMtyoBw-7" target="COyzVViWS8dduRMtyoBw-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="608" y="360" />
+              <mxPoint x="468" y="360" />
+              <mxPoint x="468" y="255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-28" value="SMB 445 e TCP 443" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;strokeColor=#FF0000;fontFamily=Helvetica;fontSize=11;fontColor=#FF0000;labelBackgroundColor=default;strokeWidth=2;" parent="COyzVViWS8dduRMtyoBw-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.4411" y="1" relative="1" as="geometry">
+            <mxPoint x="4" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-7" value="New virtual share E://" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF3333;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="553" y="280" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-8" value="New Virtual share E://" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF0000;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="693" y="280" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-9" value="Unidade c://" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="713" y="250" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.96;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FF0000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;strokeWidth=2;" parent="1" source="COyzVViWS8dduRMtyoBw-8" target="COyzVViWS8dduRMtyoBw-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="748" y="400" />
+              <mxPoint x="448" y="400" />
+              <mxPoint x="448" y="269" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-37" value="SMB 445 e TCP 443" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FF0000;" parent="COyzVViWS8dduRMtyoBw-11" vertex="1" connectable="0">
+          <mxGeometry x="-0.1408" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-13" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry y="90" width="260" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-12" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud;" parent="1" vertex="1">
+          <mxGeometry x="220" y="90" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-14" value="Azure" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" parent="1" vertex="1">
+          <mxGeometry x="210" y="90" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-17" value="Azure File" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Storage_Azure_Files.svg;" parent="1" vertex="1">
+          <mxGeometry x="80" y="139" width="64" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-18" value="App CRIM" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="613" y="80" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#FF0000;labelBackgroundColor=none;" parent="1" source="COyzVViWS8dduRMtyoBw-19" target="COyzVViWS8dduRMtyoBw-38" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="982" y="265" as="sourcePoint" />
+            <mxPoint x="972" y="158.29999999999995" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="910" y="265" />
+              <mxPoint x="910" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-26" value="&amp;nbsp;Permissão para execução de&amp;nbsp; Mount SMB" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF0000;fontStyle=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="970" y="-400" width="680" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-35" value="Rede Corporativa" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="758" y="420" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-36" value="Bradesco" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontColor=#FF3333;" parent="1" vertex="1">
+          <mxGeometry x="778" y="80" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF0000;strokeWidth=2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=classic;exitX=0.114;exitY=0.564;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="COyzVViWS8dduRMtyoBw-1" target="COyzVViWS8dduRMtyoBw-17" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="260" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="112" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-27" value="SMB 445 e TCP 443" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=0;strokeColor=#FF0000;strokeWidth=2;fontFamily=Helvetica;fontSize=11;fontColor=#FF0000;labelBackgroundColor=default;" parent="COyzVViWS8dduRMtyoBw-15" vertex="1" connectable="0">
+          <mxGeometry x="0.3865" y="-1" relative="1" as="geometry">
+            <mxPoint x="71" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="COyzVViWS8dduRMtyoBw-38" value="MNT_ROOT=&quot;/media&quot;&#xa;sudo mkdir -p $MNT_ROOT" style="text;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="947" y="130" width="683" height="60" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;div&gt;RESOURCE_GROUP_NAME=&quot;&amp;lt;resource-group-name&amp;gt;&quot;&lt;/div&gt;&lt;div&gt;STORAGE_ACCOUNT_NAME=&quot;&amp;lt;storage-account-name&amp;gt;&quot;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;# Create a folder to store the credentials for this storage account and&lt;/div&gt;&lt;div&gt;# any other that you might set up.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;CREDENTIAL_ROOT=&quot;/etc/smbcredentials&quot;&lt;/div&gt;&lt;div&gt;sudo mkdir -p &quot;/etc/smbcredentials&quot;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;# Get the storage account key for the indicated storage account.&lt;/div&gt;&lt;div&gt;# You must be logged in with az login and your user identity must have&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# permissions to list the storage account keys for this command to work.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;STORAGE_ACCOUNT_KEY=$(az storage account keys list \&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; --resource-group $RESOURCE_GROUP_NAME \&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; --account-name $STORAGE_ACCOUNT_NAME \&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; --query &quot;[0].value&quot; --output tsv | tr -d &#39;&quot;&#39;)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;# Create the credential file for this individual storage account&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;SMB_CREDENTIAL_FILE=&quot;$CREDENTIAL_ROOT/$STORAGE_ACCOUNT_NAME.cred&quot;&lt;/div&gt;&lt;div&gt;if [ ! -f $SMB_CREDENTIAL_FILE ]; then&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; echo &quot;username=$STORAGE_ACCOUNT_NAME&quot; | sudo tee $SMB_CREDENTIAL_FILE &amp;gt; /dev/null&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; echo &quot;password=$STORAGE_ACCOUNT_KEY&quot; | sudo tee -a $SMB_CREDENTIAL_FILE &amp;gt; /dev/null&lt;/div&gt;&lt;div&gt;else&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; echo &quot;The credential file $SMB_CREDENTIAL_FILE already exists, and was not modified.&quot;&lt;/div&gt;&lt;div&gt;fi&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;# Change permissions on the credential file so only root can read or modify the password file.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;sudo chmod 600 $SMB_CREDENTIAL_FILE&lt;/div&gt;" link="# Create a folder to store the credentials for this storage account and &#xa;# any other that you might set up. &#xa;CREDENTIAL_ROOT=&quot;/etc/smbcredentials&quot; &#xa;sudo mkdir -p &quot;/etc/smbcredentials&quot; &#xa; &#xa;# Get the storage account key for the indicated storage account. &#xa;# You must be logged in with az login and your user identity must have &#xa;# permissions to list the storage account keys for this command to work. &#xa;STORAGE_ACCOUNT_KEY=$(az storage account keys list \ &#xa;    --resource-group $RESOURCE_GROUP_NAME \ &#xa;    --account-name $STORAGE_ACCOUNT_NAME \ &#xa;    --query &quot;[0].value&quot; --output tsv | tr -d &#39;&quot;&#39;) &#xa; &#xa;# Create the credential file for this individual storage account &#xa;SMB_CREDENTIAL_FILE=&quot;$CREDENTIAL_ROOT/$STORAGE_ACCOUNT_NAME.cred&quot; &#xa;if [ ! -f $SMB_CREDENTIAL_FILE ]; then &#xa;    echo &quot;username=$STORAGE_ACCOUNT_NAME&quot; | sudo tee $SMB_CREDENTIAL_FILE &gt; /dev/null &#xa;    echo &quot;password=$STORAGE_ACCOUNT_KEY&quot; | sudo tee -a $SMB_CREDENTIAL_FILE &gt; /dev/null &#xa;else &#xa;    echo &quot;The credential file $SMB_CREDENTIAL_FILE already exists, and was not modified.&quot; &#xa;fi &#xa; &#xa;# Change permissions on the credential file so only root can read or modify the password file. &#xa;sudo chmod 600 $SMB_CREDENTIAL_FILE" id="COyzVViWS8dduRMtyoBw-39">
+          <mxCell style="text;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+            <mxGeometry x="947" y="199" width="683" height="460" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="COyzVViWS8dduRMtyoBw-40" value="FILE_SHARE_NAME=&quot;&lt;file-share-name&gt;&quot;&#xa;&#xa;&#xa;MNT_PATH=&quot;$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME&quot;&#xa;sudo mkdir -p $MNT_PATH" style="text;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="947" y="670" width="683" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3ASnGKK3HYqO1l8XEa6D-1" value="&lt;span data-teams=&quot;true&quot;&gt;ST: stazudvbracrimfile&lt;br&gt;&lt;br&gt;IP: 172.17.139.112&lt;br&gt;&lt;br&gt;PORTA: 445&lt;/span&gt;&lt;div&gt;&lt;span data-teams=&quot;true&quot;&gt;&lt;span data-teams=&quot;true&quot;&gt;FQDN: stazudvbracrimfile.file.core.windows.net&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="5" y="296" width="250" height="120" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;span data-teams=&quot;true&quot;&gt;&lt;p&gt;sudo mkdir -p /media/dados&lt;br&gt;&lt;br/&gt;if [ ! -d &quot;/etc/smbcredentials&quot; ]; then&lt;br&gt;&lt;br/&gt;sudo mkdir /etc/smbcredentials&lt;br&gt;&lt;br/&gt;fi&lt;br&gt;&lt;br/&gt;if [ ! -f &quot;/etc/smbcredentials/stazudvbracrimfile.cred&quot; ]; then&lt;br&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; sudo bash -c &#39;echo &quot;username=stazudvbracrimfile&quot; &amp;gt;&amp;gt; /etc/smbcredentials/stazudvbracrimfile.cred&#39;&lt;br&gt;&lt;br/&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; sudo bash -c &#39;echo &quot;password=azJP14y2hOEzjji7sfHHc9+VjayS6nj51/p+oHAZB+250rK4zVu2iXptzn16BivrzunOmaqm5XCH+AStqQbx4w==&quot; &amp;gt;&amp;gt; /etc/smbcredentials/stazudvbracrimfile.cred&#39;&lt;br&gt;&lt;br/&gt;fi&lt;br&gt;&lt;br/&gt;sudo chmod 600 /etc/smbcredentials/stazudvbracrimfile.cred&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;sudo bash -c &#39;echo &quot;//stazudvbracrimfile.file.core.windows.net/dados /media/dados cifs nofail,credentials=/etc/smbcredentials/stazudvbracrimfile.cred,dir_mode=0755,file_mode=0755,serverino,nosharesock,mfsymlinks,actimeo=30&quot; &amp;gt;&amp;gt; /etc/fstab&#39;&lt;br&gt;&lt;br/&gt;sudo mount -t cifs //stazudvbracrimfile.file.core.windows.net/dados /media/dados -o credentials=/etc/smbcredentials/stazudvbracrimfile.cred,dir_mode=0755,file_mode=0755,serverino,nosharesock,mfsymlinks,actimeo=30&lt;/p&gt;&lt;/span&gt;" id="3ASnGKK3HYqO1l8XEa6D-8">
+          <mxCell style="text;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontFamily=Tahoma;" parent="1" vertex="1">
+            <mxGeometry x="947" y="-350" width="933" height="460" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

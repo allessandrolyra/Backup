@@ -1,0 +1,62 @@
+CRÉDITO - Dia a Dia
+
+Julio CESAR - SM
+
+Andre.pontes@foursys.com.br - TL
+
+
+
+paula.d.souza@bradesco.com.br PO  do Pos Vendas 2
+paulo.m.maia@bradesco.com.br PO 
+
+esafio
+
+Soluçãos de Transição.   
+
+Gerar GGB  pode colocar na joranada.  ? sim ou não ( Modernizar e usar em outrar )
+
+CP Invest - 
+
+*Trabalha com Lime.
+
+
+-> Fluxo do Cheque e Especial <-
+
+
+Fabio - Optin.
+
+
+
+Amon-> Arquiteto do Banco.
+
+POS Venda 1  - (consulta / Liquidação /Cancelamento)  IR / Cheque 
+https://www.figma.com/design/BzzpodzgoRQGvlhtnDmbI5/P%C3%B3s-venda---PF?node-id=355-15455&p=f&t=9N5CLErm7Kboz2mE-0
+
+Tech Lead.	Andre Pontes 
+
+
+Dev.	Daniel Matos  (Back end)
+    	Wendell dos Santos 
+
+ 	Marcelo Teixeira (Front End) 
+
+QA.	Karina Lima Costa e Barbar Pereira Mello
+ 
+
+Pos vendas 2   -  CCB
+
+Tec Led.	Paulo Roberti Ribeiro
+
+Dev.	  	Daniel Matos  (Back end)   	
+		Bruno Manhaes Alves
+		Antonio Donizetti
+
+QA. 		Baraba Pereira de mello
+		Gabriel Novak Zambuzi
+
+
+
+
+
+
+

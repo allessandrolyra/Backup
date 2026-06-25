@@ -1,0 +1,19 @@
+Apontar as necessidades específicas do produto, caso tenha. 
+
+Exemplo:
+
+- Fonte(s) utilizadas no documento (atenção para o envio das fontes que serão necessárias, em base64)
+    Bradesco Sans
+
+- Tamanho(s) e estilizações utilizadas no documento (atenção: inserir os tamanhos das fontes no HTML, nos componentes que a utilizarão)
+    Títulos: 14pt / 16pt
+    Parágrafo: 12pt
+
+- Medidas das margens utilizadas no documento (caso hajam necessidades de margens específicas)
+    Margem superior: 1,8cm
+    Margem direita: 1,5cm
+    Margem inferior: 1,5cm
+    Margem esquerda: 1,7cm
+
+- Tabela de Cores utilizadas no documento (em caso de linhas, imagens e outros componentes que utilizem cores difentes)
+    Preto: #000

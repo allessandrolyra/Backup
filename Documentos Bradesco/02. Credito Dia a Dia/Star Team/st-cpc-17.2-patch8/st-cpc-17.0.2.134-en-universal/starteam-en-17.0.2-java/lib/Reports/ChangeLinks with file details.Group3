@@ -1,0 +1,23 @@
+<h4>File Summary</h4>
+<TABLE class="fileTable">
+<TR>
+<TH>Revision</TH>
+<TH>Branch Version</TH>
+<TH>Change Type</TH>
+<TH>Path</TH>
+<TH>Name</TH>
+<TH>Size</TH>
+<TH>Modified By</TH>
+<TH>Comment</TH>
+</TR>~~BeginRepeat~~~~FileDetails~~
+<TR>
+<TD class="num">~~Revision~~</TD>
+<TD class="num">~~DotNotation~~</TD>
+<TD class="num">~~ChangeType~~</TD>
+<TD class="path">~~Folder Path~~\</TD>
+<TD>~~Name~~</TD>
+<TD class="num">~~FileSize~~</TD>
+<TD class="name">~~Author~~</TD>
+<TD>~~Comment~~</TD>
+</TR>
+~~EndRepeat~~</TABLE><BR><HR><BR>

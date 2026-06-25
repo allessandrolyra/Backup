@@ -1,0 +1,29 @@
+1) Detalhar as bases de dados
+    Consultas no SISCREDI (DB2)
+    Consultas no CRIM (Oracle)
+    Database novos na cloud
+    
+2) Incluir solução de CMS para telas de fim de jornada
+    CMS Contatos
+    carlos.z.barbosa@bradesco.com.br - Gerente CMS
+    rafaelo.silva@bradesco.com.br - Time CMS
+    
+    https://api-leap-platse.apps.arodvplatsepi11.arocorpp.bradesco.com.br/consumo-estatico/v1/conteudos/banco-bradesco%2Fcms-cards-vitrine-segmento%3Bsegmento%3Dclassic-correntista%3BdataAtual%3D2024-05-24
+    https://api-leap-platse.apps.arodvplatsepi11.arocorpp.bradesco.com.br/consumo-estatico/v1/conteudos/banco-bradesco%2FErroMobileAutenticador%3BcodigoErro%3DFATOR_INCORRETO
+    api-leap-platse.apps.arodvplatsepi11.arocorpp.bradesco.com.br
+    https://api-leap-platse.apps.arodvplatsepi11.arocorpp.bradesco.com.br/consumo-estatico/v1/%2Fbanco-bradesco%2FErroMobileAutenticador%3BcodigoErro%3DGACBMV21
+    
+    https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=536282219
+    https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=536282219
+
+3) Nos MFe's que tiverem tagueamento representa com o icone do GA
+
+4) Validar a necessidade fazer um diagrama de dados para Logs de Negócio e Técnicos
+    Fomentar o uso da platafomar de logs da cloud.
+    Chapter do Be (Documentação) CLEITO MENDES OLIBRATOSKI ou CLAILTON DOS SANTOS
+    https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=1252294674
+    
+5) Detalhar as alterações necessárias no legado
+
+6) Detalhar mecanismo PIX:
+    Exemplo BEX: https://confluence.bradesco.com.br:8443/display/BRADEX/Acerto+financeiro+PIX

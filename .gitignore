@@ -69,6 +69,25 @@ yarn-error.log*
 *.rar
 *.7z
 *.iso
+*.m4a
+*.wav
+*.flac
+
+# Large binaries and installers
+*.jar
+*.pkg
+*.so
+*.dylib
+*.jsa
+*.dll
+*.exe
+*.msi
+*.dmg
+*.deb
+*.rpm
+*.gz
+*.war
+*.ear
 
 # Package locks (optional for backup)
 # package-lock.json

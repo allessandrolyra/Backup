@@ -1,0 +1,78 @@
+Elson.faria@bradesco.com.br ->  Chapter da A3C
+
+Toda demanda da A3C precisa ser enviada via Formulário. ( Marcar Reuniões e Envolver os Arquitetos da A3C)
+ 
+https://bancobradesco.sharepoint.com/:l:/s/AC-Funildedemandas/FH10H6IU59FEgfIdtKfhQIIB8rfovWMXUe_gb88afsBfLQ?nav=NzIzYmNiM2ItYzhiYy00NTE0LWE4ZGItNzQzMjNkNWY0NDM5
+
+
+Como funcina a integração com A3C.
+
+É preciso consumir 2 Libs
+
+1. Lib FED Authz Autorizador 
+2.Lib SRV Autorizador (Introspect)
+
+
+Fluxo acontece em 3 Etapas:
+
+A LiB do FED ela é responsavel pela etapa 1 e Etapa 2.
+
+Etapa 1. Fluxo de Intenção:  é quando usuáro clica no botão de confirmar.
+
+É informado um Payload, (Passando qual o tipo de transação, Quais os dados) o BFF recebe essas informações e passadas para o Autorization Server, que bate no 
+
+Dicionário e faz o cadastro do Payload (esse cadastro será o base line da transação para ser checada no final e verificar se foi corrompida).
+
+E Bate na Sayfer para ver o nivel de risco desta transação (Safer responde qual é o nível de risco). 
+
+O orquestrador bate no GACB, o GACB bate no GACB-srv-guard (Ele verifica quais os fatores de Autenticação o usuário tem cadastrado. [ex.não adianta pedir biometria facial seo o usuário não possui cadastrado, etc.] então O GACB-srv-guard responde, de acordo com o risco da transação, e quais os disafios o usuário precisa cumprir. 
+
+Despois disso começa o segundo fluxo que é o fluxo de validação.
+
+2. Fluxo de Validação.
+
+Onde será realizado e validado os desafios que o usuário vai cumprir.  
+supondo que o o usuário deve inserir o MToken e Biometria facial: 
+ o cliente recebeu a solicitação do MToken para digitar e confirmar sera feito a validação no GACB caso o Mtoken esteja correto, verifica se tem outro MFA. Tendo outro desafio MFA o usuário recebe a solicitação para fazer a Biometria facial e valida.
+
+Estando tudo correto vamos para terceira etapa do Autorizador
+
+3. Fluxo de Introspecção.
+
+É realizado com a Lib SRV Autorizador, que é um lib de Backend.  Que compara com o Token que foi gravado no dicionário no Payload com o Token atual, para garantir a itegridade da trasação. depois disso o fluxo segue.
+
+
+
+
+Próximos Passos
+1. Ler a Documentação
+2. Informar o PayLoad ( Tem um modelo a ser seguido) 
+3. Existe uma conversa com a Safer (verificar o fluxo).
+   3.1 Validar o nivel de Risco dessas transações.
+   3.2 validar Payloud
+4. A3C cadastra um Payload no dicionário [depende de deploy] (deixando o dicionário pronto receber essas transçaões)
+5. Teste. 
+
+OBs. Ja existe algumas jornadas do PF usando e podemos pegar lições aprendidas, o Time de Recarga de Mobile PF ja implemtou e podemos consulta-los.
+
+
+
+Exemplo:  O cliente quer realizar um Pix para sua Mãe, que ele faz todo dia. Então esse tem um rico baixo
+O Autorizador então vai pedir somente a senha de 4 Digitos, o usuário então digita e o fluxo de autorização valida a senha do usuário e retorna com o OK. ( Cumpriu com os Desefios).
+
+Outro Exemplo: O usuário esta Fazendo um PIX de $100.000 para una conta que nunca fez, a 150KM da casa dele as 2:00hs Am. Então o Fluxo de Validação entende que esse é umrico Alto e O Autorizador então vai pedir a senha de 4 Digitos, Biometria Facial, confirmar Nome da Mãe e etc.. para garantir a segurança do Usuário. 
+
+
+
+Conf. A3C 
+
+
+
+
+
+
+
+
+
+
+

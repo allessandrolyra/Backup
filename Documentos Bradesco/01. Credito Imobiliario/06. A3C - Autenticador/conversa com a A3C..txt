@@ -1,0 +1,58 @@
+Elson.faria@bradesco.com.br ->  Chapter da A3C
+
+Toda demanda da A3C precisa ser enviada via Formulário. ( Marcar Reuniões e Envolver os Arquitetos da A3C)
+ 
+https://bancobradesco.sharepoint.com/:l:/s/AC-Funildedemandas/FH10H6IU59FEgfIdtKfhQIIB8rfovWMXUe_gb88afsBfLQ?nav=NzIzYmNiM2ItYzhiYy00NTE0LWE4ZGItNzQzMjNkNWY0NDM5
+
+
+Como é funcina a integração com A3C.
+É disponibilizadas 2 Libs.
+
+1 LiB frontend - Para integrar com BFF da A3C e bate no Autorization Server.
+
+Fluxo acontece em 3 Etapas:
+
+1. Fluxo de Intenção: É informado um Payload, (Passando qual o tipo de transação, Quais os dados) o BFF recebe essas informações e passadas para o Autorization Server, que bate no Dicionário e faz o cadastro do Payload (esse cadastro será o base line da transação para ser checada no final e verificar se foi corrompida).
+
+E Bate na Sayfer para ver o nivel de risco desta transação (Safer responde qual é o nível de risco). 
+
+O orquestrador bate no GACB, o GACB bate no Guard ( O Guarde responde, de acordo com o risco da transação, quais os disfios o usuário precisa cumprir.) despois disso começãa o segundo fluxo que é o fluxo de validação.
+
+
+2. Fluxo de Validação.
+
+Onde será realizado sera validado os desafios que o usuário vai cumprir.  
+  Exemplo:  O cliente quer realizar um Pix para sua Mãe, que ele faz todo dia. Então esse tem um rico baixo
+O Autorizador então vai pedir somente a senha de 4 Digitos, o usuário então digita e o fluxo de autorização valida a senha do usuário e retorna com o OK. ( Cumpriu com os Desefios).
+
+Outro Exemplo: O usuário esta Fazendo um PIX de $100.000 para una conta que nunca fez, a 150KM da casa dele as 2:00hs Am. Então o Fluxo de Validação entende que esse é umrico Alto e O Autorizador então vai pedir a senha de 4 Digitos, Biometria Facial, confirmar Nome da Mãe e etc.. para garantir a segurança do Usuário. 
+
+Depois de Validado tem o 3 Fluxo chamado Introspecção.
+
+3. Fluxo de Introspecção.
+
+É realizado com a Segunda Lib, que é um lib de Backend.  Que compara com o Token que foi gravado no dicionário no Payload com o Token atual, para garantir a itegridade da trasação. depois disso o fluxo segue.
+
+
+OBs. Ja existe algumas jornadas do PF usando. podemos pegar lições aprendidas.
+
+Passos
+1. Ler a Documentação
+2. Informar o PayLoad ( Tem um modelo a ser seguido) 
+3. Existe uma conversa com a Safer (verificar o fluxo).
+4. A3C cadastra um Payload no dicionário (deixando o dicionário pronto receber essas transçaões)
+5. Teste. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

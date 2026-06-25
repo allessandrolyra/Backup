@@ -1,0 +1,93 @@
+INFO   KAFKA SERVICO_CANAL br.com.bradesco.ches.ChesService - {'codigoTransacao':'CROTIAH2 - Elegibilidade','retorno':'SUCESSO','entrada':{'produto':1,'descricaoProduto':'','tipoAcao':1,'codigoSeguro':1,'codigoDirecionamento':0,'indicadorOferta':0,'valorLimiteCreditoBrain':0,'codigoBanco':237,'numeroAgencia':2,'numeroConta':86311,'codigoProduto':11,'codigoSubproduto':1,'codigoRazao':0,'codigoGrupoContabil':7,'codigoSubgrupoContabil':5,'cpf':557802241,'filial':0,'controleCpf':37,'eDvctoLim':0,'valorLimiteCredito':0,'convenioChes':0,'contrato':0,'descricaoTipoAcao':'Elegibilidade','descricaoTipoSeguro':'Com Seguro','descricaoDirecionamento':''},'saida':{'produto':0,'descricaoProduto':'','tipoAcao':0,'codigoSeguro':0,'codRetorno':'00000000','codMensagem':'Processamento realizado com sucesso!','codigoDirecionamento':0,'valorAutorizacaoSeguroAnterior':0,'valorAutorizacaoSeguro':0,'taxaJurosMes':0,'taxaJurosAno':0,'valorAutorizadoTributo':0,'percentualAutorizadoTributo':0,'valorAutorizadoTarifa':0,'percentagemAutorizadoTarifa':0,'valorRegistradoCarteira':0,'percentagemRegistradoCarteira':0,'percentagemAutorizacaoSeguro':0,'valorServicoTerceiro':0,'percentagemServicoTerceiro':0,'valorAutorizadoEncargo':0,'indicadorOferta':0,'valorLimiteCreditoBrain':0,'codigoBanco':0,'numeroAgencia':0,'numeroConta':0,'codigoProduto':0,'codigoSubproduto':0,'codigoRazao':0,'codigoGrupoContabil':0,'codigoSubgrupoContabil':0,'cpf':0,'filial':0,'controleCpf':0,'eDvctoLim':0,'convenioChes':0,'contrato':0,'valorLimiteCreditoAnterior':0,'valorLimiteCreditoDepois':0,'percentagemAutorizadoEncargo':0,'valorTotal':0,'percentagemTotal':0,'custoEfetivoMes':0,'custoEfetivoAno':0,'descricaoTipoAcao':'','descricaoTipoSeguro':'Sem Seguro','descricaoDirecionamento':''},'mensagens':[]} 
+{'@timestamp':'2025-08-04T11:27:23.613-0300','@version':'1','ecs':{'version':'1.0'},'user':{'name':'00002000000080251401'},'canal':'66','service':{'name':'bcpf-srv-ches','version':'2.3.2'},'container':{'name':'bcpf-srv-ches-677f464f69-kv4l5'},'tracing':{'uuid':'302e59b8-3118-4206-9807-48e63186a099','request_id':'0AEC1319:AFD8_6890C34B_01DC:9E278','idSessaoFrwk':'002615C87F13E5DH00910A390AD66B9D'},'log':{'level':'INFO','logger':'br.com.bradesco.base.AbstractMapper'},'message':'INICIO - getCROTWMNERequest(CampanhaCrotParam campanhaParam) '} 
+{'@timestamp':'2025-08-04T11:27:23.613-0300','@version':'1','ecs':{'version':'1.0'},'user':{'name':'00002000000080251401'},'canal':'66','service':{'name':'bcpf-srv-ches','version':'2.3.2'},'container':{'name':'bcpf-srv-ches-677f464f69-kv4l5'},'tracing':{'uuid':'302e59b8-3118-4206-9807-48e63186a099','request_id':'0AEC1319:AFD8_6890C34B_01DC:9E278','idSessaoFrwk':'002615C87F13E5DH00910A390AD66B9D'},'log':{'level':'INFO','logger':'br.com.bradesco.base.AbstractMapper'},'message':'FIM - getCROTWMNERequest(CampanhaParam campanhaParam)  '} 
+{'@timestamp':'2025-08-04T11:27:23.615-0300','@version':'1','ecs':{'version':'1.0'},'user':{'name':'00002000000080251401'},'canal':'66','service':{'name':'bcpf-srv-ches','version':'2.3.2'},'container':{'name':'bcpf-srv-ches-677f464f69-kv4l5'},'tracing':{'uuid':'302e59b8-3118-4206-9807-48e63186a099','request_id':'0AEC1319:AFD8_6890C34B_01DC:9E278','idSessaoFrwk':'002615C87F13E5DH00910A390AD66B9D'},'log':{'level':'INFO','logger':'b.c.b.d.c.NCAdapterDefaultController'},'message':'Obtendo valores customizados para o Header atrav??s da classe br.com.bradesco.data.connector.cws.microsvc.RESTHeaderResolver$Proxy$_$$_WeldClientProxy'} 
+{'@timestamp':'2025-08-04T11:27:23.615-0300','@version':'1','ecs':{'version':'1.0'},'user':{'name':'00002000000080251401'},'canal':'66','service':{'name':'bcpf-srv-ches','version':'2.3.2'},'container':{'name':'bcpf-srv-ches-677f464f69-kv4l5'},'tracing':{'uuid':'302e59b8-3118-4206-9807-48e63186a099','request_id':'0AEC1319:AFD8_6890C34B_01DC:9E278','idSessaoFrwk':'002615C87F13E5DH00910A390AD66B9D'},'log':{'level':'INFO','logger':'b.c.b.d.c.NCAdapterDefaultController'},'message':'Executando transa????o Informacao de CHES'} 
+{'@timestamp':'2025-08-04T11:27:23.615-0300','@version':'1','ecs':{'version':'1.0'},'user':{'name':'00002000000080251401'},'canal':'66','service':{'name':'bcpf-srv-ches','version':'2.3.2'},'container':{'name':'bcpf-srv-ches-677f464f69-kv4l5'},'tracing':{'uuid':'302e59b8-3118-4206-9807-48e63186a099','request_id':'0AEC1319:AFD8_6890C34B_01DC:9E278','idSessaoFrwk':'002615C87F13E5DH00910A390AD66B9D'},'log':{'level':'INFO','logger':'b.c.b.d.c.NCAdapterDefaultController'},'message':'Nome de neg??cio: ches'} 
+{
+   "codigoTransacao":"CROTIAH2 - Elegibilidade",
+   "retorno":"SUCESSO",
+   "entrada":{
+      "produto":1,
+      "descricaoProduto":"",
+      "tipoAcao":1,
+      "codigoSeguro":1,
+      "codigoDirecionamento":0,
+      "indicadorOferta":0,
+      "valorLimiteCreditoBrain":0,
+      "codigoBanco":237,
+      "numeroAgencia":2,
+      "numeroConta":86311,
+      "codigoProduto":11,
+      "codigoSubproduto":1,
+      "codigoRazao":0,
+      "codigoGrupoContabil":7,
+      "codigoSubgrupoContabil":5,
+      "cpf":557802241,
+      "filial":0,
+      "controleCpf":37,
+      "eDvctoLim":0,
+      "valorLimiteCredito":0,
+      "convenioChes":0,
+      "contrato":0,
+      "descricaoTipoAcao":"Elegibilidade",
+      "descricaoTipoSeguro":"Com Seguro",
+      "descricaoDirecionamento":""
+   },
+   "saida":{
+      "produto":0,
+      "descricaoProduto":"",
+      "tipoAcao":0,
+      "codigoSeguro":0,
+      "codRetorno":"00000000",
+      "codMensagem":"Processamento realizado com sucesso!",
+      "codigoDirecionamento":0,
+      "valorAutorizacaoSeguroAnterior":0,
+      "valorAutorizacaoSeguro":0,
+      "taxaJurosMes":0,
+      "taxaJurosAno":0,
+      "valorAutorizadoTributo":0,
+      "percentualAutorizadoTributo":0,
+      "valorAutorizadoTarifa":0,
+      "percentagemAutorizadoTarifa":0,
+      "valorRegistradoCarteira":0,
+      "percentagemRegistradoCarteira":0,
+      "percentagemAutorizacaoSeguro":0,
+      "valorServicoTerceiro":0,
+      "percentagemServicoTerceiro":0,
+      "valorAutorizadoEncargo":0,
+      "indicadorOferta":0,
+      "valorLimiteCreditoBrain":0,
+      "codigoBanco":0,
+      "numeroAgencia":0,
+      "numeroConta":0,
+      "codigoProduto":0,
+      "codigoSubproduto":0,
+      "codigoRazao":0,
+      "codigoGrupoContabil":0,
+      "codigoSubgrupoContabil":0,
+      "cpf":0,
+      "filial":0,
+      "controleCpf":0,
+      "eDvctoLim":0,
+      "convenioChes":0,
+      "contrato":0,
+      "valorLimiteCreditoAnterior":0,
+      "valorLimiteCreditoDepois":0,
+      "percentagemAutorizadoEncargo":0,
+      "valorTotal":0,
+      "percentagemTotal":0,
+      "custoEfetivoMes":0,
+      "custoEfetivoAno":0,
+      "descricaoTipoAcao":"",
+      "descricaoTipoSeguro":"Sem Seguro",
+      "descricaoDirecionamento":""
+   },
+   "mensagens":[
+   ]
+}
+
+
+bcpf-srv-ches
+
+bcpf-adesao-majoracao-ches

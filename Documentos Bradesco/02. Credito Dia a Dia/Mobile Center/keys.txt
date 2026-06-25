@@ -1,0 +1,40 @@
+
+For OpenText tools
+"client=oauth2-uNyo9lBESH8Y8S2Nrdem@microfocus.com; secret=12YDNJdqmElBjSq5qQrd; tenant=999999999;"
+
+
+
+Functional Testing Lab for Mobile and Web URL:https://mobilecenter.net.bradesco.com.br/wd/hub;
+    
+oauthClientId:oauth2-uNyo9lBESH8Y8S2Nrdem@microfocus.com;
+    
+oauthClientSecret:12YDNJdqmElBjSq5qQrd;
+    
+tenantId:999999999;
+    
+mcWorkspaceName:Default workspace;
+
+
+
+
+
+
+Functional Testing Lab for Mobile and Web URL:https://mobilecenter.net.bradesco.com.br/selenium/wd/hub;
+    
+oauthClientId:oauth2-uNyo9lBESH8Y8S2Nrdem@microfocus.com;
+    
+oauthClientSecret:12YDNJdqmElBjSq5qQrd;
+    
+tenantId:999999999
+
+
+
+
+
+Functional Testing Lab for Mobile and Web URL:https://mobilecenter.net.bradesco.com.br/selenium/wd/hub;
+    
+oauthClientId:oauth2-uNyo9lBESH8Y8S2Nrdem@microfocus.com;
+    
+oauthClientSecret:12YDNJdqmElBjSq5qQrd;
+    
+tenantId:999999999

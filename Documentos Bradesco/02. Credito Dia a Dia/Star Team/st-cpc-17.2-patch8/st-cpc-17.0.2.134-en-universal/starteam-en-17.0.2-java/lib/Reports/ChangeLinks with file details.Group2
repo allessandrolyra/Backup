@@ -1,0 +1,24 @@
+<h4>Link Details</h4>
+<table class="linkTable">
+<tr>
+<th>Link Type</th>
+<th>Folder</th>
+<th>Folder Path</th>
+<th>Item</th>
+<th>Item Details</th>
+<th>Item<br>Version</th>
+<th>Selection<br>Version</th>
+</tr>~~BeginRepeat~~
+<tr>
+<td style="text-align:right">~~Type~~</td>
+<td>~~LinkFolder~~</td>
+<td>~~LinkFolderPath~~</td>
+<td>~~LinkItem~~</td>
+<td>~~LinkItemDetails~~</td>
+<td style="text-align:right">~~LinkItemVersion~~</td>
+<td style="text-align:right">~~LinkSelectionVersion~~</td>
+</tr>
+<tr>
+<td COLSPAN=11>~~LinkComment~~</td>
+</tr>
+~~EndRepeat~~</table>

@@ -1,0 +1,36 @@
+*Proximos Passos*
+
+1. Confirmar a Esteira (Function)
+    .Phyton / Nods.js 
+    .Ghithub ou BitBucket
+
+Samuel Brian (samuelb.souza@bradesco.com.br) 
+Passou a Function (funcazuprbrappreprecif) - Informouque Existe uma Esteira em NODS.js
+  funcazuprbrappreprecif
+  timerTriggerConsulta
+  PrecoFechamento
+
+MATEUS ROTTA DA SILVA (mateus.r.dasilva@bradesco.com.br)   / Guilherme Seiscenti Beillo
+.Ajustar a esteira Ghithub / Ponto de contato
+
+.GITH  OK.  ( Confirmado)
+https://confluence.bradesco.com.br:8443/display/HBLESC/WK%3A+Serverless+com+Azure+Functions
+https://confluence.bradesco.com.br:8443/display/ENGPTB/Workflow+Node+Function
+
+BENONI ANTONIO ALMEIDA DA SILVA *(benoni.silva@bradesco.com.br)* 
+.Emplementou a Function / Tirar Dúvidas uso do Kafka. (Não exige provisionamento)
+.Postar em uma fila / o microserviço escuta e processo.
+
+Listener
+https://www.baeldung.com/spring-kafka
+https://dev.to/kafkabr/kafka-consumindo-registros-com-spring-40h8
+
+Producer
+
+
+2. Esteira Legado (Jboss) 
+   2.1.Procedimento para o Arquivo Conf./ Retirar a chave. (Task)
+   2.2.Retirar parametros adicionados no arquivo.conf.
+   2.3.Definir uma classe para inserir na Aplicação. (2.1 / 2.2)
+
+

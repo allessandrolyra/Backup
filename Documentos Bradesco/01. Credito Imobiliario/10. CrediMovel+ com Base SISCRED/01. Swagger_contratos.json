@@ -1,0 +1,2262 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Contratos Imobiliários",
+        "description": "API para gerenciamento de contratos imobiliários, permitindo operações de consulta, criação, atualização e exclusão de contratos, parcelas e participantes.",
+        "version": "1.0.0"
+    },
+    "externalDocs": {
+        "description": "Bradescode Documentation",
+        "url": "https://confluence.bradesco.com.br:8443/pages/viewpage.action?pageId=244976149"
+    },
+    "servers": [
+        {
+            "url": "https://crim-srv-imob-contratos-md-credimob.apps.arodvadqemppi11.arocorpp.bradesco.com.br/contratos-imobiliarios/v1",
+            "description": "Servidor de Desenvolvimento"
+        }
+    ],
+    "tags": [
+        {
+            "name": "infra",
+            "description": "cloud"
+        },
+        {
+            "name": "tipo-api",
+            "description": "interna"
+        },
+        {
+            "name": "asset",
+            "description": "financiamento-imobiliario"
+        }
+    ],
+    "paths": {
+        "/contract/contract-link-cred-imovel/contract": {
+            "put": {
+                "tags": [
+                    "contract-link-cred-imovel-controller"
+                ],
+                "summary": "Atualização de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED.",
+                "description": "Endpoint que atualiza informações de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED. Busca realizada através de um número de contrato SISCRED.",
+                "operationId": "updateContractLinkCredImovelByContract",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ContratoRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContratoRequest"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "contract-link-cred-imovel-controller"
+                ],
+                "summary": "Inclusão de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED.",
+                "description": "Endpoint que inclui informações de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED. Busca realizada através de um número de contrato SISCRED.",
+                "operationId": "addContractLinkCredImovelByContract",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ContratoRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContratoRequest"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contratos": {
+            "get": {
+                "tags": [
+                    "contratos-controller"
+                ],
+                "summary": "Lista todos os contratos de um cpf, filtrando por operação e status",
+                "description": "Endpoint que busca todos os contratos na base de dados.\\n\\nFiltrando por cpf,operação e status.",
+                "operationId": "consultaContrato",
+                "parameters": [
+                    {
+                        "name": "cpf",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "operacoes",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContratoDTO"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContratoDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contratos/saldo-devedor": {
+            "get": {
+                "tags": [
+                    "contratos-controller"
+                ],
+                "summary": "Calcula saldo devedor do dia com base na taxa de juros AA",
+                "description": "Endpoint que calcula o saldo devedor do dia corrente",
+                "operationId": "calculaSaldoDevedor",
+                "parameters": [
+                    {
+                        "name": "numerosContrato",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Saldo devedor cálculado",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaldoDevedorDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contratos/participantes": {
+            "get": {
+                "tags": [
+                    "contratos-controller"
+                ],
+                "summary": "Lista todos os particiantes vinculados a um contrato, filtrando por tpParticipante, sendo 1 -> PRINCIPAL, 2 -> OUTROS 3 '' -> TODOS",
+                "description": "Endpoint que busca todos os participantes, através do número do contrato e tpParticipante.",
+                "operationId": "consultaParticipante",
+                "parameters": [
+                    {
+                        "name": "nContrato",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "tpParticipante",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "origem",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParticipanteDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Participante encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ParticipanteDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contratos/parcelas": {
+            "get": {
+                "tags": [
+                    "contratos-controller"
+                ],
+                "summary": "Lista parcelas",
+                "description": "Endpoint que lista parcelas.",
+                "operationId": "listaParcelas",
+                "parameters": [
+                    {
+                        "name": "numeroContrato",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "origemId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Parcelas encontradas",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ParcelaDTO"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ParcelaDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contract/contracts/{contract-id}/details": {
+            "get": {
+                "tags": [
+                    "contract-controller"
+                ],
+                "summary": "Lista informações do contrato pelo número do contrato.",
+                "description": "Endpoint que lista as informações do contrato pelo número do contrato, com opções para solicitar informações detalhadas do imóvel do contrato e dos encargos do contrato.",
+                "operationId": "findContractDetailDataByContract",
+                "parameters": [
+                    {
+                        "name": "contract-id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "charges",
+                        "in": "query",
+                        "description": "Encargos do Contrato. Valores possíveis: (true | false) true caso deseja visualizar as informações dos encargos do contrato.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Encargos do Contrato. Valores possíveis: (true | false) true caso deseja visualizar as informações dos encargos do contrato."
+                        }
+                    },
+                    {
+                        "name": "property",
+                        "in": "query",
+                        "description": "Imóvel do Contrato. Valores possíveis: (true | false) true caso deseja visualizar as informações do imóvel do contrato.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Imóvel do Contrato. Valores possíveis: (true | false) true caso deseja visualizar as informações do imóvel do contrato."
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractDetailDataDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contract/contracts/document/{nr-document}": {
+            "get": {
+                "tags": [
+                    "contract-controller"
+                ],
+                "summary": "Lista todos os contratos por documento (CPF ou CNPJ).",
+                "description": "Endpoint que lista todos os contratos por CPF ou CNPJ, com opções de filtro por Status do Contrato, Tipo de Operação, Tipo de Carteira e Tipo de Comprador.",
+                "operationId": "findAllContractCustomerByDocument",
+                "parameters": [
+                    {
+                        "name": "nr-document",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Status do Contrato. Valores possíveis: 1-Ativo; 2-Cancelado; 3-Transferido; 4-Destratado; 5-A Cancelar; 6-Arrematado; 7-Quitado; 8-Decurso Prazo; 9-Liberado; 10-C.A.; 11-Ex. Judicial; 12-Aguard. Autoriz. Canc.; 13-A Cancelar P/Alter.; 14-L.P.; 15-Prejuízo; 16-Sinistro; 17-Dação; 18-Contrato Consorcio; 19-Adjudicado; 21-Ação Judicial; 24-Consol. Propriedade; 25-Cancel. Processando",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Status do Contrato. Valores possíveis: 1-Ativo; 2-Cancelado; 3-Transferido; 4-Destratado; 5-A Cancelar; 6-Arrematado; 7-Quitado; 8-Decurso Prazo; 9-Liberado; 10-C.A.; 11-Ex. Judicial; 12-Aguard. Autoriz. Canc.; 13-A Cancelar P/Alter.; 14-L.P.; 15-Prejuízo; 16-Sinistro; 17-Dação; 18-Contrato Consorcio; 19-Adjudicado; 21-Ação Judicial; 24-Consol. Propriedade; 25-Cancel. Processando"
+                        }
+                    },
+                    {
+                        "name": "operation",
+                        "in": "query",
+                        "description": "Tipo de Operação do Contrato. Valores possíveis: 1-Aquisicao Utilizando Plano Piloto; 2-Aquisicao Simples; 3-Repasse Plano Empresario; 5-Transferencia De Divida; 6-Refinanciamento Constr.Isolada S/Desemb.; 8-Transferencia Plano Condominio; 9-Construcao Isolada; 10-Plano Condominio; 11-Plano Empresario; 13-Emprestimo Hipotecario; 15-Revenda; 16-Aquisicao A Vista C/ Levant. Do FGTS; 17-Plano Piloto; 20-Refinanciamento Constr.Isolada C/Desemb.; 21-Aquisicao Utilizando Plano Piloto; 22-Aquis. A Vista C/ Levant. Do FGTS - PP; 25-Refinanciamento Com Desembolso; 26-Reforma E Ampliacao; 27-Emprestimo Hipotecario P/ Suplementacao; 28-Aquisicao A Vista C/Amort.Pl.Empresario; 30-Individualizacao; 31-Cessao De Recebiveis; 32-Aquisicao De Imoveis Via Consorcio; 33-Credimovel - Credito Imovel; 36-Aquisicao De Imov.A Vista C/FGTS Cons; 50-Aquisicao A Vista C/Amort.Pl.Emp-Novo; 51-Repasse Plano Empresario - Novo; 52-Compra E Venda A Vista Utilizando FGTS; 60-Confissao De Divida - Separaçao Casal; 90-Finame; 200-Amort.Ext.Ou Quitacao Antec.FGTS; 300-Abatimento Mensal Prest. C/FGTS Damp III; 400-Sinistro De Morte; 401-Sinistro De Invalidez Permanente; 402-Sinistro DFI - Danos Fisicos No Imovel",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Tipo de Operação do Contrato. Valores possíveis: 1-Aquisicao Utilizando Plano Piloto; 2-Aquisicao Simples; 3-Repasse Plano Empresario; 5-Transferencia De Divida; 6-Refinanciamento Constr.Isolada S/Desemb.; 8-Transferencia Plano Condominio; 9-Construcao Isolada; 10-Plano Condominio; 11-Plano Empresario; 13-Emprestimo Hipotecario; 15-Revenda; 16-Aquisicao A Vista C/ Levant. Do FGTS; 17-Plano Piloto; 20-Refinanciamento Constr.Isolada C/Desemb.; 21-Aquisicao Utilizando Plano Piloto; 22-Aquis. A Vista C/ Levant. Do FGTS - PP; 25-Refinanciamento Com Desembolso; 26-Reforma E Ampliacao; 27-Emprestimo Hipotecario P/ Suplementacao; 28-Aquisicao A Vista C/Amort.Pl.Empresario; 30-Individualizacao; 31-Cessao De Recebiveis; 32-Aquisicao De Imoveis Via Consorcio; 33-Credimovel - Credito Imovel; 36-Aquisicao De Imov.A Vista C/FGTS Cons; 50-Aquisicao A Vista C/Amort.Pl.Emp-Novo; 51-Repasse Plano Empresario - Novo; 52-Compra E Venda A Vista Utilizando FGTS; 60-Confissao De Divida - Separaçao Casal; 90-Finame; 200-Amort.Ext.Ou Quitacao Antec.FGTS; 300-Abatimento Mensal Prest. C/FGTS Damp III; 400-Sinistro De Morte; 401-Sinistro De Invalidez Permanente; 402-Sinistro DFI - Danos Fisicos No Imovel"
+                        }
+                    },
+                    {
+                        "name": "portfolio",
+                        "in": "query",
+                        "description": "Tipo de Carteira do Contrato. Valores possíveis: 1-SFH1; 2-SFH2; 3-CHH; 4-C.H.C; 5-SFH3; 6-SFH4",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Tipo de Carteira do Contrato. Valores possíveis: 1-SFH1; 2-SFH2; 3-CHH; 4-C.H.C; 5-SFH3; 6-SFH4"
+                        }
+                    },
+                    {
+                        "name": "buyer",
+                        "in": "query",
+                        "description": "Tipo de Comprador do Contrato. Valores possíveis: 1-Proponente Principal; 2-Proponente (Outros); 3-Vendedor; 4-Fiador; 5-Interveniente Garantidor; 6-Interveniente Construtor; 7-Interveniente Quitante; 8-Conjuge; 9-Procurador; 10-Socio; 11-Anuente; 12-Procurador Do Credor; 13-Empresario Coobrigado; 14-Empresario Nao Coobrigado; 15-Proponente Patrimonio Afetacao; 16-Construtor Financ. Planta; 17-Representante; 18-Participante",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "description": "Tipo de Comprador do Contrato. Valores possíveis: 1-Proponente Principal; 2-Proponente (Outros); 3-Vendedor; 4-Fiador; 5-Interveniente Garantidor; 6-Interveniente Construtor; 7-Interveniente Quitante; 8-Conjuge; 9-Procurador; 10-Socio; 11-Anuente; 12-Procurador Do Credor; 13-Empresario Coobrigado; 14-Empresario Nao Coobrigado; 15-Proponente Patrimonio Afetacao; 16-Construtor Financ. Planta; 17-Representante; 18-Participante"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractCustomerDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractCustomerDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contract/contract-link-cred-imovel/contracts/{contract-id}": {
+            "get": {
+                "tags": [
+                    "contract-link-cred-imovel-controller"
+                ],
+                "summary": "Lista informações de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED.",
+                "description": "Endpoint que lista informações de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED. Busca realizada através de um número de contrato SISCRED.",
+                "operationId": "findAllContractLinkCredImovelByContract",
+                "parameters": [
+                    {
+                        "name": "contract-id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractLinkCredImovelDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/contract/contract-link-cred-imovel/contract/{contract-id}/{vinculo-exter}": {
+            "delete": {
+                "tags": [
+                    "contract-link-cred-imovel-controller"
+                ],
+                "summary": "Deleção de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED.",
+                "description": "Endpoint que exclui informações de Proposta/Contrato de uma operação de Cred Imóvel Mais dentro do CRIM, vinculado ao contrato SISCRED. Busca realizada através de um número de contrato SISCRED.",
+                "operationId": "deleteContractLinkCredImovelByContract",
+                "parameters": [
+                    {
+                        "name": "contract-id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "vinculo-exter",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Houve um erro na execução da aplicação",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Contrato encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContratoRequest"
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Serviço indisponível!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro nos parâmetros de pesquisa, revise os dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Registro não encontrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao realizar requisição!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ContratoRequest": {
+                "required": [
+                    "numeroContrato",
+                    "numeroProposta"
+                ],
+                "type": "object",
+                "properties": {
+                    "numeroContrato": {
+                        "type": "number"
+                    },
+                    "numeroSequencia": {
+                        "type": "number"
+                    },
+                    "statusOperacao": {
+                        "type": "string"
+                    },
+                    "numeroProposta": {
+                        "type": "number"
+                    },
+                    "prazoContratacao": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "valorContratacao": {
+                        "type": "number"
+                    },
+                    "numeroContratoCrim": {
+                        "type": "number"
+                    },
+                    "dataAssinatura": {
+                        "type": "string"
+                    },
+                    "dataRegistro": {
+                        "type": "string"
+                    },
+                    "dataQuitacao": {
+                        "type": "string"
+                    },
+                    "dataVinculo": {
+                        "type": "string"
+                    },
+                    "usuarioInclusao": {
+                        "type": "string"
+                    },
+                    "dataHoraInclusao": {
+                        "type": "string"
+                    },
+                    "usuariolteracao": {
+                        "type": "string"
+                    },
+                    "dataHoraAlteracao": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ContratoDTO": {
+                "type": "object",
+                "properties": {
+                    "numeroContrato": {
+                        "type": "number"
+                    },
+                    "digito": {
+                        "type": "string"
+                    },
+                    "isStatusContrato": {
+                        "type": "string"
+                    },
+                    "descricaoStatus": {
+                        "type": "string"
+                    },
+                    "dtAssinaturaContrato": {
+                        "type": "string"
+                    },
+                    "idtipoOperacao": {
+                        "type": "string"
+                    },
+                    "tipoOperacao": {
+                        "type": "string"
+                    },
+                    "idTipoCarteira": {
+                        "type": "string"
+                    },
+                    "tipoCarteira": {
+                        "type": "string"
+                    },
+                    "tipoComprador": {
+                        "type": "string"
+                    },
+                    "tipoCliente": {
+                        "type": "string"
+                    },
+                    "cepImovel": {
+                        "type": "string"
+                    },
+                    "logradouroImovel": {
+                        "type": "string"
+                    },
+                    "numeroLogradouroImovel": {
+                        "type": "number"
+                    },
+                    "complementoLogradouroImovel": {
+                        "type": "string"
+                    },
+                    "bairroImovel": {
+                        "type": "string"
+                    },
+                    "cdMunicipioIbgeImovel": {
+                        "type": "string"
+                    },
+                    "municipioIbgeImovel": {
+                        "type": "string"
+                    },
+                    "ufImovel": {
+                        "type": "string"
+                    },
+                    "dtRegistroImovel": {
+                        "type": "string"
+                    },
+                    "vlImovel": {
+                        "type": "string"
+                    },
+                    "vlTarifaAvaliacaoImovel": {
+                        "type": "string"
+                    },
+                    "idOrigemRecurso": {
+                        "type": "string"
+                    },
+                    "origemRecurso": {
+                        "type": "string"
+                    },
+                    "dtLiberacaoRecurso": {
+                        "type": "string"
+                    },
+                    "vlTotalFinanciamento": {
+                        "type": "string"
+                    },
+                    "prazoTotalFinanciamento": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "diaBaseParcela": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "idSistemaAmortizacao": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sistemaAmortizacao": {
+                        "type": "string"
+                    },
+                    "sigleSistemaAmortizacao": {
+                        "type": "string"
+                    },
+                    "indexador": {
+                        "type": "string"
+                    },
+                    "cetAA": {
+                        "type": "string"
+                    },
+                    "ceshAA": {
+                        "type": "string"
+                    },
+                    "vlTsa": {
+                        "type": "string"
+                    },
+                    "aliquotaMip": {
+                        "type": "string"
+                    },
+                    "txEfetivaAA": {
+                        "type": "string"
+                    },
+                    "txNominalAA": {
+                        "type": "string"
+                    },
+                    "txEfetivaAM": {
+                        "type": "string"
+                    },
+                    "txNominalAM": {
+                        "type": "string"
+                    },
+                    "dtVencimentoProximaParcela": {
+                        "type": "string"
+                    },
+                    "vlProximaParcela": {
+                        "type": "string"
+                    },
+                    "parcelasPagas": {
+                        "type": "number"
+                    },
+                    "prazoRemanescente": {
+                        "type": "number"
+                    },
+                    "idStatusInadimplencia": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "idApoliceMip": {
+                        "type": "string"
+                    },
+                    "idSeguradora": {
+                        "type": "string"
+                    },
+                    "vlDespesasFinanc": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SaldoDevedorDTO": {
+                "type": "object",
+                "properties": {
+                    "numeroContrato": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "dataBase": {
+                        "type": "string"
+                    },
+                    "saldoDevedor": {
+                        "type": "string"
+                    },
+                    "tr": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ParticipanteDTO": {
+                "type": "object",
+                "properties": {
+                    "tipoPessoa": {
+                        "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "nomeCompleto": {
+                        "type": "string"
+                    },
+                    "dtNascimento": {
+                        "type": "string"
+                    },
+                    "nrBanco": {
+                        "type": "number"
+                    },
+                    "agencia": {
+                        "type": "number"
+                    },
+                    "contaCorrente": {
+                        "type": "number"
+                    },
+                    "digitoContaCorrente": {
+                        "type": "string"
+                    },
+                    "idTipoParticipante": {
+                        "type": "number"
+                    },
+                    "tipoParticipante": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ParcelaDTO": {
+                "type": "object",
+                "properties": {
+                    "numeroParcela": {
+                        "type": "number"
+                    },
+                    "idStatusParcela": {
+                        "type": "number"
+                    },
+                    "statusParcela": {
+                        "type": "string"
+                    },
+                    "dataAmortizacao": {
+                        "type": "string"
+                    },
+                    "valorTotal": {
+                        "type": "number"
+                    },
+                    "valorPrincipal": {
+                        "type": "number"
+                    },
+                    "valorJuros": {
+                        "type": "number"
+                    },
+                    "dataPagamento": {
+                        "type": "string"
+                    },
+                    "valorPagamento": {
+                        "type": "number"
+                    },
+                    "valorDFI": {
+                        "type": "number"
+                    },
+                    "valorMIP": {
+                        "type": "number"
+                    }
+                }
+            },
+            "ContractChargesDTO": {
+                "type": "object",
+                "properties": {
+                    "chargeNumber": {
+                        "type": "integer",
+                        "description": "Número do encargo",
+                        "format": "int64",
+                        "example": 123456
+                    },
+                    "chargeTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de encargo",
+                        "format": "int64",
+                        "example": 2
+                    },
+                    "chargeTypeDescription": {
+                        "type": "string",
+                        "description": "Descrição do tipo de encargo",
+                        "example": "Prestação"
+                    },
+                    "chargeStatusId": {
+                        "type": "integer",
+                        "description": "ID do status do encargo",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "chargeStatus": {
+                        "type": "string",
+                        "description": "Status do encargo",
+                        "example": "PAGO"
+                    },
+                    "baseCalculationAmount": {
+                        "type": "string",
+                        "description": "Valor base de cálculo do encargo",
+                        "example": "5000,00"
+                    },
+                    "principalAmount": {
+                        "type": "string",
+                        "description": "Valor principal do encargo",
+                        "example": "4000,00"
+                    },
+                    "interestAmount": {
+                        "type": "string",
+                        "description": "Valor de juros do encargo",
+                        "example": "200,00"
+                    },
+                    "mipAmount": {
+                        "type": "string",
+                        "description": "Valor do MIP (Seguro MIP)",
+                        "example": "50,00"
+                    },
+                    "dfiAmount": {
+                        "type": "string",
+                        "description": "Valor do DFI (Seguro DFI)",
+                        "example": "30,00"
+                    },
+                    "netAmount": {
+                        "type": "string",
+                        "description": "Valor líquido do encargo",
+                        "example": "4800,00"
+                    },
+                    "dueDateBaseDay": {
+                        "type": "integer",
+                        "description": "Dia base de vencimento do encargo",
+                        "format": "int64",
+                        "example": 15
+                    },
+                    "dueDate": {
+                        "type": "string",
+                        "description": "Data de vencimento do encargo",
+                        "format": "date-time"
+                    },
+                    "paymentAmount": {
+                        "type": "string",
+                        "description": "Valor do pagamento do encargo",
+                        "example": "5000,00"
+                    },
+                    "paymentDate": {
+                        "type": "string",
+                        "description": "Data do pagamento do encargo",
+                        "format": "date-time"
+                    }
+                },
+                "description": "Dados de encargos do contrato"
+            },
+            "ContractDTO": {
+                "type": "object",
+                "properties": {
+                    "contractNumber": {
+                        "type": "integer",
+                        "description": "Número do contrato",
+                        "format": "int64",
+                        "example": 123456
+                    },
+                    "contractDigit": {
+                        "type": "string",
+                        "description": "Dígito do contrato",
+                        "example": "9"
+                    },
+                    "contractStatusId": {
+                        "type": "integer",
+                        "description": "ID do status do contrato",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "contractStatus": {
+                        "type": "string",
+                        "description": "Status do contrato",
+                        "example": "Ativo"
+                    },
+                    "operationTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de operação financeira",
+                        "format": "int64",
+                        "example": 2
+                    },
+                    "operationType": {
+                        "type": "string",
+                        "description": "Tipo de operação financeira",
+                        "example": "Aquisicao Simples"
+                    },
+                    "portfolioTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de carteira",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "portfolioTypeDescription": {
+                        "type": "string",
+                        "description": "Descrição do tipo de carteira",
+                        "example": "Sistema Financeiro de Habitação"
+                    },
+                    "portfolioTypeAbbreviation": {
+                        "type": "string",
+                        "description": "Sigla do tipo de carteira",
+                        "example": "SFH1"
+                    },
+                    "amortizationSystemId": {
+                        "type": "integer",
+                        "description": "ID do sistema de amortização",
+                        "format": "int64",
+                        "example": 2
+                    },
+                    "amortizationSystemDescription": {
+                        "type": "string",
+                        "description": "Descrição do sistema de amortização",
+                        "example": "Sistema Amortização Constante"
+                    },
+                    "amortizationSystemAbbreviation": {
+                        "type": "string",
+                        "description": "Sigla do sistema de amortização",
+                        "example": "SAC"
+                    },
+                    "defaultStatusId": {
+                        "type": "integer",
+                        "description": "ID do status de inadimplência",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "judicialBlockStatus": {
+                        "type": "string",
+                        "description": "Status do bloqueio judicial",
+                        "example": "N"
+                    },
+                    "contractSignatureDate": {
+                        "type": "string",
+                        "description": "Data de assinatura do contrato",
+                        "format": "date-time"
+                    },
+                    "propertyRegistryDate": {
+                        "type": "string",
+                        "description": "Data de registro do imóvel",
+                        "format": "date-time"
+                    },
+                    "financialReleaseDate": {
+                        "type": "string",
+                        "description": "Data de liberação do recurso financeiro",
+                        "format": "date-time"
+                    },
+                    "totalFinancingAmount": {
+                        "type": "string",
+                        "description": "Valor total do financiamento",
+                        "example": "150000,00"
+                    },
+                    "totalFinancingTerm": {
+                        "type": "integer",
+                        "description": "Prazo total do financiamento em meses",
+                        "format": "int64",
+                        "example": 240
+                    },
+                    "propertyValuationFeeAmount": {
+                        "type": "string",
+                        "description": "Valor da tarifa de avaliação do imóvel",
+                        "example": "500,00"
+                    },
+                    "outstandingBalance": {
+                        "type": "string",
+                        "description": "Saldo devedor do contrato",
+                        "example": "120000,00"
+                    },
+                    "effectiveCostOfCapitalAnnual": {
+                        "type": "string",
+                        "description": "Custo Efetivo Total anual",
+                        "example": "12,50"
+                    },
+                    "effectiveHousingInsuranceCostAnnual": {
+                        "type": "string",
+                        "description": "Custo efetivo do seguro habitacional anual",
+                        "example": "1,50"
+                    },
+                    "tsaAmount": {
+                        "type": "string",
+                        "description": "Valor da TSA (Taxa de Administração)",
+                        "example": "200,00"
+                    },
+                    "mipRate": {
+                        "type": "string",
+                        "description": "Alíquota do MIP (Seguro MIP)",
+                        "example": "0,05"
+                    },
+                    "effectiveInterestRateAnnual": {
+                        "type": "string",
+                        "description": "Taxa efetiva anual de juros",
+                        "example": "15,00"
+                    },
+                    "nominalInterestRateAnnual": {
+                        "type": "string",
+                        "description": "Taxa nominal anual de juros",
+                        "example": "14,50"
+                    },
+                    "effectiveInterestRateMonthly": {
+                        "type": "string",
+                        "description": "Taxa efetiva mensal de juros",
+                        "example": "1,20"
+                    },
+                    "nominalInterestRateMonthly": {
+                        "type": "string",
+                        "description": "Taxa nominal mensal de juros",
+                        "example": "1,10"
+                    },
+                    "mipPolicyId": {
+                        "type": "string",
+                        "description": "ID da apólice do MIP",
+                        "example": "1"
+                    },
+                    "insurerId": {
+                        "type": "string",
+                        "description": "ID da seguradora",
+                        "example": "1"
+                    },
+                    "propertyContractId": {
+                        "type": "integer",
+                        "description": "ID do imóvel relacionado ao contrato",
+                        "format": "int64",
+                        "example": 1
+                    }
+                },
+                "description": "Dados do Contrato"
+            },
+            "ContractDetailDataDTO": {
+                "type": "object",
+                "properties": {
+                    "contract": {
+                        "$ref": "#/components/schemas/ContractDTO"
+                    },
+                    "property": {
+                        "$ref": "#/components/schemas/ContractPropertyDTO"
+                    },
+                    "charges": {
+                        "type": "array",
+                        "description": "Dados de encargos do contrato",
+                        "items": {
+                            "$ref": "#/components/schemas/ContractChargesDTO"
+                        }
+                    }
+                }
+            },
+            "ContractPropertyDTO": {
+                "type": "object",
+                "properties": {
+                    "propertyId": {
+                        "type": "integer",
+                        "description": "ID do imóvel",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "propertyTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de imóvel",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "propertyType": {
+                        "type": "string",
+                        "description": "Tipo de imóvel",
+                        "example": "Unidade Edificada"
+                    },
+                    "propertyPurposeId": {
+                        "type": "integer",
+                        "description": "ID da finalidade do imóvel",
+                        "format": "int64",
+                        "example": 2
+                    },
+                    "propertyPurpose": {
+                        "type": "string",
+                        "description": "Finalidade do imóvel",
+                        "example": "Residencial"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "CEP do imóvel",
+                        "example": "12345-678"
+                    },
+                    "street": {
+                        "type": "string",
+                        "description": "Logradouro do imóvel",
+                        "example": "Rua das Flores"
+                    },
+                    "streetNumber": {
+                        "type": "string",
+                        "description": "Número do logradouro do imóvel",
+                        "example": "123"
+                    },
+                    "complement": {
+                        "type": "string",
+                        "description": "Complemento do imóvel",
+                        "example": "Apto 101"
+                    },
+                    "neighborhood": {
+                        "type": "string",
+                        "description": "Bairro do imóvel",
+                        "example": "Jardim Paulista"
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "Município do imóvel",
+                        "example": "São Paulo"
+                    },
+                    "stateAbbreviation": {
+                        "type": "string",
+                        "description": "Sigla do estado",
+                        "example": "SP"
+                    },
+                    "municipalityIBGECode": {
+                        "type": "integer",
+                        "description": "Código IBGE do município",
+                        "format": "int64",
+                        "example": 3550308
+                    },
+                    "propertyValuation": {
+                        "type": "string",
+                        "description": "Valor de avaliação do imóvel",
+                        "example": "500000,00"
+                    }
+                },
+                "description": "Dados do imóvel do contrato"
+            },
+            "ContractCustomerDTO": {
+                "type": "object",
+                "properties": {
+                    "contractNumber": {
+                        "type": "integer",
+                        "description": "Número do contrato",
+                        "format": "int64",
+                        "example": 123456
+                    },
+                    "contractDigit": {
+                        "type": "string",
+                        "description": "Dígito do contrato",
+                        "example": "9"
+                    },
+                    "buyerTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de comprador",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "buyerType": {
+                        "type": "string",
+                        "description": "Tipo de comprador",
+                        "example": "Proponente Principal"
+                    },
+                    "clientType": {
+                        "type": "string",
+                        "description": "Tipo de cliente",
+                        "example": "F"
+                    },
+                    "clientDocumentNumber": {
+                        "type": "string",
+                        "description": "Número do documento do cliente (CPF ou CNPJ)",
+                        "example": "12345678901234"
+                    },
+                    "clientName": {
+                        "type": "string",
+                        "description": "Nome do cliente",
+                        "example": "João Silva"
+                    },
+                    "contractStatusId": {
+                        "type": "integer",
+                        "description": "ID do status do contrato",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "contractStatus": {
+                        "type": "string",
+                        "description": "Status do contrato",
+                        "example": "Ativo"
+                    },
+                    "operationTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de operação financeira",
+                        "format": "int64",
+                        "example": 2
+                    },
+                    "operationType": {
+                        "type": "string",
+                        "description": "Tipo de operação financeira",
+                        "example": "Aquisicao Simples"
+                    },
+                    "portfolioTypeId": {
+                        "type": "integer",
+                        "description": "ID do tipo de carteira",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "portfolioTypeDescription": {
+                        "type": "string",
+                        "description": "Descrição do tipo de carteira",
+                        "example": "Sistema Financeiro de Habitação"
+                    },
+                    "portfolioTypeAbbreviation": {
+                        "type": "string",
+                        "description": "Sigla do tipo de carteira",
+                        "example": "SFH1"
+                    },
+                    "amortizationSystemId": {
+                        "type": "integer",
+                        "description": "ID do sistema de amortização",
+                        "format": "int64",
+                        "example": 2
+                    },
+                    "amortizationSystemDescription": {
+                        "type": "string",
+                        "description": "Descrição do sistema de amortização",
+                        "example": "Sistema Amortização Constante"
+                    },
+                    "amortizationSystemAbbreviation": {
+                        "type": "string",
+                        "description": "Sigla do sistema de amortização",
+                        "example": "SAC"
+                    },
+                    "defaultStatusId": {
+                        "type": "integer",
+                        "description": "ID do status de inadimplência",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "judicialBlockStatus": {
+                        "type": "string",
+                        "description": "Status do bloqueio judicial",
+                        "example": "N"
+                    },
+                    "contractSignatureDate": {
+                        "type": "string",
+                        "description": "Data de assinatura do contrato",
+                        "format": "date-time"
+                    },
+                    "propertyRegistryDate": {
+                        "type": "string",
+                        "description": "Data de registro do imóvel",
+                        "format": "date-time"
+                    },
+                    "financialReleaseDate": {
+                        "type": "string",
+                        "description": "Data de liberação do recurso financeiro",
+                        "format": "date-time"
+                    },
+                    "totalFinancingAmount": {
+                        "type": "string",
+                        "description": "Valor total do financiamento",
+                        "example": "150000,00"
+                    },
+                    "totalFinancingTerm": {
+                        "type": "integer",
+                        "description": "Prazo total do financiamento em meses",
+                        "format": "int64",
+                        "example": 240
+                    },
+                    "propertyValuationFeeAmount": {
+                        "type": "string",
+                        "description": "Valor da tarifa de avaliação do imóvel",
+                        "example": "500,00"
+                    },
+                    "outstandingBalance": {
+                        "type": "string",
+                        "description": "Saldo devedor do contrato",
+                        "example": "120000,00"
+                    },
+                    "effectiveCostOfCapitalAnnual": {
+                        "type": "string",
+                        "description": "Custo Efetivo Total anual",
+                        "example": "12,50"
+                    },
+                    "effectiveHousingInsuranceCostAnnual": {
+                        "type": "string",
+                        "description": "Custo efetivo do seguro habitacional anual",
+                        "example": "1,50"
+                    },
+                    "tsaAmount": {
+                        "type": "string",
+                        "description": "Valor da TSA (Taxa de Administração)",
+                        "example": "200,00"
+                    },
+                    "mipRate": {
+                        "type": "string",
+                        "description": "Alíquota do MIP (Seguro MIP)",
+                        "example": "0,05"
+                    },
+                    "effectiveInterestRateAnnual": {
+                        "type": "string",
+                        "description": "Taxa efetiva anual de juros",
+                        "example": "15,00"
+                    },
+                    "nominalInterestRateAnnual": {
+                        "type": "string",
+                        "description": "Taxa nominal anual de juros",
+                        "example": "14,50"
+                    },
+                    "effectiveInterestRateMonthly": {
+                        "type": "string",
+                        "description": "Taxa efetiva mensal de juros",
+                        "example": "1,20"
+                    },
+                    "nominalInterestRateMonthly": {
+                        "type": "string",
+                        "description": "Taxa nominal mensal de juros",
+                        "example": "1,10"
+                    },
+                    "mipPolicyId": {
+                        "type": "string",
+                        "description": "ID da apólice do MIP",
+                        "example": "1"
+                    },
+                    "insurerId": {
+                        "type": "string",
+                        "description": "ID da seguradora",
+                        "example": "1"
+                    },
+                    "propertyContractId": {
+                        "type": "integer",
+                        "description": "ID do imóvel relacionado ao contrato",
+                        "format": "int64",
+                        "example": 1
+                    }
+                }
+            },
+            "ContractLinkCredImovelDTO": {
+                "type": "object",
+                "properties": {
+                    "contractNumber": {
+                        "type": "integer",
+                        "description": "Número do contrato",
+                        "format": "int64",
+                        "example": 123456
+                    },
+                    "sequenceNumber": {
+                        "type": "integer",
+                        "description": "Número da Sequência",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "proposalStatusIdCrim": {
+                        "type": "integer",
+                        "description": "Id do status da proposta do CRIM",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "proposalNumberCrim": {
+                        "type": "string",
+                        "description": "Id da proposta do CRIM",
+                        "example": "1"
+                    },
+                    "totalFinancingTermCrim": {
+                        "type": "integer",
+                        "description": "Prazo total do financiamento em meses do CRIM",
+                        "format": "int64",
+                        "example": 240
+                    },
+                    "totalFinancingAmountCrim": {
+                        "type": "string",
+                        "description": "Valor total do financiamento do CRIM",
+                        "example": "150000,00"
+                    },
+                    "contractNumberCrim": {
+                        "type": "integer",
+                        "description": "Número do contrato do CRIM",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "contractSignatureDateCrim": {
+                        "type": "string",
+                        "description": "Data de assinatura do contrato do CRIM",
+                        "format": "date-time"
+                    },
+                    "registryOfficeDateCrim": {
+                        "type": "string",
+                        "description": "Data de registro no cartório do CRIM",
+                        "format": "date-time"
+                    },
+                    "contractSettlementDateCrim": {
+                        "type": "string",
+                        "description": "Data de quitação do contrato do CRIM",
+                        "format": "date-time"
+                    },
+                    "contractLinkDate": {
+                        "type": "string",
+                        "description": "Data de vínculo da operação",
+                        "format": "date-time"
+                    },
+                    "inclusionUser": {
+                        "type": "string",
+                        "description": "Usuário de inclusão do vínculo",
+                        "example": "1"
+                    },
+                    "inclusionDateTime": {
+                        "type": "string",
+                        "description": "Data e hora de inclusão do vínculo",
+                        "format": "date-time"
+                    },
+                    "updateUser": {
+                        "type": "string",
+                        "description": "Usuário de alteração do registro",
+                        "example": "1"
+                    },
+                    "updateDateTime": {
+                        "type": "string",
+                        "description": "Data e hora de alteração do registro",
+                        "format": "date-time"
+                    }
+                }
+            }
+        }
+    }
+}

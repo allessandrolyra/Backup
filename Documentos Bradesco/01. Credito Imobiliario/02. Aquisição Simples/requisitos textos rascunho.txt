@@ -1,0 +1,67 @@
+1. Criação de Serviço para Formulario dinamico na Azure 
+1.1. Parametrização do Formulario no Banco de Dados 
+1.2  Geração do formulario em PDF em DOG (Caso necessário) .
+
+2 Assinatura do Documento. 
+2.1 Assinatura Fisica. 
+2.1.1 Gerar PDF no DOCG 
+2.1.2 Disponibilizar para Download no Mobile 
+2.1.3 Recepção do documento assinado salvar no GCCN 
+2.1.4  Auteração no Fluxo CRIM para Ler o documento e fazer a Validação. 
+
+2.2 Assinatura Digital 
+2.2.1 Gerar PDF no DOCG 
+2.2.2 Enviar para Docsign 
+2.2.3 Recepção do documento assinado salvar no GCCN 
+2.2.4  Auteração no Fluxo CRIM para Ler o documento e fazer a Validação.  
+
+3  Criação de API para BPO
+3.1 Recepcionar Documentos e alterações de etapas 
+3.2 Sensibilizar o CRIM para andamento da Etapa 
+3.3 Salvar o documento no GCCN
+
+
+
+Para montar os requisitos funcionais de uma solução, é importante seguir alguns pré-requisitos que garantem a clareza, completude e precisão dos requisitos. Aqui estão os principais:
+
+1. Entendimento do Problema
+Análise de Negócio: Compreender profundamente o problema que a solução deve resolver.
+Objetivos do Projeto: Definir claramente os objetivos e metas do projeto.
+
+2. Envolvimento das Partes Interessadas
+Identificação das Partes Interessadas: Listar todas as partes interessadas (stakeholders) que serão afetadas pela solução.
+Reuniões e Entrevistas: Realizar reuniões e entrevistas com as partes interessadas para coletar suas necessidades e expectativas.
+
+3. Documentação Inicial
+Visão Geral do Projeto: Criar um documento que descreva a visão geral do projeto, incluindo escopo, objetivos e restrições.
+Requisitos de Alto Nível: Definir requisitos de alto nível que orientem o desenvolvimento dos requisitos funcionais detalhados.
+
+4. Análise de Processos
+Mapeamento de Processos: Mapear os processos atuais e identificar onde a solução se encaixa.
+Identificação de Melhorias: Identificar áreas de melhoria que a solução deve abordar.
+
+5. Definição de Critérios de Sucesso
+Critérios de Aceitação: Definir critérios claros de aceitação para cada requisito funcional.
+Métricas de Sucesso: Estabelecer métricas para medir o sucesso da solução.
+
+6. Pesquisa e Benchmarking
+Análise de Mercado: Pesquisar soluções similares no mercado para entender melhores práticas e evitar erros comuns.
+Benchmarking: Comparar com padrões do setor para garantir que a solução esteja alinhada com as expectativas do mercado.
+
+7. Prototipagem e Feedback
+Prototipagem: Criar protótipos ou wireframes para visualizar os requisitos funcionais.
+Feedback Iterativo: Coletar feedback das partes interessadas e ajustar os requisitos conforme necessário.
+
+8. Documentação Detalhada
+Especificação de Requisitos Funcionais: Documentar detalhadamente cada requisito funcional, incluindo descrições, fluxos de trabalho e diagramas.
+Revisão e Aprovação: Revisar os requisitos com as partes interessadas e obter aprovação formal.
+
+9. Planejamento de Implementação
+Roadmap de Implementação: Criar um roadmap que descreva as fases de implementação dos requisitos funcionais.
+Alocação de Recursos: Garantir que os recursos necessários (humanos, financeiros, tecnológicos) estejam disponíveis.
+
+10. Gestão de Mudanças
+Processo de Gestão de Mudanças: Estabelecer um processo para gerenciar mudanças nos requisitos ao longo do projeto.
+Comunicação Contínua: Manter uma comunicação contínua com as partes interessadas para garantir alinhamento e transparência.
+
+Seguir esses pré-requisitos ajuda a garantir que os requisitos funcionais sejam bem definidos, compreendidos e aceitos por todas as partes envolvidas, aumentando as chances de sucesso do projeto. Se precisar de mais detalhes sobre algum desses pontos, estou à disposição para ajudar!

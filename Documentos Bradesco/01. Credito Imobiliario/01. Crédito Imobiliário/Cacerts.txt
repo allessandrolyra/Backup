@@ -1,0 +1,28 @@
+Quando Batemos no APIM Batemos com o Token Leap.  
+E o APIM Chama uma Fuction, que troca esse TOKEN Leap pelo stateless Open/ Closed e com isso consegue fazer chamadas na TI Hibrida. (Torre PF / PJ ou Corp).  Ou seja a Function apenas troca tokens.
+
+Toda vez que subo o conteiner / ou seja faço um Deploy Instala no Cacerts desse Kubernets.  
+
+
+PC pegou um projeto do Menu Impréstimo.
+
+1. Colocava o  certificado dentro da pasta do Projeto
+2. Faz um Copy para o Kubernet, no momento do Deploy.
+3. Executava o o Comando de Keytools para instalar o certificado no Cacerts do Java.
+
+Pegar o certificado e instalar na Instâcia do POD. e Deve estar no serviço que vai ser chamar (BFF /SRV).  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,19 @@
+1. Geração do Token utilizando o BCPF Token Handler - Utilizando Uma Colection 
+2. Procedimento de Token V3.  
+https://confluence.bradesco.com.br:8443/display/CRTCL/Utilizando+a+lib+Conecta+v3
+
+  1 - Solicitação de liberação do programa ou fluxo - Email
+
+
+weslley.a.santos@bradesco.com.br
+ana.p.shoping@bradesco.com.br
+wallace.andrade@bradesco.com.br
+paulo.c.martins@bradesco.com.br
+
+
+Apenas Atualizando a todos. 
+
+Nosso contexto estaremos logados dentro do canal Mobile, dentro do BCPF Token handler usando o Token LEAP gerado pelo BCPF.  Na documentação Utilizando a lib Conect V3, informa  que deveremos passar no header um token no padrão LEAP, contendo a claim frwk e informa que o Token Issuer possui essas Claim.  
+Olhando para nosso contexto, precisamos validar se o BCPF Token handler contem essa Claim frwk, pois devemos usar o autenticador do nosso canal.
+
+Estamos com uma reunião marcada com o Engenheiro 

@@ -1,0 +1,141 @@
+Nesse escopo estamos trazendo as Jordas de amortização e quitação no Canal Mobile
+
+O IB está passando por algumas modernizações, é melhor atuar depois que tiver com a parte de login toda modernizada /atualizada.
+
+
+Estamos abordando o desenvolvimento dessas duas Jornadas Novas (amortização e quitação), mais vamos aproveitar e reestruturar os menus do Crédito Imobiliário no Mobile.
+
+Hoje tem duas formas de acessar o Crédito Imobiliário 
+1.Via tela de Menu Principal
+2.Tela Menu de Impréstimos.
+
+Vamos utilizar o BCPF Token Handler Roteador desenvolvido pela engenharia de canais. Quando o Cliente acessar o Menu do Crédito Imobiliário, será direcionado para o (BCPF Token Handler Roteador) que terá um paramento para o clienter ser encaminhado para o Menu NOVO.
+
+Esse menu novo será construído no modelo desenvonvido na Cloud (Azure) usando a estrutura LEAP.
+
+Esrutura do Menu Novo.
+1. Opção antigas (ja existe)  (Simulação de novas aquisições)
+2. Acompanhamento de Propostas (novo)
+3. Listagem de Contratos (ja existe) Mas será feito algumas melhorias para colocar fluxos novos.
+
+Estamos focando na Jornada de Pós venda Amortização e Quitação.
+
+Menu:
+
+Temos que acionar um serviço no Menu para identificar se a Jornada esta sendo chamada pelo Menu Principal ou Menu de Impréstimo
+
+Caso a chamada tenha se originado do Menu de Empréstimos nos vamos dar um by pass toda parte de Pós venda, porque se o cliente esta vindo da jornada de "Quero um imóvel" Intende-se que o cliente esta em busca de uma Simulação Direta. Então essa identificação será realizada no Menu de Empréstimos que ja esta na Cloud.
+
+No mais vamos buscar informações de Contratos e Ocorrências. O Crédito Imobiliário (CRIM) tem contrato em dois sistemas diferentes:
+1. SISCRED legado esta no Mainfraime  
+2. CRIM  plataforma viere (Base Oracle)
+
+CRIM
+O direcionamento que temos é usar essa Base do CRIM apenas como consulta e os serviçoes e a logica vamos refazer, reescrevendo do zero.  
+
+*Ponto de atenção a essa base do CRIM no Oracle tem
+alguns problemas de questões contábeis. Existe uma iniciativa em andamento dentro do Crédito Imobiliário para migrar todas as carteiras de contratos para o SISCRED, por ser um sistema mais estável que o temos no Credido Imobiliário. Depois realizar uma modernização em cima do SiSCRED. 
+
+
+SISCRED
+Para evitar de chamar os programas Mainframes, estamos usando essa base do SISCRE de forma FEDERADA. O Serviço terá a inteligência de tratar as consultas dos contratos nas duas bases.
+
+
+COCKIPIT do GESTOR
+
+Será usado para fazer a jornada de Rollout.
+1. Responsável pela parte de liberção de Menu.
+2. Cadastramento de Jornada de Rollout
+     Jornadas de Amortozação e Quitação, são totamente novas e vão nascer no modelo modernizado o LEAP, mas também teremos jornadas de Aquisição que vão entrar em modernização. Com isso teremos que ter o Rollout da Jornada antiga para Jornada nova. E A idéia é poder controlar via a funcionalidades do menu de empréstimos.
+
+Implementação Nova no Cockpit do Gestor.
+
+Criar uma parametrização de Regras, dentro dessa funcionalidade. Porque dentro do Menu do Imobiliário é preciso tratar algumas exeções/eventos e para isso se faz necessário ter algumas regras pré-definidas (exemplo: só vou exibir o evento de armortização se o cliente não tiver parcelas em atrazo ate x dias), a Ideia é não deixar essas regras HardCode dentro do Serviço. Então podemos aproveitar e criar uma parametrização a mais no Rollout do Cockipit do Gestor, porque isso é uma regras pode ser variávies que o gestor pode alterar ao longo do tempo. e Precisa de rastrabilidade para identificar quem fez a alteração desses paremetros. E como o Cockipit atende essas duas funcionalidades, a proposta é adcionar mais essa funcionalidade no serviço de Rollout.
+
+
+
+
+Brai-lib-db2. pode usar essa que ja existe. Lyra@2022
+
+
+
+crim-srv-imob-valida-eventos
+
+Aproveitar o Motor de elegibilidade, na simulação.  Mas a idéia é nao colocar regras de elegibilidade hard code no Micro serviço (crim-srv-imob-contratos), para formalizar a simulação. A Idéia é ter um Mortor de elegibilidade, algo parametrizável onde podemos habilitar ou não as regras e eventos.
+
+Hoje no legado existe: o Validar eventos, onde é realizado uma consulta na lista de contratos, consulta dados do contrato, consulta ocorrências do contrato e tem o validar o evento onde é passado o contrato e o evento desejado na consulta.  
+Esse serviço valida se é possível ou não seguir com esse evento.
+
+
+
+Exemplos: Usar nas validação de cotas
+
+
+Explicação fluxo de Arquitetura de Solução.
+
+Hoje é possivel entrar no menu do Crédito imobiliário apartir de duas formas: 1.Menu do crédito Imobiliário e 2. Menu de Empréstimo.
+
+Na jornada nova precisamos identificar quando foi iniciada pelo Menu de Empréstimo, porque quando o cliente vem por esse caminho a idéia é ser direcionado para o jornada de Simulação. Não tem a necessidade de mostrar o menu completo do Imobiliário. Por isso é importante diferenciar a entrada na jornada do crédito Imobiliário do App.
+
+
+*Apesear dessa Jornada (MVP) estamos tratando o Fluxo de Amortização e Quitação Pós venda usando recursos própios sem utilização do FGTS. Vamos precisar fazer uma modrenização e revitalização das Jornadas já existentes Exemplo a parte de SIMULAÇÂO que já existe hoje no Legado.
+
+Com isso a Construção do Crédito imobiliário revitalizado, porque quando o cliente acessar o Menu, vamos usar o Componente (BCPF Token Handler Roteador) terá uma configuração para direcionar quando a Jornada do cliente segue o caminho do legado ou será direcionada para jornada ja Modernizada na Cloud. Então o Primeiro ponto aqui é fazer essa parametrização no Rotador Junto com o Rollout.
+Quando o cliente entrar no Menu a idéia é que ela já veja o Menu do Crédito Imobiliário já todo Rivitalizado e aqui que será feito a segreção dos eventos.  (Exemplo: Se o Cliente criar em um evento que não vamos começar a revitalização por agora,- (tipo a Simulação), ela vai esta no menu revitalizado mais ele deve ser direcionado para o Legado para continuar a jornada ja existente.  Caso ele selecione uma Opção do Pós Vendas o cliente constinua na jornada da Azure.
+
+Apenas para explicar a função do (BCPF Token Handler Roteador) que vai fazer essa orquestração de direcionamentos para a jornada do legado ou Jornada do Pós vendas com isso nos ajuda nesse processo de convivência.
+
+
+O Cliente vai cair no Micro Front End que vai fazer todas as elegibilidade de Menus. 1.Verifica se a Consulta no serviço veio do Menu de Empréstimos.( Identifica se esse redirecionamento esta vindo de lá ou não) Ja tem um Micro serviço na TI Hibrida.( consegue consultar isso).
+Isso é importante porque mesmo que o cliente seja elegível, vamos mostrar o Menu completo, podemos mandar direto para opção de Simulação. (tem que ver como a Regra de negócio será aplicada).
+
+Vamos ter o Micro Front end desse menu do pós venda que vai ser feito. (stazudvbracrimmenu).  
+
+.crim-bff-mpf-imob
+O BFF  vai ser único para essa essa jornada completa.  
+
+
+Para fazer consulta que ainda esta no Menu de Empréstimo, vamos ter que passar pelo Gateway Corporativo.  Esse serviço deve estar exposto no Gateway corporativo de Canais para conseguimos acessar.
+
+
+crim-srv-imob-contratos.
+
+
+crim-srv-imob-ocorrencias : Consulta das Ocorrencias em aberto. (Ocorrências de Amortização dos Contratos) Esse microserviço faz a consulta na Base Federada do SISCRED. 
+
+
+crim-srv-imob-eventos-menu : Aplicar regras tendo como referência os dados do Ciente, para identifivar quais eventos que estara disponivel para montar o menu.
+
+- 
+Nesse passo é consutar todos os contratos do Cliente versos a todas as Ocorrências que estão em aberto e na parte de elegibilidade (crim-srv-imob-eventos-menu) aplicar as regras ( Exemplo: O cliente pode fazer algumas operaç~eos de Pós vendas nos contratos X,Y, Z ou O Cliente so pode fazer simulação  ou nada.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

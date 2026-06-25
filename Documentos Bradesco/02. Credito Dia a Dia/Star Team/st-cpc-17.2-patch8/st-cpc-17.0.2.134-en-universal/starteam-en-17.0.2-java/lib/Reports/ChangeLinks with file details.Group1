@@ -1,0 +1,46 @@
+<table class="changeTable">
+<tr><td colspan=6><h3>#~~ChangeNumber~~</h3></td></tr>
+<tr>
+<th>Modified Time:</th>
+<td>~~ModifiedTime~~</td>
+<th>Responsibility:</th>
+<td COLSPAN=4>~~Responsibility~~</td>
+</tr><tr>
+<th>Entered On:</th>
+<td>~~EnteredOn~~</td>
+<th>Entered By:</th>
+<td COLSPAN=4>~~EnteredBy~~</td>
+</tr><tr>
+<th>Last Build Tested:</th>
+<td>~~LastBuildTested~~</td>
+<th>Status:</th>
+<td>~~Status~~</td>
+<th>Severity:</th>
+<td>~~Severity~~</td>
+</tr><tr>
+<th>Addressed In:</th>
+<td>~~AddressedIn~~</td>
+<th>Addressed By:</th>
+<td>~~AddressedBy~~</td>
+<th>Priority:</th>
+<td>~~Priority~~</td>
+</tr><tr>
+<th>Test Command:</th>
+<td COLSPAN=3>~~TestCommand~~</td>
+<th>Type:</th>
+<td>~~Type~~</td>
+</tr><tr>
+<th>Synopsis:</th>
+<td COLSPAN=7>~~Synopsis~~</td>
+</tr><tr>
+<th>Description:</th>
+<td COLSPAN=7>~~Description~~</td>
+</tr><tr>
+<th>Work Around:</th>
+<td colspan=6>~~WorkAround~~</td>
+</tr><tr>
+<th>Fix:</th>
+<td COLSPAN=7>~~Fix~~</td>
+</tr>
+</table>
+

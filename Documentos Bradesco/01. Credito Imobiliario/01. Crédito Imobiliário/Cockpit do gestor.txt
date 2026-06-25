@@ -1,0 +1,44 @@
+Cock Pit do Getor
+
+RollOut  - 
+1. Existe a pessoa que Cadastra 
+2. Primeira aprovação do Menu
+3. BE Segunda aprovação (Pois pode ter algum impacto da Jornada)
+
+
+A senha de acesso 
+
+È UM PORTAL PARA COCENTRAR TODA TIPO DE PARAMETRAÇÃO QUE O GESTOR PODE FAZER.
+
+Alguns tipos de parametrização
+1. Jornada
+2. Preços
+3. Proposta
+4. Rollout (Parametrização dos Menus que vamos aproveitar)
+
+A Idéia é todos os eventos do Menu em ação.
+Exemplo: Vamos criar um Evento IMOB01 para controlar a Simulação, IMOB02 para controlar os detalhes do contrato, IMOB03 para controlar a jornada de Amortização.
+
+A ideia é usar o Cockpit para criar um parametro para cadastar todos os nosso eventos para realizar o Rollout. Pois vai existir Rollout fazeado, por exemplo no caso da simulação todos usuários serão direcionado para legado e conforme for construindo e liberado a jornada nova vamos fazendo o Rollout de algumas Agencias e Conta (especificas) para serem direcionadas e ir usando e testando a jornada nova.
+
+Com isso vai existir um tempo de convivencia onde parte estará no legado e um grupo estará testando a jornada nova fazendo o Rollout (como é feito bo BE exemplo:  Primero quem esta no projeto , 5 Agencia , 50 Agencias , 500 Agencias e por ultimo todos).
+
+No caso da Amortização é diferente, apesar de estar no menu não existe jornada legada, então vamos usar a função de liberação, mas mantendo o conceito de liberção por fases (Liberando aos poucos para algumas agencias e contas especificas).
+
+Precisamos incluir uma parametrização para inserir as regras de parametro/eventos variáveis não ficar Hardcode. Além de consultar se o evento esta liberado, se o rollout esta liberado e qual jornada ele vai ser direcionado. Vamos ter mais uma opção que é para consultar essa parametrização do evento e chamar a minhar regras para habilitar ou não essas opções. Isso precisa ser construído.
+
+Exemplo quando estiver na Elegibilidade, sera primeiro realizado uma consulta para trazer os eventos que estão liberados para cliente, depois para cada evento vamos carregar as parametrizações Criando o motor de regra (Numero de parcelas em aberto que o cliente pode ter, o contrato atende esse cliente então libera o menu). A regra quem vai fazer é nosso serviço, nós só vamos consultar, para jogar no motor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

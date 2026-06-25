@@ -1,0 +1,15 @@
+Lib de Token no Legado esta no Java
+JWT  7
+
+
+Vazer uma Lib em Java 8
+
+
+1. MCENT-(verificar se tem a Lib criada em java).
+2. Lib de Gerar o Token(esta no Java 17)  Precisa do java 8. Qual nome dessa lib.
+3. Log de negócio RAST - Solictando os Acessos e Preenchimento do Documento / gerar do .Json.
+
+
+mensagem de pesquisa de satisfação
+Verificar se Lib (corporativa) esta pronta ( e usa-la)  
+Existe uma lib do Brain  (so sera usada se a lib corporativa não estiver pronta).
